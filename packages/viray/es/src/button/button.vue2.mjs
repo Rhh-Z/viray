@@ -1,21 +1,19 @@
-import { defineComponent as r, computed as s, openBlock as u, createElementBlock as p, normalizeClass as a, unref as l, renderSlot as c } from "vue";
-import "./style/index.less";
-const b = /* @__PURE__ */ r({
-  name: "button",
+import { defineComponent as e, computed as s, openBlock as u, createElementBlock as a, normalizeClass as p, unref as l, renderSlot as c } from "vue";
+import "./style/index.css";
+const m = e({ name: "vi-button" }), _ = /* @__PURE__ */ e({
+  ...m,
   props: {
     type: { type: String, required: !1 }
   },
-  setup(e) {
-    const t = e;
-    defineOptions({ name: "vi-button" });
-    const n = s(() => ({ [`ea-button--${t.type}`]: t.type }));
-    return (o, i) => (u(), p(
+  setup(o) {
+    const t = o, n = s(() => ({ [`ea-button--${t.type}`]: t.type }));
+    return (r, f) => (u(), a(
       "button",
       {
-        class: a(["ea-button", l(n)])
+        class: p(["ea-button", l(n)])
       },
       [
-        c(o.$slots, "default")
+        c(r.$slots, "default")
       ],
       2
       /* CLASS */
@@ -23,5 +21,5 @@ const b = /* @__PURE__ */ r({
   }
 });
 export {
-  b as default
+  _ as default
 };
