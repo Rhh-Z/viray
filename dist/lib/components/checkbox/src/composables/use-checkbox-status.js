@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const s=require("vue"),u=require("../../../../utils/common.js"),n=(t,r)=>s.computed(()=>{const e=r.value;return u.isBoolean(e)?e:u.isArray(e)?e.includes(t.label):e!=null?e===t.trueLabel:!!e});exports.useCheckboxStatus=n;

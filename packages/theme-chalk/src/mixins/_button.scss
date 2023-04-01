@@ -1,0 +1,116 @@
+@use "../common/variable"as *;
+@use "../mixins/mixins.scss"as *;
+@use "sass:map";
+
+@mixin button-plain ($color, $background-color, $border-color, $disabled-color,
+  $hover-color, $type) {
+  @include when(plain) {
+    @if $type=='default' {
+      background-color: transparentize($color-white, 0.75);
+
+      &:hover,
+      &:active {
+        border-color: darken(skyblue, 10%);
+      }
+
+      @include when(disabled) {
+        border-color: $border-color-base;
+      }
+    }
+
+    @else {
+      color: $color;
+      background: $background-color;
+      border-color: $border-color;
+
+      &:hover,
+      &:focus {
+        color: $color-white;
+        border-color: $hover-color;
+        background-color: $hover-color;
+      }
+
+      &:active {
+        color: darken($color-white, 15%);
+        background-color: darken($hover-color, 15%);
+        border-color: darken($border-color, 15%);
+      }
+
+      @include when(disabled) {
+        color: $color;
+        background: $background-color;
+        border-color: $border-color;
+      }
+    }
+
+  }
+}
+
+@mixin button-variant($color, $background-color, $border-color, $disabled-color, $type) {
+  @if $type=='default' {
+    color: $text-color;
+    background-color: white;
+    border-color: $border-color-base;
+
+    &:hover,
+    &:focus {
+      color: rgb(36, 184, 243);
+      background-color: #ecf5ff;
+    }
+
+    &:active {
+      background-color: darken(#ecf5ff, 5%);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: #c0c4cc;
+      background-color: #fff;
+      border-color: #ebeef5;
+    }
+
+  }
+
+  @else {
+    color: $color;
+    background-color: $background-color;
+    border-color: $border-color;
+
+    &:hover,
+    &:focus {
+      color: lighten($color, 10%);
+      background-color: lighten($background-color, 15%);
+      border-color: lighten($border-color, 20%);
+    }
+
+    &:active {
+      color: darken($color, 15%);
+      background-color: darken($background-color, 15%);
+      border-color: darken($border-color, 15%);
+    }
+
+    &:disabled {
+      color: $color;
+      background-color: $disabled-color;
+      border-color: $color;
+    }
+  }
+}
+
+@mixin button-size($padding-vertical,
+  $padding-horizontal,
+  $font-size,
+  $border-radius) {
+
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+
+  @include when(round) {
+    border-radius: $vi-button-round;
+  }
+
+  @include when(circle) {
+    border-radius: $vi-button-circle;
+  }
+}

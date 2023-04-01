@@ -1,0 +1,143 @@
+@use "./common/_variable"as *;
+@use "./mixins/config.scss"as *;
+@use "./mixins/mixins.scss"as *;
+@use "./mixins/_button.scss"as *;
+@use "sass:map";
+@use "sass:color";
+
+@include b(button) {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  height: auto;
+  line-height: 1.42857143;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: $border-base;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: 500;
+  transition: $transition-all;
+
+  & {
+    margin-left: 10px;
+  }
+
+
+  /* type */
+  @each $type in $types {
+    @include m($type) {
+      @include button-variant($color-white,
+        map.get($colors, #{$type}, 'base'),
+        map.get($colors, #{$type}, 'base'),
+        map.get($disabled-colors, #{$type}, 'disabled'), $type);
+
+      /*  plain   */
+      @include button-plain(darken(map.get($disabled-colors, #{$type}, 'disabled'), 20%),
+        transparentize(map.get($colors, #{$type}, 'base'), 0.75),
+        map.get($colors, #{$type}, 'base'),
+        map.get($disabled-colors, #{$type}, 'disabled'),
+        map.get($colors, #{$type}, 'base'), $type)
+    }
+  }
+
+
+  /* size */
+  @each $size in $vi-button--sizeType {
+    @include m($size) {
+      @include button-size(map.get($vi-button--sizes, #{$size}, 'vertical'),
+        map.get($vi-button--sizes, #{$size}, 'horizontal'),
+        map.get($vi-button--sizes, #{$size}, 'font-size'),
+        map.get($vi-button--sizes, #{$size}, 'border-radius'));
+    }
+  }
+
+
+  @include when(active) {
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0px);
+    }
+
+    &:disabled {
+      transform: translate(0px);
+    }
+  }
+
+
+  /* text */
+  @each $type in $types {
+
+    @include m($type) {
+      @include when(text) {
+        @if $type=='default' {
+          color: $text-color;
+          background: transparent;
+          border-color: transparent;
+          background-color: transparent;
+
+          @include when(bg) {
+            background-color: #f5f7fa;
+          }
+
+          &:hover,
+          &:focus {
+            background-color: darken(#f5f7fa, 5%);
+          }
+
+          &:active {
+            color: darken($text-color, 10%);
+            background-color: darken(#f5f7fa, 10%);
+          }
+        }
+
+        @else {
+          color: mix($color-white, map.get($colors, #{$type}, 'base'), 20%);
+          background: transparent;
+          border-color: transparent;
+
+          @include when (bg) {
+            background-color: #f5f7fa;
+          }
+
+          &:hover,
+          &:focus {
+            background-color: darken(#f5f7fa, 8%);
+          }
+
+          &:active {
+            color: darken(mix($color-white, map.get($colors, #{$type}, 'base'), 20%), 10%);
+            background-color: darken(#f5f7fa, 12%);
+          }
+        }
+
+        @include when(disabled) {
+          background: transparent;
+          border-color: transparent;
+
+          @if $type=='default' {
+            color: lighten($text-color, 20%);
+          }
+
+          @else {
+            color: lighten(mix($color-white, map.get($colors, #{$type}, 'base'), 20%), 15%);
+          }
+        }
+      }
+    }
+  }
+}

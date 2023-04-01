@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./src/button-group.vue.js"),u=require("../../utils/withInstall.js"),t=u.withInstall(e.default);exports.ViButtonGroup=t;exports.default=t;

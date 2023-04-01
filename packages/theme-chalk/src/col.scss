@@ -1,0 +1,27 @@
+@use 'sass:math';
+@use 'mixins/mixins'as *;
+@use 'common/variable'as *;
+
+@include b(col) {
+  @for $i from 0 through 24 {
+
+    @at-root .#{$namespace}-col-#{$i} {
+      max-width: (math.div(1, 24) * $i * 100) * 1%;
+      flex: 0 0 (math.div(1, 24) * $i * 100) * 1%;
+    }
+
+    @at-root .#{$namespace}-col-offset-#{$i} {
+      margin-left: (math.div(1, 24) * $i * 100) * 1%;
+    }
+
+    @at-root .#{$namespace}-col-pull-#{$i} {
+      position: relative;
+      right: (math.div(1, 24) * $i * 100) * 1%;
+    }
+
+    @at-root .#{$namespace}-col-push-#{$i} {
+      position: relative;
+      left: (math.div(1, 24) * $i * 100) * 1%;
+    }
+  }
+}

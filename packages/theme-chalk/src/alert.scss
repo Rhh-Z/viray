@@ -1,0 +1,86 @@
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
+@use './common/transition.scss'as *;
+@use 'sass:map';
+
+
+@mixin alert-type($color, $background-color) {
+  color: $color;
+  background-color: $background-color;
+}
+
+@include b(alert) {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px 16px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  border-radius: $alert-border-radius;
+
+  @include b(global-ellipsis) {
+    /*一行省略*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  @include b(alert__content) {
+    overflow: auto;
+    padding-left: 10px;
+
+    & span {
+      vertical-align: 3px;
+    }
+  }
+
+  @include b(alert__title) {
+    $alert__title: true;
+    margin: 0;
+    font-size: $alert-title-font-size;
+    font-weight: bold;
+  }
+
+  @include b(alert__desc) {
+    $alert__desc: true;
+    margin: 0px;
+    font-size: $alert-description-font-size;
+  }
+
+  @include b(alert__close-btn) {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: $alert-description-font-size;
+  }
+
+
+  @each $type in $alert-types {
+    &-#{$type} {
+      @include alert-type(map.get($colors, #{$type}, 'base'),
+        map.get($alert-bg-colors, #{$type}));
+    }
+  }
+
+  @at-root &.is-center {
+    justify-content: center;
+  }
+}
+
+.vi-alert-fade-enter-from,
+.vi-alert-fade-leave-to {
+  transform: translateX(100px);
+  opacity: 0;
+}
+
+.vi-alert-fade-enter-to,
+.vi-alert-fade-leave-from {
+  opacity: 1;
+}
+
+.vi-alert-fade-enter-active,
+.vi-alert-fade-leave-active {
+  transition: all 0.5s;
+}

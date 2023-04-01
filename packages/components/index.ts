@@ -1,12 +1,15 @@
-import * as components from "./src/index";
-export * from "./src/index";
-import { App } from "vue";
+import type { App } from 'vue';
+import * as components from './components';
+import { version } from './package.json';
+// import Message from './message';
 
-export default {
-  install: (app: App) => {
-    for (let c in components) {
-      // @ts-ignore
-      app.use(components[c]);
-    }
-  },
+const install = function (app: App) {
+  Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value);
+    // app.config.globalProperties.$message = Message;
+  });
 };
+
+export default install;
+export * from './components';
+export { version };

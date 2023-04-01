@@ -1,0 +1,32 @@
+{
+  "name": "viray",
+  "version": "1.0.16",
+  "description": "",
+  "main": "lib/components/index.js",
+  "module": "es/components/index.mjs",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "keywords": [
+    "viray",
+    "vue3组件库",
+    "vue",
+    "component",
+    "components",
+    "library"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "author": "Rhh",
+  "license": "MIT",
+  "typings": "lib/components/index.d.ts",
+  "scripts": {
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rhh-Z/viray"
+  }
+}

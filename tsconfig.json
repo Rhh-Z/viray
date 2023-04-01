@@ -9,6 +9,6 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
-      "types": ["packages/viray/lib/src/components","unplugin-vue-define-options/macros-global" /* ... */],
+    "resolveJsonModule": true,
   }
 }

@@ -1,55 +1,48 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import DefineOptions from "unplugin-vue-define-options/vite";
-import dts from "vite-plugin-dts";
+/// <reference types="vitest" />
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts'
+import vue from '@vitejs/plugin-vue';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 export default defineConfig({
   build: {
-    //打包文件目录
     outDir: "es",
     //压缩
-    //minify: false,
+    minify: false,
     rollupOptions: {
-      //忽略打包vue文件
-      external: ["vue", /\.less/],
+      external: ["vue", /\.scss/],
       input: ["index.ts"],
       output: [
         {
-          //打包格式
           format: "es",
-          //打包后文件名
+          //不用打包成.es.js,这里我们想把它打包成.js
           entryFileNames: "[name].mjs",
           //让打包目录和我们目录对应
           preserveModules: true,
           exports: "named",
           //配置打包根目录
-          dir: "../viray/es",
+          dir: "../../dist/es",
         },
         {
-          //打包格式
           format: "cjs",
-          //打包后文件名
           entryFileNames: "[name].js",
-          //让打包目录和我们目录对应
           preserveModules: true,
           exports: "named",
-          //配置打包根目录
-          dir: "../viray/lib",
-        },
-      ],
+          dir: "../../dist/lib",
+        }
+      ]
     },
     lib: {
-      entry: "./index.ts",
-    },
+      entry: './index.ts',
+      formats: ["es", "cjs"],
+    }
   },
-  plugins: [vue(),
-  dts({
-    entryRoot: "./src",
-    outputDir: ["../viray/es/src", "../viray/lib/src"],
-    //指定使用的tsconfig.json为我们整个项目根目录下,如果不配置,你也可以在components下新建tsconfig.json
-    tsConfigFilePath: "../../tsconfig.json",
+  plugins: [vue(), dts({
+    entryRoot: '../components/',
+    outputDir: ["../../dist/es/components/", "../../dist/lib/components/"],
+    //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
+    tsConfigFilePath: '../../tsconfig.json'
   }),
-  DefineOptions(),
   {
     name: "style",
     generateBundle(config, bundle) {
@@ -58,14 +51,24 @@ export default defineConfig({
 
       for (const key of keys) {
         const bundler: any = bundle[key as any];
-        //rollup内置方法,将所有输出文件code中的.less换成.css,因为我们当时没有打包less文件
+        //rollup内置方法,将所有输出文件code中的.scss换成.css,因为我们当时没有打包scss文件
 
         this.emitFile({
           type: "asset",
           fileName: key, //文件名名不变
-          source: bundler.code.replace(/\.less/g, ".css"),
+          source: bundler.code.replace(/\.scss|@viray/g, (matchStr: string) => {
+            const map = {
+              '.scss': '.css',
+              '@viray': '../../..'
+            }
+            // @ts-ignore
+            return map[matchStr]
+          }),
         });
       }
     },
-  },],
-});
+  }, vueSetupExtend()],
+  test: {
+    environment: 'happy-dom',
+  },
+})

@@ -1,7 +1,7 @@
 import run from "../utils/run";
-import { pkgPath } from "../utils/paths";
+import { projRoot } from "../utils/paths";
 import { series } from "gulp";
 export const publishComponent = async () => {
-  run("release-it", `${pkgPath}/viray`);
+  run("release-it", `${projRoot}/dist`);
 };
-export default series(async () => publishComponent());
+export default series(publishComponent);

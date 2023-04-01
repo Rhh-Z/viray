@@ -1,0 +1,221 @@
+/* Element Chalk Variables */
+@use 'sass:math';
+@use 'sass:map';
+@use 'sass:color';
+
+
+/* Tansition
+--------- */
+$font-family:vi-iconfont;
+
+/* Tansition
+--------- */
+$transition-all: all .2s !default;
+$fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+
+// Default color
+$color-white:white;
+$color-black:black;
+$text-color:#606266;
+
+/* Font size
+-------------------*/
+$font--size-base:14px !default;
+
+// Types
+$types: default,
+primary,
+success,
+warning,
+danger,
+error,
+info;
+
+// Color
+$colors: () !default;
+$colors: map.deep-merge(('default': ('base': #606266,
+    ),
+    'primary': ('base': #409eff,
+    ),
+    'success': ('base': #67c23a,
+    ),
+    'warning': ('base': #e6a23c,
+    ),
+    'danger': ('base': #f02a2a,
+    ),
+    'error': ('base': #f56c6c,
+    ),
+    'info': ('base': #909399,
+    ),
+  ),
+  $colors);
+
+// Disable color
+$disabled-colors:() !default;
+$disabled-colors: map.deep-merge(('white': #ffffff,
+    'black': #000000,
+    'default': ('disabled':#606266,
+    ),
+    'primary': ('disabled': #a0cfff,
+    ),
+    'success': ('disabled': #b3e19d,
+    ),
+    'warning': ('disabled': #f3d19e,
+    ),
+    'danger': ('disabled': #fab6b6,
+    ),
+    'error': ('disabled': #f58b8b,
+    ),
+    'info': ('disabled': #c8c9cc,
+    ),
+  ),
+  $disabled-colors);
+
+
+// $color-success-lighter: mix($color-white, $color-success, 90%) !default;
+// $color-warning-lighter: mix($color-white, $color-warning, 90%) !default;
+// $color-danger-lighter: mix($color-white, $color-danger, 90%) !default;
+// $color-info-lighter: mix($color-white, $color-info, 90%) !default;
+
+
+/* Border 
+---------*/
+$border-width-base: 1px !default;
+$border-style-base: solid !default;
+$border-color-base: #dcdfe6 !default;
+$border-radius-base: 4px !default;
+$border-base: $border-width-base $border-style-base $border-color-base;
+
+/*  Button Size
+--------------*/
+$vi-button--large:40px;
+$vi-button--default:40px;
+$vi-button--small:24px;
+
+$vi-button--sizeType: large,
+default,
+small;
+
+$vertical-large: 8px;
+$vertical-default: 5px;
+$vertical-small: 2px;
+$horizontal-large: 12px;
+$horizontal-default: 8px;
+$horizontal-small: 4px;
+$border-radius-large: 6px;
+$border-radius-default: 5px;
+$border-radius-small: 5px;
+
+$vi-button--sizes:() !default;
+$vi-button--sizes: map.deep-merge(('large':('vertical':$vertical-large, 'horizontal':$horizontal-large, 'font-size':$font--size-base, 'border-radius':$border-radius-large),
+    'default':('vertical':$vertical-default, 'horizontal':$horizontal-default, 'font-size':$font--size-base, 'border-radius':$border-radius-default),
+    'small':('vertical':$vertical-small, 'horizontal':$horizontal-small, 'font-size':$font--size-base, 'border-radius':$border-radius-small),
+  ), $vi-button--sizes);
+
+
+// round 
+$vi-button-round: 20px;
+
+// circle
+$vi-button-circle: 50%;
+
+
+/*  ButtonGroup
+------------*/
+$button-border-radius:$border-radius-base !default;
+
+
+/* Text
+-----------*/
+$text--types:primary,
+success,
+warning,
+danger,
+error,
+info;
+
+
+/* Text Size
+-----------*/
+$text-size--large:16px;
+$text-size--default:14px;
+$text-size--small:12px;
+
+
+$text--types:() !default;
+$text--types:map.deep-merge(('large': ('base':16px),
+    'default':('base':14px),
+    'small':('base':12px)),
+  $disabled-colors);
+
+
+
+
+
+/*  Alert
+----------------------*/
+$alert-types: info,
+success,
+error,
+warning;
+
+$alert-border-radius: $border-radius-base !default;
+$alert-padding: 8px 16px !default;
+$alert-title-font-size: 14px !default;
+$alert-description-font-size: 12px !default;
+$alert-close-font-size: 12px !default;
+$alert-close-customed-font-size: 13px !default;
+
+$alert-success-color: mix($color-white, #67c23a, 85%) !default;
+$alert-info-color: mix($color-white, #909399, 85%) !default;
+$alert-error-color: mix($color-white, #f56c6c, 85%) !default;
+$alert-warning-color: mix($color-white, #e6a23c, 85%) !default;
+
+$alert-bg-colors:() !default;
+$alert-bg-colors:map.deep-merge(('info': $alert-info-color,
+    'success':$alert-success-color,
+    'warning':$alert-warning-color,
+    'error':$alert-error-color),
+  $alert-bg-colors);
+
+$alert-icon-size: 16px !default;
+$alert-icon-large-size: 28px !default;
+
+// input font color
+// $vi-input--color:#606266;
+
+
+
+/*     Checkbox
+------------------ */
+$checkbox-types: large,
+default,
+small;
+
+$checkbox-size:() !default;
+$checkbox-size:map.deep-merge(('large':16px, 'default':14px, 'small':12px),
+  $checkbox-size);
+
+
+$checkbox--font-weight:() !default;
+$checkbox--font-weight:map.deep-merge(('large':500,
+    'default':300,
+    'small':100), $checkbox--font-weight);
+
+
+
+$checkbox--height:32px;
+$checkbox--font-color:#606266;
+
+
+/*     Input
+---------- --------*/
+$vi-input-type: text,
+textarea;
+
+
+// box-shdow color
+$vi-input--box-shadow-color:#dcdfe6;
+$vi-input--box-shadow-hover-color:#c0c4cc;
+$vi-input--box-shadow-placehodler-color:#adb0b8;
+$vi-input--box-shadow-focus-color:#409eff;
