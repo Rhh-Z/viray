@@ -7,6 +7,11 @@
   position: relative;
   box-sizing: border-box;
 
+  &.row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+
   @include when(justify-center) {
     justify-content: center;
   }

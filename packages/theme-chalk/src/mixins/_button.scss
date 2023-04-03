@@ -100,17 +100,39 @@
 @mixin button-size($padding-vertical,
   $padding-horizontal,
   $font-size,
-  $border-radius) {
+  $border-radius, $height, $size) {
 
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  border-radius: $border-radius;
+  @if $size=='default' {
+    height: $height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    border-radius: $border-radius;
 
-  @include when(round) {
-    border-radius: $vi-button-round;
+    @include when(round) {
+      border-radius: $vi-button-round;
+    }
+
+    @include when(circle) {
+      border-radius: $vi-button-circle;
+    }
   }
 
-  @include when(circle) {
-    border-radius: $vi-button-circle;
+  @else {
+    height: $height !important;
+    padding: $padding-vertical $padding-horizontal !important;
+    font-size: $font-size !important;
+    border-radius: $border-radius !important;
+
+
+    @include when(round) {
+      border-radius: $vi-button-round !important;
+    }
+
+    @include when(circle) {
+      border-radius: $vi-button-circle !important;
+    }
   }
+
+
+
 }

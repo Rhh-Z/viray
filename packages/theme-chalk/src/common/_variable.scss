@@ -3,6 +3,9 @@
 @use 'sass:map';
 @use 'sass:color';
 
+// $customColor: // :export {
+//   customColor:$
+// }
 
 /* Tansition
 --------- */
@@ -107,9 +110,9 @@ $border-radius-default: 5px;
 $border-radius-small: 5px;
 
 $vi-button--sizes:() !default;
-$vi-button--sizes: map.deep-merge(('large':('vertical':$vertical-large, 'horizontal':$horizontal-large, 'font-size':$font--size-base, 'border-radius':$border-radius-large),
-    'default':('vertical':$vertical-default, 'horizontal':$horizontal-default, 'font-size':$font--size-base, 'border-radius':$border-radius-default),
-    'small':('vertical':$vertical-small, 'horizontal':$horizontal-small, 'font-size':$font--size-base, 'border-radius':$border-radius-small),
+$vi-button--sizes: map.deep-merge(('large':('vertical':$vertical-large, 'horizontal':$horizontal-large, 'font-size':$font--size-base, 'border-radius':$border-radius-large, 'height':40px),
+    'default':('vertical':$vertical-default, 'horizontal':$horizontal-default, 'font-size':$font--size-base, 'border-radius':$border-radius-default, 'height':35px),
+    'small':('vertical':$vertical-small, 'horizontal':$horizontal-small, 'font-size':$font--size-base, 'border-radius':$border-radius-small, 'height':30px),
   ), $vi-button--sizes);
 
 
@@ -147,9 +150,6 @@ $text--types:map.deep-merge(('large': ('base':16px),
     'default':('base':14px),
     'small':('base':12px)),
   $disabled-colors);
-
-
-
 
 
 /*  Alert

@@ -1,9 +1,9 @@
 <template>
-  <vi-button type="success">默认按钮</vi-button>
-  <vi-button type="primary" plain disabled>主要按钮</vi-button>
+  <vi-button size="large">默认按钮</vi-button>
+  <vi-button type="primary" plain size="large">主要按钮</vi-button>
   <vi-button type="warning" plain>警告按钮</vi-button>
   <vi-button type="info" text>信息按钮</vi-button>
-  <vi-button type="danger" size="small" round active>危险按钮</vi-button>
+  <vi-button type="danger" round active color="#fcfced">危险按钮</vi-button>
   <vi-button type="success">成功按钮</vi-button>
   <vi-button type="error" text>错误按钮</vi-button>
   <vi-button type="info" text @click="send(name)">信息按钮</vi-button>
@@ -24,6 +24,9 @@
   <vi-icon name="down-circle"></vi-icon>
   <vi-icon name="zoomout"></vi-icon>
   <vi-icon name="close"></vi-icon>
+  <vi-icon name="delete" size="24px"></vi-icon>
+  <vi-icon name="delete" size="50px" color="#f2f"></vi-icon>
+  <vi-icon name="delete" size="small"></vi-icon>
   <hr>
   <div>
     <vi-row :gutter="0" justify="space-around" align="bottom">
@@ -69,9 +72,11 @@
   <vi-text tag="mark">del</vi-text>&nbsp;
   <vi-text tag="i">del</vi-text>&nbsp;
   <vi-text tag="b">del</vi-text>&nbsp;
+  <vi-text tag="wavy">wavy</vi-text>&nbsp;
+  <vi-text tag="emp">emp</vi-text>&nbsp;
   <vi-text tag="psw">del</vi-text>&nbsp;
   <hr>
-  <vi-text style="width: 100px;" truncated>delwwwwwwwwwwwwsssssssssssssss</vi-text>&nbsp;
+  <vi-text style="width: 100px;" truncated>delwwwwwwwwwwwwsssssssssssssss</vi-text>
   <vi-row>
     <vi-col :span="4">
       <vi-text truncated>Squeezed by parent viement</vi-text>

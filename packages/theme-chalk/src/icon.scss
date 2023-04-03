@@ -1,5 +1,6 @@
 @use './mixins/mixins'as *;
 @use './common/_variable'as *;
+@use 'sass:map';
 
 @font-face {
   font-family: $font-family;
@@ -15,6 +16,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 .vi-icon-down-circle:before {
   content: "\e785";

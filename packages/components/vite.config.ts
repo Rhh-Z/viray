@@ -1,8 +1,6 @@
-/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue';
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 export default defineConfig({
   build: {
@@ -67,8 +65,5 @@ export default defineConfig({
         });
       }
     },
-  }, vueSetupExtend()],
-  test: {
-    environment: 'happy-dom',
-  },
+  }],
 })

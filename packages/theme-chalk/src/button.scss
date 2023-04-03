@@ -30,6 +30,7 @@
   font-weight: 500;
   transition: $transition-all;
 
+
   & {
     margin-left: 10px;
   }
@@ -56,10 +57,13 @@
   /* size */
   @each $size in $vi-button--sizeType {
     @include m($size) {
-      @include button-size(map.get($vi-button--sizes, #{$size}, 'vertical'),
-        map.get($vi-button--sizes, #{$size}, 'horizontal'),
-        map.get($vi-button--sizes, #{$size}, 'font-size'),
-        map.get($vi-button--sizes, #{$size}, 'border-radius'));
+      & {
+        @include button-size(map.get($vi-button--sizes, #{$size}, 'vertical'),
+          map.get($vi-button--sizes, #{$size}, 'horizontal'),
+          map.get($vi-button--sizes, #{$size}, 'font-size'),
+          map.get($vi-button--sizes, #{$size}, 'border-radius'),
+          map.get($vi-button--sizes, #{$size}, 'height'), $size);
+      }
     }
   }
 
@@ -77,7 +81,6 @@
       transform: translate(0px);
     }
   }
-
 
   /* text */
   @each $type in $types {

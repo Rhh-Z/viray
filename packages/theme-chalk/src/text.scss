@@ -15,8 +15,15 @@
 
   // size
   @each $size in $vi-button--sizeType {
+
     @include m($size) {
-      font-size: map.get($text--types, #{$size}, 'base');
+      @if $size=='default' {
+        font-size: map.get($text--types, #{$size}, 'base');
+      }
+
+      @else {
+        font-size: map.get($text--types, #{$size}, 'base') !important;
+      }
     }
   }
 
@@ -64,4 +71,19 @@ psw {
     color: #606266 !important;
     background: transparent;
   }
+}
+
+// wavy
+wavy {
+  // color: #444;
+  text-decoration-style: wavy;
+  text-decoration-line: underline;
+  text-decoration-color: #fe5f58;
+}
+
+
+// emp
+emp {
+  color: #444;
+  border-bottom: 4px dotted #fe5f58;
 }

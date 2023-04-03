@@ -1,5 +1,5 @@
 <template>
-  <button class="vi-button" :class="buttonStyle" :disabled="disabled" @click="handleClick">
+  <button class="vi-button" :autofocus="autoFocus" :class="buttonStyle" :disabled="disabled" @click="handleClick">
     <span v-if="icon">
       <i v-if="iconName && !loading" :class="iconName" />
     </span>
@@ -9,27 +9,22 @@
 
 <script lang="ts" setup name="ViButton">
 import "../style/index";
-import { computed,toRefs } from "vue";
+import { computed } from "vue";
 import { buttonProps, buttonEmits } from './button'
-
 
 const props = defineProps(buttonProps)
 
-const { type, plain, disabled, round,
-  active, size, circle, icon, text, bg, loading } = toRefs(props)
-
-
 const buttonStyle = computed(() => {
   return {
-    [`vi-button--${type.value}`]: type,
-    "is-plain": plain,
-    "is-disabled": disabled,
-    "is-round": round,
-    "is-active": active,
-    [`vi-button--${size.value}`]: size,
-    "is-circle": circle,
-    "is-text": text,
-    "is-bg": bg,
+    [`vi-button--${props.type}`]: props.type,
+    "is-plain": props.plain,
+    "is-disabled": props.disabled,
+    "is-round": props.round,
+    "is-active": props.active,
+    [`vi-button--${props.size}`]: props.size,
+    "is-circle": props.circle,
+    "is-text": props.text,
+    "is-bg": props.bg,
   };
 });
 
@@ -41,7 +36,7 @@ const handleClick = (evt: MouseEvent) => {
 }
 
 const iconName = computed(() => {
-  return `vi-icon-${icon.value}`
+  return `vi-icon-${props.icon}`
 })
 
 </script>
