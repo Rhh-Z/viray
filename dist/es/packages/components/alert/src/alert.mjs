@@ -1,10 +1,9 @@
-const iconMaps = {
+const t = {
   info: "info",
   success: "success",
   error: "error",
   warning: "warning"
-};
-const alertProps = {
+}, n = {
   title: {
     type: String,
     default: ""
@@ -12,30 +11,29 @@ const alertProps = {
   type: {
     type: String,
     default: "info",
-    validator: (val) => ["info", "success", "error", "warning"].includes(val)
+    validator: (e) => ["info", "success", "error", "warning"].includes(e)
   },
   showIcon: {
     type: Boolean,
-    default: false
+    default: !1
   },
   center: {
     type: Boolean,
-    default: false
+    default: !1
   },
   closable: {
     type: Boolean,
-    default: true
+    default: !0
   },
   description: {
     type: String,
     default: ""
   }
-};
-const alertEmits = {
-  close: (evt) => evt instanceof MouseEvent
+}, o = {
+  close: (e) => e instanceof MouseEvent
 };
 export {
-  alertEmits,
-  alertProps,
-  iconMaps
+  o as alertEmits,
+  n as alertProps,
+  t as iconMaps
 };

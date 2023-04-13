@@ -1,7 +1,7 @@
-import Icon from "./src/icon.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViIcon = withInstall(Icon);
+import o from "./src/icon.vue.mjs";
+import { withInstall as t } from "../../utils/withInstall.mjs";
+const m = t(o);
 export {
-  ViIcon,
-  ViIcon as default
+  m as ViIcon,
+  m as default
 };

@@ -1,172 +1,116 @@
-import { defineComponent, computed, resolveComponent, openBlock, createElementBlock, normalizeClass, unref, normalizeStyle, createElementVNode, renderSlot, toDisplayString, createCommentVNode, createBlock } from "vue";
-import { progressProps } from "./progress.mjs";
+import { defineComponent as P, computed as s, resolveComponent as V, openBlock as a, createElementBlock as i, normalizeClass as b, unref as r, normalizeStyle as l, createElementVNode as d, renderSlot as S, toDisplayString as C, createCommentVNode as v, createBlock as A } from "vue";
+import { progressProps as E } from "./progress.mjs";
 import "../../../theme-chalk/src/progress.css";
-import isFunction from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
-import isString from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const _hoisted_1 = ["aria-valuenow"];
-const _hoisted_2 = { class: "vi-progress-bar__outer" };
-const _hoisted_3 = { viewBox: "0 0 100 100" };
-const _hoisted_4 = ["d", "stroke-width"];
-const _hoisted_5 = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"];
-const _hoisted_6 = { key: 0 };
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "progress",
-  props: progressProps,
-  setup(__props) {
-    const props = __props;
-    const progressCls = computed(() => {
-      return {
-        "vi-progress": true,
-        [`vi-progress--${props.type}`]: props.type,
-        "vi-progress--text-inside": props.textInside,
-        [`is-${props.status}`]: props.status
-      };
-    });
-    const innerCls = computed(() => {
-      return {
-        "vi-progress-bar__inner": true,
-        "vi-progress-bar__inner--indeterminate": props.indeterminate
-      };
-    });
-    const content = computed(() => props.format(props.percentage));
-    const STATUS_COLOR_MAP = {
+import L from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
+import D from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+const O = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { viewBox: "0 0 100 100" }, j = ["d", "stroke-width"], q = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"], G = { key: 0 }, H = P({
+  name: "ViProgess"
+}), Z = /* @__PURE__ */ P({
+  ...H,
+  props: E,
+  setup(x) {
+    const t = x, T = s(() => ({
+      "vi-progress": !0,
+      [`vi-progress--${t.type}`]: t.type,
+      "vi-progress--text-inside": t.textInside,
+      [`is-${t.status}`]: t.status
+    })), z = s(() => ({
+      "vi-progress-bar__inner": !0,
+      "vi-progress-bar__inner--indeterminate": t.indeterminate
+    })), g = s(() => t.format(t.percentage)), k = {
       success: "#13ce66",
       exception: "#ff4949",
       warning: "#e6a23c",
       default: "#20a0ff"
-    };
-    const iconStatus = computed(() => {
-      if (props.status === "warning") {
-        return "warning-circle-fill";
-      }
-      if (props.type === "line") {
-        return props.status === "success" ? "check-circle-fill" : "close-circle-fill";
-      } else {
-        return props.status === "success" ? "check-circle" : "close-circle";
-      }
-    });
-    const progressTextSize = computed(() => {
-      return props.type === "line" ? 12 + props.strokeWidth * 0.3 : props.width * 0.111111 + 2;
-    });
-    const relativeStrokeWidth = computed(
-      () => (props.strokeWidth / props.width * 100).toFixed(1)
-    );
-    const radius = computed(() => {
-      if (["circle", "dashboard"].includes(props.type)) {
-        return Number.parseInt(
-          `${50 - Number.parseFloat(relativeStrokeWidth.value) / 2}`,
-          10
-        );
-      }
-      return 0;
-    });
-    const trackPath = computed(() => {
-      const r = radius.value;
-      const isDashboard = props.type === "dashboard";
+    }, I = s(() => t.status === "warning" ? "warning-circle-fill" : t.type === "line" ? t.status === "success" ? "check-circle-fill" : "close-circle-fill" : t.status === "success" ? "check-circle" : "close-circle"), m = s(() => t.type === "line" ? 12 + t.strokeWidth * 0.3 : t.width * 0.111111 + 2), f = s(
+      () => (t.strokeWidth / t.width * 100).toFixed(1)
+    ), y = s(() => ["circle", "dashboard"].includes(t.type) ? Number.parseInt(
+      `${50 - Number.parseFloat(f.value) / 2}`,
+      10
+    ) : 0), $ = s(() => {
+      const e = y.value, o = t.type === "dashboard";
       return `
           M 50 50
-          m 0 ${isDashboard ? "" : "-"}${r}
-          a ${r} ${r} 0 1 1 0 ${isDashboard ? "-" : ""}${r * 2}
-          a ${r} ${r} 0 1 1 0 ${isDashboard ? "" : "-"}${r * 2}
+          m 0 ${o ? "" : "-"}${e}
+          a ${e} ${e} 0 1 1 0 ${o ? "-" : ""}${e * 2}
+          a ${e} ${e} 0 1 1 0 ${o ? "" : "-"}${e * 2}
           `;
-    });
-    const perimeter = computed(() => 2 * Math.PI * radius.value);
-    const rate = computed(() => props.type === "dashboard" ? 0.75 : 1);
-    const strokeDashoffset = computed(() => {
-      const offset = -1 * perimeter.value * (1 - rate.value) / 2;
-      return `${offset}px`;
-    });
-    const trailPathStyle = computed(() => ({
-      strokeDasharray: `${perimeter.value * rate.value}px, ${perimeter.value}px`,
-      strokeDashoffset: strokeDashoffset.value
-    }));
-    const circlePathStyle = computed(() => ({
-      strokeDasharray: `${perimeter.value * rate.value * (props.percentage / 100)}px, ${perimeter.value}px`,
-      strokeDashoffset: strokeDashoffset.value,
+    }), p = s(() => 2 * Math.PI * y.value), h = s(() => t.type === "dashboard" ? 0.75 : 1), w = s(() => `${-1 * p.value * (1 - h.value) / 2}px`), B = s(() => ({
+      strokeDasharray: `${p.value * h.value}px, ${p.value}px`,
+      strokeDashoffset: w.value
+    })), N = s(() => ({
+      strokeDasharray: `${p.value * h.value * (t.percentage / 100)}px, ${p.value}px`,
+      strokeDashoffset: w.value,
       transition: "stroke-dasharray 0.6s ease 0s, stroke 0.6s ease, opacity ease 0.6s"
+    })), W = s(() => {
+      let e;
+      return t.color ? e = _(t.percentage) : e = k[t.status] || k.default, e;
+    }), F = s(() => ({
+      width: `${t.percentage}%`,
+      animationDuration: `${t.duration}s`,
+      backgroundColor: _(t.percentage)
     }));
-    const stroke = computed(() => {
-      let ret;
-      if (props.color) {
-        ret = getCurrentColor(props.percentage);
-      } else {
-        ret = STATUS_COLOR_MAP[props.status] || STATUS_COLOR_MAP.default;
-      }
-      return ret;
-    });
-    const barStyle = computed(() => ({
-      width: `${props.percentage}%`,
-      animationDuration: `${props.duration}s`,
-      backgroundColor: getCurrentColor(props.percentage)
-    }));
-    function getColors(color) {
-      const span = 100 / color.length;
-      const seriesColors = color.map((seriesColor, index) => {
-        if (isString(seriesColor)) {
-          return {
-            color: seriesColor,
-            percentage: (index + 1) * span
-          };
-        }
-        return seriesColor;
-      });
-      return seriesColors.sort((a, b) => a.percentage - b.percentage);
+    function M(e) {
+      const o = 100 / e.length;
+      return e.map((n, c) => D(n) ? {
+        color: n,
+        percentage: (c + 1) * o
+      } : n).sort((n, c) => n.percentage - c.percentage);
     }
-    const getCurrentColor = (percentage) => {
-      var _a;
-      const { color } = props;
-      if (isFunction(color)) {
-        return color(percentage);
-      } else if (isString(color)) {
-        return color;
-      } else {
-        const colors = getColors(color);
-        for (const color2 of colors) {
-          if (color2.percentage > percentage)
-            return color2.color;
-        }
-        return (_a = colors[colors.length - 1]) == null ? void 0 : _a.color;
+    const _ = (e) => {
+      var u;
+      const { color: o } = t;
+      if (L(o))
+        return o(e);
+      if (D(o))
+        return o;
+      {
+        const n = M(o);
+        for (const c of n)
+          if (c.percentage > e)
+            return c.color;
+        return (u = n[n.length - 1]) == null ? void 0 : u.color;
       }
     };
-    return (_ctx, _cache) => {
-      const _component_vi_icon = resolveComponent("vi-icon");
-      return openBlock(), createElementBlock("div", {
-        class: normalizeClass(unref(progressCls)),
-        "aria-valuenow": _ctx.percentage,
+    return (e, o) => {
+      const u = V("vi-icon");
+      return a(), i("div", {
+        class: b(r(T)),
+        "aria-valuenow": e.percentage,
         role: "progressbar",
         "aria-valuemin": "0",
         "aria-valuemax": "100"
       }, [
-        _ctx.type === "line" ? (openBlock(), createElementBlock(
+        e.type === "line" ? (a(), i(
           "div",
           {
             key: 0,
             class: "vi-progress-bar",
-            style: normalizeStyle({ height: `${_ctx.strokeWidth}px` })
+            style: l({ height: `${e.strokeWidth}px` })
           },
           [
-            createElementVNode("div", _hoisted_2, [
-              _ctx.type === "line" ? (openBlock(), createElementBlock(
+            d("div", R, [
+              e.type === "line" ? (a(), i(
                 "div",
                 {
                   key: 0,
-                  class: normalizeClass(unref(innerCls)),
-                  style: normalizeStyle(unref(barStyle))
+                  class: b(r(z)),
+                  style: l(r(F))
                 },
                 [
-                  (_ctx.showText || _ctx.$slots.default) && _ctx.textInside ? (openBlock(), createElementBlock(
+                  (e.showText || e.$slots.default) && e.textInside ? (a(), i(
                     "div",
                     {
                       key: 0,
                       class: "vi-progress-bar__innerText",
-                      style: normalizeStyle({ fontSize: `${unref(progressTextSize)}px` })
+                      style: l({ fontSize: `${r(m)}px` })
                     },
                     [
-                      renderSlot(_ctx.$slots, "default", { percentage: _ctx.percentage }, () => [
-                        createElementVNode(
+                      S(e.$slots, "default", { percentage: e.percentage }, () => [
+                        d(
                           "span",
                           null,
-                          toDisplayString(unref(content)),
+                          C(r(g)),
                           1
                           /* TEXT */
                         )
@@ -174,75 +118,75 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                     ],
                     4
                     /* STYLE */
-                  )) : createCommentVNode("v-if", true)
+                  )) : v("v-if", !0)
                 ],
                 6
                 /* CLASS, STYLE */
-              )) : createCommentVNode("v-if", true)
+              )) : v("v-if", !0)
             ])
           ],
           4
           /* STYLE */
-        )) : (openBlock(), createElementBlock(
+        )) : (a(), i(
           "div",
           {
             key: 1,
             class: "vi-progress vi-progress-circle",
-            style: normalizeStyle({ height: `${_ctx.width}px`, width: `${_ctx.width}px` })
+            style: l({ height: `${e.width}px`, width: `${e.width}px` })
           },
           [
-            (openBlock(), createElementBlock("svg", _hoisted_3, [
-              createElementVNode("path", {
+            (a(), i("svg", U, [
+              d("path", {
                 class: "vi-progress-circle vi-progress-track",
-                d: unref(trackPath),
+                d: r($),
                 stroke: "#e5e9f2",
-                "stroke-width": unref(relativeStrokeWidth),
+                "stroke-width": r(f),
                 fill: "none",
-                style: normalizeStyle(unref(trailPathStyle))
-              }, null, 12, _hoisted_4),
-              createElementVNode("path", {
+                style: l(r(B))
+              }, null, 12, j),
+              d("path", {
                 class: "vi-progress-circle vi-progress-path",
-                d: unref(trackPath),
-                stroke: unref(stroke),
+                d: r($),
+                stroke: r(W),
                 fill: "none",
-                opacity: _ctx.percentage ? 1 : 0,
-                "stroke-linecap": _ctx.strokeLinecap,
-                "stroke-width": unref(relativeStrokeWidth),
-                style: normalizeStyle(unref(circlePathStyle))
-              }, null, 12, _hoisted_5)
+                opacity: e.percentage ? 1 : 0,
+                "stroke-linecap": e.strokeLinecap,
+                "stroke-width": r(f),
+                style: l(r(N))
+              }, null, 12, q)
             ]))
           ],
           4
           /* STYLE */
         )),
-        (_ctx.showText || _ctx.$slots.default) && !_ctx.textInside ? (openBlock(), createElementBlock(
+        (e.showText || e.$slots.default) && !e.textInside ? (a(), i(
           "div",
           {
             key: 2,
             class: "vi-progress-bar__text",
-            style: normalizeStyle({ fontSize: `${unref(progressTextSize)}px` })
+            style: l({ fontSize: `${r(m)}px` })
           },
           [
-            renderSlot(_ctx.$slots, "default", { percentage: _ctx.percentage }, () => [
-              !_ctx.status ? (openBlock(), createElementBlock(
+            S(e.$slots, "default", { percentage: e.percentage }, () => [
+              e.status ? (a(), A(u, {
+                key: 1,
+                name: r(I)
+              }, null, 8, ["name"])) : (a(), i(
                 "span",
-                _hoisted_6,
-                toDisplayString(unref(content)),
+                G,
+                C(r(g)),
                 1
                 /* TEXT */
-              )) : (openBlock(), createBlock(_component_vi_icon, {
-                key: 1,
-                name: unref(iconStatus)
-              }, null, 8, ["name"]))
+              ))
             ])
           ],
           4
           /* STYLE */
-        )) : createCommentVNode("v-if", true)
-      ], 10, _hoisted_1);
+        )) : v("v-if", !0)
+      ], 10, O);
     };
   }
 });
 export {
-  _sfc_main as default
+  Z as default
 };

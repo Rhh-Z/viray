@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const withInstall = require("../../utils/withInstall.js");
-const method = require("./src/method.js");
-const ViMessage = withInstall.withInstallFunction(method.default, "$message");
-exports.ViMessage = ViMessage;
-exports.default = ViMessage;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("../../utils/withInstall.js"),s=require("./src/method.js"),e=t.withInstallFunction(s.default,"$message");exports.ViMessage=e;exports.default=e;

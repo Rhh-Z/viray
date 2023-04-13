@@ -1,270 +1,208 @@
-import { defineComponent, useSlots, ref, computed, shallowRef, resolveComponent, openBlock, createElementBlock, normalizeClass, unref, Fragment, createCommentVNode, renderSlot, createElementVNode, createVNode, mergeProps, createBlock, toDisplayString, nextTick } from "vue";
-import { inputProps, inputEmits } from "./input.mjs";
+import { defineComponent as K, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as _, createVNode as g, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
+import { inputProps as te, inputEmits as le } from "./input.mjs";
 import "../../../theme-chalk/src/input.css";
-import { UPDATE_MODEL_EVENT } from "../../../constants/events.mjs";
-import { isKorean } from "../../../utils/i18n.mjs";
-import isNil from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
-const _hoisted_1 = {
+import { UPDATE_MODEL_EVENT as F } from "../../../constants/events.mjs";
+import { isKorean as ie } from "../../../utils/i18n.mjs";
+import re from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
+const ue = {
   key: 0,
   class: "vi-input__prepend"
-};
-const _hoisted_2 = {
+}, pe = {
   key: 0,
   class: "vi-input__prefix"
-};
-const _hoisted_3 = {
+}, de = {
   key: 1,
   class: "vi-input__prefix"
-};
-const _hoisted_4 = ["autofocus", "type", "value", "autocomplete", "aria-label", "tabindex", "maxlength", "placeholder", "disabled"];
-const _hoisted_5 = {
+}, ce = ["autofocus", "type", "value", "autocomplete", "aria-label", "tabindex", "maxlength", "placeholder", "disabled"], fe = {
   key: 2,
   class: "vi-int__count"
-};
-const _hoisted_6 = { class: "vi-input__count-inner" };
-const _hoisted_7 = { key: 3 };
-const _hoisted_8 = {
+}, ve = { class: "vi-input__count-inner" }, he = { key: 3 }, me = {
   key: 1,
   class: "vi-input__append"
-};
-const _hoisted_9 = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"];
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "input",
-  props: inputProps,
-  emits: inputEmits,
-  setup(__props, { emit }) {
-    const props = __props;
-    const slots = useSlots();
-    const focused = ref(false);
-    const hovering = ref(false);
-    const passwordVisible = ref(false);
-    const isComposing = ref(false);
-    const textLength = computed(() => nativeInputValue.value.length);
-    const input = shallowRef();
-    const textarea = shallowRef();
-    const _ref = computed(() => input.value || textarea.value);
-    const handleInput = async (event) => {
-      let { value } = event.target;
-      emit(UPDATE_MODEL_EVENT, value);
-      emit("input", value);
-      await nextTick();
-    };
-    const clearInput = () => {
-      emit(UPDATE_MODEL_EVENT, "");
-      emit("change", "");
-      emit("clear");
-      emit("input", "");
-    };
-    const handleFocus = (event) => {
-      focused.value = true;
-      emit("focus", event);
-    };
-    const handleBlur = (event) => {
-      focused.value = false;
-      emit("blur", event);
-    };
-    const handleChange = (event) => {
-      emit("change", event.target.value);
-    };
-    const handleKeydown = (evt) => {
-      emit("keydown", evt);
-    };
-    const handleMouseEnter = (event) => {
-      hovering.value = true;
-      emit("mouseenter", event);
-    };
-    const handleMouseLeave = (event) => {
-      hovering.value = false;
-      emit("mouseenter", event);
-    };
-    const handleCompositionStart = (event) => {
-      isComposing.value = true;
-      emit("compositionstart", event);
-    };
-    const handleCompositionUpdate = (event) => {
-      var _a;
-      emit("compositionupdate", event);
-      const text = (_a = event.target) == null ? void 0 : _a.value;
-      const lastCharacter = text[text.length - 1] || "";
-      isComposing.value = !isKorean(lastCharacter);
-    };
-    const handleCompositionEnd = (event) => {
-      emit("compositionend", event);
-      if (isComposing.value) {
-        isComposing.value = false;
-        handleInput(event);
-      }
-    };
-    const nativeInputValue = computed(
-      () => isNil(props.modelValue) ? "" : String(props.modelValue)
-    );
-    const showClear = computed(
-      () => props.clearable && !props.disabled && !props.readonly && !!nativeInputValue.value && (focused.value || hovering.value)
-    );
-    const suffixvisible = computed(
-      () => !!slots.suffix || !!props.clearable || showClear.value || props.showPassword || isWordLimitVisible.value
+}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({
+  name: "ViInput"
+}), Ve = /* @__PURE__ */ K({
+  ...be,
+  props: te,
+  emits: le,
+  setup(D, { emit: s }) {
+    const o = D, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), T = n(() => b.value.length), U = L(), k = L(), W = n(() => U.value || k.value), y = async (e) => {
+      let { value: r } = e.target;
+      s(F, r), s("input", r), await S();
+    }, z = () => {
+      s(F, ""), s("change", ""), s("clear"), s("input", "");
+    }, I = (e) => {
+      p.value = !0, s("focus", e);
+    }, V = (e) => {
+      p.value = !1, s("blur", e);
+    }, x = (e) => {
+      s("change", e.target.value);
+    }, E = (e) => {
+      s("keydown", e);
+    }, A = (e) => {
+      d.value = !0, s("mouseenter", e);
+    }, O = (e) => {
+      d.value = !1, s("mouseenter", e);
+    }, R = (e) => {
+      f.value = !0, s("compositionstart", e);
+    }, j = (e) => {
+      var B;
+      s("compositionupdate", e);
+      const r = (B = e.target) == null ? void 0 : B.value, u = r[r.length - 1] || "";
+      f.value = !ie(u);
+    }, q = (e) => {
+      s("compositionend", e), f.value && (f.value = !1, y(e));
+    }, b = n(
+      () => re(o.modelValue) ? "" : String(o.modelValue)
+    ), w = n(
+      () => o.clearable && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
+    ), G = n(
+      () => !!m.suffix || !!o.clearable || w.value || o.showPassword || $.value
       // (!!validateState.value && needStatusIcon.value)
-    );
-    const showPwdVisible = computed(
-      () => props.showPassword && !props.disabled && !props.readonly && !!nativeInputValue.value && (focused.value || hovering.value)
-    );
-    const isWordLimitVisible = computed(
-      () => props.showWordLimit && (props.type === "text" || props.type === "textarea") && !props.disabled && !props.readonly && !props.showPassword
-    );
-    const handlePasswordVisible = () => {
-      passwordVisible.value = !passwordVisible.value;
-      focus();
-    };
-    const focus = async () => {
-      var _a;
-      await nextTick();
-      (_a = _ref.value) == null ? void 0 : _a.focus();
-    };
-    const continerCls = computed(
-      () => props.type !== "textarea" ? "vi-input" : "vi-textarea"
-    );
-    const wrapperCls = computed(() => {
-      return {
-        "vi-input__wrapper": true,
-        ["is-prepend"]: slots.prepend,
-        ["is-append"]: slots.append
-      };
-    });
-    const inputInnerCls = computed(() => {
-      return {
-        "is-disabled": props.disabled
-        // [`vi-input--${inputProps.size}`]: inputProps.size
-      };
-    });
-    const suffixCls = computed(
-      () => showClear.value || showPwdVisible.value ? "vi-input__suffix" : ""
-    );
-    const textareaCls = computed(() => {
-      return {
-        ["is-disabled"]: props.disabled
-      };
-    });
-    return (_ctx, _cache) => {
-      const _component_vi_icon = resolveComponent("vi-icon");
-      return openBlock(), createElementBlock(
+    ), P = n(
+      () => o.showPassword && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
+    ), $ = n(
+      () => o.showWordLimit && (o.type === "text" || o.type === "textarea") && !o.disabled && !o.readonly && !o.showPassword
+    ), H = () => {
+      c.value = !c.value, J();
+    }, J = async () => {
+      var e;
+      await S(), (e = W.value) == null || e.focus();
+    }, Q = n(
+      () => o.type !== "textarea" ? "vi-input" : "vi-textarea"
+    ), X = n(() => ({
+      "vi-input__wrapper": !0,
+      ["is-prepend"]: m.prepend,
+      ["is-append"]: m.append
+    })), Y = n(() => ({
+      "is-disabled": o.disabled
+      // [`vi-input--${inputProps.size}`]: inputProps.size
+    })), Z = n(
+      () => w.value || P.value ? "vi-input__suffix" : ""
+    ), ee = n(() => ({
+      ["is-disabled"]: o.disabled
+    }));
+    return (e, r) => {
+      const u = se("vi-icon");
+      return t(), l(
         "div",
         {
-          class: normalizeClass(unref(continerCls)),
-          onMouseenter: handleMouseEnter,
-          onMouseleave: handleMouseLeave
+          class: C(i(Q)),
+          onMouseenter: A,
+          onMouseleave: O
         },
         [
-          _ctx.type !== "textarea" ? (openBlock(), createElementBlock(
-            Fragment,
+          e.type !== "textarea" ? (t(), l(
+            ae,
             { key: 0 },
             [
-              createCommentVNode(" prepend slot "),
-              _ctx.$slots.prepend ? (openBlock(), createElementBlock("div", _hoisted_1, [
-                renderSlot(_ctx.$slots, "prepend")
-              ])) : createCommentVNode("v-if", true),
-              createElementVNode(
+              a(" prepend slot "),
+              e.$slots.prepend ? (t(), l("div", ue, [
+                h(e.$slots, "prepend")
+              ])) : a("v-if", !0),
+              _(
                 "div",
                 {
-                  class: normalizeClass(unref(wrapperCls))
+                  class: C(i(X))
                 },
                 [
-                  createCommentVNode(" prefix slot "),
-                  _ctx.$slots.prefix ? (openBlock(), createElementBlock("span", _hoisted_2, [
-                    renderSlot(_ctx.$slots, "prefix")
-                  ])) : createCommentVNode("v-if", true),
-                  createCommentVNode(" prefixIcon "),
-                  _ctx.prefixIcon ? (openBlock(), createElementBlock("span", _hoisted_3, [
-                    createVNode(_component_vi_icon, { name: _ctx.prefixIcon }, null, 8, ["name"])
-                  ])) : createCommentVNode("v-if", true),
-                  createElementVNode("input", mergeProps({ class: "vi-input__inner" }, _ctx.$attrs, {
-                    autofocus: _ctx.autofocus,
-                    type: _ctx.showPassword ? passwordVisible.value ? "text" : "password" : _ctx.type,
-                    class: unref(inputInnerCls),
-                    value: _ctx.modelValue,
-                    autocomplete: _ctx.autocomplete,
-                    "aria-label": _ctx.label,
-                    tabindex: _ctx.tabindex,
-                    maxlength: _ctx.maxlength,
-                    placeholder: _ctx.placeholder,
-                    disabled: _ctx.disabled,
-                    onInput: handleInput,
-                    onFocus: handleFocus,
-                    onBlur: handleBlur,
-                    onChange: handleChange,
-                    onKeydown: handleKeydown
-                  }), null, 16, _hoisted_4),
-                  createCommentVNode(" suffix slot "),
-                  unref(suffixvisible) ? (openBlock(), createElementBlock(
+                  a(" prefix slot "),
+                  e.$slots.prefix ? (t(), l("span", pe, [
+                    h(e.$slots, "prefix")
+                  ])) : a("v-if", !0),
+                  a(" prefixIcon "),
+                  e.prefixIcon ? (t(), l("span", de, [
+                    g(u, { name: e.prefixIcon }, null, 8, ["name"])
+                  ])) : a("v-if", !0),
+                  _("input", M({ class: "vi-input__inner" }, e.$attrs, {
+                    autofocus: e.autofocus,
+                    type: e.showPassword ? c.value ? "text" : "password" : e.type,
+                    class: i(Y),
+                    value: e.modelValue,
+                    autocomplete: e.autocomplete,
+                    "aria-label": e.label,
+                    tabindex: e.tabindex,
+                    maxlength: e.maxlength,
+                    placeholder: e.placeholder,
+                    disabled: e.disabled,
+                    onInput: y,
+                    onFocus: I,
+                    onBlur: V,
+                    onChange: x,
+                    onKeydown: E
+                  }), null, 16, ce),
+                  a(" suffix slot "),
+                  i(G) ? (t(), l(
                     "span",
                     {
                       key: 2,
-                      class: normalizeClass(unref(suffixCls))
+                      class: C(i(Z))
                     },
                     [
-                      renderSlot(_ctx.$slots, "suffix"),
-                      unref(showClear) ? (openBlock(), createBlock(_component_vi_icon, {
+                      h(e.$slots, "suffix"),
+                      i(w) ? (t(), ne(u, {
                         key: 0,
                         name: "close-circle",
-                        onClick: clearInput
-                      })) : createCommentVNode("v-if", true),
-                      unref(showPwdVisible) ? (openBlock(), createElementBlock("div", {
+                        onClick: z
+                      })) : a("v-if", !0),
+                      i(P) ? (t(), l("div", {
                         key: 1,
-                        onClick: handlePasswordVisible
+                        onClick: H
                       }, [
-                        createVNode(_component_vi_icon, {
-                          name: passwordVisible.value ? "eye" : "eye-close"
+                        g(u, {
+                          name: c.value ? "eye" : "eye-close"
                         }, null, 8, ["name"])
-                      ])) : createCommentVNode("v-if", true),
-                      unref(isWordLimitVisible) ? (openBlock(), createElementBlock("span", _hoisted_5, [
-                        createElementVNode(
+                      ])) : a("v-if", !0),
+                      i($) ? (t(), l("span", fe, [
+                        _(
                           "span",
-                          _hoisted_6,
-                          toDisplayString(unref(textLength)) + "/" + toDisplayString(props.maxlength),
+                          ve,
+                          N(i(T)) + "/" + N(o.maxlength),
                           1
                           /* TEXT */
                         )
-                      ])) : createCommentVNode("v-if", true)
+                      ])) : a("v-if", !0)
                     ],
                     2
                     /* CLASS */
-                  )) : createCommentVNode("v-if", true),
-                  createCommentVNode(" suffixIcon "),
-                  _ctx.suffixIcon ? (openBlock(), createElementBlock("span", _hoisted_7, [
-                    createVNode(_component_vi_icon, { name: _ctx.suffixIcon }, null, 8, ["name"])
-                  ])) : createCommentVNode("v-if", true)
+                  )) : a("v-if", !0),
+                  a(" suffixIcon "),
+                  e.suffixIcon ? (t(), l("span", he, [
+                    g(u, { name: e.suffixIcon }, null, 8, ["name"])
+                  ])) : a("v-if", !0)
                 ],
                 2
                 /* CLASS */
               ),
-              createCommentVNode(" append slot "),
-              _ctx.$slots.append ? (openBlock(), createElementBlock("div", _hoisted_8, [
-                renderSlot(_ctx.$slots, "append")
-              ])) : createCommentVNode("v-if", true)
+              a(" append slot "),
+              e.$slots.append ? (t(), l("div", me, [
+                h(e.$slots, "append")
+              ])) : a("v-if", !0)
             ],
             64
             /* STABLE_FRAGMENT */
-          )) : (openBlock(), createElementBlock("textarea", mergeProps({
+          )) : (t(), l("textarea", M({
             key: 1,
-            class: ["vi-textarea__inner", unref(textareaCls)],
+            class: ["vi-textarea__inner", i(ee)],
             ref_key: "textarea",
-            ref: textarea
-          }, _ctx.$attrs, {
-            readonly: _ctx.readonly,
-            placeholder: _ctx.placeholder,
-            disabled: _ctx.disabled,
-            "aria-label": _ctx.label,
-            tabindex: _ctx.tabindex,
-            autofocus: _ctx.autofocus,
-            autocomplete: _ctx.autocomplete,
-            onInput: handleInput,
-            onFocus: handleFocus,
-            onBlur: handleBlur,
-            onChange: handleChange,
-            onKeydown: handleKeydown,
-            onCompositionstart: handleCompositionStart,
-            onCompositionupdate: handleCompositionUpdate,
-            onCompositionend: handleCompositionEnd
-          }), null, 16, _hoisted_9))
+            ref: k
+          }, e.$attrs, {
+            readonly: e.readonly,
+            placeholder: e.placeholder,
+            disabled: e.disabled,
+            "aria-label": e.label,
+            tabindex: e.tabindex,
+            autofocus: e.autofocus,
+            autocomplete: e.autocomplete,
+            onInput: y,
+            onFocus: I,
+            onBlur: V,
+            onChange: x,
+            onKeydown: E,
+            onCompositionstart: R,
+            onCompositionupdate: j,
+            onCompositionend: q
+          }), null, 16, ye))
         ],
         34
         /* CLASS, HYDRATE_EVENTS */
@@ -273,5 +211,5 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 export {
-  _sfc_main as default
+  Ve as default
 };

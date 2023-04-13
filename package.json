@@ -58,6 +58,7 @@
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
     "sucrase": "^3.31.0",
+    "terser": "^5.16.9",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vite-plugin-dts": "1.4.1",

@@ -1,16 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const vue = require("vue");
-require("../../../theme-chalk/src/button-group.css");
-const _hoisted_1 = { class: "vi-button-group" };
-const _sfc_main = /* @__PURE__ */ vue.defineComponent({
-  name: "button-group",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return vue.openBlock(), vue.createElementBlock("div", _hoisted_1, [
-        vue.renderSlot(_ctx.$slots, "default")
-      ]);
-    };
-  }
-});
-exports.default = _sfc_main;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("vue");require("../../../theme-chalk/src/button-group.css");const o={class:"vi-button-group"},n=e.defineComponent({name:"ViButtonGroup"}),r=e.defineComponent({...n,setup(u){return(t,s)=>(e.openBlock(),e.createElementBlock("div",o,[e.renderSlot(t.$slots,"default")]))}});exports.default=r;

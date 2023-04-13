@@ -1,51 +1,30 @@
-import { UPDATE_MODEL_EVENT } from "../../../constants/events.mjs";
-import { getCurrentInstance, ref, watch, onMounted } from "vue";
-const useDialog = (props) => {
-  const instance = getCurrentInstance();
-  const emit = instance.emit;
-  const visible = ref(false);
-  const closed = ref(false);
-  const rendered = ref(false);
-  const handleClose = () => {
-    visible.value = false;
+import { UPDATE_MODEL_EVENT as i } from "../../../constants/events.mjs";
+import { getCurrentInstance as d, ref as o, watch as m, onMounted as v } from "vue";
+const L = (n) => {
+  const e = d().emit, t = o(!1), l = o(!1), s = o(!1), r = () => {
+    t.value = !1;
+  }, c = () => {
+    e("opened");
+  }, f = () => {
+    e("opened"), e(i, !1), n.destroyOnClose && (s.value = !1);
+  }, u = () => {
+    e("close");
   };
-  const afterEnter = () => {
-    emit("opened");
-  };
-  const afterLeave = () => {
-    emit("opened");
-    emit(UPDATE_MODEL_EVENT, false);
-    if (props.destroyOnClose) {
-      rendered.value = false;
+  return m(
+    () => n.modelValue,
+    (a) => {
+      a && (l.value = !1), t.value = a;
     }
-  };
-  const beforeLeave = () => {
-    emit("close");
-  };
-  watch(
-    () => props.modelValue,
-    (val) => {
-      if (val) {
-        closed.value = false;
-      }
-      visible.value = val;
-    }
-  );
-  onMounted(() => {
-    if (props.modelValue) {
-      visible.value = true;
-      rendered.value = true;
-      open();
-    }
-  });
-  return {
-    afterEnter,
-    afterLeave,
-    beforeLeave,
-    visible,
-    handleClose
+  ), v(() => {
+    n.modelValue && (t.value = !0, s.value = !0, open());
+  }), {
+    afterEnter: c,
+    afterLeave: f,
+    beforeLeave: u,
+    visible: t,
+    handleClose: r
   };
 };
 export {
-  useDialog
+  L as useDialog
 };

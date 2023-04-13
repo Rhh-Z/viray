@@ -1,125 +1,107 @@
-import { defineComponent, ref, onMounted, onUnmounted, computed, openBlock, createBlock, Transition, withCtx, withDirectives, createElementVNode, normalizeClass, unref, normalizeStyle, renderSlot, createElementBlock, toDisplayString, createCommentVNode, vShow } from "vue";
-import { messageProps, messageEmits } from "./message.mjs";
+import { defineComponent as f, ref as h, onMounted as L, onUnmounted as M, computed as r, openBlock as n, createBlock as a, Transition as b, withCtx as w, withDirectives as N, createElementVNode as S, normalizeClass as z, unref as o, normalizeStyle as B, renderSlot as V, createElementBlock as u, toDisplayString as E, createCommentVNode as H, vShow as I } from "vue";
+import { messageProps as $, messageEmits as D } from "./message.mjs";
 import "../../../theme-chalk/src/message.css";
-import { ViIcon } from "../../icon/index.mjs";
-const _hoisted_1 = {
+import { ViIcon as i } from "../../icon/index.mjs";
+const U = {
   key: 0,
   class: "vi-message__content"
-};
-const _hoisted_2 = ["innerHTML"];
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "message",
-  props: messageProps,
-  emits: messageEmits,
-  setup(__props, { emit }) {
-    const props = __props;
-    const visible = ref(false);
-    const beforeLeave = () => {
-      emit("close");
+}, A = ["innerHTML"], F = f({
+  name: "ViMessage"
+}), K = /* @__PURE__ */ f({
+  ...F,
+  props: $,
+  emits: D,
+  setup(p, { emit: c }) {
+    const e = p, t = h(!1), d = () => {
+      c("close");
+    }, v = () => {
+      c("destroy");
+    }, g = () => {
+      t.value = !1;
     };
-    const afterLeave = () => {
-      emit("destroy");
-    };
-    const close = () => {
-      visible.value = false;
-    };
-    onMounted(() => {
-      visible.value = true;
-      startTimerFn();
+    L(() => {
+      t.value = !0, m();
     });
-    let timer = null;
-    const startTimerFn = () => {
-      if (props.duration > 0) {
-        timer = setTimeout(() => {
-          visible.value = false;
-        }, props.duration);
-      }
+    let l = null;
+    const m = () => {
+      e.duration > 0 && (l = setTimeout(() => {
+        t.value = !1;
+      }, e.duration));
+    }, _ = () => {
+      clearTimeout(Number(l)), m();
     };
-    const resetTime = () => {
-      clearTimeout(Number(timer));
-      startTimerFn();
-    };
-    onUnmounted(() => {
-      clearTimeout(Number(timer));
+    M(() => {
+      clearTimeout(Number(l));
     });
-    const iconMap = {
+    const y = {
       info: "info-circle-fill",
       success: "check-circle-fill",
       error: "close-circle-fill",
       warning: "warning-circle-fill"
-    };
-    const iconName = computed(() => {
-      return iconMap[props.type];
-    });
-    const messageCls = computed(() => {
-      return {
-        "vi-message": true,
-        [`vi-message--${props.type}`]: props.type,
-        [props.customClass]: props.customClass,
-        "is-center": props.center
-      };
-    });
-    const styles = computed(() => ({
-      top: `${props.offset}px`,
-      zIndex: props.zIndex
+    }, k = r(() => y[e.type]), T = r(() => ({
+      "vi-message": !0,
+      [`vi-message--${e.type}`]: e.type,
+      [e.customClass]: e.customClass,
+      "is-center": e.center
+    })), C = r(() => ({
+      top: `${e.offset}px`,
+      zIndex: e.zIndex
     }));
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(Transition, {
-        name: "message-fade",
-        onBeforeLeave: beforeLeave,
-        onAfterLeave: afterLeave,
-        persisted: ""
-      }, {
-        default: withCtx(() => [
-          withDirectives(createElementVNode(
-            "div",
-            {
-              class: normalizeClass(unref(messageCls)),
-              style: normalizeStyle(unref(styles)),
-              onMouseenter: resetTime
-            },
-            [
-              _ctx.icon ? (openBlock(), createBlock(unref(ViIcon), {
-                key: 0,
-                name: _ctx.icon,
-                class: "vi-message__icon"
-              }, null, 8, ["name"])) : (openBlock(), createBlock(unref(ViIcon), {
+    return (s, P) => (n(), a(b, {
+      name: "message-fade",
+      onBeforeLeave: d,
+      onAfterLeave: v,
+      persisted: ""
+    }, {
+      default: w(() => [
+        N(S(
+          "div",
+          {
+            class: z(o(T)),
+            style: B(o(C)),
+            onMouseenter: _
+          },
+          [
+            s.icon ? (n(), a(o(i), {
+              key: 0,
+              name: s.icon,
+              class: "vi-message__icon"
+            }, null, 8, ["name"])) : (n(), a(o(i), {
+              key: 1,
+              name: o(k),
+              class: "vi-message__icon"
+            }, null, 8, ["name"])),
+            V(s.$slots, "default", {}, () => [
+              s.dangerouslyUseHTMLString ? (n(), u("span", {
                 key: 1,
-                name: unref(iconName),
-                class: "vi-message__icon"
-              }, null, 8, ["name"])),
-              renderSlot(_ctx.$slots, "default", {}, () => [
-                !_ctx.dangerouslyUseHTMLString ? (openBlock(), createElementBlock(
-                  "span",
-                  _hoisted_1,
-                  toDisplayString(_ctx.message),
-                  1
-                  /* TEXT */
-                )) : (openBlock(), createElementBlock("span", {
-                  key: 1,
-                  class: "vi-message__content",
-                  innerHTML: _ctx.message
-                }, null, 8, _hoisted_2))
-              ]),
-              _ctx.closeable ? (openBlock(), createBlock(unref(ViIcon), {
-                key: 2,
-                name: "close",
-                onClick: close,
-                class: "vi-message__close"
-              })) : createCommentVNode("v-if", true)
-            ],
-            38
-            /* CLASS, STYLE, HYDRATE_EVENTS */
-          ), [
-            [vShow, visible.value]
-          ])
-        ]),
-        _: 3
-        /* FORWARDED */
-      });
-    };
+                class: "vi-message__content",
+                innerHTML: s.message
+              }, null, 8, A)) : (n(), u(
+                "span",
+                U,
+                E(s.message),
+                1
+                /* TEXT */
+              ))
+            ]),
+            s.closeable ? (n(), a(o(i), {
+              key: 2,
+              name: "close",
+              onClick: g,
+              class: "vi-message__close"
+            })) : H("v-if", !0)
+          ],
+          38
+          /* CLASS, STYLE, HYDRATE_EVENTS */
+        ), [
+          [I, t.value]
+        ])
+      ]),
+      _: 3
+      /* FORWARDED */
+    }));
   }
 });
 export {
-  _sfc_main as default
+  K as default
 };

@@ -1,7 +1,7 @@
-import Col from "./src/col.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViCol = withInstall(Col);
+import o from "./src/col.vue.mjs";
+import { withInstall as t } from "../../utils/withInstall.mjs";
+const i = t(o);
 export {
-  ViCol,
-  ViCol as default
+  i as ViCol,
+  i as default
 };

@@ -1,7 +1,7 @@
-import Button from "./src/button.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViButton = withInstall(Button);
+import t from "./src/button.vue.mjs";
+import { withInstall as o } from "../../utils/withInstall.mjs";
+const m = o(t);
 export {
-  ViButton,
-  ViButton as default
+  m as ViButton,
+  m as default
 };

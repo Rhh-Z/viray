@@ -1,51 +1,51 @@
-const buttonProps = {
+const t = {
   type: {
     type: String,
     default: () => "default",
-    validator(value) {
+    validator(e) {
       return ["default", "primary", "success", "info", "danger", "warning", "error"].includes(
-        value
+        e
       );
     }
   },
   size: {
     type: String,
     default: () => "default",
-    validator(value) {
-      return ["large", "default", "small"].includes(value);
+    validator(e) {
+      return ["large", "default", "small"].includes(e);
     }
   },
   plain: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   round: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   circle: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   loading: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   disabled: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   active: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   text: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   autoFocus: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   icon: {
     type: String,
@@ -53,20 +53,19 @@ const buttonProps = {
   },
   bg: {
     type: Boolean,
-    default: () => false
+    default: () => !1
   },
   nativeType: {
     type: String,
     default: () => "button",
-    validator(value) {
-      return ["button", "submit", "reset"].includes(value);
+    validator(e) {
+      return ["button", "submit", "reset"].includes(e);
     }
   }
-};
-const buttonEmits = {
-  click: (evt) => evt instanceof MouseEvent
+}, a = {
+  click: (e) => e instanceof MouseEvent
 };
 export {
-  buttonEmits,
-  buttonProps
+  a as buttonEmits,
+  t as buttonProps
 };

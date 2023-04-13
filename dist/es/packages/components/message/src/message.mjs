@@ -1,6 +1,5 @@
-import { definePropType } from "../../../utils/definePropType.mjs";
-const messageTypes = ["success", "info", "warning", "error"];
-const messageProps = {
+import { definePropType as e } from "../../../utils/definePropType.mjs";
+const t = ["success", "info", "warning", "error"], s = {
   duration: {
     type: Number,
     default: 3e3
@@ -11,10 +10,10 @@ const messageProps = {
   },
   dangerouslyUseHTMLString: {
     type: Boolean,
-    default: false
+    default: !1
   },
   message: {
-    type: definePropType([
+    type: e([
       String,
       Object,
       Function
@@ -31,7 +30,7 @@ const messageProps = {
   },
   type: {
     type: String,
-    values: messageTypes,
+    values: t,
     default: "info"
   },
   offset: {
@@ -44,27 +43,26 @@ const messageProps = {
   },
   center: {
     type: Boolean,
-    default: true
+    default: !0
   },
   closeable: {
     type: Boolean,
-    default: false
+    default: !1
   },
   grouping: {
     type: Boolean,
-    default: false
+    default: !1
   },
   onClose: {
-    type: definePropType(Function),
-    require: false
+    type: e(Function),
+    require: !1
   }
-};
-const messageEmits = {
-  close: () => true,
-  destroy: () => true
+}, a = {
+  close: () => !0,
+  destroy: () => !0
 };
 export {
-  messageEmits,
-  messageProps,
-  messageTypes
+  a as messageEmits,
+  s as messageProps,
+  t as messageTypes
 };

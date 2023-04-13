@@ -1,57 +1,48 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, createCommentVNode, renderSlot } from "vue";
+import { defineComponent as r, computed as c, openBlock as o, createElementBlock as i, normalizeClass as a, unref as n, createCommentVNode as l, renderSlot as b } from "vue";
 import "../../../theme-chalk/src/button.css";
-import { buttonProps, buttonEmits } from "./button.mjs";
-const _hoisted_1 = ["autofocus", "disabled"];
-const _hoisted_2 = { key: 0 };
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "button",
-  props: buttonProps,
-  emits: buttonEmits,
-  setup(__props, { emit }) {
-    const props = __props;
-    const buttonStyle = computed(() => {
-      return {
-        [`vi-button--${props.type}`]: props.type,
-        "is-plain": props.plain,
-        "is-disabled": props.disabled,
-        "is-round": props.round,
-        "is-active": props.active,
-        [`vi-button--${props.size}`]: props.size,
-        "is-circle": props.circle,
-        "is-text": props.text,
-        "is-bg": props.bg
-      };
-    });
-    const handleClick = (evt) => {
-      emit("click", evt);
-    };
-    const iconName = computed(() => {
-      return `vi-icon-${props.icon}`;
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("button", {
-        class: normalizeClass(["vi-button", unref(buttonStyle)]),
-        autofocus: _ctx.autoFocus,
-        disabled: _ctx.disabled,
-        onClick: handleClick
-      }, [
-        _ctx.icon ? (openBlock(), createElementBlock("span", _hoisted_2, [
-          unref(iconName) && !_ctx.loading ? (openBlock(), createElementBlock(
-            "i",
-            {
-              key: 0,
-              class: normalizeClass(unref(iconName))
-            },
-            null,
-            2
-            /* CLASS */
-          )) : createCommentVNode("v-if", true)
-        ])) : createCommentVNode("v-if", true),
-        renderSlot(_ctx.$slots, "default")
-      ], 10, _hoisted_1);
-    };
+import { buttonProps as f, buttonEmits as v } from "./button.mjs";
+const k = ["autofocus", "disabled"], _ = { key: 0 }, y = r({
+  name: "ViButton"
+}), z = /* @__PURE__ */ r({
+  ...y,
+  props: f,
+  emits: v,
+  setup(u, { emit: d }) {
+    const t = u, p = c(() => ({
+      [`vi-button--${t.type}`]: t.type,
+      "is-plain": t.plain,
+      "is-disabled": t.disabled,
+      "is-round": t.round,
+      "is-active": t.active,
+      [`vi-button--${t.size}`]: t.size,
+      "is-circle": t.circle,
+      "is-text": t.text,
+      "is-bg": t.bg
+    })), m = (e) => {
+      d("click", e);
+    }, s = c(() => `vi-icon-${t.icon}`);
+    return (e, C) => (o(), i("button", {
+      class: a(["vi-button", n(p)]),
+      autofocus: e.autoFocus,
+      disabled: e.disabled,
+      onClick: m
+    }, [
+      e.icon ? (o(), i("span", _, [
+        n(s) && !e.loading ? (o(), i(
+          "i",
+          {
+            key: 0,
+            class: a(n(s))
+          },
+          null,
+          2
+          /* CLASS */
+        )) : l("v-if", !0)
+      ])) : l("v-if", !0),
+      b(e.$slots, "default")
+    ], 10, k));
   }
 });
 export {
-  _sfc_main as default
+  z as default
 };

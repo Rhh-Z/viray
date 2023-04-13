@@ -1,4 +1,4 @@
-const textProps = {
+const t = {
   tag: {
     type: String,
     default: "span"
@@ -6,28 +6,28 @@ const textProps = {
   type: {
     type: String,
     default: "default",
-    validator(value) {
+    validator(e) {
       return ["default", "primary", "success", "info", "danger", "warning", "error"].includes(
-        value
+        e
       );
     }
   },
   size: {
     type: String,
     default: "default",
-    validator(value) {
-      return ["large", "default", "small"].includes(value);
+    validator(e) {
+      return ["large", "default", "small"].includes(e);
     }
   },
   kbd: {
     type: Boolean,
-    default: false
+    default: !1
   },
   truncated: {
     type: Boolean,
-    default: false
+    default: !1
   }
 };
 export {
-  textProps
+  t as textProps
 };

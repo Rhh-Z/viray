@@ -1,13 +1,12 @@
-var lodashExports = {};
-var lodash = {
+var r = {}, e = {
   get exports() {
-    return lodashExports;
+    return r;
   },
-  set exports(v) {
-    lodashExports = v;
+  set exports(s) {
+    r = s;
   }
 };
 export {
-  lodash as __module,
-  lodashExports as exports
+  e as __module,
+  r as exports
 };

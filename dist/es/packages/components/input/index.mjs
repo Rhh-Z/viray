@@ -1,7 +1,7 @@
-import Input from "./src/input.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViInput = withInstall(Input);
+import t from "./src/input.vue.mjs";
+import { withInstall as o } from "../../utils/withInstall.mjs";
+const i = o(t);
 export {
-  ViInput,
-  ViInput as default
+  i as ViInput,
+  i as default
 };

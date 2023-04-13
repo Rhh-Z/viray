@@ -1,4 +1,4 @@
-const version = "1.0.0";
+const o = "1.0.0";
 export {
-  version
+  o as version
 };

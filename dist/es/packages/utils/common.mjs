@@ -1,4 +1,4 @@
-const isNumber = (val) => typeof val === "number";
+const o = (e) => typeof e == "number";
 export {
-  isNumber
+  o as isNumber
 };

@@ -1,4 +1,1 @@
-"use strict";
-Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const isKorean = (text) => /([(\uAC00-\uD7AF)|(\u3130-\u318F)])+/gi.test(text);
-exports.isKorean = isKorean;
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t=e=>/([(\uAC00-\uD7AF)|(\u3130-\u318F)])+/gi.test(e);exports.isKorean=t;

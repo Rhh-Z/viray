@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const input = require("./src/input.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViInput = withInstall.withInstall(input.default);
-exports.ViInput = ViInput;
-exports.default = ViInput;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./src/input.vue.js"),u=require("../../utils/withInstall.js"),t=u.withInstall(e.default);exports.ViInput=t;exports.default=t;

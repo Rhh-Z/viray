@@ -1,4 +1,4 @@
-const iconProps = {
+const t = {
   name: {
     type: String
   },
@@ -11,5 +11,5 @@ const iconProps = {
   }
 };
 export {
-  iconProps
+  t as iconProps
 };

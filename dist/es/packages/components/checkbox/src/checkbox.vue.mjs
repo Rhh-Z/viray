@@ -1,6 +1,6 @@
-import _sfc_main from "./checkbox.vue2.mjs";
-import _export_sfc from "../../../../_virtual/_plugin-vue_export-helper.mjs";
-const Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "E:/source/viray/packages/components/checkbox/src/checkbox.vue"]]);
+import o from "./checkbox.vue2.mjs";
+import c from "../../../../_virtual/_plugin-vue_export-helper.mjs";
+const s = /* @__PURE__ */ c(o, [["__file", "E:/source/viray/packages/components/checkbox/src/checkbox.vue"]]);
 export {
-  Checkbox as default
+  s as default
 };

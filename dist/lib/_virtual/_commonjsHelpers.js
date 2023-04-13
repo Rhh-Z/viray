@@ -1,4 +1,1 @@
-"use strict";
-Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-exports.commonjsGlobal = commonjsGlobal;
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});var e=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};exports.commonjsGlobal=e;

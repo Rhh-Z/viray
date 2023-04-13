@@ -1,40 +1,39 @@
-import * as components from "./components.mjs";
-import { version } from "./package.json.mjs";
-import { ViMessage } from "./message/index.mjs";
-import { ViAlert } from "./alert/index.mjs";
-import { ViButton } from "./button/index.mjs";
-import { ViButtonGroup } from "./button-group/index.mjs";
-import { ViCheckbox } from "./checkbox/index.mjs";
-import { ViDialog } from "./dialog/index.mjs";
-import { ViIcon } from "./icon/index.mjs";
-import { ViInput } from "./input/index.mjs";
-import { messageEmits, messageProps, messageTypes } from "./message/src/message.mjs";
-import { ViProgress } from "./progress/index.mjs";
-import { ViRow } from "./row/index.mjs";
-import { ViCol } from "./col/index.mjs";
-import { ViText } from "./text/index.mjs";
-const install = function(app) {
-  Object.entries(components).forEach(([key, value]) => {
-    app.component(key, value);
-    app.config.globalProperties.$message = ViMessage;
+import * as t from "./components.mjs";
+import { version as x } from "./package.json.mjs";
+import { ViMessage as m } from "./message/index.mjs";
+import { ViAlert as V } from "./alert/index.mjs";
+import { ViButton as c } from "./button/index.mjs";
+import { ViButtonGroup as l } from "./button-group/index.mjs";
+import { ViCheckbox as b } from "./checkbox/index.mjs";
+import { ViDialog as h } from "./dialog/index.mjs";
+import { ViIcon as C } from "./icon/index.mjs";
+import { ViInput as I } from "./input/index.mjs";
+import { messageEmits as d, messageProps as j, messageTypes as k } from "./message/src/message.mjs";
+import { ViProgress as w } from "./progress/index.mjs";
+import { ViRow as A } from "./row/index.mjs";
+import { ViCol as G } from "./col/index.mjs";
+import { ViText as O } from "./text/index.mjs";
+const i = function(o) {
+  Object.entries(t).forEach(([r, e]) => {
+    o.component(r, e), o.config.globalProperties.$message = m;
   });
 };
 export {
-  ViAlert,
-  ViButton,
-  ViButtonGroup,
-  ViCheckbox,
-  ViCol,
-  ViDialog,
-  ViIcon,
-  ViInput,
-  ViMessage,
-  ViProgress,
-  ViRow,
-  ViText,
-  install as default,
-  messageEmits,
-  messageProps,
-  messageTypes,
-  version
+  V as ViAlert,
+  c as ViButton,
+  l as ViButtonGroup,
+  b as ViCheckbox,
+  G as ViCol,
+  h as ViDialog,
+  C as ViIcon,
+  I as ViInput,
+  m as ViMessage,
+  w as ViProgress,
+  A as ViRow,
+  O as ViText,
+  i as default,
+  d as messageEmits,
+  j as messageProps,
+  k as messageTypes,
+  x as version
 };

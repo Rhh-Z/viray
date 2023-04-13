@@ -1,7 +1,7 @@
-import { withInstallFunction } from "../../utils/withInstall.mjs";
-import message from "./src/method.mjs";
-const ViMessage = withInstallFunction(message, "$message");
+import { withInstallFunction as s } from "../../utils/withInstall.mjs";
+import e from "./src/method.mjs";
+const a = s(e, "$message");
 export {
-  ViMessage,
-  ViMessage as default
+  a as ViMessage,
+  a as default
 };

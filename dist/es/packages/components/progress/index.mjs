@@ -1,7 +1,7 @@
-import Progress from "./src/progress.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViProgress = withInstall(Progress);
+import r from "./src/progress.vue.mjs";
+import { withInstall as o } from "../../utils/withInstall.mjs";
+const e = o(r);
 export {
-  ViProgress,
-  ViProgress as default
+  e as ViProgress,
+  e as default
 };

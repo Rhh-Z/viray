@@ -1,7 +1,7 @@
-import Dialog from "./src/dialog.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViDialog = withInstall(Dialog);
+import o from "./src/dialog.vue.mjs";
+import { withInstall as t } from "../../utils/withInstall.mjs";
+const l = t(o);
 export {
-  ViDialog,
-  ViDialog as default
+  l as ViDialog,
+  l as default
 };

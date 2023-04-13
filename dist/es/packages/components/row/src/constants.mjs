@@ -1,4 +1,4 @@
-const rowContextKey = Symbol("rowContextKey");
+const o = Symbol("rowContextKey");
 export {
-  rowContextKey
+  o as rowContextKey
 };

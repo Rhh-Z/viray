@@ -1,7 +1,7 @@
-import buttonGroup from "./src/button-group.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViButtonGroup = withInstall(buttonGroup);
+import t from "./src/button-group.vue.mjs";
+import { withInstall as o } from "../../utils/withInstall.mjs";
+const u = o(t);
 export {
-  ViButtonGroup,
-  ViButtonGroup as default
+  u as ViButtonGroup,
+  u as default
 };

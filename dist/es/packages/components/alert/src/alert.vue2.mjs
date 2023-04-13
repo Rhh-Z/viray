@@ -1,88 +1,74 @@
-import { defineComponent, ref, computed, resolveComponent, openBlock, createBlock, Transition, withCtx, withDirectives, createElementVNode, normalizeClass, unref, createCommentVNode, createElementBlock, renderSlot, createTextVNode, toDisplayString, vShow } from "vue";
-import { alertProps, alertEmits, iconMaps } from "./alert.mjs";
+import { defineComponent as v, ref as $, computed as c, resolveComponent as w, openBlock as s, createBlock as o, Transition as N, withCtx as V, withDirectives as b, createElementVNode as a, normalizeClass as B, unref as p, createCommentVNode as l, createElementBlock as m, renderSlot as u, createTextVNode as d, toDisplayString as f, vShow as E } from "vue";
+import { alertProps as S, alertEmits as D, iconMaps as i } from "./alert.mjs";
 import "../../../theme-chalk/src/alert.css";
-const _hoisted_1 = { class: "vi-alert__content" };
-const _hoisted_2 = {
+const T = { class: "vi-alert__content" }, g = {
   key: 0,
   class: "vi-alert__title"
-};
-const _hoisted_3 = {
+}, z = {
   key: 1,
   class: "vi-alert__desc"
-};
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "alert",
-  props: alertProps,
-  emits: alertEmits,
-  setup(__props, { emit }) {
-    const props = __props;
-    const visible = ref(true);
-    const alertCls = computed(() => {
-      return {
-        [`vi-alert-${props.type}`]: props.type,
-        "is-center": props.center
-      };
-    });
-    const iconName = computed(() => {
-      if (iconMaps[props.type] === "success")
-        return `check-circle-fill`;
-      if (iconMaps[props.type] === "error")
-        return `close-circle-fill`;
-      return `${iconMaps[props.type]}-circle-fill`;
-    });
-    const handleClose = (evt) => {
-      visible.value = false;
-      emit("close", evt);
+}, A = v({
+  name: "ViAlert"
+}), q = /* @__PURE__ */ v({
+  ...A,
+  props: S,
+  emits: D,
+  setup(_, { emit: h }) {
+    const t = _, r = $(!0), y = c(() => ({
+      [`vi-alert-${t.type}`]: t.type,
+      "is-center": t.center
+    })), k = c(() => i[t.type] === "success" ? "check-circle-fill" : i[t.type] === "error" ? "close-circle-fill" : `${i[t.type]}-circle-fill`), C = (e) => {
+      r.value = !1, h("close", e);
     };
-    return (_ctx, _cache) => {
-      const _component_vi_icon = resolveComponent("vi-icon");
-      return openBlock(), createBlock(Transition, {
+    return (e, I) => {
+      const n = w("vi-icon");
+      return s(), o(N, {
         name: "vi-alert-fade",
         persisted: ""
       }, {
-        default: withCtx(() => [
-          withDirectives(createElementVNode(
+        default: V(() => [
+          b(a(
             "div",
             {
-              class: normalizeClass(["vi-alert", unref(alertCls)])
+              class: B(["vi-alert", p(y)])
             },
             [
-              _ctx.showIcon ? (openBlock(), createBlock(_component_vi_icon, {
+              e.showIcon ? (s(), o(n, {
                 key: 0,
-                name: unref(iconName),
+                name: p(k),
                 class: "vi-alert__icon"
-              }, null, 8, ["name"])) : createCommentVNode("v-if", true),
-              createElementVNode("div", _hoisted_1, [
-                _ctx.title || _ctx.$slots.title ? (openBlock(), createElementBlock("span", _hoisted_2, [
-                  renderSlot(_ctx.$slots, "title", {}, () => [
-                    createTextVNode(
-                      toDisplayString(_ctx.title),
+              }, null, 8, ["name"])) : l("v-if", !0),
+              a("div", T, [
+                e.title || e.$slots.title ? (s(), m("span", g, [
+                  u(e.$slots, "title", {}, () => [
+                    d(
+                      f(e.title),
                       1
                       /* TEXT */
                     )
                   ])
-                ])) : createCommentVNode("v-if", true),
-                _ctx.description || _ctx.$slots.default ? (openBlock(), createElementBlock("p", _hoisted_3, [
-                  renderSlot(_ctx.$slots, "default", {}, () => [
-                    createTextVNode(
-                      toDisplayString(_ctx.description),
+                ])) : l("v-if", !0),
+                e.description || e.$slots.default ? (s(), m("p", z, [
+                  u(e.$slots, "default", {}, () => [
+                    d(
+                      f(e.description),
                       1
                       /* TEXT */
                     )
                   ])
-                ])) : createCommentVNode("v-if", true),
-                _ctx.closable ? (openBlock(), createBlock(_component_vi_icon, {
+                ])) : l("v-if", !0),
+                e.closable ? (s(), o(n, {
                   key: 2,
                   name: "close",
                   class: "vi-alert__close-btn",
-                  onClick: handleClose
-                })) : createCommentVNode("v-if", true)
+                  onClick: C
+                })) : l("v-if", !0)
               ])
             ],
             2
             /* CLASS */
           ), [
-            [vShow, visible.value]
+            [E, r.value]
           ])
         ]),
         _: 3
@@ -92,5 +78,5 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 export {
-  _sfc_main as default
+  q as default
 };

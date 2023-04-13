@@ -1,7 +1,7 @@
-import Checkbox from "./src/checkbox.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViCheckbox = withInstall(Checkbox);
+import o from "./src/checkbox.vue.mjs";
+import { withInstall as t } from "../../utils/withInstall.mjs";
+const i = t(o);
 export {
-  ViCheckbox,
-  ViCheckbox as default
+  i as ViCheckbox,
+  i as default
 };

@@ -1,13 +1,13 @@
-import { UPDATE_MODEL_EVENT } from "../../../constants/events.mjs";
+import { UPDATE_MODEL_EVENT as n } from "../../../constants/events.mjs";
 import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-import { definePropType } from "../../../utils/definePropType.mjs";
-import { exports as lodashExports } from "../../../../_virtual/lodash.mjs";
-const inputProps = {
+import { definePropType as o } from "../../../utils/definePropType.mjs";
+import { exports as t } from "../../../../_virtual/lodash.mjs";
+const r = {
   /**
   * @description binding value
   */
   modelValue: {
-    type: definePropType([
+    type: o([
       String,
       Number,
       Object
@@ -28,7 +28,7 @@ const inputProps = {
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: !1
   },
   placeholder: String,
   form: {
@@ -36,7 +36,7 @@ const inputProps = {
   },
   readonly: {
     type: Boolean,
-    default: false
+    default: !1
   },
   label: {
     type: String,
@@ -48,18 +48,18 @@ const inputProps = {
   },
   clearable: {
     type: Boolean,
-    default: false
+    default: !1
   },
   showPassword: {
     type: Boolean,
-    default: false
+    default: !1
   },
   /**
     * @description word count
     */
   showWordLimit: {
     type: Boolean,
-    default: false
+    default: !1
   },
   /**
     * @description prefix icon
@@ -73,8 +73,8 @@ const inputProps = {
     type: Number
   },
   autoSize: {
-    type: definePropType([Boolean, Object]),
-    default: false
+    type: o([Boolean, Object]),
+    default: !1
   },
   autocomplete: {
     type: String,
@@ -82,24 +82,23 @@ const inputProps = {
   },
   autofocus: {
     type: Boolean,
-    default: false
+    default: !1
   }
-};
-const inputEmits = {
-  [UPDATE_MODEL_EVENT]: (val) => lodashExports.isString(val),
-  input: (val) => lodashExports.isString(val),
-  change: (val) => lodashExports.isString(val),
-  focus: (evt) => evt instanceof FocusEvent,
-  blur: (evt) => evt instanceof FocusEvent,
-  clear: () => true,
-  mouseleave: (evt) => evt instanceof MouseEvent,
-  mouseenter: (evt) => evt instanceof MouseEvent,
-  keydown: (evt) => evt instanceof Event,
-  compositionstart: (evt) => evt instanceof CompositionEvent,
-  compositionupdate: (evt) => evt instanceof CompositionEvent,
-  compositionend: (evt) => evt instanceof CompositionEvent
+}, f = {
+  [n]: (e) => t.isString(e),
+  input: (e) => t.isString(e),
+  change: (e) => t.isString(e),
+  focus: (e) => e instanceof FocusEvent,
+  blur: (e) => e instanceof FocusEvent,
+  clear: () => !0,
+  mouseleave: (e) => e instanceof MouseEvent,
+  mouseenter: (e) => e instanceof MouseEvent,
+  keydown: (e) => e instanceof Event,
+  compositionstart: (e) => e instanceof CompositionEvent,
+  compositionupdate: (e) => e instanceof CompositionEvent,
+  compositionend: (e) => e instanceof CompositionEvent
 };
 export {
-  inputEmits,
-  inputProps
+  f as inputEmits,
+  r as inputProps
 };

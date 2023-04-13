@@ -1,5 +1,5 @@
-import { definePropType } from "../../../utils/definePropType.mjs";
-const progressProps = {
+import { definePropType as t } from "../../../utils/definePropType.mjs";
+const r = {
   type: {
     type: String,
     default: "line",
@@ -13,15 +13,15 @@ const progressProps = {
   percentage: {
     type: Number,
     default: 0,
-    validator: (val) => val >= 0 && val <= 100
+    validator: (e) => e >= 0 && e <= 100
   },
   strokeLinecap: {
-    type: definePropType(String),
+    type: t(String),
     default: "round"
   },
   format: {
-    type: definePropType(Function),
-    default: (percentage) => `${percentage}%`
+    type: t(Function),
+    default: (e) => `${e}%`
   },
   strokeWidth: {
     type: Number,
@@ -32,7 +32,7 @@ const progressProps = {
     default: 3
   },
   color: {
-    type: definePropType([
+    type: t([
       String,
       Array,
       Function
@@ -41,11 +41,11 @@ const progressProps = {
   },
   showText: {
     type: Boolean,
-    default: true
+    default: !0
   },
   textInside: {
     type: Boolean,
-    default: false
+    default: !1
   },
   width: {
     type: Number,
@@ -53,9 +53,9 @@ const progressProps = {
   },
   indeterminate: {
     type: Boolean,
-    default: false
+    default: !1
   }
 };
 export {
-  progressProps
+  r as progressProps
 };

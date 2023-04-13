@@ -1,9 +1,9 @@
-import { UPDATE_MODEL_EVENT } from "../../../constants/events.mjs";
-import isBoolean from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isBoolean.mjs";
-const dialogProps = {
+import { UPDATE_MODEL_EVENT as o } from "../../../constants/events.mjs";
+import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isBoolean.mjs";
+const r = {
   appendToBody: {
     type: Boolean,
-    default: false
+    default: !1
   },
   width: {
     type: [String, Number]
@@ -14,31 +14,30 @@ const dialogProps = {
   },
   modelValue: {
     type: Boolean,
-    default: false
+    default: !1
   },
   destroyOnClose: {
     type: Boolean,
-    default: false
+    default: !1
   },
   center: {
     type: Boolean,
-    default: false
+    default: !1
   },
   lockScroll: {
     type: Boolean,
-    default: false
+    default: !1
   }
-};
-const dialogEmits = {
-  open: () => true,
-  opened: () => true,
-  close: () => true,
-  closed: () => true,
-  [UPDATE_MODEL_EVENT]: (value) => isBoolean(value),
-  openAutoFocus: () => true,
-  closeAutoFocus: () => true
+}, u = {
+  open: () => !0,
+  opened: () => !0,
+  close: () => !0,
+  closed: () => !0,
+  [o]: (e) => t(e),
+  openAutoFocus: () => !0,
+  closeAutoFocus: () => !0
 };
 export {
-  dialogEmits,
-  dialogProps
+  u as dialogEmits,
+  r as dialogProps
 };

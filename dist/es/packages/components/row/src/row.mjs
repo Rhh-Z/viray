@@ -1,13 +1,11 @@
-const RowAlign = ["top", "middle", "bottom"];
-const RowJustify = [
+const t = ["top", "middle", "bottom"], e = [
   "start",
   "center",
   "end",
   "space-around",
   "space-between",
   "space-evenly"
-];
-const rowProps = {
+], a = {
   tag: {
     type: String,
     default: "div"
@@ -18,17 +16,17 @@ const rowProps = {
   },
   align: {
     type: String,
-    values: RowAlign,
+    values: t,
     default: "top"
   },
   justify: {
     type: String,
-    values: RowJustify,
+    values: e,
     default: "start"
   }
 };
 export {
-  RowAlign,
-  RowJustify,
-  rowProps
+  t as RowAlign,
+  e as RowJustify,
+  a as rowProps
 };

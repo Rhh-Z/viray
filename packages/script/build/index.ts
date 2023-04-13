@@ -25,15 +25,15 @@ export const buildStyle = async () => {
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCss())
     .pipe(autoprefixer())
-    .pipe(dest(`${outputCjs}/theme-chalk/src`))
-    .pipe(dest(`${outputEsm}/theme-chalk/src`));
+    .pipe(dest(`${outputCjs}/packages/theme-chalk/src`))
+    .pipe(dest(`${outputEsm}/packages/theme-chalk/src`));
 };
 
 // 打包字体
 export const buildFonts = async () => {
   return src(`${themeChalkPath}/src/fonts/*`)
-    .pipe(dest(`${outputCjs}/theme-chalk/src/fonts`))
-    .pipe(dest(`${outputEsm}/theme-chalk/src/fonts`))
+    .pipe(dest(`${outputCjs}/packages/theme-chalk/src/fonts`))
+    .pipe(dest(`${outputEsm}/packages/theme-chalk/src/fonts`))
 }
 
 export default series(

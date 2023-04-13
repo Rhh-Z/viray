@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const dialog = require("./src/dialog.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViDialog = withInstall.withInstall(dialog.default);
-exports.ViDialog = ViDialog;
-exports.default = ViDialog;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/dialog.vue.js"),l=require("../../utils/withInstall.js"),e=l.withInstall(t.default);exports.ViDialog=e;exports.default=e;

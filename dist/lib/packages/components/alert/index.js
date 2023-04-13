@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const alert = require("./src/alert.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViAlert = withInstall.withInstall(alert.default);
-exports.ViAlert = ViAlert;
-exports.default = ViAlert;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/alert.vue.js"),l=require("../../utils/withInstall.js"),e=l.withInstall(t.default);exports.ViAlert=e;exports.default=e;

@@ -1,4 +1,4 @@
-const UPDATE_MODEL_EVENT = "update:modelValue";
+const e = "update:modelValue";
 export {
-  UPDATE_MODEL_EVENT
+  e as UPDATE_MODEL_EVENT
 };

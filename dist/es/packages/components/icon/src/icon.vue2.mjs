@@ -1,36 +1,34 @@
-import { defineComponent, useCssVars, computed, openBlock, createElementBlock, normalizeClass, unref, renderSlot } from "vue";
+import { defineComponent as s, useCssVars as t, computed as c, openBlock as i, createElementBlock as a, normalizeClass as l, unref as m, renderSlot as p } from "vue";
 import "../../../theme-chalk/src/icon.css";
-import { iconProps } from "./icon.mjs";
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "icon",
-  props: iconProps,
-  setup(__props) {
-    const props = __props;
-    useCssVars((_ctx) => ({
-      "8e7c279d-color": _ctx.color,
-      "8e7c279d-size": _ctx.size
+import { iconProps as u } from "./icon.mjs";
+const d = s({
+  name: "ViIcon"
+}), v = /* @__PURE__ */ s({
+  ...d,
+  props: u,
+  setup(n) {
+    const e = n;
+    t((o) => ({
+      "8e7c279d-color": o.color,
+      "8e7c279d-size": o.size
     }));
-    const iconCls = computed(() => {
-      return {
-        [`vi-icon-${props.name}`]: props.name,
-        [`vi-icon--${props.size}`]: props.size
-      };
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock(
-        "i",
-        {
-          class: normalizeClass(unref(iconCls))
-        },
-        [
-          renderSlot(_ctx.$slots, "default", {}, void 0, true)
-        ],
-        2
-        /* CLASS */
-      );
-    };
+    const r = c(() => ({
+      [`vi-icon-${e.name}`]: e.name,
+      [`vi-icon--${e.size}`]: e.size
+    }));
+    return (o, f) => (i(), a(
+      "i",
+      {
+        class: l(m(r))
+      },
+      [
+        p(o.$slots, "default", {}, void 0, !0)
+      ],
+      2
+      /* CLASS */
+    ));
   }
 });
 export {
-  _sfc_main as default
+  v as default
 };

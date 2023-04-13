@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const icon = require("./src/icon.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViIcon = withInstall.withInstall(icon.default);
-exports.ViIcon = ViIcon;
-exports.default = ViIcon;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/icon.vue.js"),i=require("../../utils/withInstall.js"),e=i.withInstall(t.default);exports.ViIcon=e;exports.default=e;

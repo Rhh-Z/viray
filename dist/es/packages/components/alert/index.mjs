@@ -1,7 +1,7 @@
-import Alert from "./src/alert.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViAlert = withInstall(Alert);
+import t from "./src/alert.vue.mjs";
+import { withInstall as r } from "../../utils/withInstall.mjs";
+const e = r(t);
 export {
-  ViAlert,
-  ViAlert as default
+  e as ViAlert,
+  e as default
 };

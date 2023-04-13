@@ -1,13 +1,10 @@
-import { defineComponent, openBlock, createElementBlock } from "vue";
-const _hoisted_1 = { id: "" };
-const _sfc_main = /* @__PURE__ */ defineComponent({
+import { defineComponent as e, openBlock as o, createElementBlock as t } from "vue";
+const c = { id: "" }, s = /* @__PURE__ */ e({
   name: "checkbox",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1);
-    };
+  setup(n) {
+    return (r, _) => (o(), t("div", c));
   }
 });
 export {
-  _sfc_main as default
+  s as default
 };

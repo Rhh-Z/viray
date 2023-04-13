@@ -1,4 +1,4 @@
-const definePropType = (val) => val;
+const o = (e) => e;
 export {
-  definePropType
+  o as definePropType
 };

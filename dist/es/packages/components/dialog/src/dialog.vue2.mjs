@@ -1,90 +1,82 @@
-import { defineComponent, computed, resolveComponent, openBlock, createBlock, Teleport, createVNode, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeClass, normalizeStyle, renderSlot, createElementBlock, toDisplayString, createCommentVNode, vShow } from "vue";
-import { dialogProps, dialogEmits } from "./dialog.mjs";
+import { defineComponent as m, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as V } from "vue";
+import { dialogProps as N, dialogEmits as T } from "./dialog.mjs";
 import "../../../theme-chalk/src/dialog.css";
-import { useDialog } from "./use-dialog.mjs";
-import isString from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const _hoisted_1 = { class: "vi-mask" };
-const _hoisted_2 = { class: "vi-dialog__header" };
-const _hoisted_3 = {
+import { useDialog as z } from "./use-dialog.mjs";
+import P from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
   key: 1,
   class: "vi-dialog__title"
-};
-const _hoisted_4 = { class: "vi-dialog__content" };
-const _hoisted_5 = {
+}, F = { class: "vi-dialog__content" }, G = {
   key: 0,
   class: "vi-dialog__footer"
-};
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "dialog",
-  props: dialogProps,
-  emits: dialogEmits,
-  setup(__props) {
-    const props = __props;
-    const dialogsty = computed(() => ({
-      width: isString(props.width) ? props.width : `${props.width}px`,
-      scrollbarWidth: props.lockScroll ? "none" : "auto"
+}, H = m({
+  name: "ViDialog"
+}), Q = /* @__PURE__ */ m({
+  ...H,
+  props: N,
+  emits: T,
+  setup(p) {
+    const e = p, v = a(() => ({
+      width: P(e.width) ? e.width : `${e.width}px`,
+      scrollbarWidth: e.lockScroll ? "none" : "auto"
+    })), {
+      visible: _,
+      afterEnter: f,
+      afterLeave: g,
+      beforeLeave: h,
+      handleClose: n
+    } = z(e), u = a(() => ({
+      "vi-dialog": !0,
+      "is-center": e.center
     }));
-    const {
-      visible,
-      afterEnter,
-      afterLeave,
-      beforeLeave,
-      handleClose
-    } = useDialog(props);
-    const dialogCls = computed(() => {
-      return {
-        "vi-dialog": true,
-        "is-center": props.center
-      };
-    });
-    return (_ctx, _cache) => {
-      const _component_vi_icon = resolveComponent("vi-icon");
-      return openBlock(), createBlock(Teleport, {
+    return (t, r) => {
+      const k = C("vi-icon");
+      return s(), w(b, {
         to: "body",
-        disabled: !_ctx.appendToBody
+        disabled: !t.appendToBody
       }, [
-        createVNode(Transition, {
+        d(B, {
           name: "dialog-fade",
-          onAfterEnter: unref(afterEnter),
-          onAfterLeave: unref(afterLeave),
-          onBeforeLeave: unref(beforeLeave),
+          onAfterEnter: o(f),
+          onAfterLeave: o(g),
+          onBeforeLeave: o(h),
           persisted: ""
         }, {
-          default: withCtx(() => [
-            withDirectives(createElementVNode(
+          default: E(() => [
+            L(i(
               "div",
-              _hoisted_1,
+              W,
               [
-                createElementVNode(
+                i(
                   "div",
                   {
                     role: "dialog",
-                    class: normalizeClass(unref(dialogCls)),
-                    style: normalizeStyle(unref(dialogsty))
+                    class: S(o(u)),
+                    style: $(o(v))
                   },
                   [
-                    createElementVNode("div", _hoisted_2, [
-                      _ctx.$slots.title ? renderSlot(_ctx.$slots, "title", { key: 0 }) : (openBlock(), createElementBlock(
+                    i("div", j, [
+                      t.$slots.title ? l(t.$slots, "title", { key: 0 }) : (s(), c(
                         "span",
-                        _hoisted_3,
-                        toDisplayString(props.title),
+                        q,
+                        A(e.title),
                         1
                         /* TEXT */
                       )),
-                      createElementVNode("span", {
+                      i("span", {
                         class: "vi-dialog__close",
-                        onClick: _cache[0] || (_cache[0] = //@ts-ignore
-                        (...args) => unref(handleClose) && unref(handleClose)(...args))
+                        onClick: r[0] || (r[0] = //@ts-ignore
+                        (...y) => o(n) && o(n)(...y))
                       }, [
-                        createVNode(_component_vi_icon, { name: "close" })
+                        d(k, { name: "close" })
                       ])
                     ]),
-                    createElementVNode("div", _hoisted_4, [
-                      renderSlot(_ctx.$slots, "content")
+                    i("div", F, [
+                      l(t.$slots, "content")
                     ]),
-                    _ctx.$slots.title || props.title ? (openBlock(), createElementBlock("div", _hoisted_5, [
-                      renderSlot(_ctx.$slots, "footer")
-                    ])) : createCommentVNode("v-if", true)
+                    t.$slots.title || e.title ? (s(), c("div", G, [
+                      l(t.$slots, "footer")
+                    ])) : D("v-if", !0)
                   ],
                   6
                   /* CLASS, STYLE */
@@ -93,7 +85,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               512
               /* NEED_PATCH */
             ), [
-              [vShow, unref(visible)]
+              [V, o(_)]
             ])
           ]),
           _: 3
@@ -104,5 +96,5 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   }
 });
 export {
-  _sfc_main as default
+  Q as default
 };

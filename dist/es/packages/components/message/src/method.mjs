@@ -1,85 +1,69 @@
-import { messageTypes } from "./message.mjs";
-import MessageConstructor from "./message.vue.mjs";
-import { isVNode, createVNode, render } from "vue";
-import isFunction from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
-import isString from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-let seed = 1;
-const instances = [];
-let zIndex = 2e3;
-const message = function(options = {}, context) {
-  if (isString(options) || isVNode(options)) {
-    options = { message: options };
-  }
-  const id = `message_${seed++}`;
-  let offset = 20;
-  instances.forEach((v) => {
-    var _a;
-    offset += ((_a = v.el) == null ? void 0 : _a.offsetHeight) + 16;
+import { messageTypes as h } from "./message.mjs";
+import x from "./message.vue.mjs";
+import { isVNode as d, createVNode as T, render as u } from "vue";
+import y from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
+import p from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+let C = 1;
+const n = [];
+let v = 2e3;
+const f = function(e = {}, t) {
+  (p(e) || d(e)) && (e = { message: e });
+  const s = `message_${C++}`;
+  let c = 20;
+  n.forEach((g) => {
+    var i;
+    c += ((i = g.el) == null ? void 0 : i.offsetHeight) + 16;
   });
-  const props = {
-    ...options,
-    zIndex: zIndex++,
-    id,
-    offset,
+  const m = {
+    ...e,
+    zIndex: v++,
+    id: s,
+    offset: c,
     onClose: () => {
-      close(id, options.onClose);
+      E(s, e.onClose);
     }
-  };
-  const messageContent = props.message;
-  const vm = createVNode(
-    MessageConstructor,
-    props,
-    isFunction(messageContent) ? { default: messageContent } : isVNode(messageContent) ? { default: () => messageContent } : null
+  }, l = m.message, o = T(
+    x,
+    m,
+    y(l) ? { default: l } : d(l) ? { default: () => l } : null
   );
-  vm.appContext = context || message._context;
-  vm.props.onDestroy = () => {
-    render(null, container);
+  o.appContext = t || f._context, o.props.onDestroy = () => {
+    u(null, r);
   };
-  const container = document.createElement("div");
-  render(vm, container);
-  let appendTo = document.body;
-  if (isString(options.appendTo)) {
-    appendTo = document.querySelector(options.appendTo);
-  } else if (options.appendTo && options.appendTo instanceof Element) {
-    appendTo = options.appendTo;
-  }
-  appendTo.appendChild(container.firstElementChild);
-  instances.push(vm);
-  return {
-    close: () => vm.component.proxy.visible = false
+  const r = document.createElement("div");
+  u(o, r);
+  let a = document.body;
+  return p(e.appendTo) ? a = document.querySelector(e.appendTo) : e.appendTo && e.appendTo instanceof Element && (a = e.appendTo), a.appendChild(r.firstElementChild), n.push(o), {
+    close: () => o.component.proxy.visible = !1
   };
 };
-messageTypes.forEach((type) => {
-  message[type] = (options = {}, appContext) => {
-    if (isString(options) || isVNode(options)) {
-      options = { message: options };
-    }
-    message({ ...options, type }, appContext);
+h.forEach((e) => {
+  f[e] = (t = {}, s) => {
+    (p(t) || d(t)) && (t = { message: t }), f({ ...t, type: e }, s);
   };
 });
-function close(id, userClose) {
-  var _a;
-  const idx = instances.findIndex((vm2) => vm2.props.id === id);
-  if (idx === -1)
+function E(e, t) {
+  var l;
+  const s = n.findIndex((o) => o.props.id === e);
+  if (s === -1)
     return;
-  const vm = instances[idx];
-  userClose && userClose(vm);
-  instances.splice(idx, 1);
-  const removeHeight = vm.el.offsetHeight;
-  for (let i = idx; i < instances.length; i++) {
-    const pos = parseInt((_a = instances[i].el) == null ? void 0 : _a.style.top) - removeHeight + -16;
-    instances[i].component.props.offset = pos;
+  const c = n[s];
+  t && t(c), n.splice(s, 1);
+  const m = c.el.offsetHeight;
+  for (let o = s; o < n.length; o++) {
+    const r = parseInt((l = n[o].el) == null ? void 0 : l.style.top) - m + -16;
+    n[o].component.props.offset = r;
   }
 }
-function closeAll() {
-  for (let i = instances.length - 1; i >= 0; i--) {
-    const instance = instances[i].component;
-    (instance == null ? void 0 : instance.proxy).close();
+function I() {
+  for (let e = n.length - 1; e >= 0; e--) {
+    const t = n[e].component;
+    (t == null ? void 0 : t.proxy).close();
   }
 }
-message.closeAll = closeAll;
-message._context = null;
+f.closeAll = I;
+f._context = null;
 export {
-  closeAll,
-  message as default
+  I as closeAll,
+  f as default
 };

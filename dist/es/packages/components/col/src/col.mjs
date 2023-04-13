@@ -1,4 +1,4 @@
-const colProps = {
+const e = {
   tag: {
     type: String,
     default: "div"
@@ -30,5 +30,5 @@ const colProps = {
   }
 };
 export {
-  colProps
+  e as colProps
 };

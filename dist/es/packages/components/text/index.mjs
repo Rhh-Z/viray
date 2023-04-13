@@ -1,7 +1,7 @@
-import Text from "./src/text.vue.mjs";
-import { withInstall } from "../../utils/withInstall.mjs";
-const ViText = withInstall(Text);
+import t from "./src/text.vue.mjs";
+import { withInstall as o } from "../../utils/withInstall.mjs";
+const i = o(t);
 export {
-  ViText,
-  ViText as default
+  i as ViText,
+  i as default
 };

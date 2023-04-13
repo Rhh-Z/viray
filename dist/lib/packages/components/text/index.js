@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const text = require("./src/text.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViText = withInstall.withInstall(text.default);
-exports.ViText = ViText;
-exports.default = ViText;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/text.vue.js"),l=require("../../utils/withInstall.js"),e=l.withInstall(t.default);exports.ViText=e;exports.default=e;

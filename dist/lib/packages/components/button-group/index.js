@@ -1,7 +1,1 @@
-"use strict";
-Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
-const buttonGroup = require("./src/button-group.vue.js");
-const withInstall = require("../../utils/withInstall.js");
-const ViButtonGroup = withInstall.withInstall(buttonGroup.default);
-exports.ViButtonGroup = ViButtonGroup;
-exports.default = ViButtonGroup;
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./src/button-group.vue.js"),u=require("../../utils/withInstall.js"),t=u.withInstall(e.default);exports.ViButtonGroup=t;exports.default=t;

@@ -1,16 +1,15 @@
-import { defineComponent, openBlock, createElementBlock, renderSlot } from "vue";
+import { defineComponent as t, openBlock as o, createElementBlock as n, renderSlot as r } from "vue";
 import "../../../theme-chalk/src/button-group.css";
-const _hoisted_1 = { class: "vi-button-group" };
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  name: "button-group",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1, [
-        renderSlot(_ctx.$slots, "default")
-      ]);
-    };
+const s = { class: "vi-button-group" }, _ = t({
+  name: "ViButtonGroup"
+}), l = /* @__PURE__ */ t({
+  ..._,
+  setup(c) {
+    return (e, p) => (o(), n("div", s, [
+      r(e.$slots, "default")
+    ]));
   }
 });
 export {
-  _sfc_main as default
+  l as default
 };
