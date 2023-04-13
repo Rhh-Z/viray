@@ -1,0 +1,16 @@
+@use '../common/variable'as *;
+
+@mixin input-mixin($direction) {
+  border-#{$direction}: 0;
+  border-top-#{$direction}-radius: 0;
+  border-bottom-#{$direction}-radius: 0;
+  background-color: $vi-input-fill-clolr;
+  color: $vi-input-info-color;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 0 20px;
+  white-space: nowrap;
+}

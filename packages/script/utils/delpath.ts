@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import { projRoot } from './paths';
+// import { projRoot } from './paths';
 
 //保留的文件
 const stayFile = ["package.json", "README.md"];
@@ -23,7 +23,8 @@ const delPath = async (path: string) => {
       }
     }
   });
-  if (path !== `${projRoot}/dist`) fs.rmdirSync(path);
+
+  // if (path !== `${projRoot}/dist`) fs.rmdirSync(path);
 }
 
 export default delPath;

@@ -21,7 +21,6 @@
   }
 }
 
-
 @mixin m($modifier) {
   $selector: &;
   $currentSelector: '';

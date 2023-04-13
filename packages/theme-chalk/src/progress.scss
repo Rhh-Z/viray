@@ -1,0 +1,103 @@
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
+@use 'sass:map';
+
+@include b(progress) {
+  position: relative;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+
+  &-bar {
+    flex-grow: 1;
+    box-sizing: border-box;
+
+    @include e(outer) {
+      height: 100%;
+      border-radius: 100px;
+      background-color: $vi-progress-color;
+      overflow: hidden;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    @include e(inner) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-color: #20a0ff;
+      text-align: right;
+      border-radius: 100px;
+      line-height: 1;
+      white-space: nowrap;
+      transition: width .6s ease;
+
+      &::after {
+        display: inline-block;
+        content: "";
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      @include m(indeterminate) {
+        transform: translateX(0);
+        animation: indeterminate 3s ease-in-out infinite;
+      }
+    }
+
+    @include e(text) {
+      font-size: 14px;
+      color: $vi-progress-color-regular;
+      margin-left: 5px;
+      min-width: 50px;
+      line-height: 1;
+    }
+
+    @include e(innerText) {
+      & span {
+        vertical-align: middle;
+        display: inline-block;
+        color: #fff;
+        margin: 0 5px;
+      }
+    }
+  }
+
+  @each $statu in $vi-progress-status {
+    @include when($statu) {
+      & .vi-progress-bar__text {
+        color: map.get($vi-progress-bgColor, $statu);
+      }
+
+      & .vi-progress-bar__inner {
+        background-color: map.get($vi-progress-bgColor, $statu);
+      }
+    }
+  }
+
+  @include m((circle, dashboard)) {
+    display: inline-block;
+
+    & .vi-progress-bar__text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}

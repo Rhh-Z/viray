@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const o=r=>typeof r=="number",e=r=>typeof r=="string",s=r=>typeof r=="boolean",t=r=>Array.isArray(r);exports.isArray=t;exports.isBoolean=s;exports.isNumber=o;exports.isString=e;

@@ -1,7 +1,7 @@
 {
   "name": "viray",
   "version": "1.0.16",
-  "description": "",
+  "description": "Vue3组件库",
   "main": "lib/components/index.js",
   "module": "es/components/index.mjs",
   "files": [

@@ -48,4 +48,4 @@ export const alertEmits = {
 }
 
 export type AlertProps = ExtractPropTypes<typeof alertProps>
-
+export type AlertEmits = ExtractPropTypes<typeof alertEmits>

@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const c=require("./use-checkbox-model.js"),u=require("./use-checkbox-status.js"),n=require("./use-checkbox-event.js"),h=(e,r)=>{const o=c.useCheckboxModel(e),s=u.useCheckboxStatus(e,o),t=n.useCheckboxEvent();return{model:o,isChecked:s,handleChange:t}};exports.useCheckbox=h;

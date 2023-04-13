@@ -3,10 +3,6 @@
 @use 'sass:map';
 @use 'sass:color';
 
-// $customColor: // :export {
-//   customColor:$
-// }
-
 /* Tansition
 --------- */
 $font-family:vi-iconfont;
@@ -75,11 +71,10 @@ $disabled-colors: map.deep-merge(('white': #ffffff,
   $disabled-colors);
 
 
-// $color-success-lighter: mix($color-white, $color-success, 90%) !default;
-// $color-warning-lighter: mix($color-white, $color-warning, 90%) !default;
-// $color-danger-lighter: mix($color-white, $color-danger, 90%) !default;
-// $color-info-lighter: mix($color-white, $color-info, 90%) !default;
-
+$color-success-lighter: mix(#fff, #67c23a, 90%) !default;
+$color-warning-lighter: mix(#fff, #e6a23c, 90%) !default;
+$color-danger-lighter: mix(#fff, #f56c6c, 90%) !default;
+$color-info-lighter: mix(#fff, #e3e5e9, 90%) !default;
 
 /* Border 
 ---------*/
@@ -181,10 +176,6 @@ $alert-bg-colors:map.deep-merge(('info': $alert-info-color,
 $alert-icon-size: 16px !default;
 $alert-icon-large-size: 28px !default;
 
-// input font color
-// $vi-input--color:#606266;
-
-
 
 /*     Checkbox
 ------------------ */
@@ -213,9 +204,94 @@ $checkbox--font-color:#606266;
 $vi-input-type: text,
 textarea;
 
+$vi-input-height: 32px;
+$vi-input-inner-height: calc($vi-input-height - 2px);
+
+// input font color
+$vi-input-text-color:#606266;
+$vi-input-bg-color:#fff;
+
+$vi-input-border-radius:4px;
 
 // box-shdow color
 $vi-input--box-shadow-color:#dcdfe6;
 $vi-input--box-shadow-hover-color:#c0c4cc;
 $vi-input--box-shadow-placehodler-color:#adb0b8;
 $vi-input--box-shadow-focus-color:#409eff;
+
+$vi-transition-box-shadow: box-shadow .2s cubic-bezier(.645, .045, .355, 1);
+
+$vi-input-fill-clolr:#f5f7fa !default;
+$vi-input-info-color:#909399 !default;
+
+
+
+/*    Progress
+********************/
+$vi-progress-status:default,
+warning,
+success,
+exception;
+
+$vi-progress-bgColor:() !default;
+$vi-progress-bgColor:map.deep-merge(('default':#20a0ff, 'success':#13ce66,
+    'warning':#e6a23c, 'exception':#ff4949),
+  $vi-progress-bgColor);
+
+$vi-progress-color:#ebeef5 !default;
+$vi-progress-color-regular:$vi-input-text-color !default;
+
+
+/*    Dialog
+****************/
+$vi-dialog-width:50%;
+$vi-dialog-margin-top: 15vh;
+$vi-dialog-bg-color: #fff;
+$vi-dialog-boxshadow: 0px 12px 32px 4px rgba(0, 0, 0, .04),
+0px 8px 20px rgba(0, 0, 0, .08);
+$vi-progress-text-color-primary:#303133;
+$vi-dialog-title-font-size: 18px;
+$vi-dialog-content-font-size: 14px;
+$vi-dialog-font-line-height: 24px;
+$vi-dialog-font-padding-primary: 20px;
+$vi-dialog-font-border-radius: 4px;
+
+$transition-duration: () !default;
+$transition-duration: map.merge(('': 0.3s,
+    'fast': 0.2s,
+  ),
+  $transition-duration);
+
+
+/* Box-shadow */
+$box-shadow-base: 0 2px 4px rgb(0 0 0 / 12%),
+0 0 6px rgb(0 0 0 / 4%) !default;
+$box-shadow-dark: 0 2px 4px rgb(0 0 0 / 12%),
+0 0 6px rgb(0 0 0 / 12%) !default;
+$box-shadow-light: 0 2px 12px 0 rgb(0 0 0 / 10%) !default;
+
+
+/*      Message
+*********************/
+$message-type:success,
+error,
+info,
+warning;
+
+$message-background-color:() !default;
+$message-background-color:map.deep-merge(('success':#f0f9eb,
+    'error':#fef0f0, 'info':#f4f4f5, 'warning':#fdf6ec),
+  $message-background-color);
+
+$message-shadow: $box-shadow-base !default;
+$message-min-width: 380px !default;
+$message-background-color-default: #edf2fc !default;
+$message-padding: 15px 15px 15px 20px !default;
+$message-close-icon-color: #c0c4cc !default;
+$message-close-size: 16px !default;
+$message-close-hover-color: #909399 !default;
+
+$message-success-font-color: $color-success-lighter !default;
+$message-info-font-color: $color-info-lighter !default;
+$message-warning-font-color: $color-warning-lighter !default;
+$message-danger-font-color: $color-danger-lighter !default;

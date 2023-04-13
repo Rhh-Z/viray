@@ -11,6 +11,8 @@ importers:
       '@types/gulp-clean-css': ^4.3.0
       '@types/gulp-minify-css': ^0.0.32
       '@types/gulp-sass': ^5.0.0
+      '@types/lodash': ^4.14.192
+      '@types/lodash-es': ^4.17.7
       '@types/node': ^18.15.10
       '@typescript-eslint/eslint-plugin': ^5.57.0
       '@typescript-eslint/parser': ^5.57.0
@@ -31,6 +33,9 @@ importers:
       gulp-minify-css: ^1.2.4
       gulp-sass: ^5.1.0
       happy-dom: ^8.9.0
+      lodash: ^4.17.21
+      lodash-es: ^4.17.21
+      lodash-unified: ^1.0.3
       postcss-html: ^1.5.0
       prettier: ^2.8.7
       release-it: ^15.9.3
@@ -64,6 +69,8 @@ importers:
       '@types/gulp-clean-css': 4.3.0
       '@types/gulp-minify-css': 0.0.32
       '@types/gulp-sass': 5.0.0
+      '@types/lodash': 4.14.192
+      '@types/lodash-es': 4.17.7
       '@types/node': 18.15.10
       '@typescript-eslint/eslint-plugin': 5.57.0_s5k7qbmvzkal3edwy7gcxmnteu
       '@typescript-eslint/parser': 5.57.0_bcnce6t2n5ss3lv2getliffzhq
@@ -80,6 +87,9 @@ importers:
       gulp-minify-css: 1.2.4
       gulp-sass: 5.1.0
       happy-dom: 8.9.0
+      lodash: 4.17.21
+      lodash-es: 4.17.21
+      lodash-unified: 1.0.3_tknf7errc3xdqocd3ryzzla7vq
       postcss-html: 1.5.0
       prettier: 2.8.7
       release-it: 15.9.3
@@ -1284,6 +1294,16 @@ packages:
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+    dev: true
+
+  /@types/lodash-es/4.17.7:
+    resolution: {integrity: sha512-z0ptr6UI10VlU6l5MYhGwS4mC8DZyYer2mCoyysZtSF7p26zOX8UpbrV0YpNYLGS8K4PUFIyEr62IMFFjveSiQ==}
+    dependencies:
+      '@types/lodash': 4.14.192
+    dev: true
+
+  /@types/lodash/4.14.192:
+    resolution: {integrity: sha512-km+Vyn3BYm5ytMO13k9KTp27O75rbQ0NFw+U//g+PX7VZyjCioXaRFisqSIJRECljcTv73G3i6BpglNGHgUQ5A==}
     dev: true
 
   /@types/minimatch/5.1.2:
@@ -5357,6 +5377,22 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: true
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: true
+
+  /lodash-unified/1.0.3_tknf7errc3xdqocd3ryzzla7vq:
+    resolution: {integrity: sha512-WK9qSozxXOD7ZJQlpSqOT+om2ZfcT4yO+03FuzAHD0wF6S0l0090LRPDx3vhTTLZ8cFKpBn+IOcVXK6qOcIlfQ==}
+    peerDependencies:
+      '@types/lodash-es': '*'
+      lodash: '*'
+      lodash-es: '*'
+    dependencies:
+      '@types/lodash-es': 4.17.7
+      lodash: 4.17.21
+      lodash-es: 4.17.21
     dev: true
 
   /lodash._basecopy/3.0.1:

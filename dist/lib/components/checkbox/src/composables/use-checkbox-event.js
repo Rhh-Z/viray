@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const r=require("../../../../constants/events.js"),c=require("vue");function u(){const{emit:e}=c.getCurrentInstance();return t=>{const n=!!t.target.checked;e(r.CHANGE_EVENT,n)}}exports.useCheckboxEvent=u;

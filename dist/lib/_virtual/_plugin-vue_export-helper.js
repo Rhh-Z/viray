@@ -1,1 +1,10 @@
-"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const u=(e,o)=>{const t=e.__vccOpts||e;for(const[r,s]of o)t[r]=s;return t};exports.default=u;
+"use strict";
+Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+exports.default = _export_sfc;

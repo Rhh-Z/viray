@@ -1,5 +1,10 @@
 <template>
-  <button class="vi-button" :autofocus="autoFocus" :class="buttonStyle" :disabled="disabled" @click="handleClick">
+  <button class="vi-button"
+   :autofocus="autoFocus" 
+   :class="buttonStyle" 
+   :disabled="disabled"
+    @click="handleClick"
+  >
     <span v-if="icon">
       <i v-if="iconName && !loading" :class="iconName" />
     </span>

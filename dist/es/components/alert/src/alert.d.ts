@@ -35,4 +35,5 @@ export declare const alertEmits: {
     close: (evt: MouseEvent) => boolean;
 };
 export declare type AlertProps = ExtractPropTypes<typeof alertProps>;
+export declare type AlertEmits = ExtractPropTypes<typeof alertEmits>;
 export {};

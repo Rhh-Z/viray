@@ -10,6 +10,5 @@
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
     "resolveJsonModule": true,
-    // "types": ["/typings/vue-shim.d.ts","/typings/components.d.ts"]
   }
 }

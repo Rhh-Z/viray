@@ -1,5 +1,7 @@
 <template>
-  <i :class="iconCls"></i>
+  <i :class="iconCls">
+    <slot/>
+  </i>
 </template>
 
 <script setup lang='ts' name="ViIcon">

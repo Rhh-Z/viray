@@ -3,45 +3,45 @@ import { ButtonNativeType, ButtonSizeType, ButtonType } from "./interface";
 export declare const buttonProps: {
     type: {
         type: PropType<ButtonType>;
-        default: () => String;
+        default: () => string;
         validator(value: ButtonType): boolean;
     };
     size: {
         type: PropType<ButtonSizeType>;
-        default: () => String;
+        default: () => string;
         validator(value: ButtonSizeType): boolean;
     };
     plain: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     round: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     circle: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     loading: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     disabled: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     active: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     text: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     autoFocus: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     icon: {
         type: StringConstructor;
@@ -49,7 +49,7 @@ export declare const buttonProps: {
     };
     bg: {
         type: BooleanConstructor;
-        default: () => Boolean;
+        default: () => boolean;
     };
     nativeType: {
         type: PropType<ButtonNativeType>;

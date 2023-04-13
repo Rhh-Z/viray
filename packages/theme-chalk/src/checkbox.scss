@@ -70,11 +70,16 @@
   @include when(checked) {}
 
   @include when(disabled) {
+    color: #a8abb2;
 
     &,
     &:hover,
     &:focus {
       cursor: not-allowed;
+    }
+
+    &:has(input[type='checkbox']:checked) .vi-checkbox__label {
+      color: #a8abb2;
     }
 
     input[type='checkbox']::after {
@@ -91,6 +96,17 @@
       border-radius: 2px;
       box-sizing: border-box;
       border: 1px solid #ddd;
+    }
+
+    & input[type='checkbox']:checked::after {
+      font-family: $font-family;
+      content: "\e886";
+      background-color: #ddd;
+    }
+
+    & .vi-checkbox__label {
+      color: #a8abb2;
+      cursor: not-allowed;
     }
   }
 }

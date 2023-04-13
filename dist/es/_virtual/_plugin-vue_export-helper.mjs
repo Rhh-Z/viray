@@ -1,9 +1,10 @@
-const s = (t, e) => {
-  const o = t.__vccOpts || t;
-  for (const [r, c] of e)
-    o[r] = c;
-  return o;
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
 };
 export {
-  s as default
+  _export_sfc as default
 };

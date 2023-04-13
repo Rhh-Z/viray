@@ -6,7 +6,7 @@
 
 
 <script setup lang='ts' name="ViCol">
-import { computed, CSSProperties, inject, h } from 'vue';
+import { computed, CSSProperties, inject } from 'vue';
 import { colProps } from './col';
 import { rowContextKey } from '@viray/components/row/src/constants';
 
