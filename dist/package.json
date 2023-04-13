@@ -21,7 +21,7 @@
   ],
   "author": "Rhh",
   "license": "MIT",
-  "typings": "lib/components/index.d.ts",
+  "typings": "lib/packages/components/index.d.ts",
   "scripts": {
     "release": "release-it"
   },

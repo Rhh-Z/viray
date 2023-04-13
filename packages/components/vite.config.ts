@@ -1,14 +1,10 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts'
 import vue from '@vitejs/plugin-vue';
-import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 export default defineConfig({
   build: {
     outDir: "es",
-    terserOptions: {
-      sourceMap: true,
-    },
     //压缩
     // minify: false,
     rollupOptions: {
@@ -40,7 +36,7 @@ export default defineConfig({
     }
   },
   plugins: [vue(), dts({
-    entryRoot: '../components/',
+    entryRoot: './',
     outputDir: ["../../dist/es/packages/components/", "../../dist/lib/packages/components/"],
     //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
     tsConfigFilePath: '../../tsconfig.json'
@@ -69,5 +65,5 @@ export default defineConfig({
         });
       }
     },
-  }, vueSetupExtend()],
+  }],
 })
