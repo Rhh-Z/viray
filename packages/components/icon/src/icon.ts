@@ -4,6 +4,7 @@ import type Icon from './icon.vue';
 export const iconProps = {
   name: {
     type: String,
+    default: '',
   },
   size: {
     type: String,

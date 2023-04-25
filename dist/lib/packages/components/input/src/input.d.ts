@@ -19,7 +19,7 @@ export declare const inputProps: {
         type: StringConstructor;
         default: undefined;
     };
-    size: PropType<string>;
+    size: PropType<"" | "default" | "small" | "large">;
     type: {
         type: StringConstructor;
         default: string;

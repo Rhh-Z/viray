@@ -1,80 +1,76 @@
-import { defineComponent as v, ref as $, computed as c, resolveComponent as w, openBlock as s, createBlock as o, Transition as N, withCtx as V, withDirectives as b, createElementVNode as a, normalizeClass as B, unref as p, createCommentVNode as l, createElementBlock as m, renderSlot as u, createTextVNode as d, toDisplayString as f, vShow as E } from "vue";
-import { alertProps as S, alertEmits as D, iconMaps as i } from "./alert.mjs";
+import { defineComponent as C, ref as $, computed as a, openBlock as s, createBlock as i, Transition as w, withCtx as N, withDirectives as V, createElementVNode as c, normalizeClass as b, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as m, createTextVNode as f, toDisplayString as u, vShow as B } from "vue";
+import { alertProps as E, alertEmits as S, iconMaps as o } from "./alert.mjs";
+import { ViIcon as d } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/alert.css";
-const T = { class: "vi-alert__content" }, g = {
+const D = { class: "vi-alert__content" }, I = {
   key: 0,
   class: "vi-alert__title"
-}, z = {
+}, T = {
   key: 1,
   class: "vi-alert__desc"
-}, A = v({
-  name: "ViAlert"
-}), q = /* @__PURE__ */ v({
-  ...A,
-  props: S,
-  emits: D,
-  setup(_, { emit: h }) {
-    const t = _, r = $(!0), y = c(() => ({
+}, q = /* @__PURE__ */ C({
+  __name: "alert",
+  props: E,
+  emits: S,
+  setup(v, { emit: _ }) {
+    const t = v, n = $(!0), h = a(() => ({
       [`vi-alert-${t.type}`]: t.type,
       "is-center": t.center
-    })), k = c(() => i[t.type] === "success" ? "check-circle-fill" : i[t.type] === "error" ? "close-circle-fill" : `${i[t.type]}-circle-fill`), C = (e) => {
-      r.value = !1, h("close", e);
+    })), y = a(() => o[t.type] === "success" ? "check-circle-fill" : o[t.type] === "error" ? "close-circle-fill" : `${o[t.type]}-circle-fill`), k = (e) => {
+      n.value = !1, _("close", e);
     };
-    return (e, I) => {
-      const n = w("vi-icon");
-      return s(), o(N, {
-        name: "vi-alert-fade",
-        persisted: ""
-      }, {
-        default: V(() => [
-          b(a(
-            "div",
-            {
-              class: B(["vi-alert", p(y)])
-            },
-            [
-              e.showIcon ? (s(), o(n, {
-                key: 0,
-                name: p(k),
-                class: "vi-alert__icon"
-              }, null, 8, ["name"])) : l("v-if", !0),
-              a("div", T, [
-                e.title || e.$slots.title ? (s(), m("span", g, [
-                  u(e.$slots, "title", {}, () => [
-                    d(
-                      f(e.title),
-                      1
-                      /* TEXT */
-                    )
-                  ])
-                ])) : l("v-if", !0),
-                e.description || e.$slots.default ? (s(), m("p", z, [
-                  u(e.$slots, "default", {}, () => [
-                    d(
-                      f(e.description),
-                      1
-                      /* TEXT */
-                    )
-                  ])
-                ])) : l("v-if", !0),
-                e.closable ? (s(), o(n, {
-                  key: 2,
-                  name: "close",
-                  class: "vi-alert__close-btn",
-                  onClick: C
-                })) : l("v-if", !0)
-              ])
-            ],
-            2
-            /* CLASS */
-          ), [
-            [E, r.value]
-          ])
-        ]),
-        _: 3
-        /* FORWARDED */
-      });
-    };
+    return (e, g) => (s(), i(w, {
+      name: "vi-alert-fade",
+      persisted: ""
+    }, {
+      default: N(() => [
+        V(c(
+          "div",
+          {
+            class: b(["vi-alert", l(h)])
+          },
+          [
+            e.showIcon ? (s(), i(l(d), {
+              key: 0,
+              name: l(y),
+              class: "vi-alert__icon"
+            }, null, 8, ["name"])) : r("v-if", !0),
+            c("div", D, [
+              e.title || e.$slots.title ? (s(), p("span", I, [
+                m(e.$slots, "title", {}, () => [
+                  f(
+                    u(e.title),
+                    1
+                    /* TEXT */
+                  )
+                ])
+              ])) : r("v-if", !0),
+              e.description || e.$slots.default ? (s(), p("p", T, [
+                m(e.$slots, "default", {}, () => [
+                  f(
+                    u(e.description),
+                    1
+                    /* TEXT */
+                  )
+                ])
+              ])) : r("v-if", !0),
+              e.closable ? (s(), i(l(d), {
+                key: 2,
+                name: "close",
+                class: "vi-alert__close-btn",
+                onClick: k
+              })) : r("v-if", !0)
+            ])
+          ],
+          2
+          /* CLASS */
+        ), [
+          [B, n.value]
+        ])
+      ]),
+      _: 3
+      /* FORWARDED */
+    }));
   }
 });
 export {

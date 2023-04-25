@@ -1,7 +1,8 @@
 import t from "./src/input.vue.mjs";
+import "../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { withInstall as o } from "../../utils/withInstall.mjs";
-const i = o(t);
+const m = o(t);
 export {
-  i as ViInput,
-  i as default
+  m as ViInput,
+  m as default
 };

@@ -1,25 +1,23 @@
-import { defineComponent as s, useCssVars as t, computed as c, openBlock as i, createElementBlock as a, normalizeClass as l, unref as m, renderSlot as p } from "vue";
+import { defineComponent as n, useCssVars as c, computed as i, openBlock as t, createElementBlock as a, normalizeClass as l, unref as m, renderSlot as p } from "vue";
 import "../../../theme-chalk/src/icon.css";
 import { iconProps as u } from "./icon.mjs";
-const d = s({
-  name: "ViIcon"
-}), v = /* @__PURE__ */ s({
-  ...d,
+const _ = /* @__PURE__ */ n({
+  __name: "icon",
   props: u,
-  setup(n) {
-    const e = n;
-    t((o) => ({
+  setup(r) {
+    const e = r;
+    c((o) => ({
       "8e7c279d-color": o.color,
       "8e7c279d-size": o.size
     }));
-    const r = c(() => ({
+    const s = i(() => ({
       [`vi-icon-${e.name}`]: e.name,
       [`vi-icon--${e.size}`]: e.size
     }));
-    return (o, f) => (i(), a(
+    return (o, d) => (t(), a(
       "i",
       {
-        class: l(m(r))
+        class: l(m(s))
       },
       [
         p(o.$slots, "default", {}, void 0, !0)
@@ -30,5 +28,5 @@ const d = s({
   }
 });
 export {
-  v as default
+  _ as default
 };

@@ -10,7 +10,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended'
   ],
   globals: {
-    defineOptions: true
+    defineOptions: true,
+    NodeJS: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {

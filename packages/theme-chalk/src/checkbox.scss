@@ -16,7 +16,6 @@
   height: $checkbox--height;
 
   & input[type='checkbox'] {
-    cursor: pointer;
     position: relative;
     border: none;
     background-color: transparent;
@@ -60,16 +59,42 @@
   }
 
   @include e(input) {
+    position: relative;
     white-space: nowrap;
-    cursor: pointer;
     outline: none;
     display: inline-flex;
-    position: relative;
   }
 
-  @include when(checked) {}
+  @include e(original) {
+    // opacity: 0;
+    outline: none;
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+
+  @include e(label) {
+    display: inline-block;
+    padding-left: 8px;
+    line-height: 1;
+  }
+
+  @include when(focus) {
+
+    // Visually distinguish when focus
+    &:not(.is-checked) {
+      .#{$namespace}-checkbox__original:not(:focus-visible) {
+        // border-color: getCssVar('checkbox-input-border-color-hover');
+        border-color: #ddd;
+      }
+    }
+  }
 
   @include when(disabled) {
+    cursor: not-allowed;
     color: #a8abb2;
 
     &,

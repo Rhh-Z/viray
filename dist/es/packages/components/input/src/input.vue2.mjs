@@ -1,7 +1,8 @@
-import { defineComponent as K, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as _, createVNode as g, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
+import { defineComponent as ee, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as g, createVNode as _, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
 import { inputProps as te, inputEmits as le } from "./input.mjs";
 import "../../../theme-chalk/src/input.css";
 import { UPDATE_MODEL_EVENT as F } from "../../../constants/events.mjs";
+import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { isKorean as ie } from "../../../utils/i18n.mjs";
 import re from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
 const ue = {
@@ -19,67 +20,65 @@ const ue = {
 }, ve = { class: "vi-input__count-inner" }, he = { key: 3 }, me = {
   key: 1,
   class: "vi-input__append"
-}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({
-  name: "ViInput"
-}), Ve = /* @__PURE__ */ K({
-  ...be,
+}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], Ie = /* @__PURE__ */ ee({
+  __name: "input",
   props: te,
   emits: le,
-  setup(D, { emit: s }) {
-    const o = D, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), T = n(() => b.value.length), U = L(), k = L(), W = n(() => U.value || k.value), y = async (e) => {
+  setup(K, { emit: s }) {
+    const o = K, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), D = n(() => b.value.length), T = L(), k = L(), U = n(() => T.value || k.value), y = async (e) => {
       let { value: r } = e.target;
       s(F, r), s("input", r), await S();
-    }, z = () => {
+    }, W = () => {
       s(F, ""), s("change", ""), s("clear"), s("input", "");
-    }, I = (e) => {
-      p.value = !0, s("focus", e);
-    }, V = (e) => {
-      p.value = !1, s("blur", e);
     }, x = (e) => {
+      p.value = !0, s("focus", e);
+    }, I = (e) => {
+      p.value = !1, s("blur", e);
+    }, V = (e) => {
       s("change", e.target.value);
     }, E = (e) => {
       s("keydown", e);
-    }, A = (e) => {
+    }, z = (e) => {
       d.value = !0, s("mouseenter", e);
-    }, O = (e) => {
+    }, A = (e) => {
       d.value = !1, s("mouseenter", e);
-    }, R = (e) => {
+    }, O = (e) => {
       f.value = !0, s("compositionstart", e);
-    }, j = (e) => {
+    }, R = (e) => {
       var B;
       s("compositionupdate", e);
       const r = (B = e.target) == null ? void 0 : B.value, u = r[r.length - 1] || "";
       f.value = !ie(u);
-    }, q = (e) => {
+    }, j = (e) => {
       s("compositionend", e), f.value && (f.value = !1, y(e));
     }, b = n(
       () => re(o.modelValue) ? "" : String(o.modelValue)
     ), w = n(
       () => o.clearable && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
-    ), G = n(
+    ), q = n(
       () => !!m.suffix || !!o.clearable || w.value || o.showPassword || $.value
       // (!!validateState.value && needStatusIcon.value)
     ), P = n(
       () => o.showPassword && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
     ), $ = n(
       () => o.showWordLimit && (o.type === "text" || o.type === "textarea") && !o.disabled && !o.readonly && !o.showPassword
-    ), H = () => {
-      c.value = !c.value, J();
-    }, J = async () => {
+    ), G = () => {
+      c.value = !c.value, H();
+    }, H = async () => {
       var e;
-      await S(), (e = W.value) == null || e.focus();
-    }, Q = n(
+      await S(), (e = U.value) == null || e.focus();
+    }, J = n(
       () => o.type !== "textarea" ? "vi-input" : "vi-textarea"
-    ), X = n(() => ({
+    ), Q = n(() => ({
       "vi-input__wrapper": !0,
       ["is-prepend"]: m.prepend,
       ["is-append"]: m.append
-    })), Y = n(() => ({
+    })), X = n(() => ({
       "is-disabled": o.disabled
       // [`vi-input--${inputProps.size}`]: inputProps.size
-    })), Z = n(
+    })), Y = n(
       () => w.value || P.value ? "vi-input__suffix" : ""
-    ), ee = n(() => ({
+    ), Z = n(() => ({
       ["is-disabled"]: o.disabled
     }));
     return (e, r) => {
@@ -87,9 +86,9 @@ const ue = {
       return t(), l(
         "div",
         {
-          class: C(i(Q)),
-          onMouseenter: A,
-          onMouseleave: O
+          class: C(i(J)),
+          onMouseenter: z,
+          onMouseleave: A
         },
         [
           e.type !== "textarea" ? (t(), l(
@@ -100,10 +99,10 @@ const ue = {
               e.$slots.prepend ? (t(), l("div", ue, [
                 h(e.$slots, "prepend")
               ])) : a("v-if", !0),
-              _(
+              g(
                 "div",
                 {
-                  class: C(i(X))
+                  class: C(i(Q))
                 },
                 [
                   a(" prefix slot "),
@@ -112,12 +111,12 @@ const ue = {
                   ])) : a("v-if", !0),
                   a(" prefixIcon "),
                   e.prefixIcon ? (t(), l("span", de, [
-                    g(u, { name: e.prefixIcon }, null, 8, ["name"])
+                    _(u, { name: e.prefixIcon }, null, 8, ["name"])
                   ])) : a("v-if", !0),
-                  _("input", M({ class: "vi-input__inner" }, e.$attrs, {
+                  g("input", M({ class: "vi-input__inner" }, e.$attrs, {
                     autofocus: e.autofocus,
                     type: e.showPassword ? c.value ? "text" : "password" : e.type,
-                    class: i(Y),
+                    class: i(X),
                     value: e.modelValue,
                     autocomplete: e.autocomplete,
                     "aria-label": e.label,
@@ -126,38 +125,38 @@ const ue = {
                     placeholder: e.placeholder,
                     disabled: e.disabled,
                     onInput: y,
-                    onFocus: I,
-                    onBlur: V,
-                    onChange: x,
+                    onFocus: x,
+                    onBlur: I,
+                    onChange: V,
                     onKeydown: E
                   }), null, 16, ce),
                   a(" suffix slot "),
-                  i(G) ? (t(), l(
+                  i(q) ? (t(), l(
                     "span",
                     {
                       key: 2,
-                      class: C(i(Z))
+                      class: C(i(Y))
                     },
                     [
                       h(e.$slots, "suffix"),
                       i(w) ? (t(), ne(u, {
                         key: 0,
                         name: "close-circle",
-                        onClick: z
+                        onClick: W
                       })) : a("v-if", !0),
                       i(P) ? (t(), l("div", {
                         key: 1,
-                        onClick: H
+                        onClick: G
                       }, [
-                        g(u, {
+                        _(u, {
                           name: c.value ? "eye" : "eye-close"
                         }, null, 8, ["name"])
                       ])) : a("v-if", !0),
                       i($) ? (t(), l("span", fe, [
-                        _(
+                        g(
                           "span",
                           ve,
-                          N(i(T)) + "/" + N(o.maxlength),
+                          N(i(D)) + "/" + N(o.maxlength),
                           1
                           /* TEXT */
                         )
@@ -168,7 +167,7 @@ const ue = {
                   )) : a("v-if", !0),
                   a(" suffixIcon "),
                   e.suffixIcon ? (t(), l("span", he, [
-                    g(u, { name: e.suffixIcon }, null, 8, ["name"])
+                    _(u, { name: e.suffixIcon }, null, 8, ["name"])
                   ])) : a("v-if", !0)
                 ],
                 2
@@ -183,7 +182,7 @@ const ue = {
             /* STABLE_FRAGMENT */
           )) : (t(), l("textarea", M({
             key: 1,
-            class: ["vi-textarea__inner", i(ee)],
+            class: ["vi-textarea__inner", i(Z)],
             ref_key: "textarea",
             ref: k
           }, e.$attrs, {
@@ -195,13 +194,13 @@ const ue = {
             autofocus: e.autofocus,
             autocomplete: e.autocomplete,
             onInput: y,
-            onFocus: I,
-            onBlur: V,
-            onChange: x,
+            onFocus: x,
+            onBlur: I,
+            onChange: V,
             onKeydown: E,
-            onCompositionstart: R,
-            onCompositionupdate: j,
-            onCompositionend: q
+            onCompositionstart: O,
+            onCompositionupdate: R,
+            onCompositionend: j
           }), null, 16, ye))
         ],
         34
@@ -211,5 +210,5 @@ const ue = {
   }
 });
 export {
-  Ve as default
+  Ie as default
 };

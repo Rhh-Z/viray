@@ -3,26 +3,28 @@ import { mount } from '@vue/test-utils';
 import button from '../src/button.vue';
 
 // The component to test
-describe('button.vue', () => {
+describe('Button.vue', () => {
   it('should render slot', () => {
     const wrapper = mount(button, {
       slots: {
-        default: 'easyest'
+        default: 'viray'
       }
     });
 
     // Assert the rendered text of the component
-    expect(wrapper.text()).toContain('easyest');
+    expect(wrapper.text()).toContain('viray');
   });
 
   it('should have class', () => {
-    const wapper = mount(button, {
+    const wrapper = mount(button, {
       props: {
         type: 'primary',
-        size: 'large'
+        size: 'large',
+        plain: true,
+        text: true
       }
     })
-    expect(wapper.classes()).toContain('vi-button--primary');
+    expect(wrapper.classes()).toContain('vi-button--primary');
   });
 
 });

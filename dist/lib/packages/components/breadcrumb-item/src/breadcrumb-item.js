@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e=require("../../../utils/definePropType.js");require("../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js");const r={to:{type:e.definePropType([String,Object]),default:""},replace:{type:Boolean,default:!1}};exports.breadcrumbItemProps=r;

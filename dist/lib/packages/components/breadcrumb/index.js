@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const r=require("./src/breadcrumb.vue.js");require("../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js");const t=require("../../utils/withInstall.js"),e=t.withInstall(r.default);exports.ViBreadcrumb=e;exports.default=e;

@@ -22,7 +22,7 @@ export declare const progressProps: {
         validator: (val: number) => boolean;
     };
     strokeLinecap: {
-        type: import("vue").PropType<"round" | "inherit" | "butt" | "square">;
+        type: import("vue").PropType<"square" | "inherit" | "round" | "butt">;
         default: string;
     };
     format: {

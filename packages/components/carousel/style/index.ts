@@ -1,0 +1,1 @@
+import '@viray/theme-chalk/src/carousel.scss';

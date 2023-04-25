@@ -1,0 +1,36 @@
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
+@use 'sass:map';
+
+@include b(card) {
+  border-radius: $vi-card-border-radius;
+  border: 1px solid $vi-card-border-color;
+  background-color: $vi-card-bg-color;
+  overflow: hidden;
+  color: $text-color-primary;
+  transition: map.get($transition-duration, '');
+
+  @include e(header) {
+    padding: calc($el-card-padding - 2px) $el-card-padding;
+    border-bottom: 1px solid $vi-card-border-color;
+    box-sizing: border-box;
+  }
+
+  @include e(body) {
+    padding: $el-card-padding;
+  }
+
+  @include when(always-shadow) {
+    box-shadow: $vi-card-shadow-light;
+  }
+
+  @include when(hover-shadow) {
+    &:hover {
+      box-shadow: $vi-card-shadow-light;
+    }
+  }
+
+  @include when(always-shadow) {
+    box-shadow: none;
+  }
+}

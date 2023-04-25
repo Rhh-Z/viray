@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});require("../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js");const e=require("../../utils/withInstall.js"),i=require("./src/notify.js"),t=e.withInstallFunction(i.default,"$notify");exports.ViNotification=t;exports.default=t;

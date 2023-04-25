@@ -1,0 +1,1 @@
+@charset "UTF-8";.vi-backtop{position:fixed;width:40px;height:40px;border-radius:50%;box-shadow:0 2px 12px 0 rgba(0,0,0,.1);display:flex;justify-content:center;align-items:center;font-size:20px;cursor:pointer;z-index:5;background-color:#fff;color:#409eff;transition:opacity .6s}.backtop-fade-enter-from,.backtop-fade-leave-active{opacity:0}.backtop-fade-leave-from{opacity:1}

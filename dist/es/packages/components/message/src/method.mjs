@@ -51,14 +51,14 @@ function E(e, t) {
   t && t(c), n.splice(s, 1);
   const m = c.el.offsetHeight;
   for (let o = s; o < n.length; o++) {
-    const r = parseInt((l = n[o].el) == null ? void 0 : l.style.top) - m + -16;
+    const r = parseInt((l = n[o].el) == null ? void 0 : l.style.top) - m - 16;
     n[o].component.props.offset = r;
   }
 }
 function I() {
   for (let e = n.length - 1; e >= 0; e--) {
     const t = n[e].component;
-    (t == null ? void 0 : t.proxy).close();
+    (t == null ? void 0 : t.proxy).close(), console.log(t);
   }
 }
 f.closeAll = I;

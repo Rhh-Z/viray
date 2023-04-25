@@ -1,0 +1,47 @@
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
+@use 'sass:map';
+
+@include b(breadcrumb-item) {
+
+  @include e(separator) {
+    margin: 0 9px;
+    font-weight: bold;
+    color: #adb0b8;
+  }
+
+  @include e(inner) {
+    color: $text-color-regular;
+
+    &.is-link,
+    & a {
+      font-weight: 700;
+      text-decoration: none;
+      transition: color .2s cubic-bezier(.645, .045, .355, 1);
+      color: $text-color-primary;
+
+      &:hover {
+        color: map.get($colors, 'primary', 'base');
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:last-child {
+
+    .#{$namespace}-breadcrumb-item__inner,
+    .#{$namespace}-breadcrumb-item__inner a {
+
+      &,
+      &:hover {
+        font-weight: normal;
+        color: $text-color-regular;
+        cursor: text;
+      }
+    }
+
+    .#{$namespace}-breadcrumb-item__separator {
+      display: none;
+    }
+  }
+}

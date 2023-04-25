@@ -66,7 +66,6 @@ export const messageProps = {
   }
 }
 
-
 export const messageEmits = {
   close: () => true,
   destroy: () => true,

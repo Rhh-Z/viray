@@ -1,6 +1,7 @@
 const t = {
   name: {
-    type: String
+    type: String,
+    default: ""
   },
   size: {
     type: String,

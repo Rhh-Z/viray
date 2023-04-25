@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./breadcrumb-item.vue2.js"),r=require("../../../../_virtual/_plugin-vue_export-helper.js"),t=r.default(e.default,[["__file","E:/source/viray/packages/components/breadcrumb-item/src/breadcrumb-item.vue"]]);exports.default=t;

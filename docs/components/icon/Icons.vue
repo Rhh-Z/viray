@@ -1499,36 +1499,7 @@
     </div>
   </div>
 
-  <div style="display: flex">
-    <div class="icon-items">
-      <vi-icon name="fullscreen-exit"></vi-icon>
-      <span>fullscreen-exit</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="doubleleft"></vi-icon>
-      <span>doubleleft</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="doubleright"></vi-icon>
-      <span>doubleright</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="arrowright"></vi-icon>
-      <span>arrowright</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="arrowup1"></vi-icon>
-      <span>arrowup1</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="arrowleft"></vi-icon>
-      <span>arrowleft</span>
-    </div>
-    <div class="icon-items">
-      <vi-icon name="arrowdown1"></vi-icon>
-      <span>arrowdown1</span>
-    </div>
-  </div>
+
 
   <div style="display: flex">
     <div class="icon-items">

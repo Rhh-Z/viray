@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const l=require("vue"),o=(t,{isLimitExceeded:n})=>{const{emit:r}=l.getCurrentInstance();function u(e){return e===t.trueLabel||e===!0?t.trueLabel??!0:t.falseLabel??!1}function a(e){if(n.value)return;const c=e.target;r("change",u(c.checked),e)}return{handleChange:a}};exports.useCheckboxEvent=o;

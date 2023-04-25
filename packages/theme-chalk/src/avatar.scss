@@ -1,0 +1,37 @@
+@use './mixins/mixins.scss'as *;
+@use './common/variable.scss'as *;
+@use 'sass:map';
+
+@include b(avatar) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  color: $vi-avatar-text-color;
+  background: $vi-avatar-bg-color;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+
+  @include m(circle) {
+    border-radius: 50%;
+  }
+
+
+
+  @each $size in ('small', 'large') {
+    @include m($size) {
+      width: map.get($avatar-size, $size);
+      height: map.get($avatar-size, $size);
+    }
+  }
+
+  &>img {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    border-style: none;
+  }
+}

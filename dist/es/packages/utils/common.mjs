@@ -1,4 +1,5 @@
-const o = (e) => typeof e == "number";
+const s = (r) => typeof r == "number", e = (r) => Array.isArray(r);
 export {
-  o as isNumber
+  e as isArray,
+  s as isNumber
 };

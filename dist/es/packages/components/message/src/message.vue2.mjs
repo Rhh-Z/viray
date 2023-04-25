@@ -1,77 +1,73 @@
-import { defineComponent as f, ref as h, onMounted as L, onUnmounted as M, computed as r, openBlock as n, createBlock as a, Transition as b, withCtx as w, withDirectives as N, createElementVNode as S, normalizeClass as z, unref as o, normalizeStyle as B, renderSlot as V, createElementBlock as u, toDisplayString as E, createCommentVNode as H, vShow as I } from "vue";
-import { messageProps as $, messageEmits as D } from "./message.mjs";
+import { defineComponent as C, ref as L, onMounted as M, onUnmounted as b, computed as l, openBlock as n, createBlock as a, Transition as h, withCtx as w, withDirectives as N, createElementVNode as S, normalizeClass as $, unref as o, normalizeStyle as z, renderSlot as B, createElementBlock as u, toDisplayString as E, createCommentVNode as H, vShow as I } from "vue";
+import { messageProps as V, messageEmits as D } from "./message.mjs";
 import "../../../theme-chalk/src/message.css";
-import { ViIcon as i } from "../../icon/index.mjs";
+import { ViIcon as r } from "../../icon/index.mjs";
 const U = {
   key: 0,
   class: "vi-message__content"
-}, A = ["innerHTML"], F = f({
-  name: "ViMessage"
-}), K = /* @__PURE__ */ f({
-  ...F,
-  props: $,
+}, A = ["innerHTML"], J = /* @__PURE__ */ C({
+  __name: "message",
+  props: V,
   emits: D,
-  setup(p, { emit: c }) {
-    const e = p, t = h(!1), d = () => {
-      c("close");
+  setup(f, { emit: p }) {
+    const e = f, t = L(!1), d = () => {
+      p("close");
     }, v = () => {
-      c("destroy");
-    }, g = () => {
       t.value = !1;
     };
-    L(() => {
-      t.value = !0, m();
+    M(() => {
+      t.value = !0, c();
     });
-    let l = null;
-    const m = () => {
-      e.duration > 0 && (l = setTimeout(() => {
+    let i = null;
+    const c = () => {
+      e.duration > 0 && (i = setTimeout(() => {
         t.value = !1;
       }, e.duration));
-    }, _ = () => {
-      clearTimeout(Number(l)), m();
+    }, g = () => {
+      clearTimeout(Number(i)), c();
     };
-    M(() => {
-      clearTimeout(Number(l));
+    b(() => {
+      clearTimeout(Number(i));
     });
     const y = {
       info: "info-circle-fill",
       success: "check-circle-fill",
       error: "close-circle-fill",
       warning: "warning-circle-fill"
-    }, k = r(() => y[e.type]), T = r(() => ({
+    }, _ = l(() => y[e.type]), k = l(() => ({
       "vi-message": !0,
       [`vi-message--${e.type}`]: e.type,
       [e.customClass]: e.customClass,
       "is-center": e.center
-    })), C = r(() => ({
+    })), T = l(() => ({
       top: `${e.offset}px`,
       zIndex: e.zIndex
     }));
-    return (s, P) => (n(), a(b, {
+    return (s, m) => (n(), a(h, {
       name: "message-fade",
       onBeforeLeave: d,
-      onAfterLeave: v,
+      onAfterLeave: m[0] || (m[0] = (F) => s.$emit("destroy")),
       persisted: ""
     }, {
       default: w(() => [
         N(S(
           "div",
           {
-            class: z(o(T)),
-            style: B(o(C)),
-            onMouseenter: _
+            class: $(o(k)),
+            style: z(o(T)),
+            onMouseenter: g
           },
           [
-            s.icon ? (n(), a(o(i), {
+            s.icon ? (n(), a(o(r), {
               key: 0,
               name: s.icon,
               class: "vi-message__icon"
-            }, null, 8, ["name"])) : (n(), a(o(i), {
+            }, null, 8, ["name"])) : (n(), a(o(r), {
               key: 1,
-              name: o(k),
+              name: o(_),
               class: "vi-message__icon"
             }, null, 8, ["name"])),
-            V(s.$slots, "default", {}, () => [
+            B(s.$slots, "default", {}, () => [
               s.dangerouslyUseHTMLString ? (n(), u("span", {
                 key: 1,
                 class: "vi-message__content",
@@ -84,10 +80,10 @@ const U = {
                 /* TEXT */
               ))
             ]),
-            s.closeable ? (n(), a(o(i), {
+            s.closeable ? (n(), a(o(r), {
               key: 2,
               name: "close",
-              onClick: g,
+              onClick: v,
               class: "vi-message__close"
             })) : H("v-if", !0)
           ],
@@ -103,5 +99,5 @@ const U = {
   }
 });
 export {
-  K as default
+  J as default
 };

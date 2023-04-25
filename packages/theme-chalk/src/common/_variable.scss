@@ -3,6 +3,12 @@
 @use 'sass:map';
 @use 'sass:color';
 
+
+/*   z-index
+***************/
+$index-normal: 1 !default;
+
+
 /* Tansition
 --------- */
 $font-family:vi-iconfont;
@@ -16,6 +22,8 @@ $fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
 $color-white:white;
 $color-black:black;
 $text-color:#606266;
+$text-color-primary:#303133;
+$text-color-regular:#606266;
 
 /* Font size
 -------------------*/
@@ -194,7 +202,7 @@ $checkbox--font-weight:map.deep-merge(('large':500,
     'small':100), $checkbox--font-weight);
 
 
-
+$vi-checkbox-font-size:14px;
 $checkbox--height:32px;
 $checkbox--font-color:#606266;
 
@@ -208,7 +216,7 @@ $vi-input-height: 32px;
 $vi-input-inner-height: calc($vi-input-height - 2px);
 
 // input font color
-$vi-input-text-color:#606266;
+$vi-input-text-color:$text-color-regular;
 $vi-input-bg-color:#fff;
 
 $vi-input-border-radius:4px;
@@ -239,7 +247,7 @@ $vi-progress-bgColor:map.deep-merge(('default':#20a0ff, 'success':#13ce66,
   $vi-progress-bgColor);
 
 $vi-progress-color:#ebeef5 !default;
-$vi-progress-color-regular:$vi-input-text-color !default;
+$vi-progress-color-regular:$text-color-regular !default;
 
 
 /*    Dialog
@@ -249,7 +257,7 @@ $vi-dialog-margin-top: 15vh;
 $vi-dialog-bg-color: #fff;
 $vi-dialog-boxshadow: 0px 12px 32px 4px rgba(0, 0, 0, .04),
 0px 8px 20px rgba(0, 0, 0, .08);
-$vi-progress-text-color-primary:#303133;
+$vi-progress-text-color-primary:$text-color-primary;
 $vi-dialog-title-font-size: 18px;
 $vi-dialog-content-font-size: 14px;
 $vi-dialog-font-line-height: 24px;
@@ -295,3 +303,91 @@ $message-success-font-color: $color-success-lighter !default;
 $message-info-font-color: $color-info-lighter !default;
 $message-warning-font-color: $color-warning-lighter !default;
 $message-danger-font-color: $color-danger-lighter !default;
+
+
+/*     Notification
+****************************/
+$notification-types: info,
+success,
+error,
+warning;
+
+
+$vi-notification-width:330px;
+$vi-notification-padding:14px 26px 14px 13px;
+$vi-notification-radius:8px;
+$vi-notification-border-color:#ebeef5;
+$vi-notification-shadow:0px 0px 12px rgba(0, 0, 0, .12);
+$vi-notification-title-font-size:16px;
+$vi-notification-content-font-size:14px;
+$vi-notification-title-color:$text-color-primary;
+$vi-notification-content-color:$text-color;
+
+
+
+/*    Carousel
+*********************/
+$vi-carousel-arrow-size:36px;
+$vi-carousel-arrow-background:rgba(31, 45, 61, .11);
+$vi-carousel-arrow-hover-background:rgba(31, 45, 61, .41);
+$vi-carousel--arrow-font-size:12px;
+
+
+/*    Avatar
+**********************/
+$vi-avatar-text-color:#ffffff;
+$vi-avatar-bg-color:#c0c4cc;
+$vi-avatar-icon-size:18px;
+$vi-avatar-size-large:56px;
+$vi-avatar-size-small:24px;
+
+$avatar-size:() !default;
+$avatar-size: map.deep-merge(('small': $vi-avatar-size-small, 'large': $vi-avatar-size-large), $avatar-size);
+
+
+/*          Card
+****************************/
+$vi-card-shadow-light:0 0 12px rgba(0, 0, 0, .12);
+$vi-card-border-radius:4px;
+$vi-card-border-color:#e4ede7;
+$vi-card-bg-color:#ffffff;
+$el-card-padding:20px;
+
+
+/*        Tag
+***************************/
+$tag-types:primary,
+success,
+warning,
+danger,
+error,
+info;
+
+$vi-tag-icon-size-large:16px;
+$vi-tag-icon-size-default:14px;
+$vi-tag-icon-size-small:12px;
+
+$tag-sizes:() !default;
+$tag-sizes:map.deep-merge(('small':('padding':0 7px, 'height':20px, 'icon-size':$vi-tag-icon-size-small),
+    'large':('padding':0 11px, 'height':32px, 'icon-size':$vi-tag-icon-size-large)), $tag-sizes);
+
+$vi-tag-font-size:12px;
+$vi-tag-border-radius:4px;
+$vi-tag-round: 9999px;
+
+
+/*        Popover
+**************************/
+$vi-popover-palcement: 'top',
+'bottom',
+'left',
+'right';
+
+$vi-bg-color-overlay: $color-white;
+$vi-border-color-light: #e4e7ff;
+
+$vi-popover-font-size:12px;
+$vi-popover-title-font-size:16px;
+$vi-popover-border-radius:4px;
+$vi-popover-border-radius:4px;
+$vi-popover-title-text-color:$text-color-primary;

@@ -2,7 +2,7 @@
   <Transition 
     name="message-fade"
     @before-leave="beforeLeave"
-    @after-leave="afterLeave"
+    @after-leave="$emit('destroy')"
   >
     <div 
       v-show="visible"
@@ -34,10 +34,6 @@ const emit = defineEmits(messageEmits)
 
 const beforeLeave = () => {
   emit('close');
-};
-
-const afterLeave = ()=>{
-  emit('destroy')
 }
 
 const close = ()=>{

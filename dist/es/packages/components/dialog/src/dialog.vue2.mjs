@@ -1,5 +1,5 @@
-import { defineComponent as m, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as V } from "vue";
-import { dialogProps as N, dialogEmits as T } from "./dialog.mjs";
+import { defineComponent as y, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as N } from "vue";
+import { dialogProps as T, dialogEmits as V } from "./dialog.mjs";
 import "../../../theme-chalk/src/dialog.css";
 import { useDialog as z } from "./use-dialog.mjs";
 import P from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
@@ -9,28 +9,26 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
 }, F = { class: "vi-dialog__content" }, G = {
   key: 0,
   class: "vi-dialog__footer"
-}, H = m({
-  name: "ViDialog"
-}), Q = /* @__PURE__ */ m({
-  ...H,
-  props: N,
-  emits: T,
-  setup(p) {
-    const e = p, v = a(() => ({
+}, O = /* @__PURE__ */ y({
+  __name: "dialog",
+  props: T,
+  emits: V,
+  setup(m) {
+    const e = m, p = a(() => ({
       width: P(e.width) ? e.width : `${e.width}px`,
       scrollbarWidth: e.lockScroll ? "none" : "auto"
     })), {
-      visible: _,
+      visible: v,
       afterEnter: f,
-      afterLeave: g,
-      beforeLeave: h,
+      afterLeave: _,
+      beforeLeave: g,
       handleClose: n
-    } = z(e), u = a(() => ({
+    } = z(e), h = a(() => ({
       "vi-dialog": !0,
       "is-center": e.center
     }));
     return (t, r) => {
-      const k = C("vi-icon");
+      const u = C("vi-icon");
       return s(), w(b, {
         to: "body",
         disabled: !t.appendToBody
@@ -38,8 +36,8 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
         d(B, {
           name: "dialog-fade",
           onAfterEnter: o(f),
-          onAfterLeave: o(g),
-          onBeforeLeave: o(h),
+          onAfterLeave: o(_),
+          onBeforeLeave: o(g),
           persisted: ""
         }, {
           default: E(() => [
@@ -51,8 +49,8 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
                   "div",
                   {
                     role: "dialog",
-                    class: S(o(u)),
-                    style: $(o(v))
+                    class: S(o(h)),
+                    style: $(o(p))
                   },
                   [
                     i("div", j, [
@@ -66,9 +64,9 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
                       i("span", {
                         class: "vi-dialog__close",
                         onClick: r[0] || (r[0] = //@ts-ignore
-                        (...y) => o(n) && o(n)(...y))
+                        (...k) => o(n) && o(n)(...k))
                       }, [
-                        d(k, { name: "close" })
+                        d(u, { name: "close" })
                       ])
                     ]),
                     i("div", F, [
@@ -85,7 +83,7 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
               512
               /* NEED_PATCH */
             ), [
-              [V, o(_)]
+              [N, o(v)]
             ])
           ]),
           _: 3
@@ -96,5 +94,5 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
   }
 });
 export {
-  Q as default
+  O as default
 };

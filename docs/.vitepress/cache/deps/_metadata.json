@@ -1,23 +1,23 @@
 {
-  "hash": "175887e0",
-  "browserHash": "0d2d744c",
+  "hash": "4a188936",
+  "browserHash": "96a309a7",
   "optimized": {
     "vue": {
-      "src": "../../../../node_modules/.pnpm/vue@3.2.36/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "04c5faef",
+      "fileHash": "94692070",
       "needsInterop": false
     },
     "lodash-unified": {
       "src": "../../../../node_modules/.pnpm/lodash-unified@1.0.3_tknf7errc3xdqocd3ryzzla7vq/node_modules/lodash-unified/import.js",
       "file": "lodash-unified.js",
-      "fileHash": "d514867b",
+      "fileHash": "edc66ba9",
       "needsInterop": false
     },
     "lodash": {
       "src": "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js",
       "file": "lodash.js",
-      "fileHash": "0af4f55b",
+      "fileHash": "b2e93e56",
       "needsInterop": true
     }
   },

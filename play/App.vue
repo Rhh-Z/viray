@@ -182,15 +182,194 @@
   <vi-button text type="error" @click="handleErrorMessage">Click to show error message</vi-button>
   <vi-button text @click="openVn">VNode</vi-button>
 
-  <div id="box"></div>
+  <hr>
+  <vi-backtop icon="up" :visibility-height="1000" :right="70"></vi-backtop>
+
+  <vi-breadcrumb separator="/" style="margin-bottom: 10px;">
+    <vi-breadcrumbItem :to="{path:'/about'}">About</vi-breadcrumbItem>
+    <vi-breadcrumb-item>
+      <a href="/about">promotion management</a>
+    </vi-breadcrumb-item>
+    <vi-breadcrumb-item>promotion detail</vi-breadcrumb-item>
+  </vi-breadcrumb>
+  
+  <vi-breadcrumb separator-icon="left">
+    <vi-breadcrumbItem to="/user" replace>user</vi-breadcrumbItem>
+    <vi-breadcrumb-item>
+      <RouterLink to="/about">promotion management</RouterLink>
+    </vi-breadcrumb-item>
+    <vi-breadcrumb-item>promotion detail</vi-breadcrumb-item>
+  </vi-breadcrumb>
+
+  <router-view></router-view>
+
+  <hr>
+
+  <vi-button plain @click="showNotify">close automatically</vi-button>
+
+  <vi-button @click="closeNotify">关闭</vi-button>
+
+  <hr>
+
+  <vi-carousel width="1000px" height="150px">
+    <vi-carousel-item>
+      <h3>1</h3>
+    </vi-carousel-item>
+    <vi-carousel-item>
+      <h3>2</h3>
+    </vi-carousel-item>
+    <vi-carousel-item>
+      <h3>3</h3>
+    </vi-carousel-item >
+    <vi-carousel-item>
+      <h3>4</h3>
+    </vi-carousel-item >
+  </vi-carousel>
+
+  <hr>
+  <div class="demo-type">
+    <div>
+      <vi-avatar icon="user" />
+    </div>
+    <div>
+      <vi-avatar
+        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+      />
+    </div>
+    <div>
+      <vi-avatar> user </vi-avatar>
+    </div>
+  </div>
+
+  <div class="demo-fit">
+    <div v-for="fit in fits" :key="fit" class="block">
+      <span class="title">{{ fit }}</span>
+      <vi-avatar shape="square" :size="100" :fit="fit" :src="url" />
+    </div>
+  </div>
+  <hr>
+  <vi-card class="box-card">
+    <template #header>
+      <div class="card-header">
+        <span>Card name</span>
+        <vi-button class="button" text>Operation button</vi-button>
+      </div>
+    </template>
+    <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
+  </vi-card>
+
+  <hr>
+
+  <vi-tag type="primary">Primary</vi-tag>
+  <vi-tag type="success">Success</vi-tag>
+  <vi-tag type="info">Info</vi-tag>
+  <vi-tag type="danger">Danger</vi-tag>
+  <vi-tag type="error">Error</vi-tag>
+  <vi-tag type="warning">Warning</vi-tag>
+
+  <vi-tag type="primary" :closable="true">Primary</vi-tag>
+  <vi-tag type="success" :closable="true">Success</vi-tag>
+  <vi-tag type="info"  :closable="true">Info</vi-tag>
+  <vi-tag type="danger" :closable="true">Danger</vi-tag>
+  <vi-tag type="error" :closable="true">Error</vi-tag>
+  <vi-tag type="warning" round :closable="true">Warning</vi-tag>
+
+  <vi-tag type="primary" :closable="true" effect="dark">Primary</vi-tag>
+  <vi-tag type="warning" :closable="true" effect="dark">Warning</vi-tag>
+  <vi-tag type="success" :closable="true" effect="dark">Success</vi-tag>
+  <vi-tag type="info" :closable="true" effect="dark">Info</vi-tag>
+  <vi-tag type="error" :closable="true" effect="dark">Error</vi-tag>
+  <vi-tag type="danger" round :closable="true" effect="dark">Danger</vi-tag>
+  <hr>
+  <vi-tag type="primary" :closable="true" effect="plain">Primary</vi-tag>
+  <vi-tag type="warning" :closable="true" effect="plain">Warning</vi-tag>
+  <vi-tag type="success" :closable="true" effect="plain">Success</vi-tag>
+  <vi-tag type="info" :closable="true" effect="plain">Info</vi-tag>
+  <vi-tag type="error" :closable="true" @click="handleTagClick" effect="plain">Error</vi-tag>
+  <vi-tag type="danger" round :closable="true" :visible="showTag" @close="handleTagClose" effect="plain">Danger</vi-tag>
+
+  <vi-tag type="primary" hit round effect="plain">Primary</vi-tag>
+  <vi-tag type="warning" hit effect="plain">Warning</vi-tag>
+  <vi-tag type="success" hit effect="plain">Success</vi-tag>
+  <vi-tag type="info" effect="plain">Info</vi-tag>
+  <vi-tag type="error" effect="plain">Error</vi-tag>
+  <vi-tag type="danger" effect="plain">Danger</vi-tag>
+  <hr>
+
+  <div class="example">
+    <vi-popover
+      placement="bottom"
+      title="Title"
+      :width="200"
+      trigger="hover"
+      :visible="visible1"
+      content="this is content, this is content, this is content"
+    >
+      <template #reference>
+        <vi-button @click="visible1 = !visible1">Click to activate1</vi-button>
+      </template>
+    </vi-popover>
+
+
+    <vi-popover :visible="visible2" title="Tittleasadasd" placement="bottom" trigger="hover">
+      <template #reference>
+        <vi-button @click="visible2 = !visible2">Click to activate2</vi-button>
+      </template>
+      <template #title>
+        Title
+      </template>
+      <template #content>
+        this is content this is content
+      </template>
+    </vi-popover>
+
+    <vi-popover :visible="visible3" title="Tittleasadasd" placement="right" trigger="hover">
+      <template #reference>
+        <vi-button @click="visible3 = !visible3">Click to activate3</vi-button>
+      </template>
+      <template #title>
+        Title
+      </template>
+      <template #content>
+        this is content this is content
+      </template>
+    </vi-popover>
+  </div>
+  <hr>
+
+  <vi-checkbox disabled size="small">
+    Option 1
+  </vi-checkbox>
+
+  <vi-checkbox label="Option 2" name="checkbox2" v-model="modelValue" />
+  {{ modelValue }}
+
+  <vi-checkbox  size="large" label="Option 3" />
+  <hr>
+  <vi-checkbox-group v-model="checkList" :min="3">
+    <vi-checkbox label="Option A" />
+    <vi-checkbox label="Option B" />
+    <vi-checkbox label="Option C" />
+    <vi-checkbox label="disabled" />
+    <vi-checkbox label="selected and disabled" disabled />
+  </vi-checkbox-group>
+  {{ checkList }}
+
+  <hr>
+
+  
+  <div id="box">
+  </div>
 </template>
 
 <script setup lang='ts'>
-import { h, ref } from 'vue'
-import { ViMessage } from "@viray/components/message"
+import { h, reactive, ref, toRefs } from 'vue'
+import { ViMessage,ViNotification } from "@viray/components"
+import { NotificationHandle } from 'packages/components/notification/src/notification';
+
+const checkList = ref(['selected and disabled', 'Option A'])
+
 const name = ref('里斯')
-
-
 
 const send = (value: string) => {
   console.log(value);
@@ -249,7 +428,7 @@ const handleErrorMessage = ()=>{
     message:'This is a error message.',
     type:'error',
     center:true,
-    duration:10000,
+    duration:1000,
   })
 }
 
@@ -261,10 +440,63 @@ const openVn = () => {
     ]),
   })
 }
+
+let closeN: NotificationHandle | null = null
+
+const showNotify = ()=>{
+  closeN = ViNotification({
+    title: 'Prompt',
+    message: 'This is a message that does not automatically close',
+    duration: 3000,
+    type:'warning',
+    position:'bottom-right',
+  })
+}
+
+const closeNotify = ()=>{
+  closeN?.close()
+}
+
+const state = reactive({
+  fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
+  url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+})
+const { fits, url } = toRefs(state)
+
+
+const showTag = ref(true)
+const handleTagClick =()=>{
+  console.log(1);
+}
+const handleTagClose = ()=>{
+  showTag.value = false
+}
+
+const visible1 = ref(false)
+const visible2 = ref(false)
+const visible3 = ref(false)
+
+const modelValue = ref(false)
 </script>
 
 
 <style lang='scss'>
+.vi-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 150px;
+  margin: 0;
+  text-align: center;
+}
+
+.vi-carousel__item:nth-child(2n) {
+  background-color: #99a9bf;
+}
+
+.vi-carousel__item:nth-child(2n + 1) {
+  background-color: #d3dce6;
+}
+
 #box{
   height: 1000px;
 }
@@ -294,7 +526,6 @@ const openVn = () => {
 
 textarea {
   width: 400px !important;
-  // margin-right: 10px;
 }
 .vi-progress {
   margin-bottom: 10px;
@@ -302,5 +533,62 @@ textarea {
 
 .vi-progress--line {
   width: 350px;
+}
+
+.demo-type {
+  display: flex;
+}
+.demo-type > div {
+  flex: 1;
+  text-align: center;
+}
+
+.demo-type > div:not(:last-child) {
+  border-right: 1px solid var(--el-border-color);
+}
+
+.demo-fit {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+.demo-fit .block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+}
+
+.demo-fit .title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--el-text-color-secondary);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.box-card {
+  width: 480px;
+}
+
+
+.vi-tag {
+  margin-right:10px;
+}
+
+.example {
+  margin-left: 30%;
 }
 </style>

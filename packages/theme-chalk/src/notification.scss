@@ -1,0 +1,86 @@
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
+@use 'sass:map';
+
+
+@include b(notification) {
+  display: flex;
+  width: $vi-notification-width;
+  padding: $vi-notification-padding;
+  border-radius: $vi-notification-radius;
+  box-sizing: border-box;
+  border: 1px solid $vi-notification-border-color;
+  position: fixed;
+  background-color: #fff;
+  box-shadow: $vi-notification-shadow;
+  transition: opacity map.get($transition-duration, ''),
+    transform map.get($transition-duration, ''),
+    left map.get($transition-duration, ''),
+    right map.get($transition-duration, ''),
+    top .4s,
+    bottom map.get($transition-duration, '');
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  z-index: 9999;
+
+  @include e(icon) {
+    padding: 5px;
+
+    @each $type in $notification-types {
+      @include when($type) {
+        color: map.get($colors, $type, 'base');
+      }
+    }
+  }
+
+  @include e(group) {
+    padding: 5px 8px;
+  }
+
+  @include e(title) {
+    font-size: $vi-notification-title-font-size;
+    font-weight: bold;
+    line-height: 24px;
+    color: $vi-notification-title-color;
+    margin: 0;
+  }
+
+  @include e(content) {
+    font-size: $vi-notification-content-font-size;
+    line-height: 24px;
+    margin: 6px 0 0;
+    color: $vi-notification-content-color;
+    text-align: justify;
+  }
+
+  @include e(close) {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  &.right {
+    right: 16px;
+  }
+
+  &.left {
+    left: 16px;
+  }
+}
+
+.notification-fade-enter-from {
+  opacity: 0;
+
+  &.right {
+    transform: translateX(100%);
+  }
+
+  &.left {
+    transform: translateX(-100%);
+  }
+}
+
+.notification-fade-leave-active {
+  opacity: 0;
+}

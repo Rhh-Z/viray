@@ -1,7 +1,8 @@
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from "packages/constants";
-import { ExtractPropTypes, PropType } from "vue";
+import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from "@viray/constants";
+import { ExtractPropTypes } from "vue";
 import { CheckboxValueType } from "packages/components/checkbox/src/checkbox";
-import { isArray } from '@viray/utils';
+import { definePropType, isArray } from '@viray/utils';
+import checkboxGroup from './checkbox-group.vue';
 
 export type CheckboxGroupValueType = Exclude<CheckboxValueType, boolean>[]
 
@@ -15,11 +16,19 @@ export const checkboxGroupProps = {
   },
   min: Number,
   max: Number,
-  size: String,
+  size: {
+    type: String,
+    values: ['small', '', 'default', 'large'],
+    default: ''
+  },
   modelValue: {
-    type: Array as PropType<CheckboxGroupModelValue>,
+    type: definePropType<CheckboxGroupValueType>(Array),
     default: () => []
-  }
+  },
+  validateEvent: {
+    type: Boolean,
+    default: true,
+  },
 }
 
 
@@ -30,3 +39,4 @@ export const checkboxGroupEmits = {
 
 export type CheckboxGroupProps = ExtractPropTypes<typeof checkboxGroupProps>
 export type CheckboxGroupEmits = ExtractPropTypes<typeof checkboxGroupEmits>
+export type CheckboxGroupInstance = InstanceType<typeof checkboxGroup>

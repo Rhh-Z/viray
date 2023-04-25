@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e={header:{type:String,default:""},shadow:{type:String,values:["always","hover","never"],default:"always"}};exports.cardProps=e;

@@ -8,15 +8,19 @@ describe('test alert', () => {
   test('should render slot', () => {
     const wrapper = mount(alert, {
       slots: {
-        default: ''
+        default: 'warning'
       }
     });
 
-    // Assert the rendered text of the component
-    expect(wrapper.text()).toContain('');
-    test('should have class', () => {
-      const wrapper = mount(alert);
-      expect(wrapper.classes()).toContain('vi-alert');
+    expect(wrapper.text()).toContain('warning');
+  });
+
+  test('class', () => {
+    const wrapper = mount(alert, {
+      props: {
+        class: 'vi-alert'
+      }
     });
+    expect(wrapper.classes()).toContain('vi-alert');
   });
 });

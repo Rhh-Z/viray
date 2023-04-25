@@ -3,6 +3,7 @@ import type Icon from './icon.vue';
 export declare const iconProps: {
     name: {
         type: StringConstructor;
+        default: string;
     };
     size: {
         type: StringConstructor;

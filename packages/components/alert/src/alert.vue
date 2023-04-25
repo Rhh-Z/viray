@@ -18,6 +18,7 @@
 <script setup lang='ts' name="ViAlert">
 import { ref, computed } from 'vue';
 import { alertEmits, alertProps, iconMaps } from './alert';
+import {ViIcon} from '../../icon';
 import '../style/index.ts';
 
 const visible = ref(true)

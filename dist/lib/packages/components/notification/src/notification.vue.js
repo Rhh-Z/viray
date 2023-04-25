@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./notification.vue2.js"),t=require("../../../../_virtual/_plugin-vue_export-helper.js"),i=t.default(e.default,[["__file","E:/source/viray/packages/components/notification/src/notification.vue"]]);exports.default=i;

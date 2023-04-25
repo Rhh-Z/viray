@@ -58,15 +58,15 @@
     "stylelint-config-standard": "^32.0.0",
     "stylelint-prettier": "^3.0.0",
     "sucrase": "^3.31.0",
-    "terser": "^5.16.9",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vite-plugin-dts": "1.4.1",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitepress": "1.0.0-alpha.62",
     "vitest": "^0.29.8",
-    "vue": "^3.2.36",
-    "vue-eslint-parser": "^9.1.1"
+    "vue": "^3.2.47",
+    "vue-eslint-parser": "^9.1.1",
+    "vue-router": "^4.1.6"
   },
   "dependencies": {
     "@viray/components": "workspace:^1.0.0",

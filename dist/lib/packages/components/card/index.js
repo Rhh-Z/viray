@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/card.vue.js");require("../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js");const r=require("../../utils/withInstall.js"),e=r.withInstall(t.default);exports.ViCard=e;exports.default=e;

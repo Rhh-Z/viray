@@ -5,6 +5,7 @@ import { isString, isFunction } from 'lodash-unified';
 let seed = 1;
 const instances: VNode[] = [];
 let zIndex = 2000;
+
 const message: MessageFn & Partial<Message> & { _context: AppContext | null } = function (
   options: MessageParams = {},
   context?: AppContext | null
@@ -85,7 +86,7 @@ function close(id: string, userClose?: (vm: VNode) => void) {
   const removeHeight = vm.el!.offsetHeight;
 
   for (let i = idx; i < instances.length; i++) {
-    const pos = parseInt(instances[i].el?.style.top) - removeHeight + -16;
+    const pos = parseInt(instances[i].el?.style.top) - removeHeight - 16;
 
     instances[i].component!.props.offset = pos;
   }
@@ -95,9 +96,10 @@ export function closeAll() {
   for (let i = instances.length - 1; i >= 0; i--) {
     const instance = instances[i].component;
     (instance?.proxy as any).close();
+    console.log(instance);
+
   }
 }
-
 
 message.closeAll = closeAll;
 message._context = null
