@@ -1,11 +1,13 @@
 <template>
   <component 
-    :is="'label'"
+  :is="!hasOwnLabel ? 'span' : 'label'"
     :class="compCls"
     :aria-controls="indeterminate ? controls : null"
   >
     <span
       :class="spanCls"
+      :tabindex="indeterminate ? 0 : undefined"
+      :role="indeterminate ? 'checkbox' : undefined"
       :aria-checked="indeterminate ? 'mixed' : undefined"
     >
       <input 
@@ -15,6 +17,7 @@
         type="checkbox"
         :name="name"
         :class="`${COMPONENT_NAME}__original`"
+        :aria-hidden="indeterminate ? 'true' : 'false'"
         :checked="isChecked"
         :disabled="isDisabled"
         :true-value="trueLabel"
@@ -38,7 +41,7 @@
         @focus="isFocused = true"
         @blur="isFocused = false"
       />
-      <span :class="`${COMPONENT_NAME}__inner`" />
+      <span v-if="indeterminate" :class="`${COMPONENT_NAME}__inner`" />
     </span>
     <span 
       v-if="hasOwnLabel || label" 
@@ -82,12 +85,12 @@ const compCls = computed(()=>{
     'is-border':props.border
   }
 })
-console.log(checkboxSize.value);
 
 const spanCls = computed(()=>{
   return {
     [`${COMPONENT_NAME}__input`]:true,
     'is-checked':props.checked,
+    'is-indeterminate':props.indeterminate,
     'is-focus':props.isFocused
   }
 })

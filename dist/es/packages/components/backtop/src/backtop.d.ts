@@ -1,4 +1,5 @@
 import { ExtractPropTypes } from "vue";
+import Backtop from './backtop.vue';
 export declare const backtopProps: {
     readonly icon: {
         readonly type: StringConstructor;
@@ -29,3 +30,4 @@ export declare const backtopEmits: {
     click: (evt: MouseEvent) => boolean;
 };
 export declare type BacktopEmits = typeof backtopEmits;
+export declare type BacktopInstance = InstanceType<typeof Backtop>;

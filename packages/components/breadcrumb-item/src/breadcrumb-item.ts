@@ -1,6 +1,7 @@
 import { definePropType } from "@viray/utils";
 import { ExtractPropTypes } from "vue";
 import type { RouteLocationRaw } from 'vue-router'
+import BreadcrumbItem from './breadcrumb-item.vue';
 
 export const breadcrumbItemProps = {
   to: {
@@ -14,3 +15,4 @@ export const breadcrumbItemProps = {
 } as const
 
 export type BreadcrumbItemProps = ExtractPropTypes<typeof breadcrumbItemProps>
+export type BreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>

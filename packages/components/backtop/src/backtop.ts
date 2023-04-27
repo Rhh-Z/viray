@@ -1,4 +1,5 @@
 import { ExtractPropTypes } from "vue"
+import Backtop from './backtop.vue';
 
 export const backtopProps = {
   icon: {
@@ -33,3 +34,4 @@ export const backtopEmits = {
 }
 
 export type BacktopEmits = typeof backtopEmits
+export type BacktopInstance = InstanceType<typeof Backtop>

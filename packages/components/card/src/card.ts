@@ -1,5 +1,5 @@
 import { ExtractPropTypes } from "vue"
-
+import Card from './card.vue';
 
 export const cardProps = {
   header: {
@@ -14,3 +14,4 @@ export const cardProps = {
 }
 
 export type CardProps = ExtractPropTypes<typeof cardProps>
+export type CardInstance = InstanceType<typeof Card>

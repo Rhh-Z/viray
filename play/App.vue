@@ -337,16 +337,16 @@
   </div>
   <hr>
 
-  <vi-checkbox disabled size="small">
+  <vi-checkbox disabled size="small" border>
     Option 1
   </vi-checkbox>
 
   <vi-checkbox label="Option 2" name="checkbox2" v-model="modelValue" />
   {{ modelValue }}
 
-  <vi-checkbox  size="large" label="Option 3" />
+  <vi-checkbox  size="large" label="Option 3" :border="true"/>
   <hr>
-  <vi-checkbox-group v-model="checkList" :min="3">
+  <vi-checkbox-group v-model="checkList" size="large" >
     <vi-checkbox label="Option A" />
     <vi-checkbox label="Option B" />
     <vi-checkbox label="Option C" />
@@ -357,6 +357,22 @@
 
   <hr>
 
+  <vi-checkbox
+    v-model="checkAll"
+    :border="true"
+    :indeterminate="isIndeterminate"
+    @change="handleCheckAllChange"
+    >Check all</vi-checkbox
+  >
+  
+  <vi-checkbox-group
+    v-model="checkedCities"
+    @change="handleCheckedCitiesChange"
+  >
+    <vi-checkbox v-for="city in cities" :key="city" :label="city">{{
+      city
+    }}</vi-checkbox>
+  </vi-checkbox-group>
   
   <div id="box">
   </div>
@@ -477,6 +493,23 @@ const visible2 = ref(false)
 const visible3 = ref(false)
 
 const modelValue = ref(false)
+
+const checkAll = ref(false)
+const isIndeterminate = ref(true)
+const checkedCities = ref(['Shanghai', 'Beijing'])
+const cities = ['Shanghai', 'Beijing', 'Guangzhou', 'Shenzhen']
+
+
+const handleCheckAllChange = (val: boolean | string | number) => {
+  checkedCities.value = val ? cities : []
+  isIndeterminate.value = false
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const handleCheckedCitiesChange = (value:any) => {
+  const checkedCount = value.length
+  checkAll.value = checkedCount === cities.length
+  isIndeterminate.value = checkedCount > 0 && checkedCount < cities.length
+}
 </script>
 
 

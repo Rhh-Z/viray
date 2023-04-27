@@ -36,7 +36,30 @@ export const buildFonts = async () => {
     .pipe(dest(`${outputEsm}/packages/theme-chalk/src/fonts`))
 }
 
+// 复制typing文件夹
+export const copyTyping = async () => {
+  return src(`${projRoot}/typings`)
+    .pipe(dest(`${projRoot}/dist/es`))
+    .pipe(dest(`${projRoot}/dist/lib`))
+}
+
+// 复制typing中的文件
+export const copyTypingFile = async () => {
+  return src(`${projRoot}/typings/*.d.ts`)
+    .pipe(dest(`${projRoot}/dist/es/typings`))
+    .pipe(dest(`${projRoot}/dist/lib/typings`))
+}
+
 export default series(
   removeDist,
-  parallel(buildStyle, parallel(buildComponent, buildComponent, buildFonts))
+  parallel(
+    buildStyle,
+    parallel(
+      buildComponent,
+      buildComponent,
+      buildFonts,
+      copyTyping,
+    ),
+    copyTypingFile
+  )
 );

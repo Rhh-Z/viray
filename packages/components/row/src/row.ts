@@ -1,7 +1,6 @@
 import { ExtractPropTypes } from "vue"
 import type Row from './row.vue';
 
-
 export const RowAlign = ['top', 'middle', 'bottom'] as const;
 export const RowJustify = [
   'start',

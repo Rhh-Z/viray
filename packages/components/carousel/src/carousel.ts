@@ -1,6 +1,7 @@
 import { isNumber } from "lodash"
 import { definePropType } from "@viray/utils"
 import { ExtractPropTypes } from "vue"
+import Carousel from './carousel.vue';
 
 type Trigger = 'hover' | 'click'
 
@@ -57,3 +58,4 @@ export const carouselEmits = {
   change: (current: number, prev: number) => [current, prev].every(isNumber),
 }
 export type CarouselEmits = typeof carouselEmits
+export type CarouselInstance = InstanceType<typeof Carousel>

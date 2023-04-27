@@ -1,6 +1,7 @@
-import { UPDATE_MODEL_EVENT } from "@viray/constants"
+import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@viray/constants"
 import { isBoolean, isNumber, isString } from "lodash-unified"
 import { ExtractPropTypes } from "vue"
+import Checkbox from './checkbox.vue';
 
 export type CheckboxValueType = string | number | boolean
 
@@ -54,8 +55,9 @@ export const checkboxProps = {
 export const checkboxEmits = {
   [UPDATE_MODEL_EVENT]: (val: CheckboxValueType) =>
     isString(val) || isNumber(val) || isBoolean(val),
-  change: (val: CheckboxValueType) =>
+  [CHANGE_EVENT]: (val: CheckboxValueType) =>
     isString(val) || isNumber(val) || isBoolean(val),
 }
 
 export type CheckboxProps = ExtractPropTypes<typeof checkboxProps>
+export type CheckboxInstance = InstanceType<typeof Checkbox>

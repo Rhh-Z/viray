@@ -1,6 +1,7 @@
 import { UPDATE_MODEL_EVENT } from '@viray/constants'
 import { isBoolean } from 'lodash-unified'
 import { ExtractPropTypes } from 'vue'
+import Dialog from './dialog.vue';
 
 export const dialogProps = {
   appendToBody: {
@@ -44,3 +45,4 @@ export const dialogEmits = {
 
 export type DialogProps = ExtractPropTypes<typeof dialogProps>
 export type DialogEmits = ExtractPropTypes<typeof dialogEmits>
+export type DialogInstance = InstanceType<typeof Dialog>

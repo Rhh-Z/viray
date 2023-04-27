@@ -206,7 +206,17 @@ $vi-checkbox-font-size:14px;
 $checkbox--height:32px;
 $checkbox--font-color:#606266;
 
+$vi-checkbox-bg-color:#f2f6fc;
+$vi-checkbox-boder-color:#dcdfe6;
+$vi-checkbox-input-border:1px solid $vi-checkbox-boder-color;
+$vi-checkbox-disabled-checked-icon-color:#a8abb2;
+$vi-checkbox-checked-icon-color:$color-white;
+$vi-checkbox-checked-input-border-color:#409eff;
+$vi-checkbox-checked-bg-color:#409eff;
+$vi-checkbox-input-border-color-hover:#409eff;
 
+$vi-checkbox-input-width:14px;
+$vi-checkbox-input-height:14px;
 /*     Input
 ---------- --------*/
 $vi-input-type: text,

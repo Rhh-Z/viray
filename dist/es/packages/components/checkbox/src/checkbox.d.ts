@@ -1,4 +1,5 @@
 import { ExtractPropTypes } from "vue";
+import Checkbox from './checkbox.vue';
 export declare type CheckboxValueType = string | number | boolean;
 export declare const checkboxProps: {
     modelValue: {
@@ -51,3 +52,4 @@ export declare const checkboxEmits: {
     change: (val: CheckboxValueType) => boolean;
 };
 export declare type CheckboxProps = ExtractPropTypes<typeof checkboxProps>;
+export declare type CheckboxInstance = InstanceType<typeof Checkbox>;

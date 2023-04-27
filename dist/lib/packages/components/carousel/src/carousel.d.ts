@@ -1,4 +1,5 @@
 import { ExtractPropTypes } from "vue";
+import Carousel from './carousel.vue';
 declare type Trigger = 'hover' | 'click';
 export declare const carouselProps: {
     height: {
@@ -51,4 +52,5 @@ export declare const carouselEmits: {
     change: (current: number, prev: number) => boolean;
 };
 export declare type CarouselEmits = typeof carouselEmits;
+export declare type CarouselInstance = InstanceType<typeof Carousel>;
 export {};

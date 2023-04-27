@@ -1,4 +1,5 @@
 import type { ExtractPropTypes } from "vue";
+import Avatar from './avatar.vue';
 export declare const avatarProps: {
     size: {
         type: (StringConstructor | NumberConstructor)[];
@@ -30,3 +31,4 @@ export declare const avatarEmits: {
     error: (evt: Event) => boolean;
 };
 export declare type AvatarEmits = typeof avatarEmits;
+export declare type AvatarInstance = InstanceType<typeof Avatar>;

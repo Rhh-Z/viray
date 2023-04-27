@@ -1,5 +1,6 @@
 import { ExtractPropTypes, PropType } from "vue";
 import { ButtonNativeType, ButtonSizeType, ButtonType } from "./interface";
+import Button from './button.vue';
 
 export const buttonProps = {
   type: {
@@ -74,3 +75,4 @@ export const buttonEmits = {
 
 export type ButtonEmits = typeof buttonEmits
 export type ButtonProps = ExtractPropTypes<typeof buttonProps>;
+export type ButtonInstance = InstanceType<typeof Button>

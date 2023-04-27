@@ -1,101 +1,104 @@
-import { defineComponent as F, useSlots as L, computed as v, openBlock as i, createBlock as V, resolveDynamicComponent as D, normalizeClass as t, unref as o, withCtx as S, createElementVNode as k, withDirectives as f, createElementBlock as m, isRef as h, vModelCheckbox as C, renderSlot as w, Fragment as M, createTextVNode as O, toDisplayString as z, createCommentVNode as $ } from "vue";
+import { defineComponent as E, useSlots as F, computed as f, openBlock as i, createBlock as L, resolveDynamicComponent as V, unref as n, normalizeClass as t, withCtx as D, createElementVNode as S, withDirectives as h, createElementBlock as d, isRef as C, vModelCheckbox as $, createCommentVNode as p, renderSlot as w, Fragment as M, createTextVNode as O, toDisplayString as z } from "vue";
 import "../../../theme-chalk/src/checkbox.css";
 import { checkboxProps as I, checkboxEmits as P } from "./checkbox.mjs";
 import { useCheckbox as T } from "./composables/use-checkbox.mjs";
-const U = ["aria-checked"], A = ["name", "checked", "disabled", "true-value", "false-value"], R = ["value", "disabled", "aria-hidden", "name", "checked"], J = /* @__PURE__ */ F({
+const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "checked", "disabled", "true-value", "false-value"], R = ["value", "disabled", "aria-hidden", "name", "checked"], J = /* @__PURE__ */ E({
   __name: "checkbox",
   props: I,
   emits: P,
-  setup(g) {
-    const r = g, a = "vi-checkbox", y = L(), {
-      model: n,
-      hasOwnLabel: N,
-      isChecked: c,
+  setup(y) {
+    const r = y, o = "vi-checkbox", g = F(), {
+      model: s,
+      hasOwnLabel: v,
+      isChecked: k,
       isFocused: u,
-      isDisabled: p,
-      checkboxSize: b,
-      handleChange: d
-    } = T(r, y), B = v(() => ({
-      [a]: !0,
-      [`${a}--${b.value}`]: b.value,
-      "is-disabled": p.value,
+      isDisabled: b,
+      checkboxSize: c,
+      handleChange: m
+    } = T(r, g), N = f(() => ({
+      [o]: !0,
+      [`${o}--${c.value}`]: c.value,
+      "is-disabled": b.value,
       "is-border": r.border
-    }));
-    console.log(b.value);
-    const E = v(() => ({
-      [`${a}__input`]: !0,
+    })), B = f(() => ({
+      [`${o}__input`]: !0,
       "is-checked": r.checked,
+      "is-indeterminate": r.indeterminate,
       "is-focus": r.isFocused
     }));
-    return (l, e) => (i(), V(D("label"), {
-      class: t(o(B)),
-      "aria-controls": l.indeterminate ? l.controls : null
+    return (e, l) => (i(), L(V(n(v) ? "label" : "span"), {
+      class: t(n(N)),
+      "aria-controls": e.indeterminate ? e.controls : null
     }, {
-      default: S(() => [
-        k("span", {
-          class: t(o(E)),
-          "aria-checked": l.indeterminate ? "mixed" : void 0
+      default: D(() => [
+        S("span", {
+          class: t(n(B)),
+          tabindex: e.indeterminate ? 0 : void 0,
+          role: e.indeterminate ? "checkbox" : void 0,
+          "aria-checked": e.indeterminate ? "mixed" : void 0
         }, [
-          l.trueLabel || l.falseLabel ? f((i(), m("input", {
+          e.trueLabel || e.falseLabel ? h((i(), d("input", {
             key: 0,
             id: "inputId",
-            "onUpdate:modelValue": e[0] || (e[0] = (s) => h(n) ? n.value = s : null),
+            "onUpdate:modelValue": l[0] || (l[0] = (a) => C(s) ? s.value = a : null),
             type: "checkbox",
-            name: l.name,
-            class: t(`${a}__original`),
-            checked: o(c),
-            disabled: o(p),
-            "true-value": l.trueLabel,
-            "false-value": l.falseLabel,
-            onChange: e[1] || (e[1] = //@ts-ignore
-            (...s) => o(d) && o(d)(...s)),
-            onFocus: e[2] || (e[2] = (s) => u.value = !0),
-            onBlur: e[3] || (e[3] = (s) => u.value = !1)
+            name: e.name,
+            class: t(`${o}__original`),
+            "aria-hidden": e.indeterminate ? "true" : "false",
+            checked: n(k),
+            disabled: n(b),
+            "true-value": e.trueLabel,
+            "false-value": e.falseLabel,
+            onChange: l[1] || (l[1] = //@ts-ignore
+            (...a) => n(m) && n(m)(...a)),
+            onFocus: l[2] || (l[2] = (a) => u.value = !0),
+            onBlur: l[3] || (l[3] = (a) => u.value = !1)
           }, null, 42, A)), [
-            [C, o(n)]
-          ]) : f((i(), m("input", {
+            [$, n(s)]
+          ]) : h((i(), d("input", {
             key: 1,
             id: "inputId",
-            "onUpdate:modelValue": e[4] || (e[4] = (s) => h(n) ? n.value = s : null),
-            class: t(`${a}__original`),
-            value: l.label,
-            disabled: o(p),
+            "onUpdate:modelValue": l[4] || (l[4] = (a) => C(s) ? s.value = a : null),
+            class: t(`${o}__original`),
+            value: e.label,
+            disabled: n(b),
             type: "checkbox",
-            "aria-hidden": l.indeterminate ? "true" : "false",
-            name: l.name,
-            checked: o(c),
-            onChange: e[5] || (e[5] = //@ts-ignore
-            (...s) => o(d) && o(d)(...s)),
-            onFocus: e[6] || (e[6] = (s) => u.value = !0),
-            onBlur: e[7] || (e[7] = (s) => u.value = !1)
+            "aria-hidden": e.indeterminate ? "true" : "false",
+            name: e.name,
+            checked: n(k),
+            onChange: l[5] || (l[5] = //@ts-ignore
+            (...a) => n(m) && n(m)(...a)),
+            onFocus: l[6] || (l[6] = (a) => u.value = !0),
+            onBlur: l[7] || (l[7] = (a) => u.value = !1)
           }, null, 42, R)), [
-            [C, o(n)]
+            [$, n(s)]
           ]),
-          k(
+          e.indeterminate ? (i(), d(
             "span",
             {
-              class: t(`${a}__inner`)
+              key: 2,
+              class: t(`${o}__inner`)
             },
             null,
             2
             /* CLASS */
-          )
+          )) : p("v-if", !0)
         ], 10, U),
-        o(N) || l.label ? (i(), m(
+        n(v) || e.label ? (i(), d(
           "span",
           {
             key: 0,
             role: "label",
-            class: t(`${a}__label`)
+            class: t(`${o}__label`)
           },
           [
-            w(l.$slots, "default"),
-            l.$slots.default ? $("v-if", !0) : (i(), m(
+            w(e.$slots, "default"),
+            e.$slots.default ? p("v-if", !0) : (i(), d(
               M,
               { key: 0 },
               [
                 O(
-                  z(l.label),
+                  z(e.label),
                   1
                   /* TEXT */
                 )
@@ -106,7 +109,7 @@ const U = ["aria-checked"], A = ["name", "checked", "disabled", "true-value", "f
           ],
           2
           /* CLASS */
-        )) : $("v-if", !0)
+        )) : p("v-if", !0)
       ]),
       _: 3
       /* FORWARDED */

@@ -1,5 +1,6 @@
 import { AlertType } from "./interface";
 import { ExtractPropTypes, PropType } from "vue";
+import Alert from './alert.vue';
 interface IiconMaps {
     [key: string]: string;
 }
@@ -36,4 +37,5 @@ export declare const alertEmits: {
 };
 export declare type AlertProps = ExtractPropTypes<typeof alertProps>;
 export declare type AlertEmits = ExtractPropTypes<typeof alertEmits>;
+export declare type AlertInstance = InstanceType<typeof Alert>;
 export {};
