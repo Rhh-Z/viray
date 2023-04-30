@@ -1,5 +1,4 @@
 import { definePropType as t } from "../../../utils/definePropType.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { componentSizes as o } from "../../../constants/size.mjs";
 const n = {
   type: {
@@ -40,11 +39,11 @@ const n = {
     type: Boolean,
     default: !0
   }
-}, s = {
+}, i = {
   close: (e) => e instanceof MouseEvent,
   click: (e) => e instanceof MouseEvent
 };
 export {
-  s as tagEmits,
+  i as tagEmits,
   n as tagProps
 };

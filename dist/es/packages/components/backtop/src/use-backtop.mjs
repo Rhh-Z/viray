@@ -1,25 +1,22 @@
-import { shallowRef as a, ref as m, onMounted as d } from "vue";
-import { throwError as f } from "../../../utils/error.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-import { exports as h } from "../../../../_virtual/lodash.mjs";
-const b = (e, n, i) => {
-  const t = a(), o = a(), l = m(!1), c = () => {
-    t.value && (l.value = t.value.scrollTop >= e.visibilityHeight);
-  }, s = h.throttle(c, 250, { trailing: !1 });
-  addEventListener("scroll", () => {
-    s();
-  });
-  const u = (v) => {
+import { shallowRef as a, ref as v, onMounted as d } from "vue";
+import { throwError as m } from "../../../utils/error.mjs";
+import f from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/throttle.mjs";
+const E = (t, n, c) => {
+  const e = a(), o = a(), l = v(!1), i = f(() => {
+    e.value && (l.value = e.value.scrollTop >= t.visibilityHeight);
+  }, 250, { trailing: !1 });
+  addEventListener("scroll", i);
+  const u = (s) => {
     var r;
-    (r = t.value) == null || r.scrollTo({ top: 0, behavior: "smooth" }), n("click", v);
+    (r = e.value) == null || r.scrollTo({ top: 0, behavior: "smooth" }), n("click", s);
   };
   return d(() => {
-    o.value = document, t.value = document.documentElement, e.target && (t.value = document.querySelector(e.target) ?? void 0, t.value || f(i, `target does not exist: ${e.target}`), o.value = t.value);
+    o.value = document, e.value = document.documentElement, t.target && (e.value = document.querySelector(t.target) ?? void 0, e.value || m(c, `target does not exist: ${t.target}`), o.value = e.value);
   }), {
     visible: l,
     handleClick: u
   };
 };
 export {
-  b as useBacktop
+  E as useBacktop
 };

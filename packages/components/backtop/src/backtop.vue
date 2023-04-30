@@ -14,12 +14,14 @@
 </template>
 
 
-<script setup lang='ts' name="ViBacktop">
+<script setup lang='ts' >
 import { computed, CSSProperties } from 'vue';
 import '../style/index'
 import { backtopProps,backtopEmits } from './backtop';
 import {useBacktop} from './use-backtop';
 import {ViIcon} from '../../icon';
+
+defineOptions({name:"ViBacktop"})
 
 const COMPONENT_NAME = 'ViBacktop'
 

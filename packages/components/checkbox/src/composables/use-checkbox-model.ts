@@ -1,6 +1,5 @@
 import { UPDATE_MODEL_EVENT } from '@viray/constants';
 import { isArray, isUndefined } from 'lodash-unified';
-// import { isUndefined } from 'lodash-unified';
 import { computed, getCurrentInstance, ref, inject } from 'vue';
 import { CheckboxProps } from '../checkbox'
 import { checkboxGroupContextKey } from '../constant';

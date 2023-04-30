@@ -1,11 +1,10 @@
 import { definePropType as t } from "../../../utils/definePropType.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 const e = [
   "success",
   "error",
   "info",
   "warning"
-], n = {
+], i = {
   customClass: {
     type: String,
     default: ""
@@ -65,11 +64,11 @@ const e = [
     values: ["top-right", "top-left", "bottom-right", "bottom-left"],
     default: "top-right"
   }
-}, r = {
+}, n = {
   destroy: () => !0
 };
 export {
-  r as notificationEmits,
-  n as notificationProps,
+  n as notificationEmits,
+  i as notificationProps,
   e as notificationTypes
 };

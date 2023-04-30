@@ -5,6 +5,7 @@
 </template>
 
 
-<script setup lang='ts' name="ViButtonGroup">
+<script setup lang='ts'>
 import '../style/';
+defineOptions({name:"ViButtonGroup"})
 </script>

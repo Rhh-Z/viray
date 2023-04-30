@@ -1,5 +1,6 @@
 import { ExtractPropTypes, PropType } from "vue";
 import { TextType, TextSizeType } from "./interface";
+import Text from './text.vue';
 export declare const textProps: {
     tag: {
         type: StringConstructor;
@@ -25,3 +26,4 @@ export declare const textProps: {
     };
 };
 export declare type TextProps = ExtractPropTypes<typeof textProps>;
+export declare type TextInstance = InstanceType<typeof Text>;

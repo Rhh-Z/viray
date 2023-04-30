@@ -1,13 +1,13 @@
 import { ExtractPropTypes } from "vue";
 import Breadcrumb from './breadcrumb.vue';
 export declare const breadcrumbProps: {
-    readonly separator: {
-        readonly type: StringConstructor;
-        readonly default: "/";
+    separator: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly separatorIcon: {
-        readonly type: StringConstructor;
-        readonly default: "";
+    separatorIcon: {
+        type: StringConstructor;
+        default: string;
     };
 };
 export declare type BreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>;

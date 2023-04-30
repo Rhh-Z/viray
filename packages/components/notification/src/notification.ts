@@ -68,7 +68,7 @@ export const notificationProps = {
     values: ['top-right', 'top-left', 'bottom-right', 'bottom-left'],
     default: 'top-right',
   },
-} as const
+}
 
 export type NotificationProps = ExtractPropTypes<typeof notificationProps>
 

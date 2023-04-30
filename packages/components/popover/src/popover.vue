@@ -34,11 +34,13 @@
 </template>
 
 
-<script setup lang='ts' name="ViPopover">
-import { isString } from 'lodash';
+<script setup lang='ts'>
+import { isString } from 'lodash-unified';
 import { computed,CSSProperties,ref } from 'vue';
 import '../style/index';
 import {popoverProps,popoverEmits} from './popover';
+
+defineOptions({name:"ViPopover"})
 
 const popoverRef = ref()
 

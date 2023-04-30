@@ -8,7 +8,7 @@ import {
   computed,
 } from "vue";
 import { CarouselEmits, CarouselProps } from "./carousel";
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-unified';
 
 const THROTTLE_TIME = 500
 

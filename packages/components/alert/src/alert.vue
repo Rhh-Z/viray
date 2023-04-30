@@ -15,11 +15,13 @@
   </transition>
 </template>
 
-<script setup lang='ts' name="ViAlert">
+<script setup lang='ts'>
 import { ref, computed } from 'vue';
 import { alertEmits, alertProps, iconMaps } from './alert';
 import {ViIcon} from '../../icon';
 import '../style/index.ts';
+
+defineOptions({name:"ViButton"})
 
 const visible = ref(true)
 const props = defineProps(alertProps)

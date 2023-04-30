@@ -21,11 +21,13 @@
   </Transition>
 </template>
 
-<script setup lang='ts' name="ViMessage">
+<script setup lang='ts'>
 import {messageProps,messageEmits} from './message';
 import '../style/index';
 import { ViIcon } from '../../icon';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
+
+defineOptions({name:"ViMessage"})
 
 const visible = ref(false)
 

@@ -31,11 +31,13 @@
   </transition>
 </template>
 
-<script setup lang='ts' name="ViNotification">
+<script setup lang='ts'>
 import { notificationEmits, notificationProps } from './notification';
 import { ViIcon } from '../../icon'
 import '../style/index';
 import { computed, CSSProperties, onMounted,onUnmounted,ref } from 'vue';
+
+defineOptions({name:"ViNotification"})
 
 const visible = ref(false)
 

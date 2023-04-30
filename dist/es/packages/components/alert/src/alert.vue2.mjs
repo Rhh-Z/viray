@@ -1,4 +1,4 @@
-import { defineComponent as C, ref as $, computed as a, openBlock as s, createBlock as i, Transition as w, withCtx as N, withDirectives as V, createElementVNode as c, normalizeClass as b, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as m, createTextVNode as f, toDisplayString as u, vShow as B } from "vue";
+import { defineComponent as C, ref as $, computed as a, openBlock as s, createBlock as i, Transition as V, withCtx as w, withDirectives as B, createElementVNode as c, normalizeClass as N, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as m, createTextVNode as f, toDisplayString as u, vShow as b } from "vue";
 import { alertProps as E, alertEmits as S, iconMaps as o } from "./alert.mjs";
 import { ViIcon as d } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/alert.css";
@@ -8,26 +8,28 @@ const D = { class: "vi-alert__content" }, I = {
 }, T = {
   key: 1,
   class: "vi-alert__desc"
-}, q = /* @__PURE__ */ C({
+}, j = /* @__PURE__ */ C({
   __name: "alert",
   props: E,
   emits: S,
   setup(v, { emit: _ }) {
-    const t = v, n = $(!0), h = a(() => ({
+    const t = v;
+    defineOptions({ name: "ViButton" });
+    const n = $(!0), h = a(() => ({
       [`vi-alert-${t.type}`]: t.type,
       "is-center": t.center
     })), y = a(() => o[t.type] === "success" ? "check-circle-fill" : o[t.type] === "error" ? "close-circle-fill" : `${o[t.type]}-circle-fill`), k = (e) => {
       n.value = !1, _("close", e);
     };
-    return (e, g) => (s(), i(w, {
+    return (e, g) => (s(), i(V, {
       name: "vi-alert-fade",
       persisted: ""
     }, {
-      default: N(() => [
-        V(c(
+      default: w(() => [
+        B(c(
           "div",
           {
-            class: b(["vi-alert", l(h)])
+            class: N(["vi-alert", l(h)])
           },
           [
             e.showIcon ? (s(), i(l(d), {
@@ -65,7 +67,7 @@ const D = { class: "vi-alert__content" }, I = {
           2
           /* CLASS */
         ), [
-          [B, n.value]
+          [b, n.value]
         ])
       ]),
       _: 3
@@ -74,5 +76,5 @@ const D = { class: "vi-alert__content" }, I = {
   }
 });
 export {
-  q as default
+  j as default
 };

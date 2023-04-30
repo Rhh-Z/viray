@@ -1,4 +1,4 @@
-import { isNumber } from "lodash"
+import { isNumber } from "@viray/utils"
 import { definePropType } from "@viray/utils"
 import { ExtractPropTypes } from "vue"
 import Carousel from './carousel.vue';

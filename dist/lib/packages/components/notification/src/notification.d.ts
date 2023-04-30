@@ -2,65 +2,65 @@ import { ExtractPropTypes, VNode } from "vue";
 import Notification from './notification.vue';
 export declare const notificationTypes: readonly ["success", "error", "info", "warning"];
 export declare const notificationProps: {
-    readonly customClass: {
-        readonly type: StringConstructor;
-        readonly default: "";
+    customClass: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly dangerouslyUseHTMLString: {
-        readonly type: BooleanConstructor;
-        readonly default: false;
+    dangerouslyUseHTMLString: {
+        type: BooleanConstructor;
+        default: boolean;
     };
-    readonly duration: {
-        readonly type: NumberConstructor;
-        readonly default: 4500;
+    duration: {
+        type: NumberConstructor;
+        default: number;
     };
-    readonly icon: {
-        readonly type: StringConstructor;
-        readonly default: "close";
+    icon: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly id: {
-        readonly type: StringConstructor;
-        readonly default: "";
+    id: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly message: {
-        readonly type: import("vue").PropType<string | VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    message: {
+        type: import("vue").PropType<string | VNode<import("vue").RendererNode, import("vue").RendererElement, {
             [key: string]: any;
         }>>;
-        readonly default: "";
+        default: string;
     };
-    readonly zIndex: {
-        readonly type: NumberConstructor;
-        readonly default: 0;
+    zIndex: {
+        type: NumberConstructor;
+        default: number;
     };
-    readonly closeable: {
-        readonly type: BooleanConstructor;
-        readonly default: true;
+    closeable: {
+        type: BooleanConstructor;
+        default: boolean;
     };
-    readonly title: {
-        readonly type: StringConstructor;
-        readonly default: "";
+    title: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly offset: {
-        readonly type: NumberConstructor;
-        readonly default: 0;
+    offset: {
+        type: NumberConstructor;
+        default: number;
     };
-    readonly onClick: {
-        readonly type: import("vue").PropType<() => void>;
-        readonly default: () => undefined;
+    onClick: {
+        type: import("vue").PropType<() => void>;
+        default: () => undefined;
     };
-    readonly onClose: {
-        readonly type: import("vue").PropType<() => void>;
-        readonly required: true;
+    onClose: {
+        type: import("vue").PropType<() => void>;
+        required: boolean;
     };
-    readonly type: {
-        readonly type: StringConstructor;
-        readonly values: readonly ["success", "error", "info", "warning", ""];
-        readonly default: "";
+    type: {
+        type: StringConstructor;
+        values: string[];
+        default: string;
     };
-    readonly position: {
-        readonly type: StringConstructor;
-        readonly values: readonly ["top-right", "top-left", "bottom-right", "bottom-left"];
-        readonly default: "top-right";
+    position: {
+        type: StringConstructor;
+        values: string[];
+        default: string;
     };
 };
 export declare type NotificationProps = ExtractPropTypes<typeof notificationProps>;

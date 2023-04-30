@@ -1,7 +1,7 @@
 import { UPDATE_MODEL_EVENT as i, CHANGE_EVENT as l } from "../../../constants/events.mjs";
-import o from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNumber.mjs";
-import r from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isBoolean.mjs";
+import o from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isBoolean.mjs";
+import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+import r from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNumber.mjs";
 const u = {
   modelValue: {
     type: [Number, String, Boolean],
@@ -48,8 +48,8 @@ const u = {
   },
   border: Boolean
 }, s = {
-  [i]: (e) => o(e) || t(e) || r(e),
-  [l]: (e) => o(e) || t(e) || r(e)
+  [i]: (e) => t(e) || r(e) || o(e),
+  [l]: (e) => t(e) || r(e) || o(e)
 };
 export {
   s as checkboxEmits,

@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup lang='ts' name="ViCarouselItem">
+<script setup lang='ts'>
 import {
   computed,
   CSSProperties,
@@ -17,6 +17,8 @@ import {
 } from 'vue';
 import '../style/index';
 import { CarouselContext, carouselContextKey } from '@viray/components/carousel/src/constants';
+
+defineOptions({name:"ViCarouselItem"})
 
 const item = ref()
 

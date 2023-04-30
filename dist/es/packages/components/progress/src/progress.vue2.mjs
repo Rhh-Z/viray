@@ -1,13 +1,15 @@
-import { defineComponent as M, computed as s, resolveComponent as A, openBlock as a, createElementBlock as i, normalizeClass as S, unref as r, normalizeStyle as l, createElementVNode as d, renderSlot as _, toDisplayString as C, createCommentVNode as v, createBlock as E } from "vue";
-import { progressProps as L } from "./progress.mjs";
+import { defineComponent as M, computed as s, resolveComponent as O, openBlock as a, createElementBlock as i, normalizeClass as S, unref as r, normalizeStyle as l, createElementVNode as d, renderSlot as _, toDisplayString as C, createCommentVNode as h, createBlock as V } from "vue";
+import { progressProps as A } from "./progress.mjs";
 import "../../../theme-chalk/src/progress.css";
-import O from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
+import E from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
 import D from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { viewBox: "0 0 100 100" }, j = ["d", "stroke-width"], q = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"], G = { key: 0 }, Y = /* @__PURE__ */ M({
+const L = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { viewBox: "0 0 100 100" }, j = ["d", "stroke-width"], q = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"], G = { key: 0 }, Y = /* @__PURE__ */ M({
   __name: "progress",
-  props: L,
-  setup(x) {
-    const t = x, P = s(() => ({
+  props: A,
+  setup(P) {
+    const t = P;
+    defineOptions({ name: "ViProgess" });
+    const x = s(() => ({
       "vi-progress": !0,
       [`vi-progress--${t.type}`]: t.type,
       "vi-progress--text-inside": t.textInside,
@@ -15,7 +17,7 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
     })), T = s(() => ({
       "vi-progress-bar__inner": !0,
       "vi-progress-bar__inner--indeterminate": t.indeterminate
-    })), g = s(() => t.format(t.percentage)), k = {
+    })), v = s(() => t.format(t.percentage)), k = {
       success: "#13ce66",
       exception: "#ff4949",
       warning: "#e6a23c",
@@ -33,11 +35,11 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
           a ${e} ${e} 0 1 1 0 ${o ? "-" : ""}${e * 2}
           a ${e} ${e} 0 1 1 0 ${o ? "" : "-"}${e * 2}
           `;
-    }), p = s(() => 2 * Math.PI * y.value), h = s(() => t.type === "dashboard" ? 0.75 : 1), w = s(() => `${-1 * p.value * (1 - h.value) / 2}px`), I = s(() => ({
-      strokeDasharray: `${p.value * h.value}px, ${p.value}px`,
+    }), p = s(() => 2 * Math.PI * y.value), g = s(() => t.type === "dashboard" ? 0.75 : 1), w = s(() => `${-1 * p.value * (1 - g.value) / 2}px`), I = s(() => ({
+      strokeDasharray: `${p.value * g.value}px, ${p.value}px`,
       strokeDashoffset: w.value
     })), B = s(() => ({
-      strokeDasharray: `${p.value * h.value * (t.percentage / 100)}px, ${p.value}px`,
+      strokeDasharray: `${p.value * g.value * (t.percentage / 100)}px, ${p.value}px`,
       strokeDashoffset: w.value,
       transition: "stroke-dasharray 0.6s ease 0s, stroke 0.6s ease, opacity ease 0.6s"
     })), N = s(() => {
@@ -58,7 +60,7 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
     const b = (e) => {
       var u;
       const { color: o } = t;
-      if (O(o))
+      if (E(o))
         return o(e);
       if (D(o))
         return o;
@@ -71,9 +73,9 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
       }
     };
     return (e, o) => {
-      const u = A("vi-icon");
+      const u = O("vi-icon");
       return a(), i("div", {
-        class: S(r(P)),
+        class: S(r(x)),
         "aria-valuenow": e.percentage,
         role: "progressbar",
         "aria-valuemin": "0",
@@ -108,7 +110,7 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
                         d(
                           "span",
                           null,
-                          C(r(g)),
+                          C(r(v)),
                           1
                           /* TEXT */
                         )
@@ -116,11 +118,11 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
                     ],
                     4
                     /* STYLE */
-                  )) : v("v-if", !0)
+                  )) : h("v-if", !0)
                 ],
                 6
                 /* CLASS, STYLE */
-              )) : v("v-if", !0)
+              )) : h("v-if", !0)
             ])
           ],
           4
@@ -166,13 +168,13 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
           },
           [
             _(e.$slots, "default", { percentage: e.percentage }, () => [
-              e.status ? (a(), E(u, {
+              e.status ? (a(), V(u, {
                 key: 1,
                 name: r(z)
               }, null, 8, ["name"])) : (a(), i(
                 "span",
                 G,
-                C(r(g)),
+                C(r(v)),
                 1
                 /* TEXT */
               ))
@@ -180,8 +182,8 @@ const V = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { view
           ],
           4
           /* STYLE */
-        )) : v("v-if", !0)
-      ], 10, V);
+        )) : h("v-if", !0)
+      ], 10, L);
     };
   }
 });

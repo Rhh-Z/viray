@@ -1,32 +1,31 @@
-import { getCurrentInstance as m, ref as C, computed as H, watch as M, unref as a } from "vue";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-import { exports as i } from "../../../../_virtual/lodash.mjs";
-const h = 500, N = (t, r) => {
-  const v = m(), n = v.slots.default && v.slots.default(), e = C(0), u = H(() => e.value - 1 < 0 ? n.length - 1 : e.value - 1), f = (l) => {
+import { getCurrentInstance as y, ref as E, computed as C, watch as H, unref as n } from "vue";
+import s from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/throttle.mjs";
+const h = 500, L = (t, u) => {
+  const v = y(), a = v.slots.default && v.slots.default(), e = E(0), o = C(() => e.value - 1 < 0 ? a.length - 1 : e.value - 1), f = (l) => {
     e.value = l;
-  }, s = () => {
-    e.value === n.length - 1 && (e.value = -1), e.value++, r("change", a(e), a(u));
+  }, i = () => {
+    e.value === a.length - 1 && (e.value = -1), e.value++, u("change", n(e), n(o));
   }, d = (l) => {
-    t.trigger === "hover" && l !== e.value && (e.value = l, c()), r("change", a(e), a(u));
+    t.trigger === "hover" && l !== e.value && (e.value = l, c()), u("change", n(e), n(o));
   }, g = (l) => {
-    t.trigger === "click" && l !== e.value && (e.value = l, c()), r("change", a(e), a(u));
-  }, I = () => {
-    c(), e.value <= 0 && (e.value = n == null ? void 0 : n.length), e.value--, r("change", a(e), a(u));
-  }, w = i.throttle(I, h), x = () => {
-    c(), e.value === (n == null ? void 0 : n.length) - 1 && (e.value = -1), e.value++, r("change", a(e), a(u));
-  }, T = i.throttle(x, h);
-  let o = 0;
-  const y = () => {
-    o && (window.clearInterval(o), o = 0);
+    t.trigger === "click" && l !== e.value && (e.value = l, c()), u("change", n(e), n(o));
+  }, I = s(() => {
+    c(), e.value <= 0 && (e.value = a == null ? void 0 : a.length), e.value--, u("change", n(e), n(o));
+  }, h), w = s(() => {
+    c(), e.value === (a == null ? void 0 : a.length) - 1 && (e.value = -1), e.value++, u("change", n(e), n(o));
+  }, h);
+  let r = 0;
+  const T = () => {
+    r && (window.clearInterval(r), r = 0);
   }, c = () => {
-    t.autoplay && t.pauseOnHover && y();
-  }, E = () => {
-    o || t.autoplay && t.pauseOnHover && (o = window.setInterval(s, t.interval));
+    t.autoplay && t.pauseOnHover && T();
+  }, x = () => {
+    r || t.autoplay && t.pauseOnHover && (r = window.setInterval(i, t.interval));
   };
-  return M(
+  return H(
     () => t.autoplay,
     () => {
-      t.autoplay && (o = window.setInterval(s, t.interval));
+      t.autoplay && (r = window.setInterval(i, t.interval));
     },
     { immediate: !0 }
   ), {
@@ -34,11 +33,11 @@ const h = 500, N = (t, r) => {
     handleIndicatorClick: g,
     setIndex: f,
     activeIndex: e,
-    handleMouseLeave: E,
-    throttlePrev: w,
-    throttleNext: T
+    handleMouseLeave: x,
+    throttlePrev: I,
+    throttleNext: w
   };
 };
 export {
-  N as useCarousel
+  L as useCarousel
 };

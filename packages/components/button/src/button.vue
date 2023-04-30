@@ -12,10 +12,12 @@
   </button>
 </template>
 
-<script lang="ts" setup name="ViButton">
+<script lang="ts" setup>
 import "../style/index";
 import { computed } from "vue";
 import { buttonProps, buttonEmits } from './button'
+
+defineOptions({ name: "ViButton" });
 
 const props = defineProps(buttonProps)
 

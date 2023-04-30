@@ -12,7 +12,7 @@ export const breadcrumbItemProps = {
     type: Boolean,
     default: false
   }
-} as const
+}
 
 export type BreadcrumbItemProps = ExtractPropTypes<typeof breadcrumbItemProps>
 export type BreadcrumbItemInstance = InstanceType<typeof BreadcrumbItem>

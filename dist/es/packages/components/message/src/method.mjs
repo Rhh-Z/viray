@@ -58,7 +58,7 @@ function E(e, t) {
 function I() {
   for (let e = n.length - 1; e >= 0; e--) {
     const t = n[e].component;
-    (t == null ? void 0 : t.proxy).close(), console.log(t);
+    (t == null ? void 0 : t.proxy).close();
   }
 }
 f.closeAll = I;

@@ -1,4 +1,4 @@
-import { isString } from "lodash"
+import { isString } from "lodash-unified"
 
 class VirayError extends Error {
   constructor(m: string) {

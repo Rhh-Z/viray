@@ -1,33 +1,35 @@
-import { defineComponent as C, ref as L, onMounted as M, onUnmounted as b, computed as l, openBlock as n, createBlock as a, Transition as h, withCtx as w, withDirectives as N, createElementVNode as S, normalizeClass as $, unref as o, normalizeStyle as z, renderSlot as B, createElementBlock as u, toDisplayString as E, createCommentVNode as H, vShow as I } from "vue";
-import { messageProps as V, messageEmits as D } from "./message.mjs";
+import { defineComponent as C, ref as M, onMounted as L, onUnmounted as b, computed as l, openBlock as n, createBlock as i, Transition as h, withCtx as w, withDirectives as N, createElementVNode as S, normalizeClass as $, unref as o, normalizeStyle as z, renderSlot as B, createElementBlock as u, toDisplayString as V, createCommentVNode as E, vShow as H } from "vue";
+import { messageProps as I, messageEmits as D } from "./message.mjs";
 import "../../../theme-chalk/src/message.css";
 import { ViIcon as r } from "../../icon/index.mjs";
 const U = {
   key: 0,
   class: "vi-message__content"
-}, A = ["innerHTML"], J = /* @__PURE__ */ C({
+}, A = ["innerHTML"], G = /* @__PURE__ */ C({
   __name: "message",
-  props: V,
+  props: I,
   emits: D,
   setup(f, { emit: p }) {
-    const e = f, t = L(!1), d = () => {
+    const e = f;
+    defineOptions({ name: "ViMessage" });
+    const t = M(!1), d = () => {
       p("close");
-    }, v = () => {
+    }, g = () => {
       t.value = !1;
     };
-    M(() => {
+    L(() => {
       t.value = !0, c();
     });
-    let i = null;
+    let a = null;
     const c = () => {
-      e.duration > 0 && (i = setTimeout(() => {
+      e.duration > 0 && (a = setTimeout(() => {
         t.value = !1;
       }, e.duration));
-    }, g = () => {
-      clearTimeout(Number(i)), c();
+    }, v = () => {
+      clearTimeout(Number(a)), c();
     };
     b(() => {
-      clearTimeout(Number(i));
+      clearTimeout(Number(a));
     });
     const y = {
       info: "info-circle-fill",
@@ -43,7 +45,7 @@ const U = {
       top: `${e.offset}px`,
       zIndex: e.zIndex
     }));
-    return (s, m) => (n(), a(h, {
+    return (s, m) => (n(), i(h, {
       name: "message-fade",
       onBeforeLeave: d,
       onAfterLeave: m[0] || (m[0] = (F) => s.$emit("destroy")),
@@ -55,14 +57,14 @@ const U = {
           {
             class: $(o(k)),
             style: z(o(T)),
-            onMouseenter: g
+            onMouseenter: v
           },
           [
-            s.icon ? (n(), a(o(r), {
+            s.icon ? (n(), i(o(r), {
               key: 0,
               name: s.icon,
               class: "vi-message__icon"
-            }, null, 8, ["name"])) : (n(), a(o(r), {
+            }, null, 8, ["name"])) : (n(), i(o(r), {
               key: 1,
               name: o(_),
               class: "vi-message__icon"
@@ -75,22 +77,22 @@ const U = {
               }, null, 8, A)) : (n(), u(
                 "span",
                 U,
-                E(s.message),
+                V(s.message),
                 1
                 /* TEXT */
               ))
             ]),
-            s.closeable ? (n(), a(o(r), {
+            s.closeable ? (n(), i(o(r), {
               key: 2,
               name: "close",
-              onClick: v,
+              onClick: g,
               class: "vi-message__close"
-            })) : H("v-if", !0)
+            })) : E("v-if", !0)
           ],
           38
           /* CLASS, STYLE, HYDRATE_EVENTS */
         ), [
-          [I, t.value]
+          [H, t.value]
         ])
       ]),
       _: 3
@@ -99,5 +101,5 @@ const U = {
   }
 });
 export {
-  J as default
+  G as default
 };

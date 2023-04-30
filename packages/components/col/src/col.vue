@@ -5,13 +5,15 @@
 </template>
 
 
-<script setup lang='ts' name="ViCol">
+<script setup lang='ts'>
 import { computed, CSSProperties, inject } from 'vue';
 import { colProps } from './col';
 import { rowContextKey } from '@viray/components/row/src/constants';
 
 import { isNumber } from '@viray/utils/common';
 import '../style/index';
+
+defineOptions({name:"ViCol"})
 
 const { gutter } = inject(rowContextKey, { gutter: computed(() => 0) });
 

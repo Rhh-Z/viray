@@ -15,12 +15,14 @@
   </span>
 </template>
 
-<script setup lang='ts' name="ViBreadcrumbItem">
+<script setup lang='ts'>
 import { breadcrumbItemProps } from './breadcrumb-item';
 import type { Router } from 'vue-router';
 import { computed, getCurrentInstance, inject, ref, toRefs } from 'vue';
 import {breadcrumbKey} from '../../breadcrumb/src/constants';
 import '../style/index';
+
+defineOptions({name:"ViBreadcrumbItem"})
 
 const props = defineProps(breadcrumbItemProps)
 

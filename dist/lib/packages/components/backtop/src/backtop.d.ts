@@ -1,28 +1,28 @@
 import { ExtractPropTypes } from "vue";
 import Backtop from './backtop.vue';
 export declare const backtopProps: {
-    readonly icon: {
-        readonly type: StringConstructor;
-        readonly default: "caret-up";
+    icon: {
+        type: StringConstructor;
+        default: string;
     };
-    readonly visibilityHeight: {
-        readonly type: NumberConstructor;
-        readonly default: 200;
+    visibilityHeight: {
+        type: NumberConstructor;
+        default: number;
     };
-    readonly right: {
-        readonly type: NumberConstructor;
-        readonly default: 40;
+    right: {
+        type: NumberConstructor;
+        default: number;
     };
-    readonly bottom: {
-        readonly type: NumberConstructor;
-        readonly default: 40;
+    bottom: {
+        type: NumberConstructor;
+        default: number;
     };
     /**
     * @description the target to trigger scroll.
     */
-    readonly target: {
-        readonly type: StringConstructor;
-        readonly default: "";
+    target: {
+        type: StringConstructor;
+        default: string;
     };
 };
 export declare type BacktopProps = ExtractPropTypes<typeof backtopProps>;

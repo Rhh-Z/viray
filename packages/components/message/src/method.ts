@@ -96,8 +96,6 @@ export function closeAll() {
   for (let i = instances.length - 1; i >= 0; i--) {
     const instance = instances[i].component;
     (instance?.proxy as any).close();
-    console.log(instance);
-
   }
 }
 

@@ -61,11 +61,15 @@
   </div>
 </template>
 
-<script setup lang='ts' name="ViProgess">
+<script setup lang='ts'>
 import {computed, CSSProperties} from 'vue';
 import { ProgressColor, progressProps } from './progress';
 import '../style/index';
 import { isFunction,isString } from 'lodash-unified';
+
+defineOptions({name:"ViProgess"})
+
+const props = defineProps(progressProps)
 
 const progressCls = computed(()=>{
   return {
@@ -76,6 +80,7 @@ const progressCls = computed(()=>{
   }
 })
 
+
 const innerCls = computed(()=>{
   return {
     "vi-progress-bar__inner":true,
@@ -83,7 +88,6 @@ const innerCls = computed(()=>{
   }
 })
 
-const props = defineProps(progressProps)
 
 const content = computed(() => props.format(props.percentage))
 

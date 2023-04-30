@@ -54,12 +54,13 @@
   </component>
 </template>
 
-<script setup lang='ts' name="ViCheckbox">
+<script setup lang='ts'>
 import { computed,useSlots } from 'vue';
 import '../style/index';
 import { checkboxEmits, checkboxProps } from './checkbox';
 import { useCheckbox } from './composables/use-checkbox'
 
+defineOptions({name:"ViCheckbox"})
 
 const COMPONENT_NAME = 'vi-checkbox'
 const slots = useSlots()

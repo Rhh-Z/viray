@@ -1,8 +1,7 @@
 import { UPDATE_MODEL_EVENT as r, CHANGE_EVENT as o } from "../../../constants/events.mjs";
 import { isArray as t } from "../../../utils/common.mjs";
 import { definePropType as a } from "../../../utils/definePropType.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-const u = {
+const p = {
   disabled: Boolean,
   tag: {
     type: String,
@@ -23,11 +22,11 @@ const u = {
     type: Boolean,
     default: !0
   }
-}, d = {
+}, u = {
   [r]: (e) => t(e),
   [o]: (e) => t(e)
 };
 export {
-  d as checkboxGroupEmits,
-  u as checkboxGroupProps
+  u as checkboxGroupEmits,
+  p as checkboxGroupProps
 };

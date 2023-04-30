@@ -1,21 +1,23 @@
-import { defineComponent as y, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as N } from "vue";
-import { dialogProps as T, dialogEmits as V } from "./dialog.mjs";
+import { defineComponent as y, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as V } from "vue";
+import { dialogProps as N, dialogEmits as T } from "./dialog.mjs";
 import "../../../theme-chalk/src/dialog.css";
 import { useDialog as z } from "./use-dialog.mjs";
-import P from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
+import O from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+const P = { class: "vi-mask" }, W = { class: "vi-dialog__header" }, j = {
   key: 1,
   class: "vi-dialog__title"
-}, F = { class: "vi-dialog__content" }, G = {
+}, q = { class: "vi-dialog__content" }, F = {
   key: 0,
   class: "vi-dialog__footer"
-}, O = /* @__PURE__ */ y({
+}, M = /* @__PURE__ */ y({
   __name: "dialog",
-  props: T,
-  emits: V,
+  props: N,
+  emits: T,
   setup(m) {
-    const e = m, p = a(() => ({
-      width: P(e.width) ? e.width : `${e.width}px`,
+    const e = m;
+    defineOptions({ name: "ViDialog" });
+    const p = a(() => ({
+      width: O(e.width) ? e.width : `${e.width}px`,
       scrollbarWidth: e.lockScroll ? "none" : "auto"
     })), {
       visible: v,
@@ -43,7 +45,7 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
           default: E(() => [
             L(i(
               "div",
-              W,
+              P,
               [
                 i(
                   "div",
@@ -53,10 +55,10 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
                     style: $(o(p))
                   },
                   [
-                    i("div", j, [
+                    i("div", W, [
                       t.$slots.title ? l(t.$slots, "title", { key: 0 }) : (s(), c(
                         "span",
-                        q,
+                        j,
                         A(e.title),
                         1
                         /* TEXT */
@@ -69,10 +71,10 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
                         d(u, { name: "close" })
                       ])
                     ]),
-                    i("div", F, [
+                    i("div", q, [
                       l(t.$slots, "content")
                     ]),
-                    t.$slots.title || e.title ? (s(), c("div", G, [
+                    t.$slots.title || e.title ? (s(), c("div", F, [
                       l(t.$slots, "footer")
                     ])) : D("v-if", !0)
                   ],
@@ -83,7 +85,7 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
               512
               /* NEED_PATCH */
             ), [
-              [N, o(v)]
+              [V, o(v)]
             ])
           ]),
           _: 3
@@ -94,5 +96,5 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
   }
 });
 export {
-  O as default
+  M as default
 };

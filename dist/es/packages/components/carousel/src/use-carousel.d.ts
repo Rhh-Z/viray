@@ -6,6 +6,6 @@ export declare const useCarousel: (props: CarouselProps, emit: SetupContext<Caro
     setIndex: (index: number) => void;
     activeIndex: import("vue").Ref<number>;
     handleMouseLeave: () => void;
-    throttlePrev: import("lodash").DebouncedFunc<() => void>;
-    throttleNext: import("lodash").DebouncedFunc<() => void>;
+    throttlePrev: import("lodash-unified").DebouncedFunc<() => void>;
+    throttleNext: import("lodash-unified").DebouncedFunc<() => void>;
 };

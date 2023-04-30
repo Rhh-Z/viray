@@ -1,10 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import viray from '@viray/components'
+// import { ViButton } from '@viray/components'
+// import { ViButton, ViButtonGroup } from '../dist/es/packages/components'
 import router from './router/index'
-// import {ViButton} from '../dist/es/components'
-const app = createApp(App)
 
+const app = createApp(App)
+// console.log(ViButton);
+
+// app.use(ViButton)
+// app.use(ViButtonGroup)
 app.use(router)
 app.use(viray)
 app.mount('#app')

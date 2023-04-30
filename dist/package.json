@@ -10,15 +10,14 @@
   ],
   "keywords": [
     "viray",
+    "Viray",
     "vue3组件库",
     "vue",
     "component",
     "components",
     "library"
   ],
-  "sideEffects": [
-    "**/*.css"
-  ],
+
   "author": "Rhh",
   "license": "MIT",
   "typings": "lib/packages/components/index.d.ts",

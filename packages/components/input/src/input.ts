@@ -1,5 +1,5 @@
 import { ComponentSize, UPDATE_MODEL_EVENT } from "@viray/constants";
-import { isString } from "lodash";
+import { isString } from "lodash-unified";
 import type { PropType } from "vue";
 import type Input from './input.vue';
 import { definePropType } from "@viray/utils/definePropType";

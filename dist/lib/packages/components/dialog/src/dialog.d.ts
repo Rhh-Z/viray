@@ -1,4 +1,5 @@
 import { ExtractPropTypes } from 'vue';
+import Dialog from './dialog.vue';
 export declare const dialogProps: {
     appendToBody: {
         type: BooleanConstructor;
@@ -39,3 +40,4 @@ export declare const dialogEmits: {
 };
 export declare type DialogProps = ExtractPropTypes<typeof dialogProps>;
 export declare type DialogEmits = ExtractPropTypes<typeof dialogEmits>;
+export declare type DialogInstance = InstanceType<typeof Dialog>;

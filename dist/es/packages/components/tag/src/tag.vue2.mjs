@@ -1,13 +1,15 @@
-import { defineComponent as _, computed as $, openBlock as o, createElementBlock as z, normalizeClass as d, unref as s, normalizeStyle as m, createElementVNode as l, renderSlot as u, createBlock as a, withModifiers as f, createCommentVNode as n, Transition as B, withCtx as E } from "vue";
-import { tagProps as T, tagEmits as V } from "./tag.mjs";
-import { ViIcon as k } from "../../icon/index.mjs";
+import { defineComponent as _, computed as $, openBlock as o, createElementBlock as T, normalizeClass as d, unref as s, normalizeStyle as m, createElementVNode as l, renderSlot as u, createBlock as a, withModifiers as f, createCommentVNode as n, Transition as V, withCtx as z } from "vue";
+import { tagProps as B, tagEmits as E } from "./tag.mjs";
+import { ViIcon as g } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/tag.css";
-const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /* @__PURE__ */ _({
+const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, P = /* @__PURE__ */ _({
   __name: "tag",
-  props: T,
-  emits: V,
-  setup(g, { emit: i }) {
-    const C = g, r = $(() => {
+  props: B,
+  emits: E,
+  setup(k, { emit: i }) {
+    const C = k;
+    defineOptions({ name: "ViTag" });
+    const r = $(() => {
       const { size: e, type: t, hit: b, effect: p, closable: h, round: y } = C;
       return {
         "vi-tag": !0,
@@ -24,7 +26,7 @@ const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /*
     }, v = (e) => {
       i("click", e);
     };
-    return (e, t) => !e.disableTransitions && e.visible ? (o(), z(
+    return (e, t) => !e.disableTransitions && e.visible ? (o(), T(
       "span",
       {
         key: 0,
@@ -35,7 +37,7 @@ const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /*
         l("span", w, [
           u(e.$slots, "default")
         ]),
-        e.closable ? (o(), a(s(k), {
+        e.closable ? (o(), a(s(g), {
           key: 0,
           name: "close",
           class: "vi-tag--close",
@@ -44,12 +46,12 @@ const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /*
       ],
       6
       /* CLASS, STYLE */
-    )) : e.disableTransitions && e.visible ? (o(), a(B, {
+    )) : e.disableTransitions && e.visible ? (o(), a(V, {
       key: 1,
       name: "tag-fade",
       appear: ""
     }, {
-      default: E(() => [
+      default: z(() => [
         l(
           "span",
           {
@@ -61,7 +63,7 @@ const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /*
             l("span", N, [
               u(e.$slots, "default")
             ]),
-            e.closable ? (o(), a(s(k), {
+            e.closable ? (o(), a(s(g), {
               key: 0,
               name: "close",
               class: "vi-tag--close",
@@ -78,5 +80,5 @@ const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, j = /*
   }
 });
 export {
-  j as default
+  P as default
 };

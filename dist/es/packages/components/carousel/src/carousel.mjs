@@ -1,7 +1,6 @@
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
+import { isNumber as a } from "../../../utils/common.mjs";
 import { definePropType as e } from "../../../utils/definePropType.mjs";
-import { exports as a } from "../../../../_virtual/lodash.mjs";
-const u = {
+const i = {
   height: {
     type: String,
     default: ""
@@ -46,10 +45,10 @@ const u = {
     type: Boolean,
     default: !0
   }
-}, p = {
-  change: (t, r) => [t, r].every(a.isNumber)
+}, u = {
+  change: (t, r) => [t, r].every(a)
 };
 export {
-  p as carouselEmits,
-  u as carouselProps
+  u as carouselEmits,
+  i as carouselProps
 };

@@ -1,8 +1,7 @@
 import { UPDATE_MODEL_EVENT as n } from "../../../constants/events.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { definePropType as o } from "../../../utils/definePropType.mjs";
-import { exports as t } from "../../../../_virtual/lodash.mjs";
-const r = {
+import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+const s = {
   /**
   * @description binding value
   */
@@ -85,9 +84,9 @@ const r = {
     default: !1
   }
 }, f = {
-  [n]: (e) => t.isString(e),
-  input: (e) => t.isString(e),
-  change: (e) => t.isString(e),
+  [n]: (e) => t(e),
+  input: (e) => t(e),
+  change: (e) => t(e),
   focus: (e) => e instanceof FocusEvent,
   blur: (e) => e instanceof FocusEvent,
   clear: () => !0,
@@ -100,5 +99,5 @@ const r = {
 };
 export {
   f as inputEmits,
-  r as inputProps
+  s as inputProps
 };

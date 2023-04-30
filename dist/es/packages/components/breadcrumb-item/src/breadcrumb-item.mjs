@@ -1,6 +1,5 @@
 import { definePropType as e } from "../../../utils/definePropType.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-const r = {
+const o = {
   to: {
     type: e([String, Object]),
     default: ""
@@ -11,5 +10,5 @@ const r = {
   }
 };
 export {
-  r as breadcrumbItemProps
+  o as breadcrumbItemProps
 };

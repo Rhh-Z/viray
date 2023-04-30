@@ -1,13 +1,15 @@
-import { defineComponent as $, ref as N, computed as n, onMounted as E, onUnmounted as H, openBlock as s, createBlock as c, Transition as I, withCtx as V, withDirectives as p, createElementVNode as r, normalizeClass as d, unref as o, normalizeStyle as v, createCommentVNode as y, toDisplayString as C, renderSlot as W, createElementBlock as g, vShow as k } from "vue";
+import { defineComponent as N, ref as $, computed as n, onMounted as V, onUnmounted as E, openBlock as s, createBlock as c, Transition as H, withCtx as I, withDirectives as p, createElementVNode as r, normalizeClass as d, unref as o, normalizeStyle as v, createCommentVNode as y, toDisplayString as C, renderSlot as W, createElementBlock as g, vShow as k } from "vue";
 import { notificationProps as D, notificationEmits as P } from "./notification.mjs";
 import { ViIcon as h } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/notification.css";
-const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0 }, q = ["innerHTML"], O = /* @__PURE__ */ $({
+const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0 }, j = ["innerHTML"], K = /* @__PURE__ */ N({
   __name: "notification",
   props: D,
   emits: P,
   setup(T, { expose: _ }) {
-    const t = T, i = N(!1);
+    const t = T;
+    defineOptions({ name: "ViNotification" });
+    const i = $(!1);
     let a = null;
     const M = {
       success: "check-circle-fill",
@@ -28,39 +30,39 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0
       "vi-notification__icon": !0,
       [`is-${t.type}`]: t.type
     }));
-    E(() => {
-      i.value = !0, u();
+    V(() => {
+      i.value = !0, f();
     });
-    function u() {
+    function f() {
       t.duration > 0 && (a = setTimeout(() => {
         i.value = !1;
       }, t.duration));
     }
-    function f() {
+    function u() {
       i.value = !1;
     }
     const B = () => {
       clearTimeout(Number(a));
     };
-    return H(() => {
+    return E(() => {
       clearTimeout(Number(a));
     }), _({
       visible: i,
-      close: f
-    }), (e, l) => (s(), c(I, {
+      close: u
+    }), (e, l) => (s(), c(H, {
       name: "notification-fade",
       onBeforeLeave: e.onClose,
       onAfterLeave: l[1] || (l[1] = (m) => e.$emit("destroy")),
       persisted: ""
     }, {
-      default: V(() => [
+      default: I(() => [
         p(r(
           "div",
           {
             class: d(o(w)),
             style: v(o(b)),
             onMouseenter: B,
-            onMouseleave: u,
+            onMouseleave: f,
             onClick: l[0] || (l[0] = //@ts-ignore
             (...m) => e.onClick && e.onClick(...m))
           },
@@ -87,9 +89,9 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0
                     e.dangerouslyUseHTMLString ? (s(), g("p", {
                       key: 1,
                       innerHTML: e.message
-                    }, null, 8, q)) : (s(), g(
+                    }, null, 8, j)) : (s(), g(
                       "p",
-                      j,
+                      O,
                       C(e.message),
                       1
                       /* TEXT */
@@ -105,7 +107,7 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0
                 key: 0,
                 name: e.icon,
                 class: "vi-notification__close",
-                onClick: f
+                onClick: u
               }, null, 8, ["name"])) : y("v-if", !0)
             ])
           ],
@@ -121,5 +123,5 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0
   }
 });
 export {
-  O as default
+  K as default
 };

@@ -1,4 +1,5 @@
 import { ExtractPropTypes, PropType } from "vue";
+import Popover from './popover.vue';
 export declare const popoverProps: {
     trigger: {
         type: StringConstructor;
@@ -42,3 +43,4 @@ export declare const popoverEmits: {
     click: () => boolean;
 };
 export declare type PoopoverEmits = ExtractPropTypes<typeof popoverEmits>;
+export declare type PoopoverInstance = InstanceType<typeof Popover>;

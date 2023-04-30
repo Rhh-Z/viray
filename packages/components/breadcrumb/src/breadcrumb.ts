@@ -10,7 +10,6 @@ export const breadcrumbProps = {
     type: String,
     default: ''
   }
-} as const
-
+}
 export type BreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>
 export type BreadcrumbInstance = InstanceType<typeof Breadcrumb>

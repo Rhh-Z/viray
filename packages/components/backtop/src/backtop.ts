@@ -25,7 +25,7 @@ export const backtopProps = {
     type: String,
     default: '',
   },
-} as const
+}
 
 export type BacktopProps = ExtractPropTypes<typeof backtopProps>
 

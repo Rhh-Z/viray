@@ -139,12 +139,12 @@
   <vi-progress type="dashboard" :percentage="40" status="warning"/>
 
 
-  <vi-progress type="dashboard" :percentage="80">
+  <!-- <vi-progress type="dashboard" :percentage="80">
       <template #default="{ percentage }">
         <span class="percentage-value" style="display: block;">{{ percentage }}%</span>
         <span class="percentage-label">Progressing</span>
       </template>
-  </vi-progress>
+  </vi-progress> -->
 
   <vi-progress :percentage="60" :duration="2" :indeterminate="true" :format="format"/>
   <hr/>

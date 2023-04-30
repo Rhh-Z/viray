@@ -4,11 +4,13 @@
   </component>
 </template>
 
-<script setup lang='ts' name="ViRow">
+<script setup lang='ts'>
 import { computed, CSSProperties, provide } from 'vue';
 import { rowContextKey } from './constants';
 import { rowProps } from './row';
 import '../style/index';
+
+defineOptions({name:"ViRow"})
 
 const props = defineProps(rowProps);
 const gutter = computed(() => props.gutter)

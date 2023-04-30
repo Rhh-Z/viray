@@ -1,87 +1,87 @@
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-import { debugWarn as E } from "../../../utils/error.mjs";
-import { isVNode as g, createVNode as x, render as v } from "vue";
-import { notificationTypes as y } from "./notification.mjs";
-import N from "./notification.vue.mjs";
-import { exports as u } from "../../../../_virtual/lodash.mjs";
+import { debugWarn as x } from "../../../utils/error.mjs";
+import { isVNode as u, createVNode as y, render as h } from "vue";
+import { notificationTypes as N } from "./notification.mjs";
+import T from "./notification.vue.mjs";
+import v from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isElement.mjs";
+import b from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
 const a = {
   "top-left": [],
   "top-right": [],
   "bottom-left": [],
   "bottom-right": []
-}, h = 16;
-let T = 1;
+}, g = 16;
+let H = 1;
 const m = (e = {}, t = null) => {
-  (u.isString(e) || g(e)) && (e = { message: e });
-  const s = e.position || "top-right";
+  (b(e) || u(e)) && (e = { message: e });
+  const c = e.position || "top-right";
   let n = e.offset || 0;
-  a[s] && a[s].forEach(({ vm: r }) => {
+  a[c] && a[c].forEach(({ vm: s }) => {
     var p;
-    n += (((p = r.el) == null ? void 0 : p.offsetHeight) || 0) + h;
-  }), n += h;
-  const c = `notification_${T++}`, d = e.onClose, f = {
+    n += (((p = s.el) == null ? void 0 : p.offsetHeight) || 0) + g;
+  }), n += g;
+  const l = `notification_${H++}`, d = e.onClose, f = {
     ...e,
     offset: n,
-    id: c,
+    id: l,
     onClose: () => {
-      H(c, s, d);
+      _(l, c, d);
     }
   };
   let i = document.body;
-  u.isElement(e.appendTo) ? i = e.appendTo : u.isString(e.appendTo) && (i = document.querySelector(e.appendTo)), u.isElement(i) || (E(
+  v(e.appendTo) ? i = e.appendTo : b(e.appendTo) && (i = document.querySelector(e.appendTo)), v(i) || (x(
     "ElNotification",
     "the appendTo option is not an HTMLElement. Falling back to document.body."
   ), i = document.body);
-  const l = document.createElement("div"), o = x(
-    N,
+  const r = document.createElement("div"), o = y(
+    T,
     f,
-    g(f.message) ? { default: () => f.message } : null
+    u(f.message) ? { default: () => f.message } : null
   );
   return o.appContext = t ?? m._context, o.props.onDestroy = () => {
-    v(null, l);
-  }, v(o, l), a[s].push({ vm: o }), i == null || i.appendChild(l.firstElementChild), {
+    h(null, r);
+  }, h(o, r), a[c].push({ vm: o }), i == null || i.appendChild(r.firstElementChild), {
     close: () => {
       o.component.exposed.visible.value = !1;
     }
   };
 };
-y.forEach((e) => {
-  m[e] = (t = {}) => ((typeof t == "string" || g(t)) && (t = {
+N.forEach((e) => {
+  m[e] = (t = {}) => ((typeof t == "string" || u(t)) && (t = {
     message: t
   }), m({
     ...t,
     type: e
   }));
 });
-function H(e, t, s) {
-  const n = a[t], c = n.findIndex(
+function _(e, t, c) {
+  const n = a[t], l = n.findIndex(
     ({ vm: o }) => {
-      var r;
-      return ((r = o.component) == null ? void 0 : r.props.id) === e;
+      var s;
+      return ((s = o.component) == null ? void 0 : s.props.id) === e;
     }
   );
-  if (c === -1)
+  if (l === -1)
     return;
-  const { vm: d } = n[c];
-  s == null || s(d);
+  const { vm: d } = n[l];
+  c == null || c(d);
   const f = d.el.offsetHeight, i = t.split("-")[0];
-  n.splice(c, 1);
-  const l = n.length;
-  if (!(l < 1))
-    for (let o = c; o < l; o++) {
-      const { el: r, component: p } = n[o].vm, b = Number.parseInt(r.style[i], 10) - f - h;
-      p.props.offset = b;
+  n.splice(l, 1);
+  const r = n.length;
+  if (!(r < 1))
+    for (let o = l; o < r; o++) {
+      const { el: s, component: p } = n[o].vm, E = Number.parseInt(s.style[i], 10) - f - g;
+      p.props.offset = E;
     }
 }
-function S() {
+function A() {
   for (const e of Object.values(a))
     e.forEach(({ vm: t }) => {
       t.component.exposed.visible.value = !1;
     });
 }
-m.closeAll = S;
+m.closeAll = A;
 m._context = null;
 export {
-  S as closeAll,
+  A as closeAll,
   m as default
 };

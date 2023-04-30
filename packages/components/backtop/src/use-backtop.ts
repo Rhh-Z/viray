@@ -1,7 +1,7 @@
 import { onMounted, ref, SetupContext, shallowRef } from "vue"
 import { BacktopEmits, BacktopProps } from "./backtop"
 import { throwError } from "@viray/utils"
-import { throttle } from "lodash"
+import { throttle } from "lodash-unified"
 
 export const useBacktop = (
   props: BacktopProps,
@@ -18,9 +18,7 @@ export const useBacktop = (
 
   const throttleFn = throttle(handleScroll, 250, { trailing: false })
 
-  addEventListener('scroll', () => {
-    throttleFn()
-  })
+  addEventListener('scroll', throttleFn)
 
   const handleClick = (event: MouseEvent) => {
     el.value?.scrollTo({ top: 0, behavior: 'smooth' })

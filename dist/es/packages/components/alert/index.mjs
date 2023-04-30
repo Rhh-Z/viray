@@ -1,8 +1,7 @@
 import t from "./src/alert.vue.mjs";
-import "../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { withInstall as r } from "../../utils/withInstall.mjs";
-const m = r(t);
+const e = r(t);
 export {
-  m as ViAlert,
-  m as default
+  e as ViAlert,
+  e as default
 };

@@ -1,55 +1,55 @@
-import { defineComponent as E, useCssVars as $, ref as k, computed as c, watch as y, openBlock as a, createElementBlock as p, normalizeClass as S, unref as n, normalizeStyle as z, createBlock as C, renderSlot as g } from "vue";
-import { avatarProps as N, avatarEmits as w } from "./avatar.mjs";
+import { defineComponent as v, useCssVars as $, ref as E, computed as l, watch as k, openBlock as a, createElementBlock as m, normalizeClass as y, unref as n, normalizeStyle as S, createBlock as z, renderSlot as C } from "vue";
+import { avatarProps as g, avatarEmits as N } from "./avatar.mjs";
 import "../../../theme-chalk/src/avatar.css";
-import { ViIcon as B } from "../../icon/index.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
-import { exports as m } from "../../../../_virtual/lodash.mjs";
-const L = ["src", "alt", "srcset"], I = /* @__PURE__ */ E({
+import { ViIcon as w } from "../../icon/index.mjs";
+import B from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+import O from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNumber.mjs";
+const V = ["src", "alt", "srcset"], T = /* @__PURE__ */ v({
   __name: "avatar",
-  props: N,
-  emits: w,
-  setup(u, { emit: f }) {
-    const t = u;
-    $((s) => ({
-      "5e9f4473-fit": s.fit
-    }));
-    const r = "vi-avatar", o = k(!1), h = c(() => {
-      const { size: s, icon: i, shape: l } = t, e = [r];
-      return m.isString(s) && e.push(`${r}--${s}`), i && e.push(`${r}--icon`), l && e.push(`${r}--${l}`), e;
-    }), d = c(() => {
-      const { size: s } = t;
-      return m.isNumber(s) ? {
-        width: `${s}px`,
-        height: `${s}px`
+  props: g,
+  emits: N,
+  setup(p, { emit: f }) {
+    const t = p;
+    $((r) => ({
+      "5e9f4473-fit": r.fit
+    })), defineOptions({ name: "ViAvatar" });
+    const e = "vi-avatar", o = E(!1), u = l(() => {
+      const { size: r, icon: i, shape: c } = t, s = [e];
+      return B(r) && s.push(`${e}--${r}`), i && s.push(`${e}--icon`), c && s.push(`${e}--${c}`), s;
+    }), h = l(() => {
+      const { size: r } = t;
+      return O(r) ? {
+        width: `${r}px`,
+        height: `${r}px`
       } : {
-        width: s,
-        height: s
+        width: r,
+        height: r
       };
     });
-    y(
+    k(
       () => t.src,
       () => o.value = !1
     );
-    const v = (s) => {
-      o.value = !0, f("error", s);
+    const d = (r) => {
+      o.value = !0, f("error", r);
     };
-    return (s, i) => (a(), p(
+    return (r, i) => (a(), m(
       "span",
       {
-        class: S(n(h)),
-        style: z(n(d))
+        class: y(n(u)),
+        style: S(n(h))
       },
       [
-        (s.src || s.srcSet) && !o.value ? (a(), p("img", {
+        (r.src || r.srcSet) && !o.value ? (a(), m("img", {
           key: 0,
-          src: s.src,
-          alt: s.alt,
-          srcset: s.srcSet,
-          onError: v
-        }, null, 40, L)) : s.icon ? (a(), C(n(B), {
+          src: r.src,
+          alt: r.alt,
+          srcset: r.srcSet,
+          onError: d
+        }, null, 40, V)) : r.icon ? (a(), z(n(w), {
           key: 1,
-          name: s.icon
-        }, null, 8, ["name"])) : g(s.$slots, "default", { key: 2 })
+          name: r.icon
+        }, null, 8, ["name"])) : C(r.$slots, "default", { key: 2 })
       ],
       6
       /* CLASS, STYLE */
@@ -57,5 +57,5 @@ const L = ["src", "alt", "srcset"], I = /* @__PURE__ */ E({
   }
 });
 export {
-  I as default
+  T as default
 };

@@ -10,11 +10,13 @@
 </template>
 
 
-<script setup lang='ts' name="ViBreadcrumb">
+<script setup lang='ts'>
 import { onMounted,provide,ref } from 'vue';
 import { breadcrumbProps } from './breadcrumb';
 import { breadcrumbKey } from './constants';
 import '../style/index'
+
+defineOptions({name:"ViBreadcrumb"})
 
 const props = defineProps(breadcrumbProps)
 

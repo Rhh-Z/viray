@@ -1,4 +1,4 @@
-import { isElement, isString } from 'lodash'
+import { isElement, isString } from 'lodash-unified'
 import { debugWarn } from '@viray/utils'
 import { createVNode, AppContext, isVNode, Ref, render, VNode } from 'vue'
 import { NotificationProps, NotificationQueue, NotificationOptions, NotifyFn, Notify, notificationTypes } from './notification'

@@ -2,7 +2,6 @@ import { defineComponent as ee, useSlots as oe, ref as v, computed as n, shallow
 import { inputProps as te, inputEmits as le } from "./input.mjs";
 import "../../../theme-chalk/src/input.css";
 import { UPDATE_MODEL_EVENT as F } from "../../../constants/events.mjs";
-import "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.mjs";
 import { isKorean as ie } from "../../../utils/i18n.mjs";
 import re from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
 const ue = {
@@ -25,24 +24,26 @@ const ue = {
   props: te,
   emits: le,
   setup(K, { emit: s }) {
-    const o = K, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), D = n(() => b.value.length), T = L(), k = L(), U = n(() => T.value || k.value), y = async (e) => {
+    const o = K;
+    defineOptions({ name: "ViInput" });
+    const m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), D = n(() => b.value.length), T = L(), k = L(), O = n(() => T.value || k.value), y = async (e) => {
       let { value: r } = e.target;
       s(F, r), s("input", r), await S();
-    }, W = () => {
+    }, U = () => {
       s(F, ""), s("change", ""), s("clear"), s("input", "");
-    }, x = (e) => {
-      p.value = !0, s("focus", e);
     }, I = (e) => {
-      p.value = !1, s("blur", e);
+      p.value = !0, s("focus", e);
     }, V = (e) => {
+      p.value = !1, s("blur", e);
+    }, x = (e) => {
       s("change", e.target.value);
     }, E = (e) => {
       s("keydown", e);
-    }, z = (e) => {
+    }, W = (e) => {
       d.value = !0, s("mouseenter", e);
-    }, A = (e) => {
+    }, z = (e) => {
       d.value = !1, s("mouseenter", e);
-    }, O = (e) => {
+    }, A = (e) => {
       f.value = !0, s("compositionstart", e);
     }, R = (e) => {
       var B;
@@ -66,7 +67,7 @@ const ue = {
       c.value = !c.value, H();
     }, H = async () => {
       var e;
-      await S(), (e = U.value) == null || e.focus();
+      await S(), (e = O.value) == null || e.focus();
     }, J = n(
       () => o.type !== "textarea" ? "vi-input" : "vi-textarea"
     ), Q = n(() => ({
@@ -87,8 +88,8 @@ const ue = {
         "div",
         {
           class: C(i(J)),
-          onMouseenter: z,
-          onMouseleave: A
+          onMouseenter: W,
+          onMouseleave: z
         },
         [
           e.type !== "textarea" ? (t(), l(
@@ -125,9 +126,9 @@ const ue = {
                     placeholder: e.placeholder,
                     disabled: e.disabled,
                     onInput: y,
-                    onFocus: x,
-                    onBlur: I,
-                    onChange: V,
+                    onFocus: I,
+                    onBlur: V,
+                    onChange: x,
                     onKeydown: E
                   }), null, 16, ce),
                   a(" suffix slot "),
@@ -142,7 +143,7 @@ const ue = {
                       i(w) ? (t(), ne(u, {
                         key: 0,
                         name: "close-circle",
-                        onClick: W
+                        onClick: U
                       })) : a("v-if", !0),
                       i(P) ? (t(), l("div", {
                         key: 1,
@@ -194,11 +195,11 @@ const ue = {
             autofocus: e.autofocus,
             autocomplete: e.autocomplete,
             onInput: y,
-            onFocus: x,
-            onBlur: I,
-            onChange: V,
+            onFocus: I,
+            onBlur: V,
+            onChange: x,
             onKeydown: E,
-            onCompositionstart: O,
+            onCompositionstart: A,
             onCompositionupdate: R,
             onCompositionend: j
           }), null, 16, ye))
