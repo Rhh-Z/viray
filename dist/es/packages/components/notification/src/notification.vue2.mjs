@@ -1,54 +1,52 @@
-import { defineComponent as N, ref as $, computed as n, onMounted as V, onUnmounted as E, openBlock as s, createBlock as c, Transition as H, withCtx as I, withDirectives as p, createElementVNode as r, normalizeClass as d, unref as o, normalizeStyle as v, createCommentVNode as y, toDisplayString as C, renderSlot as W, createElementBlock as g, vShow as k } from "vue";
+import { defineComponent as T, ref as $, computed as n, onMounted as V, onUnmounted as E, openBlock as s, createBlock as c, Transition as H, withCtx as I, withDirectives as p, createElementVNode as r, normalizeClass as d, unref as o, normalizeStyle as v, createCommentVNode as y, toDisplayString as C, renderSlot as W, createElementBlock as g, vShow as k } from "vue";
 import { notificationProps as D, notificationEmits as P } from "./notification.mjs";
 import { ViIcon as h } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/notification.css";
-const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0 }, j = ["innerHTML"], K = /* @__PURE__ */ N({
-  __name: "notification",
+const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0 }, q = ["innerHTML"], F = T({ name: "ViNotification" }), Q = /* @__PURE__ */ T({
+  ...F,
   props: D,
   emits: P,
-  setup(T, { expose: _ }) {
-    const t = T;
-    defineOptions({ name: "ViNotification" });
-    const i = $(!1);
+  setup(_, { expose: M }) {
+    const t = _, i = $(!1);
     let a = null;
-    const M = {
+    const L = {
       success: "check-circle-fill",
       info: "info-circle-fill",
       warning: "warning-circle-fill",
       error: "close-circle-fill"
-    }, L = n(() => M[t.type]), S = n(
+    }, S = n(() => L[t.type]), b = n(
       () => t.position.startsWith("top") ? "top" : "bottom"
-    ), b = n(() => ({
-      [S.value]: `${t.offset}px`,
+    ), w = n(() => ({
+      [b.value]: `${t.offset}px`,
       zIndex: t.zIndex
-    })), w = n(() => ({
+    })), z = n(() => ({
       "vi-notification": !0,
       customClass: t.customClass,
       right: t.position.endsWith("right"),
       left: t.position.endsWith("left")
-    })), z = n(() => ({
+    })), B = n(() => ({
       "vi-notification__icon": !0,
       [`is-${t.type}`]: t.type
     }));
     V(() => {
-      i.value = !0, f();
+      i.value = !0, u();
     });
-    function f() {
+    function u() {
       t.duration > 0 && (a = setTimeout(() => {
         i.value = !1;
       }, t.duration));
     }
-    function u() {
+    function f() {
       i.value = !1;
     }
-    const B = () => {
+    const N = () => {
       clearTimeout(Number(a));
     };
     return E(() => {
       clearTimeout(Number(a));
-    }), _({
+    }), M({
       visible: i,
-      close: u
+      close: f
     }), (e, l) => (s(), c(H, {
       name: "notification-fade",
       onBeforeLeave: e.onClose,
@@ -59,18 +57,18 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0
         p(r(
           "div",
           {
-            class: d(o(w)),
-            style: v(o(b)),
-            onMouseenter: B,
-            onMouseleave: f,
+            class: d(o(z)),
+            style: v(o(w)),
+            onMouseenter: N,
+            onMouseleave: u,
             onClick: l[0] || (l[0] = //@ts-ignore
             (...m) => e.onClick && e.onClick(...m))
           },
           [
             t.type ? (s(), c(o(h), {
               key: 0,
-              name: o(L),
-              class: d(o(z)),
+              name: o(S),
+              class: d(o(B)),
               style: { "font-size": "24px" }
             }, null, 8, ["name", "class"])) : y("v-if", !0),
             r("div", U, [
@@ -89,9 +87,9 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0
                     e.dangerouslyUseHTMLString ? (s(), g("p", {
                       key: 1,
                       innerHTML: e.message
-                    }, null, 8, j)) : (s(), g(
+                    }, null, 8, q)) : (s(), g(
                       "p",
-                      O,
+                      j,
                       C(e.message),
                       1
                       /* TEXT */
@@ -107,7 +105,7 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0
                 key: 0,
                 name: e.icon,
                 class: "vi-notification__close",
-                onClick: u
+                onClick: f
               }, null, 8, ["name"])) : y("v-if", !0)
             ])
           ],
@@ -123,5 +121,5 @@ const U = { class: "vi-notification__group" }, A = ["textContent"], O = { key: 0
   }
 });
 export {
-  K as default
+  Q as default
 };

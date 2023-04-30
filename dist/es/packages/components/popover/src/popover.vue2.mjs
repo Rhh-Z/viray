@@ -1,4 +1,4 @@
-import { defineComponent as $, ref as _, computed as n, openBlock as s, createElementBlock as i, renderSlot as p, createCommentVNode as l, createVNode as E, Transition as C, withCtx as V, withDirectives as B, createElementVNode as N, normalizeClass as R, unref as r, normalizeStyle as U, toDisplayString as f, vShow as g } from "vue";
+import { defineComponent as d, ref as $, computed as n, openBlock as s, createElementBlock as i, renderSlot as p, createCommentVNode as l, createVNode as E, Transition as C, withCtx as V, withDirectives as B, createElementVNode as N, normalizeClass as R, unref as r, normalizeStyle as U, toDisplayString as f, vShow as g } from "vue";
 import "../../../theme-chalk/src/popover.css";
 import { popoverProps as z, popoverEmits as D } from "./popover.mjs";
 import H from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
@@ -10,22 +10,20 @@ const L = { class: "vi-popover__container" }, P = {
   key: 2,
   class: "vi-popover__content",
   role: "content"
-}, A = /* @__PURE__ */ $({
-  __name: "popover",
+}, T = d({ name: "ViPopover" }), G = /* @__PURE__ */ d({
+  ...T,
   props: z,
   emits: D,
-  setup(d, { emit: t }) {
-    const o = d;
-    defineOptions({ name: "ViPopover" });
-    const c = _(), m = "onUpdate:visible", a = n(() => o[m]), u = () => {
+  setup(c, { emit: t }) {
+    const o = c, m = $(), u = "onUpdate:visible", a = n(() => o[u]), h = () => {
       t("before-enter");
-    }, h = () => {
-      t("before-leave");
     }, y = () => {
-      t("after-enter");
+      t("before-leave");
     }, w = () => {
+      t("after-enter");
+    }, b = () => {
       t("update:visible", !1), t("after-leave");
-    }, b = n(() => ({
+    }, _ = n(() => ({
       "vi-popover": !0,
       [`is-${o.placement.split("-")[0]}`]: o.placement
     })), k = n(() => ({
@@ -41,16 +39,16 @@ const L = { class: "vi-popover__container" }, P = {
           B(N(
             "div",
             {
-              class: R(r(b)),
+              class: R(r(_)),
               ref_key: "popoverRef",
-              ref: c,
+              ref: m,
               style: U(r(k)),
               "onUpdate:visible": v[0] || (v[0] = //@ts-ignore
               (...S) => r(a) && r(a)(...S)),
-              onBeforeShow: u,
-              onBeforeHide: h,
-              onShow: y,
-              onHide: w
+              onBeforeShow: h,
+              onBeforeHide: y,
+              onShow: w,
+              onHide: b
             },
             [
               e.title ? (s(), i(
@@ -81,5 +79,5 @@ const L = { class: "vi-popover__container" }, P = {
   }
 });
 export {
-  A as default
+  G as default
 };

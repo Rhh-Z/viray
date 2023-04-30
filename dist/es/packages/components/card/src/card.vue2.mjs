@@ -1,26 +1,24 @@
-import { defineComponent as c, computed as o, openBlock as t, createElementBlock as s, normalizeClass as m, unref as a, renderSlot as d, createTextVNode as p, toDisplayString as u, createCommentVNode as h, createElementVNode as f, normalizeStyle as v } from "vue";
-import { cardProps as y } from "./card.mjs";
+import { defineComponent as n, computed as o, openBlock as t, createElementBlock as s, normalizeClass as m, unref as a, renderSlot as d, createTextVNode as p, toDisplayString as u, createCommentVNode as h, createElementVNode as f, normalizeStyle as _ } from "vue";
+import { cardProps as v } from "./card.mjs";
 import "../../../theme-chalk/src/card.css";
-const _ = {
+const y = {
   key: 0,
   class: "vi-card__header"
-}, k = /* @__PURE__ */ c({
-  __name: "card",
-  props: y,
-  setup(n) {
-    const r = n;
-    defineOptions({ name: "ViCard" });
-    const i = o(() => ({
+}, C = n({ name: "ViCard" }), w = /* @__PURE__ */ n({
+  ...C,
+  props: v,
+  setup(l) {
+    const r = l, c = o(() => ({
       "vi-card": !0,
       [`is-${r.shadow}-shadow`]: r.shadow
-    })), l = o(() => ({}));
-    return (e, C) => (t(), s(
+    })), i = o(() => ({}));
+    return (e, S) => (t(), s(
       "div",
       {
-        class: m(a(i))
+        class: m(a(c))
       },
       [
-        e.$slots.header || e.header ? (t(), s("div", _, [
+        e.$slots.header || e.header ? (t(), s("div", y, [
           d(e.$slots, "header", {}, () => [
             p(
               u(e.header),
@@ -33,7 +31,7 @@ const _ = {
           "div",
           {
             class: "vi-card__body",
-            style: v(a(l))
+            style: _(a(i))
           },
           [
             d(e.$slots, "default")
@@ -48,5 +46,5 @@ const _ = {
   }
 });
 export {
-  k as default
+  w as default
 };

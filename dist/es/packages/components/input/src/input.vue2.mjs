@@ -1,4 +1,4 @@
-import { defineComponent as ee, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as g, createVNode as _, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
+import { defineComponent as K, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as _, createVNode as g, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
 import { inputProps as te, inputEmits as le } from "./input.mjs";
 import "../../../theme-chalk/src/input.css";
 import { UPDATE_MODEL_EVENT as F } from "../../../constants/events.mjs";
@@ -19,17 +19,15 @@ const ue = {
 }, ve = { class: "vi-input__count-inner" }, he = { key: 3 }, me = {
   key: 1,
   class: "vi-input__append"
-}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], Ie = /* @__PURE__ */ ee({
-  __name: "input",
+}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({ name: "ViInput" }), Ve = /* @__PURE__ */ K({
+  ...be,
   props: te,
   emits: le,
-  setup(K, { emit: s }) {
-    const o = K;
-    defineOptions({ name: "ViInput" });
-    const m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), D = n(() => b.value.length), T = L(), k = L(), O = n(() => T.value || k.value), y = async (e) => {
+  setup(D, { emit: s }) {
+    const o = D, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), T = n(() => b.value.length), U = L(), k = L(), W = n(() => U.value || k.value), y = async (e) => {
       let { value: r } = e.target;
       s(F, r), s("input", r), await S();
-    }, U = () => {
+    }, z = () => {
       s(F, ""), s("change", ""), s("clear"), s("input", "");
     }, I = (e) => {
       p.value = !0, s("focus", e);
@@ -39,47 +37,47 @@ const ue = {
       s("change", e.target.value);
     }, E = (e) => {
       s("keydown", e);
-    }, W = (e) => {
-      d.value = !0, s("mouseenter", e);
-    }, z = (e) => {
-      d.value = !1, s("mouseenter", e);
     }, A = (e) => {
-      f.value = !0, s("compositionstart", e);
+      d.value = !0, s("mouseenter", e);
+    }, O = (e) => {
+      d.value = !1, s("mouseenter", e);
     }, R = (e) => {
+      f.value = !0, s("compositionstart", e);
+    }, j = (e) => {
       var B;
       s("compositionupdate", e);
       const r = (B = e.target) == null ? void 0 : B.value, u = r[r.length - 1] || "";
       f.value = !ie(u);
-    }, j = (e) => {
+    }, q = (e) => {
       s("compositionend", e), f.value && (f.value = !1, y(e));
     }, b = n(
       () => re(o.modelValue) ? "" : String(o.modelValue)
     ), w = n(
       () => o.clearable && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
-    ), q = n(
+    ), G = n(
       () => !!m.suffix || !!o.clearable || w.value || o.showPassword || $.value
       // (!!validateState.value && needStatusIcon.value)
     ), P = n(
       () => o.showPassword && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
     ), $ = n(
       () => o.showWordLimit && (o.type === "text" || o.type === "textarea") && !o.disabled && !o.readonly && !o.showPassword
-    ), G = () => {
-      c.value = !c.value, H();
-    }, H = async () => {
+    ), H = () => {
+      c.value = !c.value, J();
+    }, J = async () => {
       var e;
-      await S(), (e = O.value) == null || e.focus();
-    }, J = n(
+      await S(), (e = W.value) == null || e.focus();
+    }, Q = n(
       () => o.type !== "textarea" ? "vi-input" : "vi-textarea"
-    ), Q = n(() => ({
+    ), X = n(() => ({
       "vi-input__wrapper": !0,
       ["is-prepend"]: m.prepend,
       ["is-append"]: m.append
-    })), X = n(() => ({
+    })), Y = n(() => ({
       "is-disabled": o.disabled
       // [`vi-input--${inputProps.size}`]: inputProps.size
-    })), Y = n(
+    })), Z = n(
       () => w.value || P.value ? "vi-input__suffix" : ""
-    ), Z = n(() => ({
+    ), ee = n(() => ({
       ["is-disabled"]: o.disabled
     }));
     return (e, r) => {
@@ -87,9 +85,9 @@ const ue = {
       return t(), l(
         "div",
         {
-          class: C(i(J)),
-          onMouseenter: W,
-          onMouseleave: z
+          class: C(i(Q)),
+          onMouseenter: A,
+          onMouseleave: O
         },
         [
           e.type !== "textarea" ? (t(), l(
@@ -100,10 +98,10 @@ const ue = {
               e.$slots.prepend ? (t(), l("div", ue, [
                 h(e.$slots, "prepend")
               ])) : a("v-if", !0),
-              g(
+              _(
                 "div",
                 {
-                  class: C(i(Q))
+                  class: C(i(X))
                 },
                 [
                   a(" prefix slot "),
@@ -112,12 +110,12 @@ const ue = {
                   ])) : a("v-if", !0),
                   a(" prefixIcon "),
                   e.prefixIcon ? (t(), l("span", de, [
-                    _(u, { name: e.prefixIcon }, null, 8, ["name"])
+                    g(u, { name: e.prefixIcon }, null, 8, ["name"])
                   ])) : a("v-if", !0),
-                  g("input", M({ class: "vi-input__inner" }, e.$attrs, {
+                  _("input", M({ class: "vi-input__inner" }, e.$attrs, {
                     autofocus: e.autofocus,
                     type: e.showPassword ? c.value ? "text" : "password" : e.type,
-                    class: i(X),
+                    class: i(Y),
                     value: e.modelValue,
                     autocomplete: e.autocomplete,
                     "aria-label": e.label,
@@ -132,32 +130,32 @@ const ue = {
                     onKeydown: E
                   }), null, 16, ce),
                   a(" suffix slot "),
-                  i(q) ? (t(), l(
+                  i(G) ? (t(), l(
                     "span",
                     {
                       key: 2,
-                      class: C(i(Y))
+                      class: C(i(Z))
                     },
                     [
                       h(e.$slots, "suffix"),
                       i(w) ? (t(), ne(u, {
                         key: 0,
                         name: "close-circle",
-                        onClick: U
+                        onClick: z
                       })) : a("v-if", !0),
                       i(P) ? (t(), l("div", {
                         key: 1,
-                        onClick: G
+                        onClick: H
                       }, [
-                        _(u, {
+                        g(u, {
                           name: c.value ? "eye" : "eye-close"
                         }, null, 8, ["name"])
                       ])) : a("v-if", !0),
                       i($) ? (t(), l("span", fe, [
-                        g(
+                        _(
                           "span",
                           ve,
-                          N(i(D)) + "/" + N(o.maxlength),
+                          N(i(T)) + "/" + N(o.maxlength),
                           1
                           /* TEXT */
                         )
@@ -168,7 +166,7 @@ const ue = {
                   )) : a("v-if", !0),
                   a(" suffixIcon "),
                   e.suffixIcon ? (t(), l("span", he, [
-                    _(u, { name: e.suffixIcon }, null, 8, ["name"])
+                    g(u, { name: e.suffixIcon }, null, 8, ["name"])
                   ])) : a("v-if", !0)
                 ],
                 2
@@ -183,7 +181,7 @@ const ue = {
             /* STABLE_FRAGMENT */
           )) : (t(), l("textarea", M({
             key: 1,
-            class: ["vi-textarea__inner", i(Z)],
+            class: ["vi-textarea__inner", i(ee)],
             ref_key: "textarea",
             ref: k
           }, e.$attrs, {
@@ -199,9 +197,9 @@ const ue = {
             onBlur: V,
             onChange: x,
             onKeydown: E,
-            onCompositionstart: A,
-            onCompositionupdate: R,
-            onCompositionend: j
+            onCompositionstart: R,
+            onCompositionupdate: j,
+            onCompositionend: q
           }), null, 16, ye))
         ],
         34
@@ -211,5 +209,5 @@ const ue = {
   }
 });
 export {
-  Ie as default
+  Ve as default
 };

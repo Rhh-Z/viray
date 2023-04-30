@@ -1,11 +1,10 @@
-import { defineComponent as n, ref as a, inject as s, computed as i, openBlock as m, createElementBlock as c, normalizeStyle as f, unref as u, renderSlot as p } from "vue";
+import { defineComponent as l, ref as n, inject as s, computed as i, openBlock as m, createElementBlock as c, normalizeStyle as f, unref as u, renderSlot as _ } from "vue";
 import "../../../theme-chalk/src/carousel-item.css";
-import { carouselContextKey as _ } from "../../carousel/src/constants.mjs";
-const k = /* @__PURE__ */ n({
-  __name: "carousel-item",
-  setup(d) {
-    defineOptions({ name: "ViCarouselItem" });
-    const r = a(), { activeIndex: o } = s(_), l = i(() => {
+import { carouselContextKey as p } from "../../carousel/src/constants.mjs";
+const d = l({ name: "ViCarouselItem" }), x = /* @__PURE__ */ l({
+  ...d,
+  setup(y) {
+    const r = n(), { activeIndex: o } = s(p), a = i(() => {
       if (r.value) {
         let t = Array.from(r.value.parentNode.children);
         t = t.filter((e) => e.className === "vi-carousel__item");
@@ -18,12 +17,12 @@ const k = /* @__PURE__ */ n({
       "div",
       {
         class: "vi-carousel__item",
-        style: f(u(l)),
+        style: f(u(a)),
         ref_key: "item",
         ref: r
       },
       [
-        p(t.$slots, "default")
+        _(t.$slots, "default")
       ],
       4
       /* STYLE */
@@ -31,5 +30,5 @@ const k = /* @__PURE__ */ n({
   }
 });
 export {
-  k as default
+  x as default
 };

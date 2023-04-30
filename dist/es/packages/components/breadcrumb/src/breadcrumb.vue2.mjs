@@ -1,19 +1,17 @@
-import { defineComponent as n, ref as c, provide as m, onMounted as i, openBlock as u, createElementBlock as b, renderSlot as d } from "vue";
-import { breadcrumbProps as l } from "./breadcrumb.mjs";
+import { defineComponent as o, ref as n, provide as m, onMounted as u, openBlock as l, createElementBlock as i, renderSlot as b } from "vue";
+import { breadcrumbProps as d } from "./breadcrumb.mjs";
 import { breadcrumbKey as p } from "./constants.mjs";
 import "../../../theme-chalk/src/breadcrumb.css";
-const g = /* @__PURE__ */ n({
-  __name: "breadcrumb",
-  props: l,
-  setup(o) {
-    const a = o;
-    defineOptions({ name: "ViBreadcrumb" });
-    const t = c();
-    return m(p, a), i(() => {
+const s = o({ name: "ViBreadcrumb" }), B = /* @__PURE__ */ o({
+  ...s,
+  props: d,
+  setup(a) {
+    const c = a, t = n();
+    return m(p, c), u(() => {
       var r;
       const e = (r = t.value) == null ? void 0 : r.querySelectorAll("vi-breadcrumb--item");
       e != null && e.length && e[e.length - 1].setAttribute("aria-current", "page");
-    }), (e, r) => (u(), b(
+    }), (e, r) => (l(), i(
       "div",
       {
         ref_key: "breadcrumb",
@@ -23,7 +21,7 @@ const g = /* @__PURE__ */ n({
         role: "navigation"
       },
       [
-        d(e.$slots, "default")
+        b(e.$slots, "default")
       ],
       512
       /* NEED_PATCH */
@@ -31,5 +29,5 @@ const g = /* @__PURE__ */ n({
   }
 });
 export {
-  g as default
+  B as default
 };

@@ -1,25 +1,23 @@
-import { defineComponent as l, computed as o, provide as p, openBlock as m, createBlock as u, resolveDynamicComponent as c, normalizeClass as f, unref as s, normalizeStyle as g, withCtx as y, renderSlot as d } from "vue";
+import { defineComponent as n, computed as o, provide as p, openBlock as u, createBlock as m, resolveDynamicComponent as c, normalizeClass as f, unref as s, normalizeStyle as g, withCtx as y, renderSlot as d } from "vue";
 import { rowContextKey as w } from "./constants.mjs";
-import { rowProps as v } from "./row.mjs";
+import { rowProps as _ } from "./row.mjs";
 import "../../../theme-chalk/src/row.css";
-const x = /* @__PURE__ */ l({
-  __name: "row",
-  props: v,
-  setup(n) {
-    const e = n;
-    defineOptions({ name: "ViRow" });
-    const r = o(() => e.gutter);
+const v = n({ name: "ViRow" }), k = /* @__PURE__ */ n({
+  ...v,
+  props: _,
+  setup(i) {
+    const e = i, r = o(() => e.gutter);
     p(w, { gutter: r });
-    const i = o(() => {
+    const l = o(() => {
       const t = {};
       return r.value && (t.marginLeft = t.marginRight = `vi-row-${e.gutter / 2}px`), t;
     }), a = o(() => [
       e.justify !== "start" ? `is-justify-${e.justify}` : "",
       e.align !== "top" ? `is-align-${e.align}` : ""
     ]);
-    return (t, C) => (m(), u(c(t.tag), {
+    return (t, C) => (u(), m(c(t.tag), {
       class: f(["vi-row", s(a)]),
-      style: g(s(i))
+      style: g(s(l))
     }, {
       default: y(() => [
         d(t.$slots, "default")
@@ -30,5 +28,5 @@ const x = /* @__PURE__ */ l({
   }
 });
 export {
-  x as default
+  k as default
 };
