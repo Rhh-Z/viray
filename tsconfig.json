@@ -10,8 +10,7 @@
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
     "types": ["./typings/vue-shim.d.ts","./typings/components.d.ts"],
-    "resolveJsonModule": true,
-    "typeRoots": ["./typings"]
+    "resolveJsonModule": true
   },
   "exclude": [
       "node_modules",
