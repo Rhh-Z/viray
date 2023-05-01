@@ -5,7 +5,9 @@ import { ViIcon as r } from "../../icon/index.mjs";
 const U = {
   key: 0,
   class: "vi-message__content"
-}, A = ["innerHTML"], F = f({ name: "ViMessage" }), K = /* @__PURE__ */ f({
+}, A = ["innerHTML"], F = f({
+  name: "ViMessage"
+}), K = /* @__PURE__ */ f({
   ...F,
   props: I,
   emits: D,

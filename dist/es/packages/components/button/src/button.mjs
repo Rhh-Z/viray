@@ -17,35 +17,35 @@ const t = {
   },
   plain: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   round: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   circle: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   loading: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   disabled: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   active: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   text: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   autoFocus: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   icon: {
     type: String,
@@ -53,7 +53,7 @@ const t = {
   },
   bg: {
     type: Boolean,
-    default: () => !1
+    default: !1
   },
   nativeType: {
     type: String,

@@ -2,7 +2,9 @@ import { defineComponent as o, ref as n, provide as m, onMounted as u, openBlock
 import { breadcrumbProps as d } from "./breadcrumb.mjs";
 import { breadcrumbKey as p } from "./constants.mjs";
 import "../../../theme-chalk/src/breadcrumb.css";
-const s = o({ name: "ViBreadcrumb" }), B = /* @__PURE__ */ o({
+const s = o({
+  name: "ViBreadcrumb"
+}), B = /* @__PURE__ */ o({
   ...s,
   props: d,
   setup(a) {

@@ -9,12 +9,10 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViCard">
 import { computed, CSSProperties } from 'vue';
 import { cardProps } from './card';
 import '../style/index';
-
-defineOptions({name:"ViCard"})
 
 const props = defineProps(cardProps)
 

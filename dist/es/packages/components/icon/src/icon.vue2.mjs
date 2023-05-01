@@ -1,7 +1,9 @@
 import { defineComponent as s, useCssVars as t, computed as c, openBlock as i, createElementBlock as a, normalizeClass as l, unref as m, renderSlot as p } from "vue";
 import "../../../theme-chalk/src/icon.css";
 import { iconProps as u } from "./icon.mjs";
-const d = s({ name: "ViIcon" }), v = /* @__PURE__ */ s({
+const d = s({
+  name: "ViIcon"
+}), v = /* @__PURE__ */ s({
   ...d,
   props: u,
   setup(n) {

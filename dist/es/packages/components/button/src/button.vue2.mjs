@@ -1,12 +1,16 @@
 import { defineComponent as r, computed as c, openBlock as o, createElementBlock as i, normalizeClass as a, unref as n, createCommentVNode as l, renderSlot as b } from "vue";
 import "../../../theme-chalk/src/button.css";
 import { buttonProps as f, buttonEmits as v } from "./button.mjs";
-const k = ["autofocus", "disabled"], _ = { key: 0 }, y = r({ name: "ViButton" }), z = /* @__PURE__ */ r({
+const k = ["autofocus", "disabled"], _ = { key: 0 }, y = r({
+  name: "ViButton"
+}), z = /* @__PURE__ */ r({
   ...y,
   props: f,
   emits: v,
   setup(u, { emit: d }) {
-    const t = u, p = c(() => ({
+    const t = u, p = (e) => {
+      d("click", e);
+    }, m = c(() => ({
       [`vi-button--${t.type}`]: t.type,
       "is-plain": t.plain,
       "is-disabled": t.disabled,
@@ -16,14 +20,12 @@ const k = ["autofocus", "disabled"], _ = { key: 0 }, y = r({ name: "ViButton" })
       "is-circle": t.circle,
       "is-text": t.text,
       "is-bg": t.bg
-    })), m = (e) => {
-      d("click", e);
-    }, s = c(() => `vi-icon-${t.icon}`);
+    })), s = c(() => `vi-icon-${t.icon}`);
     return (e, C) => (o(), i("button", {
-      class: a(["vi-button", n(p)]),
+      class: a(["vi-button", n(m)]),
       autofocus: e.autoFocus,
       disabled: e.disabled,
-      onClick: m
+      onClick: p
     }, [
       e.icon ? (o(), i("span", _, [
         n(s) && !e.loading ? (o(), i(

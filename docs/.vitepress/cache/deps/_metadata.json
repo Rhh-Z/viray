@@ -1,29 +1,19 @@
 {
-  "hash": "4a188936",
-  "browserHash": "96a309a7",
+  "hash": "a102e8f4",
+  "browserHash": "12b4c306",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/.pnpm/vue@3.2.47/node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "94692070",
+      "fileHash": "fba77aff",
       "needsInterop": false
     },
     "lodash-unified": {
       "src": "../../../../node_modules/.pnpm/lodash-unified@1.0.3_tknf7errc3xdqocd3ryzzla7vq/node_modules/lodash-unified/import.js",
       "file": "lodash-unified.js",
-      "fileHash": "edc66ba9",
+      "fileHash": "82d14e82",
       "needsInterop": false
-    },
-    "lodash": {
-      "src": "../../../../node_modules/.pnpm/lodash@4.17.21/node_modules/lodash/lodash.js",
-      "file": "lodash.js",
-      "fileHash": "b2e93e56",
-      "needsInterop": true
     }
   },
-  "chunks": {
-    "chunk-RSJERJUL": {
-      "file": "chunk-RSJERJUL.js"
-    }
-  }
+  "chunks": {}
 }

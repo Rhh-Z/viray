@@ -2,7 +2,9 @@ import { defineComponent as n, computed as o, provide as p, openBlock as u, crea
 import { rowContextKey as w } from "./constants.mjs";
 import { rowProps as _ } from "./row.mjs";
 import "../../../theme-chalk/src/row.css";
-const v = n({ name: "ViRow" }), k = /* @__PURE__ */ n({
+const v = n({
+  name: "ViRow"
+}), k = /* @__PURE__ */ n({
   ...v,
   props: _,
   setup(i) {

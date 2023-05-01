@@ -1,5 +1,5 @@
 import { ExtractPropTypes } from "vue";
-import { buttonProps } from "./button";
+import { buttonProps } from "../../button/src/button";
 export const buttonGroupProps = {
   /**
    * @description control the size of buttons in this button-group
@@ -9,5 +9,5 @@ export const buttonGroupProps = {
    * @description control the type of buttons in this button-group
    */
   type: buttonProps.type,
-} as const
+}
 export type ButtonGroupProps = ExtractPropTypes<typeof buttonGroupProps>;

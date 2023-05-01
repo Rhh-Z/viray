@@ -3,7 +3,9 @@ import { progressProps as E } from "./progress.mjs";
 import "../../../theme-chalk/src/progress.css";
 import L from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isFunction.mjs";
 import D from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const O = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { viewBox: "0 0 100 100" }, j = ["d", "stroke-width"], q = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"], G = { key: 0 }, H = P({ name: "ViProgess" }), Z = /* @__PURE__ */ P({
+const O = ["aria-valuenow"], R = { class: "vi-progress-bar__outer" }, U = { viewBox: "0 0 100 100" }, j = ["d", "stroke-width"], q = ["d", "stroke", "opacity", "stroke-linecap", "stroke-width"], G = { key: 0 }, H = P({
+  name: "ViProgess"
+}), Z = /* @__PURE__ */ P({
   ...H,
   props: E,
   setup(x) {

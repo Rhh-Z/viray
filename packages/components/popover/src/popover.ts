@@ -1,6 +1,5 @@
 import { isBoolean } from "lodash-unified"
 import { ExtractPropTypes, PropType } from "vue"
-import Popover from './popover.vue';
 
 export const popoverProps = {
   trigger: {
@@ -53,4 +52,3 @@ export const popoverEmits = {
 }
 
 export type PoopoverEmits = ExtractPropTypes<typeof popoverEmits>
-export type PoopoverInstance = InstanceType<typeof Popover>

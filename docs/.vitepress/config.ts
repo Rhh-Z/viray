@@ -3,10 +3,10 @@ export default {
   titleTemplate: ':title - Viray',
   lastUpdated: true,
   lastUpdatedText: '最近更新时间',
-  // footer: {
-  //   message: 'Released under the MIT License.',
-  //   copyright: 'Copyright © 2023 Components Team'
-  // },
+  footer: {
+    message: 'Released under the MIT License.',
+    copyright: 'Copyright © 2023'
+  },
   themeConfig: {
     nav: [
       { text: "指南", link: "/guide/install" },

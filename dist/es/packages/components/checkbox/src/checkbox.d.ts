@@ -3,7 +3,7 @@ import Checkbox from './checkbox.vue';
 export declare type CheckboxValueType = string | number | boolean;
 export declare const checkboxProps: {
     modelValue: {
-        type: (StringConstructor | BooleanConstructor | NumberConstructor)[];
+        type: (BooleanConstructor | StringConstructor | NumberConstructor)[];
         default: undefined;
     };
     indeterminate: BooleanConstructor;
@@ -13,7 +13,7 @@ export declare const checkboxProps: {
     /**
      * @description value of the Checkbox when used inside a `checkbox-group`
      */
-    label: (ObjectConstructor | StringConstructor | BooleanConstructor | NumberConstructor)[];
+    label: (ObjectConstructor | BooleanConstructor | StringConstructor | NumberConstructor)[];
     /**
      * @description value of the Checkbox if it's checked
      */

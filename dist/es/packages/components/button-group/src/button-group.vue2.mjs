@@ -1,13 +1,17 @@
-import { defineComponent as t, openBlock as o, createElementBlock as n, renderSlot as r } from "vue";
+import { defineComponent as o, openBlock as e, createElementBlock as r, renderSlot as n } from "vue";
 import "../../../theme-chalk/src/button-group.css";
-const s = { class: "vi-button-group" }, _ = t({ name: "ViButtonGroup" }), l = /* @__PURE__ */ t({
-  ..._,
-  setup(c) {
-    return (e, p) => (o(), n("div", s, [
-      r(e.$slots, "default")
+import { buttonGroupProps as p } from "./button-group.mjs";
+const s = { class: "vi-button-group" }, u = o({
+  name: "ViButtonGroup"
+}), m = /* @__PURE__ */ o({
+  ...u,
+  props: p,
+  setup(_) {
+    return (t, c) => (e(), r("div", s, [
+      n(t.$slots, "default")
     ]));
   }
 });
 export {
-  l as default
+  m as default
 };

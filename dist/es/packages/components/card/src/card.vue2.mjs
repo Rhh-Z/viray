@@ -4,7 +4,9 @@ import "../../../theme-chalk/src/card.css";
 const y = {
   key: 0,
   class: "vi-card__header"
-}, C = n({ name: "ViCard" }), w = /* @__PURE__ */ n({
+}, C = n({
+  name: "ViCard"
+}), w = /* @__PURE__ */ n({
   ...C,
   props: v,
   setup(l) {

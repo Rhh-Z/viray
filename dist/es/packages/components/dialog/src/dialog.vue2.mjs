@@ -9,7 +9,9 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
 }, F = { class: "vi-dialog__content" }, G = {
   key: 0,
   class: "vi-dialog__footer"
-}, H = m({ name: "ViDialog" }), Q = /* @__PURE__ */ m({
+}, H = m({
+  name: "ViDialog"
+}), Q = /* @__PURE__ */ m({
   ...H,
   props: N,
   emits: T,

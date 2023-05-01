@@ -21,35 +21,35 @@ export const buttonProps = {
   },
   plain: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   round: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   circle: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   loading: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   disabled: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   active: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   text: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   autoFocus: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   icon: {
     type: String,
@@ -57,7 +57,7 @@ export const buttonProps = {
   },
   bg: {
     type: Boolean,
-    default: (): boolean => false
+    default: false
   },
   nativeType: {
     type: String as PropType<ButtonNativeType>,

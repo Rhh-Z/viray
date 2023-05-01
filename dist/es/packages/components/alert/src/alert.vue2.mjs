@@ -1,5 +1,5 @@
-import { defineComponent as v, ref as $, computed as a, openBlock as s, createBlock as o, Transition as V, withCtx as w, withDirectives as B, createElementVNode as c, normalizeClass as N, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as u, createTextVNode as f, toDisplayString as m, vShow as b } from "vue";
-import { alertProps as E, alertEmits as S, iconMaps as i } from "./alert.mjs";
+import { defineComponent as v, ref as $, computed as a, openBlock as s, createBlock as i, Transition as V, withCtx as w, withDirectives as N, createElementVNode as c, normalizeClass as b, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as f, createTextVNode as m, toDisplayString as u, vShow as B } from "vue";
+import { alertProps as E, alertEmits as S, iconMaps as o } from "./alert.mjs";
 import { ViIcon as d } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/alert.css";
 const D = { class: "vi-alert__content" }, I = {
@@ -8,7 +8,9 @@ const D = { class: "vi-alert__content" }, I = {
 }, T = {
   key: 1,
   class: "vi-alert__desc"
-}, g = v({ name: "ViButton" }), A = /* @__PURE__ */ v({
+}, g = v({
+  name: "ViAlert"
+}), q = /* @__PURE__ */ v({
   ...g,
   props: E,
   emits: S,
@@ -16,45 +18,45 @@ const D = { class: "vi-alert__content" }, I = {
     const t = _, n = $(!0), y = a(() => ({
       [`vi-alert-${t.type}`]: t.type,
       "is-center": t.center
-    })), k = a(() => i[t.type] === "success" ? "check-circle-fill" : i[t.type] === "error" ? "close-circle-fill" : `${i[t.type]}-circle-fill`), C = (e) => {
+    })), k = a(() => o[t.type] === "success" ? "check-circle-fill" : o[t.type] === "error" ? "close-circle-fill" : `${o[t.type]}-circle-fill`), C = (e) => {
       n.value = !1, h("close", e);
     };
-    return (e, z) => (s(), o(V, {
+    return (e, z) => (s(), i(V, {
       name: "vi-alert-fade",
       persisted: ""
     }, {
       default: w(() => [
-        B(c(
+        N(c(
           "div",
           {
-            class: N(["vi-alert", l(y)])
+            class: b(["vi-alert", l(y)])
           },
           [
-            e.showIcon ? (s(), o(l(d), {
+            e.showIcon ? (s(), i(l(d), {
               key: 0,
               name: l(k),
               class: "vi-alert__icon"
             }, null, 8, ["name"])) : r("v-if", !0),
             c("div", D, [
               e.title || e.$slots.title ? (s(), p("span", I, [
-                u(e.$slots, "title", {}, () => [
-                  f(
-                    m(e.title),
+                f(e.$slots, "title", {}, () => [
+                  m(
+                    u(e.title),
                     1
                     /* TEXT */
                   )
                 ])
               ])) : r("v-if", !0),
               e.description || e.$slots.default ? (s(), p("p", T, [
-                u(e.$slots, "default", {}, () => [
-                  f(
-                    m(e.description),
+                f(e.$slots, "default", {}, () => [
+                  m(
+                    u(e.description),
                     1
                     /* TEXT */
                   )
                 ])
               ])) : r("v-if", !0),
-              e.closable ? (s(), o(l(d), {
+              e.closable ? (s(), i(l(d), {
                 key: 2,
                 name: "close",
                 class: "vi-alert__close-btn",
@@ -65,7 +67,7 @@ const D = { class: "vi-alert__content" }, I = {
           2
           /* CLASS */
         ), [
-          [b, n.value]
+          [B, n.value]
         ])
       ]),
       _: 3
@@ -74,5 +76,5 @@ const D = { class: "vi-alert__content" }, I = {
   }
 });
 export {
-  A as default
+  q as default
 };

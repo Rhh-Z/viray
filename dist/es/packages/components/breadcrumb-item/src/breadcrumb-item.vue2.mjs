@@ -6,7 +6,9 @@ const V = { class: "vi-breadcrumb-item" }, $ = {
   key: 1,
   class: "vi-breadcrumb-item__separator",
   role: "presentation"
-}, j = c({ name: "ViBreadcrumbItem" }), q = /* @__PURE__ */ c({
+}, j = c({
+  name: "ViBreadcrumbItem"
+}), q = /* @__PURE__ */ c({
   ...j,
   props: P,
   setup(a) {

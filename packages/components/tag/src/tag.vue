@@ -37,13 +37,11 @@
   </transition>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViTag">
 import { computed } from 'vue';
 import {tagProps,tagEmits} from './tag';
 import {ViIcon} from '../../icon';
 import '../style/index';
-
-defineOptions({name:"ViTag"})
 
 const props = defineProps(tagProps)
 const emit = defineEmits(tagEmits)

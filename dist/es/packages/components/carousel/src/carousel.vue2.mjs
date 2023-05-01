@@ -4,7 +4,9 @@ import "../../../theme-chalk/src/carousel.css";
 import { ViIcon as b } from "../../icon/index.mjs";
 import { useCarousel as j } from "./use-carousel.mjs";
 import { carouselContextKey as q } from "./constants.mjs";
-const x = ["onMouseenter", "onClick"], D = g({ name: "ViCarousel" }), T = /* @__PURE__ */ g({
+const x = ["onMouseenter", "onClick"], D = g({
+  name: "ViCarousel"
+}), T = /* @__PURE__ */ g({
   ...D,
   props: F,
   emits: K,

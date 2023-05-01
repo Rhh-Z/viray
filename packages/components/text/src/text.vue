@@ -5,12 +5,10 @@
 </template>
 
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViText">
 import { computed } from 'vue';
 import '../style/index';
 import { textProps } from './text';
-
-defineOptions({name:"ViText"})
 
 const props = defineProps(textProps)
 

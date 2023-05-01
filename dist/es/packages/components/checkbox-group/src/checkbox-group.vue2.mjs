@@ -4,7 +4,9 @@ import { checkboxGroupContextKey as _ } from "../../checkbox/src/constant.mjs";
 import { UPDATE_MODEL_EVENT as b } from "../../../constants/events.mjs";
 import "../../../theme-chalk/src/checkbox-group.css";
 import E from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/pick.mjs";
-const g = c({ name: "ViCheckboxGroup" }), w = /* @__PURE__ */ c({
+const g = c({
+  name: "ViCheckboxGroup"
+}), w = /* @__PURE__ */ c({
   ...g,
   props: k,
   emits: x,

@@ -2,7 +2,9 @@ import { defineComponent as g, computed as $, openBlock as o, createElementBlock
 import { tagProps as B, tagEmits as E } from "./tag.mjs";
 import { ViIcon as k } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/tag.css";
-const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, S = g({ name: "ViTag" }), q = /* @__PURE__ */ g({
+const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, S = g({
+  name: "ViTag"
+}), q = /* @__PURE__ */ g({
   ...S,
   props: B,
   emits: E,

@@ -3,7 +3,9 @@ import { colProps as v } from "./col.mjs";
 import { rowContextKey as $ } from "../../row/src/constants.mjs";
 import { isNumber as x } from "../../../utils/common.mjs";
 import "../../../theme-chalk/src/col.css";
-const z = c({ name: "ViCol" }), b = /* @__PURE__ */ c({
+const z = c({
+  name: "ViCol"
+}), b = /* @__PURE__ */ c({
   ...z,
   props: v,
   setup(i) {

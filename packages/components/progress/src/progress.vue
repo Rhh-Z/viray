@@ -61,13 +61,11 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViProgess">
 import {computed, CSSProperties} from 'vue';
 import { ProgressColor, progressProps } from './progress';
 import '../style/index';
 import { isFunction,isString } from 'lodash-unified';
-
-defineOptions({name:"ViProgess"})
 
 const props = defineProps(progressProps)
 

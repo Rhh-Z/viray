@@ -10,7 +10,9 @@ const L = { class: "vi-popover__container" }, P = {
   key: 2,
   class: "vi-popover__content",
   role: "content"
-}, T = d({ name: "ViPopover" }), G = /* @__PURE__ */ d({
+}, T = d({
+  name: "ViPopover"
+}), G = /* @__PURE__ */ d({
   ...T,
   props: z,
   emits: D,

@@ -1,6 +1,7 @@
-import { AlertType } from "./interface";
 import { ExtractPropTypes, PropType } from "vue";
 import Alert from './alert.vue';
+
+type AlertType = 'info' | 'success' | 'error' | 'warning';
 
 interface IiconMaps {
   [key: string]: string

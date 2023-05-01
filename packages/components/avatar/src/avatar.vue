@@ -13,15 +13,13 @@
 </template>
 
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViAvatar">
 import {avatarEmits, avatarProps}from './avatar';
 import '../style/index'
 import { computed, CSSProperties, watch } from 'vue'
 import { ref } from 'vue'
 import { ViIcon } from '@viray/components/icon'
 import { isNumber, isString } from 'lodash-unified';
-
-defineOptions({name:"ViAvatar"})
 
 const COMPONENT_NAME = 'vi-avatar'
 

@@ -1,7 +1,9 @@
 import { defineComponent as l, ref as n, inject as s, computed as i, openBlock as m, createElementBlock as c, normalizeStyle as f, unref as u, renderSlot as _ } from "vue";
 import "../../../theme-chalk/src/carousel-item.css";
 import { carouselContextKey as p } from "../../carousel/src/constants.mjs";
-const d = l({ name: "ViCarouselItem" }), x = /* @__PURE__ */ l({
+const d = l({
+  name: "ViCarouselItem"
+}), x = /* @__PURE__ */ l({
   ...d,
   setup(y) {
     const r = n(), { activeIndex: o } = s(p), a = i(() => {

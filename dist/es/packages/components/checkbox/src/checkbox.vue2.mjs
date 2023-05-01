@@ -2,7 +2,9 @@ import { defineComponent as y, useSlots as E, computed as f, openBlock as i, cre
 import "../../../theme-chalk/src/checkbox.css";
 import { checkboxProps as I, checkboxEmits as P } from "./checkbox.mjs";
 import { useCheckbox as T } from "./composables/use-checkbox.mjs";
-const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "checked", "disabled", "true-value", "false-value"], R = ["value", "disabled", "aria-hidden", "name", "checked"], j = y({ name: "ViCheckbox" }), K = /* @__PURE__ */ y({
+const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "checked", "disabled", "true-value", "false-value"], R = ["value", "disabled", "aria-hidden", "name", "checked"], j = y({
+  name: "ViCheckbox"
+}), K = /* @__PURE__ */ y({
   ...j,
   props: I,
   emits: P,

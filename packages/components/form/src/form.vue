@@ -5,10 +5,8 @@
 </template>
 
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViForm">
 import {computed} from 'vue'
-
-defineOptions({name:"ViForm"})
 
 const formClasses = computed(()=>{
   return {

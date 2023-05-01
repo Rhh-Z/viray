@@ -1,7 +1,9 @@
 import { defineComponent as o, computed as n, openBlock as a, createBlock as i, resolveDynamicComponent as p, normalizeClass as c, unref as l, withCtx as m, renderSlot as u } from "vue";
 import "../../../theme-chalk/src/text.css";
 import { textProps as d } from "./text.mjs";
-const f = o({ name: "ViText" }), v = /* @__PURE__ */ o({
+const f = o({
+  name: "ViText"
+}), v = /* @__PURE__ */ o({
   ...f,
   props: d,
   setup(s) {

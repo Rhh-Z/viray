@@ -14,35 +14,35 @@ export declare const buttonProps: {
     };
     plain: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     round: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     circle: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     loading: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     disabled: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     active: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     text: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     autoFocus: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     icon: {
         type: StringConstructor;
@@ -50,7 +50,7 @@ export declare const buttonProps: {
     };
     bg: {
         type: BooleanConstructor;
-        default: () => boolean;
+        default: boolean;
     };
     nativeType: {
         type: PropType<ButtonNativeType>;

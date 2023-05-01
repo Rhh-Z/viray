@@ -27,14 +27,12 @@
   </Teleport>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViDialog">
 import { computed, CSSProperties } from 'vue';
 import { dialogProps , dialogEmits} from './dialog'
 import {isString} from 'lodash-unified'
 import '../style/index';
 import { useDialog } from './use-dialog';
-
-defineOptions({name:"ViDialog"})
 
 const props =defineProps(dialogProps)
 defineEmits(dialogEmits)

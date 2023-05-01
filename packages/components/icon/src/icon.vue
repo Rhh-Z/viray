@@ -4,12 +4,10 @@
   </i>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViIcon">
 import {computed} from 'vue';
 import '../style/index';
 import { iconProps } from './icon';
-
-defineOptions({name:"ViIcon"})
 
 const props = defineProps(iconProps)
 

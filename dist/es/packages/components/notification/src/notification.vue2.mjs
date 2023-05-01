@@ -2,7 +2,9 @@ import { defineComponent as T, ref as $, computed as n, onMounted as V, onUnmoun
 import { notificationProps as D, notificationEmits as P } from "./notification.mjs";
 import { ViIcon as h } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/notification.css";
-const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0 }, q = ["innerHTML"], F = T({ name: "ViNotification" }), Q = /* @__PURE__ */ T({
+const U = { class: "vi-notification__group" }, A = ["textContent"], j = { key: 0 }, q = ["innerHTML"], F = T({
+  name: "ViNotification"
+}), Q = /* @__PURE__ */ T({
   ...F,
   props: D,
   emits: P,

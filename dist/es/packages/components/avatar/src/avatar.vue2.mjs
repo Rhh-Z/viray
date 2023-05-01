@@ -4,7 +4,9 @@ import "../../../theme-chalk/src/avatar.css";
 import { ViIcon as w } from "../../icon/index.mjs";
 import B from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
 import V from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNumber.mjs";
-const _ = ["src", "alt", "srcset"], A = p({ name: "ViAvatar" }), T = /* @__PURE__ */ p({
+const _ = ["src", "alt", "srcset"], A = p({
+  name: "ViAvatar"
+}), T = /* @__PURE__ */ p({
   ...A,
   props: g,
   emits: N,

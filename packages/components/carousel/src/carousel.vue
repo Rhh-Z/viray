@@ -41,15 +41,13 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViCarousel">
 import { carouselEmits, carouselProps } from './carousel';
 import '../style/index'
 import { computed,provide,useSlots } from 'vue';
 import {ViIcon} from '../../icon';
 import { useCarousel } from './use-carousel';
 import {carouselContextKey} from './constants'
-
-defineOptions({name:"ViCarousel"})
 
 const NAME = 'vi-carousel'
 

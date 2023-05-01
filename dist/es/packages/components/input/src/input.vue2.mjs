@@ -19,7 +19,9 @@ const ue = {
 }, ve = { class: "vi-input__count-inner" }, he = { key: 3 }, me = {
   key: 1,
   class: "vi-input__append"
-}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({ name: "ViInput" }), Ve = /* @__PURE__ */ K({
+}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({
+  name: "ViInput"
+}), Ve = /* @__PURE__ */ K({
   ...be,
   props: te,
   emits: le,

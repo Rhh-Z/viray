@@ -9,7 +9,12 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
-    "types": ["./typings/components.d.ts","unplugin-vue-define-options/macros-global" /* ... */],
+    "types": ["./typings/vue-shim.d.ts","./typings/components.d.ts"],
     "resolveJsonModule": true,
-  }
+    "typeRoots": ["./typings"]
+  },
+  "exclude": [
+      "node_modules",
+      "**/*.test.ts"
+  ]
 }

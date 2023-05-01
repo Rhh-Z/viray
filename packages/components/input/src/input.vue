@@ -95,7 +95,7 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang='ts' name="ViInput">
 import { computed, nextTick, ref, shallowRef, useSlots } from 'vue';
 import {inputProps,inputEmits} from './input'
 import '../style/index';
@@ -104,8 +104,6 @@ import { UPDATE_MODEL_EVENT } from '@viray/constants';
 import { isKorean } from '@viray/utils';
 
 type TargetElement = HTMLInputElement | HTMLTextAreaElement
-
-defineOptions({name:"ViInput"})
 
 const props = defineProps(inputProps)
 const emit = defineEmits(inputEmits)

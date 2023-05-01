@@ -3,7 +3,9 @@ import "../../../theme-chalk/src/backtop.css";
 import { backtopProps as v, backtopEmits as y } from "./backtop.mjs";
 import { useBacktop as E } from "./use-backtop.mjs";
 import { ViIcon as h } from "../../icon/index.mjs";
-const x = a({ name: "ViBacktop" }), P = /* @__PURE__ */ a({
+const x = a({
+  name: "ViBacktop"
+}), P = /* @__PURE__ */ a({
   ...x,
   props: v,
   emits: y,

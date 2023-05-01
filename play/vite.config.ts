@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import vue from "@vitejs/plugin-vue"
-import DefineOptions from "unplugin-vue-define-options/vite";
+import SetupExtend from 'vite-plugin-vue-setup-extend'
 import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [vue(), DefineOptions()],
+  plugins: [vue(), SetupExtend()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'components')

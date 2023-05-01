@@ -12,14 +12,18 @@
   </button>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="ViButton">
 import "../style/index";
 import { computed } from "vue";
-import { buttonProps, buttonEmits } from './button'
-
-defineOptions({ name: "ViButton" });
+import { buttonProps, buttonEmits } from './button';
 
 const props = defineProps(buttonProps)
+
+const emit = defineEmits(buttonEmits)
+
+const handleClick = (evt: MouseEvent) => {
+  emit('click', evt)
+}
 
 const buttonStyle = computed(() => {
   return {
@@ -36,11 +40,6 @@ const buttonStyle = computed(() => {
 });
 
 
-const emit = defineEmits(buttonEmits)
-
-const handleClick = (evt: MouseEvent) => {
-  emit('click', evt)
-}
 
 const iconName = computed(() => {
   return `vi-icon-${props.icon}`
