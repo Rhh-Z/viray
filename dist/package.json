@@ -5,7 +5,8 @@
   "main": "lib/packages/components/index.js",
   "module": "es/packages/components/index.mjs",
   "files": [
-    "/dist"
+    "es",
+    "lib"
   ],
   "keywords": [
     "viray",
