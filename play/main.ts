@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import viray from '@viray/components'
 // import { ViButton } from '@viray/components'
-// import {  } from '../dist/es/packages/components'
+// import { ViButton, ViButtonGroup } from '../dist/es/packages/components'
 import router from './router/index'
 
 const app = createApp(App)

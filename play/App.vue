@@ -5,7 +5,7 @@
   <vi-button type="info" text>信息按钮</vi-button>
   <vi-button type="danger" round active color="#fcfced">危险按钮</vi-button>
   <vi-button type="success">成功按钮</vi-button>
-  <vi-button type="error" text>错误按钮</vi-button>
+  <vi-button type="error" text bg>错误按钮</vi-button>
   <vi-button type="info" text @click="send(name)">信息按钮</vi-button>
   <vi-button type="info" icon="down-circle" disabled>loading</vi-button>
   <hr>
@@ -90,9 +90,9 @@
   <vi-alert type="warning" center description="warning" :showIcon="true" />
   <hr>
   <div>
-    <vi-input type="text" placeholder="please input" v-model="inputVlaue2" :maxlength="10" show-word-limit/>
+    <vi-input type="text" placeholder="please input" size="large" v-model="inputVlaue2" :maxlength="10" show-word-limit/>
     <vi-input type="text" disabled placeholder="dacaczx"/>
-    <vi-input type="text" placeholder="please input" v-model="inputValue" clearable></vi-input>
+    <vi-input type="text" placeholder="please input" size="small" v-model="inputValue" clearable></vi-input>
 
     <vi-input type="passworld" placeholder="please input" v-model="inputVlaue2" showPassword/>
 
@@ -226,6 +226,14 @@
     </vi-carousel-item >
   </vi-carousel>
 
+  <hr/>
+
+  <vi-carousel height="150px">
+      <vi-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+      </vi-carousel-item>
+  </vi-carousel>
+
   <hr>
   <div class="demo-type">
     <div>
@@ -248,7 +256,7 @@
     </div>
   </div>
   <hr>
-  <vi-card class="box-card">
+  <vi-card class="box-card" shadow="always">
     <template #header>
       <div class="card-header">
         <span>Card name</span>
