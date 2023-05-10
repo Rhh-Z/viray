@@ -30,7 +30,7 @@
     }
   }
 
-  @include when(always-shadow) {
+  @include when(never-shadow) {
     box-shadow: none;
   }
 }

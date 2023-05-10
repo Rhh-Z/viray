@@ -5,7 +5,7 @@ export declare const buttonGroupProps: {
      */
     size: {
         type: import("vue").PropType<import("../../button/src/interface").ButtonSizeType>;
-        default: () => string;
+        default: string;
         validator(value: import("../../button/src/interface").ButtonSizeType): boolean;
     };
     /**
@@ -13,7 +13,7 @@ export declare const buttonGroupProps: {
      */
     type: {
         type: import("vue").PropType<import("../../button/src/interface").ButtonType>;
-        default: () => string;
+        default: string;
         validator(value: import("../../button/src/interface").ButtonType): boolean;
     };
 };

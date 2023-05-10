@@ -1,7 +1,8 @@
-const t = {
+import { definePropType as t } from "../../../utils/definePropType.mjs";
+const l = {
   type: {
-    type: String,
-    default: () => "default",
+    type: t([String]),
+    default: "default",
     validator(e) {
       return ["default", "primary", "success", "info", "danger", "warning", "error"].includes(
         e
@@ -9,8 +10,8 @@ const t = {
     }
   },
   size: {
-    type: String,
-    default: () => "default",
+    type: t([String]),
+    default: "default",
     validator(e) {
       return ["large", "default", "small"].includes(e);
     }
@@ -49,23 +50,26 @@ const t = {
   },
   icon: {
     type: String,
-    default: () => ""
+    default: ""
   },
+  /**
+   * button类型为text时，是否一直需要背景
+   */
   bg: {
     type: Boolean,
     default: !1
   },
   nativeType: {
-    type: String,
+    type: t([String]),
     default: () => "button",
     validator(e) {
       return ["button", "submit", "reset"].includes(e);
     }
   }
-}, a = {
+}, o = {
   click: (e) => e instanceof MouseEvent
 };
 export {
-  a as buttonEmits,
-  t as buttonProps
+  o as buttonEmits,
+  l as buttonProps
 };

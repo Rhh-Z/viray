@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: "es",
     //压缩
-    // minify: false,
+    minify: true,
     rollupOptions: {
       external: ["vue", /\.scss/],
       input: ["index.ts"],
@@ -34,7 +34,7 @@ export default defineConfig({
     lib: {
       entry: './index.ts',
       name: 'Viray',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     }
   },
   plugins: [vue(), SetupExtend(), dts({

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang='ts' name="ViCard">
-import { computed, CSSProperties } from 'vue';
+import { computed } from 'vue';
 import { cardProps } from './card';
 import '../style/index';
 
@@ -23,9 +23,4 @@ const cardCls = computed(()=>{
   }
 })
 
-const bodyStyle = computed<CSSProperties>(()=>{
-  return {
-
-  }
-})
 </script>

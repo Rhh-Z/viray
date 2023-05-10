@@ -9,7 +9,7 @@
         <p class="vi-alert__desc" v-if="description || $slots.default">
           <slot>{{ description }}</slot>
         </p>
-        <vi-icon name="close" class="vi-alert__close-btn" v-if="closable" @click="handleClose" />
+        <vi-icon v-if="closable" name="close" class="vi-alert__close-btn" @click="handleClose" />
       </div>
     </div>
   </transition>
@@ -19,7 +19,7 @@
 import { ref, computed } from 'vue';
 import { alertEmits, alertProps, iconMaps } from './alert';
 import { ViIcon } from '../../icon';
-import '../style/index.ts';
+import '../style/index';
 
 const visible = ref(true)
 const props = defineProps(alertProps)

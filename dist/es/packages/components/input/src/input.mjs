@@ -1,12 +1,12 @@
 import { UPDATE_MODEL_EVENT as n } from "../../../constants/events.mjs";
-import { definePropType as o } from "../../../utils/definePropType.mjs";
-import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
+import { definePropType as t } from "../../../utils/definePropType.mjs";
+import o from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
 const s = {
   /**
   * @description binding value
   */
   modelValue: {
-    type: o([
+    type: t([
       String,
       Number,
       Object
@@ -20,7 +20,10 @@ const s = {
     type: String,
     default: void 0
   },
-  size: String,
+  size: {
+    type: t([String]),
+    default: ""
+  },
   type: {
     type: String,
     default: "text"
@@ -69,10 +72,13 @@ const s = {
     */
   suffixIcon: String,
   maxlength: {
-    type: Number
+    type: [Number, String]
   },
-  autoSize: {
-    type: o([Boolean, Object]),
+  minlength: {
+    type: [Number, String]
+  },
+  autosize: {
+    type: t([Boolean, Object]),
     default: !1
   },
   autocomplete: {
@@ -84,15 +90,14 @@ const s = {
     default: !1
   }
 }, f = {
-  [n]: (e) => t(e),
-  input: (e) => t(e),
-  change: (e) => t(e),
+  [n]: (e) => o(e),
+  input: (e) => o(e),
+  change: (e) => o(e),
   focus: (e) => e instanceof FocusEvent,
   blur: (e) => e instanceof FocusEvent,
   clear: () => !0,
   mouseleave: (e) => e instanceof MouseEvent,
   mouseenter: (e) => e instanceof MouseEvent,
-  keydown: (e) => e instanceof Event,
   compositionstart: (e) => e instanceof CompositionEvent,
   compositionupdate: (e) => e instanceof CompositionEvent,
   compositionend: (e) => e instanceof CompositionEvent

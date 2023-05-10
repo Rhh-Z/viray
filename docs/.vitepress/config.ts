@@ -45,8 +45,40 @@ export default {
           text: "Basic基础组件",
           items: [
             {
+              text: "Alert",
+              link: "/components/alert/index.md",
+            },
+            {
+              text: "Avatar",
+              link: "/components/avatar/index.md",
+            },
+            {
+              text: "Backtop",
+              link: "/components/backtop/index.md",
+            },
+            {
+              text: "Breadcrumb",
+              link: "/components/breadcrumb/index.md",
+            },
+            {
               text: "Button",
               link: "/components/button/index.md",
+            },
+            {
+              text: "Card",
+              link: "/components/card/index.md",
+            },
+            // {
+            //   text: "Carousel",
+            //   link: "/components/carousel/index.md",
+            // },
+            {
+              text: "Checkbox",
+              link: "/components/checkbox/index.md",
+            },
+            {
+              text: "Dialog",
+              link: "/components/dialog/index.md",
             },
             {
               text: "Layout",
@@ -55,6 +87,10 @@ export default {
             {
               text: "Icon",
               link: "/components/icon/index.md",
+            },
+            {
+              text: "Input",
+              link: "/components/input/index.md",
             },
             {
               text: "Text",

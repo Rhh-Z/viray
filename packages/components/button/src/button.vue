@@ -1,5 +1,7 @@
 <template>
-  <button class="vi-button"
+  <button 
+    ref="_ref"
+    class="vi-button"
    :autofocus="autoFocus" 
    :class="buttonStyle" 
    :disabled="disabled"
@@ -14,7 +16,7 @@
 
 <script lang="ts" setup name="ViButton">
 import "../style/index";
-import { computed } from "vue";
+import { computed,ref } from "vue";
 import { buttonProps, buttonEmits } from './button';
 
 const props = defineProps(buttonProps)
@@ -39,10 +41,14 @@ const buttonStyle = computed(() => {
   };
 });
 
-
-
 const iconName = computed(() => {
   return `vi-icon-${props.icon}`
+})
+
+const _ref = ref<HTMLButtonElement>()
+defineExpose({
+  /** @description button html element */
+  ref: _ref,
 })
 
 </script>

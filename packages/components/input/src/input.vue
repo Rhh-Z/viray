@@ -18,6 +18,7 @@
         </span>
         <input
           class="vi-input__inner"
+          ref="input"
           v-bind="$attrs"
           :autofocus="autofocus"
           :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
@@ -27,13 +28,13 @@
           :aria-label="label"
           :tabindex="tabindex"
           :maxlength="maxlength"
+          :minlength="minlength"
           :placeholder="placeholder"
           :disabled="disabled"
           @input="handleInput"
           @focus="handleFocus"
           @blur="handleBlur"
           @change="handleChange"
-          @keydown="handleKeydown"
         />
       
         <!-- suffix slot -->
@@ -45,7 +46,7 @@
           <vi-icon 
             v-if="showClear"
             name="close-circle"
-            @click="clearInput"
+            @click="clear"
           />
           <div
             v-if="showPwdVisible"
@@ -82,11 +83,12 @@
         :tabindex="tabindex"
         :autofocus="autofocus"
         :autocomplete="autocomplete"
+        :minlength="minlength"
+        :maxlength="maxlength"
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
         @change="handleChange"
-        @keydown="handleKeydown"
         @compositionstart="handleCompositionStart"
         @compositionupdate="handleCompositionUpdate"
         @compositionend="handleCompositionEnd"
@@ -131,7 +133,7 @@ const handleInput =async (event:Event)=>{
   await nextTick()
 }
 
-const clearInput = ()=>{
+const clear = ()=>{
   emit(UPDATE_MODEL_EVENT, '')
   emit('change', '')
   emit('clear')
@@ -150,10 +152,6 @@ const handleBlur = (event:FocusEvent) =>{
 
 const handleChange = (event:Event)=>{
   emit('change',(event.target as TargetElement).value)
-}
-
-const handleKeydown =(evt: KeyboardEvent | Event)=>{
-  emit('keydown', evt)
 }
 
 const handleMouseEnter = (event:MouseEvent)=> {
@@ -235,14 +233,14 @@ const handlePasswordVisible = () => {
 }
 
 const focus = async () => {
-  // see: https://github.com/ElemeFE/element/issues/18573
-  await nextTick()
+  // // see: https://github.com/ElemeFE/element/issues/18573
+  // await nextTick()
   _ref.value?.focus()
 }
 
 const continerCls = computed(
   ()=>
-  props.type !== 'textarea' ? 'vi-input' : 'vi-textarea'
+  props.type !== 'textarea' ? ['vi-input',{[`vi-input--${props.size}`]: props.size }] : 'vi-textarea'
 )
 
 const wrapperCls = computed(()=>{
@@ -255,8 +253,7 @@ const wrapperCls = computed(()=>{
 
 const inputInnerCls = computed(()=>{
   return {
-    'is-disabled':props.disabled,
-    // [`vi-input--${inputProps.size}`]: inputProps.size
+    'is-disabled':props.disabled
   }
 })
 
@@ -269,6 +266,30 @@ const textareaCls =computed(()=>{
   return {
     ['is-disabled']:props.disabled
   }
+})
+
+const blur = () => _ref.value?.blur()
+
+const select = () => {
+  _ref.value?.select()
+}
+// const clear = () => _ref.value.clear
+
+defineExpose({
+  /** @description HTML input element native method */
+  blur,
+  /** @description HTML input element native method */
+  focus,
+  /** @description clear input value */
+  clear,
+  /** @description HTML element, input or textarea */
+  ref: _ref,
+  /** @description HTML input element native method */
+  select,
+  /** @description HTML input element */
+  input,
+  /** @description HTML textarea element */
+  textarea
 })
 
 </script>

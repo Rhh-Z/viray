@@ -1,191 +1,216 @@
-import { defineComponent as K, useSlots as oe, ref as v, computed as n, shallowRef as L, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as C, unref as i, Fragment as ae, createCommentVNode as a, renderSlot as h, createElementVNode as _, createVNode as g, mergeProps as M, createBlock as ne, toDisplayString as N, nextTick as S } from "vue";
-import { inputProps as te, inputEmits as le } from "./input.mjs";
+import { defineComponent as T, useSlots as ee, ref as m, computed as a, shallowRef as S, onMounted as oe, resolveComponent as se, openBlock as t, createElementBlock as l, normalizeClass as w, unref as i, Fragment as ne, createCommentVNode as s, renderSlot as b, createElementVNode as V, createVNode as x, mergeProps as F, createBlock as ae, toDisplayString as z, nextTick as te } from "vue";
+import { inputProps as le, inputEmits as ie } from "./input.mjs";
 import "../../../theme-chalk/src/input.css";
-import { UPDATE_MODEL_EVENT as F } from "../../../constants/events.mjs";
-import { isKorean as ie } from "../../../utils/i18n.mjs";
-import re from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
-const ue = {
+import { UPDATE_MODEL_EVENT as D } from "../../../constants/events.mjs";
+import { isKorean as re } from "../../../utils/i18n.mjs";
+import ue from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNil.mjs";
+const pe = {
   key: 0,
   class: "vi-input__prepend"
-}, pe = {
+}, de = {
   key: 0,
   class: "vi-input__prefix"
-}, de = {
+}, ce = {
   key: 1,
   class: "vi-input__prefix"
-}, ce = ["autofocus", "type", "value", "autocomplete", "aria-label", "tabindex", "maxlength", "placeholder", "disabled"], fe = {
+}, fe = ["autofocus", "type", "value", "autocomplete", "aria-label", "tabindex", "maxlength", "minlength", "placeholder", "disabled"], ve = {
   key: 2,
   class: "vi-int__count"
-}, ve = { class: "vi-input__count-inner" }, he = { key: 3 }, me = {
+}, he = { class: "vi-input__count-inner" }, me = { key: 3 }, be = {
   key: 1,
   class: "vi-input__append"
-}, ye = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete"], be = K({
+}, ge = ["readonly", "placeholder", "disabled", "aria-label", "tabindex", "autofocus", "autocomplete", "minlength", "maxlength"], ye = T({
   name: "ViInput"
-}), Ve = /* @__PURE__ */ K({
-  ...be,
-  props: te,
-  emits: le,
-  setup(D, { emit: s }) {
-    const o = D, m = oe(), p = v(!1), d = v(!1), c = v(!1), f = v(!1), T = n(() => b.value.length), U = L(), k = L(), W = n(() => U.value || k.value), y = async (e) => {
+}), Ee = /* @__PURE__ */ T({
+  ...ye,
+  props: le,
+  emits: ie,
+  setup(U, { expose: W, emit: n }) {
+    const o = U, g = ee(), p = m(!1), d = m(!1), c = m(!1), f = m(!1), A = a(() => _.value.length), v = S(), y = S(), h = a(() => v.value || y.value), C = async (e) => {
       let { value: r } = e.target;
-      s(F, r), s("input", r), await S();
-    }, z = () => {
-      s(F, ""), s("change", ""), s("clear"), s("input", "");
-    }, I = (e) => {
-      p.value = !0, s("focus", e);
-    }, V = (e) => {
-      p.value = !1, s("blur", e);
-    }, x = (e) => {
-      s("change", e.target.value);
+      n(D, r), n("input", r), await te();
+    }, I = () => {
+      n(D, ""), n("change", ""), n("clear"), n("input", "");
+    }, $ = (e) => {
+      p.value = !0, n("focus", e);
     }, E = (e) => {
-      s("keydown", e);
-    }, A = (e) => {
-      d.value = !0, s("mouseenter", e);
+      p.value = !1, n("blur", e);
+    }, P = (e) => {
+      n("change", e.target.value);
+    }, K = (e) => {
+      d.value = !0, n("mouseenter", e);
     }, O = (e) => {
-      d.value = !1, s("mouseenter", e);
+      d.value = !1, n("mouseenter", e);
     }, R = (e) => {
-      f.value = !0, s("compositionstart", e);
+      f.value = !0, n("compositionstart", e);
     }, j = (e) => {
-      var B;
-      s("compositionupdate", e);
-      const r = (B = e.target) == null ? void 0 : B.value, u = r[r.length - 1] || "";
-      f.value = !ie(u);
+      var N;
+      n("compositionupdate", e);
+      const r = (N = e.target) == null ? void 0 : N.value, u = r[r.length - 1] || "";
+      f.value = !re(u);
     }, q = (e) => {
-      s("compositionend", e), f.value && (f.value = !1, y(e));
-    }, b = n(
-      () => re(o.modelValue) ? "" : String(o.modelValue)
-    ), w = n(
-      () => o.clearable && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
-    ), G = n(
-      () => !!m.suffix || !!o.clearable || w.value || o.showPassword || $.value
+      n("compositionend", e), f.value && (f.value = !1, C(e));
+    }, _ = a(
+      () => ue(o.modelValue) ? "" : String(o.modelValue)
+    ), k = a(
+      () => o.clearable && !o.disabled && !o.readonly && !!_.value && (p.value || d.value)
+    ), G = a(
+      () => !!g.suffix || !!o.clearable || k.value || o.showPassword || M.value
       // (!!validateState.value && needStatusIcon.value)
-    ), P = n(
-      () => o.showPassword && !o.disabled && !o.readonly && !!b.value && (p.value || d.value)
-    ), $ = n(
+    ), B = a(
+      () => o.showPassword && !o.disabled && !o.readonly && !!_.value && (p.value || d.value)
+    ), M = a(
       () => o.showWordLimit && (o.type === "text" || o.type === "textarea") && !o.disabled && !o.readonly && !o.showPassword
     ), H = () => {
-      c.value = !c.value, J();
-    }, J = async () => {
+      c.value = !c.value, L();
+    }, L = async () => {
       var e;
-      await S(), (e = W.value) == null || e.focus();
-    }, Q = n(
-      () => o.type !== "textarea" ? "vi-input" : "vi-textarea"
-    ), X = n(() => ({
+      (e = h.value) == null || e.focus();
+    }, J = a(
+      () => o.type !== "textarea" ? ["vi-input", { [`vi-input--${o.size}`]: o.size }] : "vi-textarea"
+    ), Q = a(() => ({
       "vi-input__wrapper": !0,
-      ["is-prepend"]: m.prepend,
-      ["is-append"]: m.append
-    })), Y = n(() => ({
+      ["is-prepend"]: g.prepend,
+      ["is-append"]: g.append
+    })), X = a(() => ({
       "is-disabled": o.disabled
-      // [`vi-input--${inputProps.size}`]: inputProps.size
-    })), Z = n(
-      () => w.value || P.value ? "vi-input__suffix" : ""
-    ), ee = n(() => ({
+    })), Y = a(
+      () => k.value || B.value ? "vi-input__suffix" : ""
+    ), Z = a(() => ({
       ["is-disabled"]: o.disabled
     }));
-    return (e, r) => {
+    return oe(() => {
+      var e;
+      console.log((e = v.value) == null ? void 0 : e.blur());
+    }), W({
+      /** @description HTML input element native method */
+      blur: () => {
+        var e;
+        return (e = h.value) == null ? void 0 : e.blur();
+      },
+      /** @description HTML input element native method */
+      focus: L,
+      /** @description clear input value */
+      clear: I,
+      /** @description HTML element, input or textarea */
+      ref: h,
+      /** @description HTML input element native method */
+      select: () => {
+        var e;
+        (e = h.value) == null || e.select();
+      },
+      /** @description HTML input element */
+      input: v,
+      /** @description HTML textarea element */
+      textarea: y
+    }), (e, r) => {
       const u = se("vi-icon");
       return t(), l(
         "div",
         {
-          class: C(i(Q)),
-          onMouseenter: A,
+          class: w(i(J)),
+          onMouseenter: K,
           onMouseleave: O
         },
         [
           e.type !== "textarea" ? (t(), l(
-            ae,
+            ne,
             { key: 0 },
             [
-              a(" prepend slot "),
-              e.$slots.prepend ? (t(), l("div", ue, [
-                h(e.$slots, "prepend")
-              ])) : a("v-if", !0),
-              _(
+              s(" prepend slot "),
+              e.$slots.prepend ? (t(), l("div", pe, [
+                b(e.$slots, "prepend")
+              ])) : s("v-if", !0),
+              V(
                 "div",
                 {
-                  class: C(i(X))
+                  class: w(i(Q))
                 },
                 [
-                  a(" prefix slot "),
-                  e.$slots.prefix ? (t(), l("span", pe, [
-                    h(e.$slots, "prefix")
-                  ])) : a("v-if", !0),
-                  a(" prefixIcon "),
-                  e.prefixIcon ? (t(), l("span", de, [
-                    g(u, { name: e.prefixIcon }, null, 8, ["name"])
-                  ])) : a("v-if", !0),
-                  _("input", M({ class: "vi-input__inner" }, e.$attrs, {
+                  s(" prefix slot "),
+                  e.$slots.prefix ? (t(), l("span", de, [
+                    b(e.$slots, "prefix")
+                  ])) : s("v-if", !0),
+                  s(" prefixIcon "),
+                  e.prefixIcon ? (t(), l("span", ce, [
+                    x(u, { name: e.prefixIcon }, null, 8, ["name"])
+                  ])) : s("v-if", !0),
+                  V("input", F({
+                    class: "vi-input__inner",
+                    ref_key: "input",
+                    ref: v
+                  }, e.$attrs, {
                     autofocus: e.autofocus,
                     type: e.showPassword ? c.value ? "text" : "password" : e.type,
-                    class: i(Y),
+                    class: i(X),
                     value: e.modelValue,
                     autocomplete: e.autocomplete,
                     "aria-label": e.label,
                     tabindex: e.tabindex,
                     maxlength: e.maxlength,
+                    minlength: e.minlength,
                     placeholder: e.placeholder,
                     disabled: e.disabled,
-                    onInput: y,
-                    onFocus: I,
-                    onBlur: V,
-                    onChange: x,
-                    onKeydown: E
-                  }), null, 16, ce),
-                  a(" suffix slot "),
+                    onInput: C,
+                    onFocus: $,
+                    onBlur: E,
+                    onChange: P
+                  }), null, 16, fe),
+                  s(" suffix slot "),
                   i(G) ? (t(), l(
                     "span",
                     {
                       key: 2,
-                      class: C(i(Z))
+                      class: w(i(Y))
                     },
                     [
-                      h(e.$slots, "suffix"),
-                      i(w) ? (t(), ne(u, {
+                      b(e.$slots, "suffix"),
+                      i(k) ? (t(), ae(u, {
                         key: 0,
                         name: "close-circle",
-                        onClick: z
-                      })) : a("v-if", !0),
-                      i(P) ? (t(), l("div", {
+                        onClick: I
+                      })) : s("v-if", !0),
+                      i(B) ? (t(), l("div", {
                         key: 1,
                         onClick: H
                       }, [
-                        g(u, {
+                        x(u, {
                           name: c.value ? "eye" : "eye-close"
                         }, null, 8, ["name"])
-                      ])) : a("v-if", !0),
-                      i($) ? (t(), l("span", fe, [
-                        _(
+                      ])) : s("v-if", !0),
+                      i(M) ? (t(), l("span", ve, [
+                        V(
                           "span",
-                          ve,
-                          N(i(T)) + "/" + N(o.maxlength),
+                          he,
+                          z(i(A)) + "/" + z(o.maxlength),
                           1
                           /* TEXT */
                         )
-                      ])) : a("v-if", !0)
+                      ])) : s("v-if", !0)
                     ],
                     2
                     /* CLASS */
-                  )) : a("v-if", !0),
-                  a(" suffixIcon "),
-                  e.suffixIcon ? (t(), l("span", he, [
-                    g(u, { name: e.suffixIcon }, null, 8, ["name"])
-                  ])) : a("v-if", !0)
+                  )) : s("v-if", !0),
+                  s(" suffixIcon "),
+                  e.suffixIcon ? (t(), l("span", me, [
+                    x(u, { name: e.suffixIcon }, null, 8, ["name"])
+                  ])) : s("v-if", !0)
                 ],
                 2
                 /* CLASS */
               ),
-              a(" append slot "),
-              e.$slots.append ? (t(), l("div", me, [
-                h(e.$slots, "append")
-              ])) : a("v-if", !0)
+              s(" append slot "),
+              e.$slots.append ? (t(), l("div", be, [
+                b(e.$slots, "append")
+              ])) : s("v-if", !0)
             ],
             64
             /* STABLE_FRAGMENT */
-          )) : (t(), l("textarea", M({
+          )) : (t(), l("textarea", F({
             key: 1,
-            class: ["vi-textarea__inner", i(ee)],
+            class: ["vi-textarea__inner", i(Z)],
             ref_key: "textarea",
-            ref: k
+            ref: y
           }, e.$attrs, {
             readonly: e.readonly,
             placeholder: e.placeholder,
@@ -194,15 +219,16 @@ const ue = {
             tabindex: e.tabindex,
             autofocus: e.autofocus,
             autocomplete: e.autocomplete,
-            onInput: y,
-            onFocus: I,
-            onBlur: V,
-            onChange: x,
-            onKeydown: E,
+            minlength: e.minlength,
+            maxlength: e.maxlength,
+            onInput: C,
+            onFocus: $,
+            onBlur: E,
+            onChange: P,
             onCompositionstart: R,
             onCompositionupdate: j,
             onCompositionend: q
-          }), null, 16, ye))
+          }), null, 16, ge))
         ],
         34
         /* CLASS, HYDRATE_EVENTS */
@@ -211,5 +237,5 @@ const ue = {
   }
 });
 export {
-  Ve as default
+  Ee as default
 };

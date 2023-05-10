@@ -1,4 +1,3 @@
-import type { PropType } from "vue";
 import type Input from './input.vue';
 export declare type InputAutoSize = {
     minRows?: number;
@@ -9,7 +8,7 @@ export declare const inputProps: {
    * @description binding value
    */
     modelValue: {
-        type: PropType<string | number | null | undefined>;
+        type: import("vue").PropType<string | number | null | undefined>;
         default: string;
     };
     /**
@@ -19,7 +18,10 @@ export declare const inputProps: {
         type: StringConstructor;
         default: undefined;
     };
-    size: PropType<"" | "default" | "small" | "large">;
+    size: {
+        type: import("vue").PropType<"" | "default" | "small" | "large">;
+        default: string;
+    };
     type: {
         type: StringConstructor;
         default: string;
@@ -68,10 +70,13 @@ export declare const inputProps: {
       */
     suffixIcon: StringConstructor;
     maxlength: {
-        type: NumberConstructor;
+        type: (StringConstructor | NumberConstructor)[];
     };
-    autoSize: {
-        type: PropType<InputAutoSize>;
+    minlength: {
+        type: (StringConstructor | NumberConstructor)[];
+    };
+    autosize: {
+        type: import("vue").PropType<InputAutoSize>;
         default: boolean;
     };
     autocomplete: {
@@ -92,7 +97,6 @@ export declare const inputEmits: {
     clear: () => boolean;
     mouseleave: (evt: MouseEvent) => boolean;
     mouseenter: (evt: MouseEvent) => boolean;
-    keydown: (evt: KeyboardEvent | Event) => boolean;
     compositionstart: (evt: CompositionEvent) => boolean;
     compositionupdate: (evt: CompositionEvent) => boolean;
     compositionend: (evt: CompositionEvent) => boolean;

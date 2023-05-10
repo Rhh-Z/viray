@@ -3,7 +3,7 @@ import { resolve } from 'path';
 // import { projRoot } from './paths';
 
 //保留的文件
-const stayFile = ["package.json", "README.md"];
+const stayFile = ["package.json", "README.md", "index.d.ts"];
 
 const delPath = async (path: string) => {
   let files: string[] = [];

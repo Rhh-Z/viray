@@ -89,10 +89,10 @@
         color: #fff;
 
         &::after {
-          display: block;
-          font-family: $font-family;
-          content: "\e88b";
-        }
+   display: block;
+   font-family: $font-family;
+   content: "\e88b";
+ }
       }
     }
   }

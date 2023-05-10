@@ -1,15 +1,15 @@
-import { ExtractPropTypes, PropType } from "vue";
+import { ExtractPropTypes } from "vue";
 import { ButtonNativeType, ButtonSizeType, ButtonType } from "./interface";
 import Button from './button.vue';
 export declare const buttonProps: {
     type: {
-        type: PropType<ButtonType>;
-        default: () => string;
+        type: import("vue").PropType<ButtonType>;
+        default: string;
         validator(value: ButtonType): boolean;
     };
     size: {
-        type: PropType<ButtonSizeType>;
-        default: () => string;
+        type: import("vue").PropType<ButtonSizeType>;
+        default: string;
         validator(value: ButtonSizeType): boolean;
     };
     plain: {
@@ -46,14 +46,17 @@ export declare const buttonProps: {
     };
     icon: {
         type: StringConstructor;
-        default: () => string;
+        default: string;
     };
+    /**
+     * button类型为text时，是否一直需要背景
+     */
     bg: {
         type: BooleanConstructor;
         default: boolean;
     };
     nativeType: {
-        type: PropType<ButtonNativeType>;
+        type: import("vue").PropType<ButtonNativeType>;
         default: () => ButtonNativeType;
         validator(value: 'button' | 'submit' | 'reset'): boolean;
     };
@@ -61,6 +64,6 @@ export declare const buttonProps: {
 export declare const buttonEmits: {
     click: (evt: MouseEvent) => boolean;
 };
-export declare type ButtonEmits = typeof buttonEmits;
+export declare type ButtonEmits = ExtractPropTypes<typeof buttonEmits>;
 export declare type ButtonProps = ExtractPropTypes<typeof buttonProps>;
 export declare type ButtonInstance = InstanceType<typeof Button>;

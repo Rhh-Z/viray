@@ -1,42 +1,42 @@
-import { defineComponent as n, computed as o, openBlock as t, createElementBlock as s, normalizeClass as m, unref as a, renderSlot as d, createTextVNode as p, toDisplayString as u, createCommentVNode as h, createElementVNode as f, normalizeStyle as _ } from "vue";
-import { cardProps as v } from "./card.mjs";
+import { defineComponent as a, computed as n, openBlock as o, createElementBlock as s, normalizeClass as i, unref as c, renderSlot as t, createTextVNode as m, toDisplayString as p, createCommentVNode as u, createElementVNode as h, normalizeStyle as f } from "vue";
+import { cardProps as _ } from "./card.mjs";
 import "../../../theme-chalk/src/card.css";
-const y = {
+const v = {
   key: 0,
   class: "vi-card__header"
-}, C = n({
+}, y = a({
   name: "ViCard"
-}), w = /* @__PURE__ */ n({
-  ...C,
-  props: v,
-  setup(l) {
-    const r = l, c = o(() => ({
+}), k = /* @__PURE__ */ a({
+  ...y,
+  props: _,
+  setup(d) {
+    const r = d, l = n(() => ({
       "vi-card": !0,
       [`is-${r.shadow}-shadow`]: r.shadow
-    })), i = o(() => ({}));
-    return (e, S) => (t(), s(
+    }));
+    return (e, C) => (o(), s(
       "div",
       {
-        class: m(a(c))
+        class: i(c(l))
       },
       [
-        e.$slots.header || e.header ? (t(), s("div", y, [
-          d(e.$slots, "header", {}, () => [
-            p(
-              u(e.header),
+        e.$slots.header || e.header ? (o(), s("div", v, [
+          t(e.$slots, "header", {}, () => [
+            m(
+              p(e.header),
               1
               /* TEXT */
             )
           ])
-        ])) : h("v-if", !0),
-        f(
+        ])) : u("v-if", !0),
+        h(
           "div",
           {
             class: "vi-card__body",
-            style: _(a(i))
+            style: f(e.bodyStyle)
           },
           [
-            d(e.$slots, "default")
+            t(e.$slots, "default")
           ],
           4
           /* STYLE */
@@ -48,5 +48,5 @@ const y = {
   }
 });
 export {
-  w as default
+  k as default
 };

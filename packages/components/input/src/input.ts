@@ -1,6 +1,5 @@
 import { ComponentSize, UPDATE_MODEL_EVENT } from "@viray/constants";
 import { isString } from "lodash-unified";
-import type { PropType } from "vue";
 import type Input from './input.vue';
 import { definePropType } from "@viray/utils/definePropType";
 
@@ -25,7 +24,10 @@ export const inputProps = {
     type: String,
     default: undefined,
   },
-  size: String as PropType<ComponentSize>,
+  size: {
+    type: definePropType<ComponentSize>([String]),
+    default: ''
+  },
   type: {
     type: String,
     default: 'text',
@@ -74,9 +76,12 @@ export const inputProps = {
     */
   suffixIcon: String,
   maxlength: {
-    type: Number,
+    type: [Number, String],
   },
-  autoSize: {
+  minlength: {
+    type: [Number, String],
+  },
+  autosize: {
     type: definePropType<InputAutoSize>([Boolean, Object]),
     default: false
   },
@@ -99,7 +104,6 @@ export const inputEmits = {
   clear: () => true,
   mouseleave: (evt: MouseEvent) => evt instanceof MouseEvent,
   mouseenter: (evt: MouseEvent) => evt instanceof MouseEvent,
-  keydown: (evt: KeyboardEvent | Event) => evt instanceof Event,
   compositionstart: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionupdate: (evt: CompositionEvent) => evt instanceof CompositionEvent,
   compositionend: (evt: CompositionEvent) => evt instanceof CompositionEvent,

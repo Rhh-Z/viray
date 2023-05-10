@@ -5,7 +5,7 @@ const t = {
   },
   size: {
     type: String,
-    default: "default"
+    default: "16px"
   },
   color: {
     type: String

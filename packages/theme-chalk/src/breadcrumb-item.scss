@@ -20,9 +20,11 @@
       transition: color .2s cubic-bezier(.645, .045, .355, 1);
       color: $text-color-primary;
 
+
       &:hover {
         color: map.get($colors, 'primary', 'base');
         cursor: pointer;
+        text-decoration: none;
       }
     }
   }

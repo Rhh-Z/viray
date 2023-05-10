@@ -1,4 +1,5 @@
-const e = {
+import { definePropType as e } from "../../../utils/definePropType.mjs";
+const t = {
   header: {
     type: String,
     default: ""
@@ -7,8 +8,12 @@ const e = {
     type: String,
     values: ["always", "hover", "never"],
     default: "always"
+  },
+  bodyStyle: {
+    type: e([String, Object, Array]),
+    default: ""
   }
 };
 export {
-  e as cardProps
+  t as cardProps
 };
