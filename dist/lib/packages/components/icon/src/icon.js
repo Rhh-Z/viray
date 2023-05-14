@@ -1,1 +1,1 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const t={name:{type:String,default:""},size:{type:String,default:"16px"},color:{type:String}};exports.iconProps=t;
+"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const e={name:{type:String,default:""},size:{type:[String,Number],default:""},color:{type:String}};exports.iconProps=e;

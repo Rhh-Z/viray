@@ -1,4 +1,4 @@
-import { defineComponent as y, useSlots as E, computed as f, openBlock as i, createBlock as F, resolveDynamicComponent as L, unref as n, normalizeClass as t, withCtx as D, createElementVNode as S, withDirectives as h, createElementBlock as d, isRef as C, vModelCheckbox as $, createCommentVNode as p, renderSlot as w, Fragment as M, createTextVNode as O, toDisplayString as z } from "vue";
+import { defineComponent as y, useSlots as E, computed as c, openBlock as s, createBlock as L, resolveDynamicComponent as D, unref as n, normalizeClass as t, withCtx as F, createElementVNode as S, withDirectives as h, createElementBlock as d, isRef as C, vModelCheckbox as $, createCommentVNode as v, renderSlot as w, Fragment as M, createTextVNode as O, toDisplayString as z } from "vue";
 import "../../../theme-chalk/src/checkbox.css";
 import { checkboxProps as I, checkboxEmits as P } from "./checkbox.mjs";
 import { useCheckbox as T } from "./composables/use-checkbox.mjs";
@@ -9,73 +9,74 @@ const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "che
   props: I,
   emits: P,
   setup(g) {
-    const r = g, o = "vi-checkbox", N = E(), {
-      model: s,
-      hasOwnLabel: v,
-      isChecked: k,
-      isFocused: u,
-      isDisabled: b,
-      checkboxSize: c,
-      handleChange: m
-    } = T(r, N), V = f(() => ({
+    const m = g, o = "vi-checkbox", N = E(), {
+      model: i,
+      hasOwnLabel: k,
+      isChecked: b,
+      isFocused: r,
+      isDisabled: p,
+      checkboxSize: f,
+      handleChange: u
+    } = T(m, N), V = c(() => ({
       [o]: !0,
-      [`${o}--${c.value}`]: c.value,
-      "is-disabled": b.value,
-      "is-border": r.border
-    })), B = f(() => ({
+      [`${o}--${f.value}`]: f.value,
+      "is-disabled": p.value,
+      "is-border": m.border
+      // 'is-focus':isFocused.value,
+    })), B = c(() => ({
       [`${o}__input`]: !0,
-      "is-checked": r.checked,
-      "is-indeterminate": r.indeterminate,
-      "is-focus": r.isFocused
+      "is-indeterminate": m.indeterminate,
+      "is-checked": b.value,
+      "is-focus": r.value
     }));
-    return (e, l) => (i(), F(L(n(v) ? "label" : "span"), {
+    return (e, l) => (s(), L(D(n(k) ? "label" : "span"), {
       class: t(n(V)),
       "aria-controls": e.indeterminate ? e.controls : null
     }, {
-      default: D(() => [
+      default: F(() => [
         S("span", {
           class: t(n(B)),
           tabindex: e.indeterminate ? 0 : void 0,
           role: e.indeterminate ? "checkbox" : void 0,
           "aria-checked": e.indeterminate ? "mixed" : void 0
         }, [
-          e.trueLabel || e.falseLabel ? h((i(), d("input", {
+          e.trueLabel || e.falseLabel ? h((s(), d("input", {
             key: 0,
             id: "inputId",
-            "onUpdate:modelValue": l[0] || (l[0] = (a) => C(s) ? s.value = a : null),
+            "onUpdate:modelValue": l[0] || (l[0] = (a) => C(i) ? i.value = a : null),
             type: "checkbox",
             name: e.name,
             class: t(`${o}__original`),
             "aria-hidden": e.indeterminate ? "true" : "false",
-            checked: n(k),
-            disabled: n(b),
+            checked: n(b),
+            disabled: n(p),
             "true-value": e.trueLabel,
             "false-value": e.falseLabel,
             onChange: l[1] || (l[1] = //@ts-ignore
-            (...a) => n(m) && n(m)(...a)),
-            onFocus: l[2] || (l[2] = (a) => u.value = !0),
-            onBlur: l[3] || (l[3] = (a) => u.value = !1)
+            (...a) => n(u) && n(u)(...a)),
+            onFocus: l[2] || (l[2] = (a) => r.value = !0),
+            onBlur: l[3] || (l[3] = (a) => r.value = !1)
           }, null, 42, A)), [
-            [$, n(s)]
-          ]) : h((i(), d("input", {
+            [$, n(i)]
+          ]) : h((s(), d("input", {
             key: 1,
             id: "inputId",
-            "onUpdate:modelValue": l[4] || (l[4] = (a) => C(s) ? s.value = a : null),
+            "onUpdate:modelValue": l[4] || (l[4] = (a) => C(i) ? i.value = a : null),
             class: t(`${o}__original`),
             value: e.label,
-            disabled: n(b),
+            disabled: n(p),
             type: "checkbox",
             "aria-hidden": e.indeterminate ? "true" : "false",
             name: e.name,
-            checked: n(k),
+            checked: n(b),
             onChange: l[5] || (l[5] = //@ts-ignore
-            (...a) => n(m) && n(m)(...a)),
-            onFocus: l[6] || (l[6] = (a) => u.value = !0),
-            onBlur: l[7] || (l[7] = (a) => u.value = !1)
+            (...a) => n(u) && n(u)(...a)),
+            onFocus: l[6] || (l[6] = (a) => r.value = !0),
+            onBlur: l[7] || (l[7] = (a) => r.value = !1)
           }, null, 42, R)), [
-            [$, n(s)]
+            [$, n(i)]
           ]),
-          e.indeterminate ? (i(), d(
+          e.indeterminate ? (s(), d(
             "span",
             {
               key: 2,
@@ -84,9 +85,9 @@ const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "che
             null,
             2
             /* CLASS */
-          )) : p("v-if", !0)
+          )) : v("v-if", !0)
         ], 10, U),
-        n(v) || e.label ? (i(), d(
+        n(k) || e.label ? (s(), d(
           "span",
           {
             key: 0,
@@ -95,7 +96,7 @@ const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "che
           },
           [
             w(e.$slots, "default"),
-            e.$slots.default ? p("v-if", !0) : (i(), d(
+            e.$slots.default ? v("v-if", !0) : (s(), d(
               M,
               { key: 0 },
               [
@@ -111,7 +112,7 @@ const U = ["tabindex", "role", "aria-checked"], A = ["name", "aria-hidden", "che
           ],
           2
           /* CLASS */
-        )) : p("v-if", !0)
+        )) : v("v-if", !0)
       ]),
       _: 3
       /* FORWARDED */

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const e=require("./divider.vue2.js"),i=require("../../../../_virtual/_plugin-vue_export-helper.js"),r=i.default(e.default,[["__file","E:/source/viray/packages/components/divider/src/divider.vue"]]);exports.default=r;

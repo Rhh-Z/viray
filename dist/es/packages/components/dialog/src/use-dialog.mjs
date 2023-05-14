@@ -16,7 +16,7 @@ const L = (n) => {
       a && (l.value = !1), t.value = a;
     }
   ), v(() => {
-    n.modelValue && (t.value = !0, s.value = !0, open());
+    n.modelValue && (t.value = !0, s.value = !0);
   }), {
     afterEnter: c,
     afterLeave: f,

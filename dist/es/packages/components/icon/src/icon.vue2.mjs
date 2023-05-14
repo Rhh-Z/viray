@@ -1,34 +1,34 @@
-import { defineComponent as s, useCssVars as t, computed as c, openBlock as i, createElementBlock as a, normalizeClass as l, unref as m, renderSlot as p } from "vue";
+import { defineComponent as r, computed as o, openBlock as l, createElementBlock as m, normalizeClass as p, unref as n, normalizeStyle as a, renderSlot as u } from "vue";
 import "../../../theme-chalk/src/icon.css";
-import { iconProps as u } from "./icon.mjs";
-const d = s({
+import { iconProps as f } from "./icon.mjs";
+import z from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isNumber.mjs";
+const _ = r({
   name: "ViIcon"
-}), v = /* @__PURE__ */ s({
-  ...d,
-  props: u,
-  setup(n) {
-    const e = n;
-    t((o) => ({
-      "8e7c279d-color": o.color,
-      "8e7c279d-size": o.size
-    }));
-    const r = c(() => ({
+}), k = /* @__PURE__ */ r({
+  ..._,
+  props: f,
+  setup(t) {
+    const e = t, s = o(() => ({
       [`vi-icon-${e.name}`]: e.name,
       [`vi-icon--${e.size}`]: e.size
+    })), i = o(() => ({
+      color: e.color,
+      fontSize: z(e.size) ? `${e.size}px` : e.size
     }));
-    return (o, f) => (i(), a(
+    return (c, d) => (l(), m(
       "i",
       {
-        class: l(m(r))
+        class: p(n(s)),
+        style: a(n(i))
       },
       [
-        p(o.$slots, "default", {}, void 0, !0)
+        u(c.$slots, "default")
       ],
-      2
-      /* CLASS */
+      6
+      /* CLASS, STYLE */
     ));
   }
 });
 export {
-  v as default
+  k as default
 };

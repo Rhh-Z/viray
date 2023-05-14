@@ -44,8 +44,10 @@ declare module "@vue/runtime-core" {
     "vi-checkbox": typeof components.ViCheckbox;
     "vi-checkbox-group": typeof components.ViCheckboxGroup;
     "vi-dialog": typeof components.ViDialog;
+    "vi-divider": typeof components.ViDivider;
     "vi-icon": typeof components.ViIcon;
     "vi-input": typeof components.ViInput;
+    "vi-link": typeof components.ViLink;
     "vi-message": typeof components.ViMessage;
     "vi-notification": typeof components.ViNotification;
     "vi-popover": typeof components.ViPopover;

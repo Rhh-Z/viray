@@ -6,7 +6,7 @@ export declare const iconProps: {
         default: string;
     };
     size: {
-        type: StringConstructor;
+        type: (StringConstructor | NumberConstructor)[];
         default: string;
     };
     color: {

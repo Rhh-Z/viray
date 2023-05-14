@@ -2,22 +2,22 @@ import { defineComponent as n, computed as o, provide as p, openBlock as u, crea
 import { rowContextKey as w } from "./constants.mjs";
 import { rowProps as _ } from "./row.mjs";
 import "../../../theme-chalk/src/row.css";
-const v = n({
+const C = n({
   name: "ViRow"
-}), k = /* @__PURE__ */ n({
-  ...v,
+}), S = /* @__PURE__ */ n({
+  ...C,
   props: _,
   setup(i) {
     const e = i, r = o(() => e.gutter);
     p(w, { gutter: r });
     const l = o(() => {
       const t = {};
-      return r.value && (t.marginLeft = t.marginRight = `vi-row-${e.gutter / 2}px`), t;
+      return r.value && (t.marginLeft = t.marginRight = `-${e.gutter / 2}px`), t;
     }), a = o(() => [
       e.justify !== "start" ? `is-justify-${e.justify}` : "",
       e.align !== "top" ? `is-align-${e.align}` : ""
     ]);
-    return (t, C) => (u(), m(c(t.tag), {
+    return (t, v) => (u(), m(c(t.tag), {
       class: f(["vi-row", s(a)]),
       style: g(s(l))
     }, {
@@ -30,5 +30,5 @@ const v = n({
   }
 });
 export {
-  k as default
+  S as default
 };

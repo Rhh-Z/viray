@@ -8,7 +8,10 @@ const u = {
     default: void 0
   },
   indeterminate: Boolean,
-  checked: Boolean,
+  checked: {
+    type: Boolean,
+    default: !1
+  },
   name: String,
   disabled: Boolean,
   /**

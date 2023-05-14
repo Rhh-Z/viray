@@ -7,7 +7,10 @@ export declare const checkboxProps: {
         default: undefined;
     };
     indeterminate: BooleanConstructor;
-    checked: BooleanConstructor;
+    checked: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     name: StringConstructor;
     disabled: BooleanConstructor;
     /**

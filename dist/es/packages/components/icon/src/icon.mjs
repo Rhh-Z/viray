@@ -4,8 +4,8 @@ const t = {
     default: ""
   },
   size: {
-    type: String,
-    default: "16px"
+    type: [String, Number],
+    default: ""
   },
   color: {
     type: String

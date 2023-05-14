@@ -1,43 +1,47 @@
-import { defineComponent as g, useSlots as B, computed as m, provide as w, openBlock as f, createElementBlock as p, normalizeClass as i, unref as t, normalizeStyle as k, createElementVNode as l, createCommentVNode as y, createVNode as M, renderSlot as L, Fragment as P, renderList as A } from "vue";
-import { carouselProps as F, carouselEmits as K } from "./carousel.mjs";
+import { defineComponent as y, useSlots as L, computed as f, provide as w, openBlock as p, createElementBlock as _, normalizeClass as i, unref as t, normalizeStyle as b, createElementVNode as l, createCommentVNode as g, createVNode as h, renderSlot as P, Fragment as A, renderList as F } from "vue";
+import { carouselProps as K, carouselEmits as j } from "./carousel.mjs";
 import "../../../theme-chalk/src/carousel.css";
-import { ViIcon as b } from "../../icon/index.mjs";
-import { useCarousel as j } from "./use-carousel.mjs";
-import { carouselContextKey as q } from "./constants.mjs";
-const x = ["onMouseenter", "onClick"], D = g({
+import { ViIcon as k } from "../../icon/index.mjs";
+import { useCarousel as q } from "./use-carousel.mjs";
+import { carouselContextKey as x } from "./constants.mjs";
+const D = ["onMouseenter", "onClick"], G = y({
   name: "ViCarousel"
-}), T = /* @__PURE__ */ g({
-  ...D,
-  props: F,
-  emits: K,
-  setup(h, { emit: E }) {
-    const r = h, e = "vi-carousel", _ = B(), $ = _.default && _.default(), {
-      handleIndicatorEnter: I,
-      handleIndicatorClick: N,
+}), U = /* @__PURE__ */ y({
+  ...G,
+  props: K,
+  emits: j,
+  setup(M, { emit: N }) {
+    const o = M, e = "vi-carousel", u = L();
+    function I() {
+      return u.default().length === 1 ? u.default()[0].children : u.default();
+    }
+    const $ = I(), {
+      handleIndicatorEnter: E,
+      handleIndicatorClick: V,
       throttleNext: v,
       throttlePrev: C,
-      activeIndex: u,
+      activeIndex: c,
       handleMouseLeave: s
-    } = j(r, E), V = m(() => ({
+    } = q(o, N), S = f(() => ({
       [`${e}__indicators`]: !0,
-      [`${e}__indicators--${r.direction}`]: r.direction
-    })), S = m(() => ({
+      [`${e}__indicators--${o.direction}`]: o.direction
+    })), z = f(() => ({
       "vi-carousel": !0,
-      [`vi-carousel--${r.direction}`]: r.direction,
-      [`is-${r.arrow}`]: r.arrow
-    })), z = m(() => ({
+      [`vi-carousel--${o.direction}`]: o.direction,
+      [`is-${o.arrow}`]: o.arrow
+    })), B = f(() => ({
       [`${e}__indicator`]: !0,
-      [`${e}__indicator--${r.direction}`]: r.direction
+      [`${e}__indicator--${o.direction}`]: o.direction
     }));
-    return w(q, {
+    return w(x, {
       items: $,
-      activeIndex: u
-    }), w("activeIndex", u), (c, o) => (f(), p(
+      activeIndex: c
+    }), w("activeIndex", c), (d, r) => (p(), _(
       "div",
       {
-        class: i(t(S)),
+        class: i(t(z)),
         ref: "root",
-        style: k({ width: c.width })
+        style: b({ width: d.width })
       },
       [
         l(
@@ -45,44 +49,44 @@ const x = ["onMouseenter", "onClick"], D = g({
           {
             ref: "container",
             class: i(`${e}__container`),
-            style: k({ height: c.height })
+            style: b({ height: d.height })
           },
           [
-            y(" arrow left "),
+            g(" arrow left "),
             l(
               "button",
               {
                 type: "button",
                 class: i(`${e}__arrow ${e}__arrow--left`),
-                onClick: o[0] || (o[0] = //@ts-ignore
+                onClick: r[0] || (r[0] = //@ts-ignore
                 (...n) => t(C) && t(C)(...n)),
-                onMouseleave: o[1] || (o[1] = //@ts-ignore
+                onMouseleave: r[1] || (r[1] = //@ts-ignore
                 (...n) => t(s) && t(s)(...n))
               },
               [
-                M(t(b), { name: "arrowleft" })
+                h(t(k), { name: "arrowleft" })
               ],
               34
               /* CLASS, HYDRATE_EVENTS */
             ),
-            y(" arrow right "),
+            g(" arrow right "),
             l(
               "button",
               {
                 type: "button",
                 class: i(`${e}__arrow ${e}__arrow--right`),
-                onClick: o[2] || (o[2] = //@ts-ignore
+                onClick: r[2] || (r[2] = //@ts-ignore
                 (...n) => t(v) && t(v)(...n)),
-                onMouseleave: o[3] || (o[3] = //@ts-ignore
+                onMouseleave: r[3] || (r[3] = //@ts-ignore
                 (...n) => t(s) && t(s)(...n))
               },
               [
-                M(t(b), { name: "arrowright" })
+                h(t(k), { name: "arrowright" })
               ],
               34
               /* CLASS, HYDRATE_EVENTS */
             ),
-            L(c.$slots, "default")
+            P(d.$slots, "default")
           ],
           6
           /* CLASS, STYLE */
@@ -90,21 +94,21 @@ const x = ["onMouseenter", "onClick"], D = g({
         l(
           "ul",
           {
-            class: i(t(V))
+            class: i(t(S))
           },
           [
-            (f(!0), p(
-              P,
+            (p(!0), _(
+              A,
               null,
-              A(t($), (n, a) => (f(), p("li", {
+              F(t($), (n, a) => (p(), _("li", {
                 key: a,
-                class: i([t(z), t(u) === a ? "is-active" : ""]),
+                class: i([t(B), t(c) === a ? "is-active" : ""]),
                 ref_for: !0,
                 ref: "indicator",
-                onMouseenter: (d) => t(I)(a),
-                onClick: (d) => t(N)(a),
-                onMouseleave: o[4] || (o[4] = //@ts-ignore
-                (...d) => t(s) && t(s)(...d))
+                onMouseenter: (m) => t(E)(Number(a)),
+                onClick: (m) => t(V)(Number(a)),
+                onMouseleave: r[4] || (r[4] = //@ts-ignore
+                (...m) => t(s) && t(s)(...m))
               }, [
                 l(
                   "button",
@@ -115,7 +119,7 @@ const x = ["onMouseenter", "onClick"], D = g({
                   2
                   /* CLASS */
                 )
-              ], 42, x))),
+              ], 42, D))),
               128
               /* KEYED_FRAGMENT */
             ))
@@ -130,5 +134,5 @@ const x = ["onMouseenter", "onClick"], D = g({
   }
 });
 export {
-  T as default
+  U as default
 };
