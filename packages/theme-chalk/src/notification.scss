@@ -1,27 +1,25 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 
-
 @include b(notification) {
+  position: fixed;
+  z-index: 9999;
+  box-sizing: border-box;
   display: flex;
   width: $vi-notification-width;
   padding: $vi-notification-padding;
-  border-radius: $vi-notification-radius;
-  box-sizing: border-box;
-  border: 1px solid $vi-notification-border-color;
-  position: fixed;
+  overflow: hidden;
+  overflow-wrap: anywhere;
   background-color: #fff;
+  border: 1px solid $vi-notification-border-color;
+  border-radius: $vi-notification-radius;
   box-shadow: $vi-notification-shadow;
   transition: opacity map.get($transition-duration, ''),
     transform map.get($transition-duration, ''),
     left map.get($transition-duration, ''),
-    right map.get($transition-duration, ''),
-    top .4s,
+    right map.get($transition-duration, ''), top 0.4s,
     bottom map.get($transition-duration, '');
-  overflow-wrap: anywhere;
-  overflow: hidden;
-  z-index: 9999;
 
   @include e(icon) {
     padding: 5px;
@@ -38,17 +36,17 @@
   }
 
   @include e(title) {
+    margin: 0;
     font-size: $vi-notification-title-font-size;
     font-weight: bold;
     line-height: 24px;
     color: $vi-notification-title-color;
-    margin: 0;
   }
 
   @include e(content) {
+    margin: 6px 0 0;
     font-size: $vi-notification-content-font-size;
     line-height: 24px;
-    margin: 6px 0 0;
     color: $vi-notification-content-color;
     text-align: justify;
   }

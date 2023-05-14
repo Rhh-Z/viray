@@ -1,14 +1,14 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
-@use './mixins/input.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/input.scss' as *;
 
 @include b(input) {
   position: relative;
-  font-size: $font--size-base;
+  box-sizing: border-box;
   display: inline-flex;
   width: 100%;
+  font-size: $font--size-base;
   line-height: $vi-input-height;
-  box-sizing: border-box;
   vertical-align: middle;
 
   @include e(wrapper) {
@@ -20,9 +20,9 @@
     background-color: $vi-input-bg-color;
     background-image: none;
     border-radius: $vi-input-border-radius;
+    box-shadow: 0 0 0 1px $vi-input--box-shadow-color inset;
     transition: $vi-transition-box-shadow;
     transform: translateZ(0);
-    box-shadow: 0 0 0 1px $vi-input--box-shadow-color inset;
 
     &:hover {
       box-shadow: 0 0 0 1px $vi-input--box-shadow-hover-color inset;
@@ -48,28 +48,28 @@
   }
 
   @include e(inner) {
-    width: 100%;
-    flex-grow: 1;
-    -webkit-appearance: none;
-    color: $vi-input-text-color;
-    font-size: inherit;
-    height: $vi-input-inner-height;
-    line-height: $vi-input-inner-height;
-    padding: 0;
-    outline: none;
-    border: none;
-    background: none;
     box-sizing: border-box;
+    flex-grow: 1;
+    width: 100%;
+    height: $vi-input-inner-height;
+    padding: 0;
+    font-size: inherit;
+    line-height: $vi-input-inner-height;
+    color: $vi-input-text-color;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
 
     &::placeholder {
       color: $vi-input--box-shadow-placehodler-color;
     }
 
     @include when(disabled) {
+      font-weight: 500;
+      color: #a8abb2;
       cursor: not-allowed;
       border-color: #e4e7ed;
-      color: #a8abb2;
-      font-weight: 500;
 
       &::placeholder {
         color: #c3c4cc;
@@ -79,32 +79,38 @@
 
   @include e(prepend) {
     @include input-mixin(right);
-    box-shadow: 1px 0 0 0 $vi-input--box-shadow-hover-color inset, 0 1px 0 0 $vi-input--box-shadow-hover-color inset, 0 -1px 0 0 $vi-input--box-shadow-hover-color inset;
+
     border-radius: $vi-input-border-radius 0 0 $vi-input-border-radius;
+    box-shadow: 1px 0 0 0 $vi-input--box-shadow-hover-color inset,
+      0 1px 0 0 $vi-input--box-shadow-hover-color inset,
+      0 -1px 0 0 $vi-input--box-shadow-hover-color inset;
   }
 
   @include e(append) {
     @include input-mixin(left);
-    box-shadow: 0 1px 0 0 $vi-input--box-shadow-hover-color inset, 0 -1px 0 0 $vi-input--box-shadow-hover-color inset, -1px 0 0 0 $vi-input--box-shadow-hover-color inset;
+
     border-radius: 0 $vi-input-border-radius $vi-input-border-radius 0;
+    box-shadow: 0 1px 0 0 $vi-input--box-shadow-hover-color inset,
+      0 -1px 0 0 $vi-input--box-shadow-hover-color inset,
+      -1px 0 0 0 $vi-input--box-shadow-hover-color inset;
   }
 
   @include e(prefix) {
-    margin-right: .8rem;
+    margin-right: 0.8rem;
   }
 
   @include e(suffix) {
     position: absolute;
+    right: 0.8rem;
     cursor: pointer;
-    right: .8rem;
   }
 
-  @include e(count) {}
-
+  @include e(count) {
+  }
 
   &.vi-input--small {
-    line-height: 24px;
     font-size: 12px;
+    line-height: 24px;
 
     & .vi-input__inner {
       height: 22px;
@@ -113,8 +119,8 @@
   }
 
   &.vi-input--large {
-    line-height: 40px;
     font-size: 16px;
+    line-height: 40px;
 
     & .vi-input__inner {
       height: 40px;
@@ -127,28 +133,28 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  vertical-align: bottom;
   font-size: $font--size-base;
+  vertical-align: bottom;
 
   @include e(inner) {
     position: relative;
-    display: block;
-    resize: vertical;
-    padding: 5px 11px;
-    line-height: 1.5;
     box-sizing: border-box;
+    display: block;
     width: 100%;
-    font-size: inherit;
+    padding: 5px 11px;
     font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
     color: $vi-input-text-color;
+    resize: vertical;
     background-color: $vi-input-bg-color;
     background-image: none;
-    -webkit-appearance: none;
-    box-shadow: 0 0 0 1px $vi-input--box-shadow-color inset;
-    border-radius: $vi-input-border-radius;
-    transition: $vi-transition-box-shadow;
     border: none;
+    border-radius: $vi-input-border-radius;
     outline: none;
+    box-shadow: 0 0 0 1px $vi-input--box-shadow-color inset;
+    transition: $vi-transition-box-shadow;
+    appearance: none;
 
     &:hover {
       box-shadow: 0 0 0 1px $vi-input--box-shadow-hover-color inset;
@@ -159,12 +165,11 @@
       box-shadow: 0 0 0 1px $vi-input--box-shadow-focus-color inset;
     }
 
-
     @include when(disabled) {
+      font-weight: 500;
+      color: #a8abb2;
       cursor: not-allowed;
       border-color: #e4e7ed;
-      color: #a8abb2;
-      font-weight: 500;
 
       &::placeholder {
         color: #c3c4cc;

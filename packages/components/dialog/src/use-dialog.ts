@@ -46,7 +46,7 @@ export const useDialog = (
     if (props.modelValue) {
       visible.value = true
       rendered.value = true // enables lazy rendering
-      open()
+      // open()
     }
   })
 

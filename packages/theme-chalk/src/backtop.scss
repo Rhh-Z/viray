@@ -1,22 +1,22 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 
 @include b(backtop) {
   position: fixed;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
+  font-size: 20px;
+  color: map.get($colors, 'primary', 'base');
+  cursor: pointer;
+  background-color: #fff;
   border-radius: 50%;
   box-shadow: $box-shadow-light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 5;
-  background-color: #fff;
-  color: map.get($colors, 'primary', 'base');
-  transition: opacity .6s;
+  transition: opacity 0.6s;
 }
 
 .backtop-fade-enter-from,

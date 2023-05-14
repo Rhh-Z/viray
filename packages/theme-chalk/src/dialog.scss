@@ -3,28 +3,27 @@
 
 @include b(dialog) {
   position: relative;
+  box-sizing: border-box;
+  width: $vi-dialog-width;
   margin: $vi-dialog-margin-top auto 50px;
   background: $vi-dialog-bg-color;
   border-radius: $vi-dialog-font-border-radius;
   box-shadow: $vi-dialog-boxshadow;
-  box-sizing: border-box;
-  width: $vi-dialog-width;
 
   @include e(header) {
     padding: $vi-dialog-font-padding-primary;
     padding-bottom: 10px;
     margin-right: 16px;
-
-    line-height: $vi-dialog-font-line-height;
     font-size: $vi-dialog-title-font-size;
+    line-height: $vi-dialog-font-line-height;
     color: $vi-progress-text-color-primary;
   }
 
   @include e(close) {
-    cursor: pointer;
     position: absolute;
-    right: 1rem;
     top: 10%;
+    right: 1rem;
+    cursor: pointer;
   }
 
   @include e(content) {
@@ -32,10 +31,10 @@
   }
 
   @include e(footer) {
+    box-sizing: border-box;
     padding: $vi-dialog-font-padding-primary;
     padding-top: 10px;
     text-align: right;
-    box-sizing: border-box;
   }
 
   @include when(center) {
@@ -51,15 +50,12 @@
 
 @include b(mask) {
   position: fixed;
+  inset: 0;
   height: 110vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   overflow: auto;
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 10;
 }
-
 
 .dialog-fade-enter-active {
   animation: dialog-fade-in 0.5s;
@@ -71,24 +67,24 @@
 
 @keyframes dialog-fade-in {
   0% {
-    transform: translate3d(0, -20px, 0);
     opacity: 0;
+    transform: translate3d(0, -20px, 0);
   }
 
   100% {
-    transform: translate3d(0, 0, 0);
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes dialog-fade-out {
   0% {
-    transform: translate3d(0, 0, 0);
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translate3d(0, -20px, 0);
     opacity: 0;
+    transform: translate3d(0, -20px, 0);
   }
 }

@@ -1,13 +1,14 @@
 <template>
-  <i :class="iconCls">
+  <i :class="iconCls" :style="iconStyle">
     <slot/>
   </i>
 </template>
 
 <script setup lang='ts' name="ViIcon">
-import {computed} from 'vue';
+import {CSSProperties, computed} from 'vue';
 import '../style/index';
 import { iconProps } from './icon';
+import { isNumber } from 'lodash-unified';
 
 const props = defineProps(iconProps)
 
@@ -17,12 +18,11 @@ const iconCls = computed(()=>{
     [`vi-icon--${props.size}`]:props.size
   }
 })
+
+const iconStyle = computed<CSSProperties>(()=>{
+  return {
+    color:props.color,
+    fontSize: isNumber(props.size) ? `${props.size}px` : props.size,
+  }
+})
 </script>
-
-
-<style lang="scss" scoped>
-[class^='vi-icon-'] {
-  color: v-bind(color);
-  font-size: v-bind(size);
-}
-</style>

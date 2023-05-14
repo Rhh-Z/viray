@@ -1,5 +1,5 @@
-@use './mixins/mixins.scss'as *;
-@use './common/variable'as *;
+@use './mixins/mixins.scss' as *;
+@use './common/variable' as *;
 
 @include b(popover) {
   @include e(container) {
@@ -7,38 +7,38 @@
   }
 
   position: absolute;
-  min-width: 150px;
-  background: $vi-bg-color-overlay;
-  border-radius: $vi-popover-border-radius;
-  border: 1px solid #ebeef5;
-  padding: 12px;
   z-index: 2000;
-  color: $text-color-regular;
-  line-height: 1.4;
-  text-align: justify;
-  font-size: $vi-popover-font-size;
-  box-shadow: $box-shadow-light;
-  word-break: break-all;
   box-sizing: border-box;
+  min-width: 150px;
+  padding: 12px;
+  font-size: $vi-popover-font-size;
+  line-height: 1.4;
+  color: $text-color-regular;
+  text-align: justify;
+  word-break: break-all;
+  background: $vi-bg-color-overlay;
+  border: 1px solid #ebeef5;
   border: 1px solid $vi-border-color-light;
-  transition: all .3s;
+  border-radius: $vi-popover-border-radius;
+  box-shadow: $box-shadow-light;
+  transition: all 0.3s;
 
   @include when(bottom) {
     top: 200%;
     left: 0%;
 
     &::after {
-      content: "";
       position: absolute;
+      top: -7%;
+      left: 15%;
       display: block;
       width: 10px;
       height: 10px;
-      top: -7%;
-      left: 15%;
-      transform: rotateZ(45deg)skew(30deg, 30deg);
+      content: '';
       background-color: #fff;
-      border-left: 1px solid #e4e7ff;
       border-top: 1px solid #e4e7ff;
+      border-left: 1px solid #e4e7ff;
+      transform: rotateZ(45deg) skew(30deg, 30deg);
     }
   }
 
@@ -47,17 +47,17 @@
     left: -20%;
 
     &::after {
-      content: "";
       position: absolute;
+      right: 30%;
+      bottom: -8%;
       display: block;
       width: 10px;
       height: 10px;
-      bottom: -8%;
-      right: 30%;
-      transform: rotateZ(45deg)skew(30deg, 30deg);
+      content: '';
       background-color: #fff;
       border-right: 1px solid #e4e7ff;
       border-bottom: 1px solid #e4e7ff;
+      transform: rotateZ(45deg) skew(30deg, 30deg);
     }
   }
 
@@ -66,45 +66,44 @@
     left: -120%;
 
     &::after {
-      content: "";
       position: absolute;
+      top: 30%;
+      right: -5%;
       display: block;
       width: 10px;
       height: 10px;
-      top: 30%;
-      right: -5%;
-      transform: rotateZ(-45deg)skew(30deg, 30deg);
+      content: '';
       background-color: #fff;
       border-right: 1px solid #e4e7ff;
       border-bottom: 1px solid #e4e7ff;
+      transform: rotateZ(-45deg) skew(30deg, 30deg);
     }
   }
-
 
   @include when(right) {
     top: -100%;
     left: 120%;
 
     &::after {
-      content: "";
       position: absolute;
+      top: 30%;
+      left: -5%;
       display: block;
       width: 10px;
       height: 10px;
-      top: 30%;
-      left: -5%;
-      transform: rotateZ(135deg)skew(30deg, 30deg);
+      content: '';
       background-color: #fff;
       border-right: 1px solid #e4e7ff;
       border-bottom: 1px solid #e4e7ff;
+      transform: rotateZ(135deg) skew(30deg, 30deg);
     }
   }
 
   @include e(title) {
-    color: $vi-popover-title-text-color;
+    margin-bottom: 12px;
     font-size: $vi-popover-title-font-size;
     line-height: 1;
-    margin-bottom: 12px;
+    color: $vi-popover-title-text-color;
   }
 }
 

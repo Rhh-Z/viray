@@ -1,0 +1,47 @@
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
+@use './mixins/link.scss' as *;
+@use 'sass:map';
+
+@include b(link) {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: $vi-link-font-size;
+  font-weight: $vi-link-font-weight;
+  color: $vi-link-text-color;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+
+  // Type
+  @each $type in $types {
+    @include link-type(map.get($colors, #{$type}, 'base'), $type);
+  }
+
+  // Disabled
+  @include when(disabled) {
+    @each $type in $types {
+      @include link-disabled(
+        map.get($disabled-colors, #{$type}, 'disabled'),
+        $type
+      );
+    }
+  }
+
+  @include e(inner) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include when(underline) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

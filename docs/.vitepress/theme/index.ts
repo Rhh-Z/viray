@@ -1,5 +1,4 @@
 import DefaultTheme from 'vitepress/theme';
-import './style/var.css';
 import './style/style.css';
 
 import viray from '@viray/components';

@@ -11,7 +11,10 @@ export const checkboxProps = {
     default: undefined,
   },
   indeterminate: Boolean,
-  checked: Boolean,
+  checked: {
+    type: Boolean,
+    default: false,
+  },
   name: String,
   disabled: Boolean,
   /**

@@ -23,11 +23,6 @@ body[scroll],
   transition: 0s;
 }
 
-.vp-doc th,
-.vp-doc td {
-  text-align: center;
-}
-
 details>summary:first-of-type {
   font-size: 16px;
   padding: 8px 0;
@@ -40,4 +35,8 @@ details>summary:first-of-type {
   border: 1px solid #dcdfe6;
   border-radius: 5px;
   padding: 20px;
+}
+
+.vp-doc a:hover {
+  text-decoration: none;
 }

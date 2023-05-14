@@ -25,7 +25,7 @@
   <vi-icon name="down-circle"></vi-icon>
   <vi-icon name="zoomout"></vi-icon>
   <vi-icon name="close"></vi-icon>
-  <vi-icon name="delete" size="24px"></vi-icon>
+  <vi-icon name="delete" :size=24></vi-icon>
   <vi-icon name="delete" size="50px" color="#f2f"></vi-icon>
   <vi-icon name="delete" size="small"></vi-icon>
   <hr>
@@ -46,7 +46,7 @@
     </vi-row>
   </div>
   <div>
-    <vi-row :gutter="10" justify="space-around" align="bottom">
+    <vi-row :gutter="20" justify="space-around" align="bottom">
       <vi-col tag="div" :span="3">
         <div style="background-color: #d3dce6; height: 35px; border-radius: 8px"></div>
       </vi-col>
@@ -151,10 +151,10 @@
 
   <vi-button text @click="showDialog">showDialog</vi-button>
 
-  <vi-dialog title="DialogTitle" width="500px">
-    <!-- <template #title>
+  <!-- <vi-dialog  width="500px">
+    <template #title>
       提示
-    </template> -->
+    </template>
     <template #content>
       这是content
     </template>
@@ -162,7 +162,7 @@
       <vi-button @click="handleCancel">取消</vi-button>
       <vi-button type="primary" @click="handleConfirm">确定</vi-button>
     </template>
-  </vi-dialog>
+  </vi-dialog> -->
 
   <vi-dialog center width="500px" v-model="dialogVisible">
     <template #title>
@@ -382,6 +382,51 @@
     }}</vi-checkbox>
   </vi-checkbox-group>
   
+  <hr>
+  <vi-link href="https://element-plus.org" target="_blank">default</vi-link>
+  <vi-link type="primary">primary</vi-link>
+  <vi-link type="success">success</vi-link>
+  <vi-link type="warning">warning</vi-link>
+  <vi-link type="danger">danger</vi-link>
+  <vi-link type="info">info</vi-link>
+  <hr>
+  <vi-link disabled  href="https://element-plus.org" target="_blank">default</vi-link>
+  <vi-link disabled type="primary">primary</vi-link>
+  <vi-link disabled type="success">success</vi-link>
+  <vi-link disabled type="warning">warning</vi-link>
+  <vi-link disabled type="danger">danger</vi-link>
+  <vi-link disabled type="info">info</vi-link>
+  <hr>
+  <vi-link :underline="false">Without Underline</vi-link>
+  <vi-link>With Underline</vi-link>
+  <hr>
+  <vi-link icon="edit">Edit</vi-link>
+  <vi-link>
+    Check<vi-icon class="el-icon--right" name="eye"></vi-icon>
+  </vi-link>
+  <hr>
+  <span
+      >I sit at my window this morning where the world like a passer-by stops
+      for a moment, nods to me and goes.</span
+    >
+  <vi-divider content-position="left" border-style="dashed">
+    Rabindranath Tagore
+  </vi-divider>
+  <span>
+    There little thoughts are the rustle of leaves; they have their whisper
+    of joy in my mind.
+  </span>
+  <vi-divider border-style="dashed">
+    <vi-icon name="star-fill"/>
+  </vi-divider>
+  <span>Rain</span>
+  <vi-divider direction="vertical" />
+  <span>Home</span>
+  <vi-divider direction="vertical" border-style="dashed" />
+  <span>Grass</span>
+
+
+
   <div id="box">
   </div>
 </template>
@@ -389,7 +434,7 @@
 <script setup lang='ts'>
 import { h, reactive, ref, toRefs } from 'vue'
 import { ViMessage,ViNotification } from "@viray/components"
-import { NotificationHandle } from 'packages/components/notification/src/notification';
+import { NotificationHandle } from '@viray/components/notification/src/notification';
 
 const checkList = ref(['selected and disabled', 'Option A'])
 
@@ -631,5 +676,12 @@ textarea {
 
 .example {
   margin-left: 30%;
+}
+
+.vi-link {
+  margin-right: 8px;
+}
+.vi-link .vi-icon--right.vi-icon {
+  vertical-align: text-bottom;
 }
 </style>

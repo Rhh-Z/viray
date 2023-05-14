@@ -81,16 +81,17 @@ const compCls = computed(()=>{
     [COMPONENT_NAME]:true,
     [`${COMPONENT_NAME}--${checkboxSize.value}`]:checkboxSize.value,
     'is-disabled':isDisabled.value,
-    'is-border':props.border
+    'is-border':props.border,
+    // 'is-focus':isFocused.value,
   }
 })
 
 const spanCls = computed(()=>{
   return {
     [`${COMPONENT_NAME}__input`]:true,
-    'is-checked':props.checked,
     'is-indeterminate':props.indeterminate,
-    'is-focus':props.isFocused
+    'is-checked':isChecked.value,
+    'is-focus':isFocused.value,
   }
 })
 

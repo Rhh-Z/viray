@@ -9,7 +9,7 @@
     "build:viray": "gulp -f packages/script/build/index.ts",
     "publish:viray": "gulp -f packages/script/publish/index.ts",
     "lint:script": "eslint --ext .js,.jsx,.vue,.ts,.tsx --fix --quiet ./",
-    "lint:style": "stylelint --fix \"*.scss\"",
+    "lint:style": "stylelint  packages/theme-chalk/**/*.{scss} --fix",
     "test": "vitest",
     "coverage": "vitest run --coverage"
   },
@@ -26,6 +26,7 @@
     "@types/node": "^18.15.10",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
+    "@viray/test-utils": "workspace:^1.0.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "@vitest/coverage-c8": "^0.29.8",

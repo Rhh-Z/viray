@@ -31,8 +31,8 @@
       :key="index"
       :class="[indicatorCls,activeIndex === index ? 'is-active':'']"
       ref="indicator"
-      @mouseenter="handleIndicatorEnter(index)"
-      @click="handleIndicatorClick(index)"
+      @mouseenter="handleIndicatorEnter(Number(index))"
+      @click="handleIndicatorClick(Number(index))"
       @mouseleave="handleMouseLeave"
     >
       <button :class="`${NAME}__button`"/>
@@ -55,7 +55,11 @@ const props = defineProps(carouselProps)
 const emit = defineEmits(carouselEmits)
 
 const slot = useSlots();
-const items = slot.default && slot.default()
+
+function getItems() {
+  return slot.default!().length === 1 ? slot.default!()[0].children : slot.default!()
+}
+const items = getItems()
 
 const {
   handleIndicatorEnter,
@@ -65,6 +69,7 @@ const {
   activeIndex,
   handleMouseLeave
 } = useCarousel(props,emit)
+
 
 
 const indicatorsCls = computed(()=>{

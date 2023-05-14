@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite'
 import vue from "@vitejs/plugin-vue"
 import SetupExtend from 'vite-plugin-vue-setup-extend'
@@ -9,5 +10,8 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'components')
     }
-  }
+  },
+  test: {
+    environment: 'happy-dom',
+  },
 })

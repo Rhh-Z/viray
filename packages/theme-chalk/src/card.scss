@@ -1,19 +1,19 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 
 @include b(card) {
-  border-radius: $vi-card-border-radius;
-  border: 1px solid $vi-card-border-color;
-  background-color: $vi-card-bg-color;
   overflow: hidden;
   color: $text-color-primary;
+  background-color: $vi-card-bg-color;
+  border: 1px solid $vi-card-border-color;
+  border-radius: $vi-card-border-radius;
   transition: map.get($transition-duration, '');
 
   @include e(header) {
+    box-sizing: border-box;
     padding: calc($el-card-padding - 2px) $el-card-padding;
     border-bottom: 1px solid $vi-card-border-color;
-    box-sizing: border-box;
   }
 
   @include e(body) {

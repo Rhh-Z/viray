@@ -18,6 +18,7 @@ importers:
       '@typescript-eslint/parser': ^5.57.0
       '@viray/components': workspace:^1.0.0
       '@viray/constants': workspace:^1.0.0
+      '@viray/test-utils': workspace:^1.0.0
       '@viray/theme-chalk': workspace:^1.0.0
       '@viray/utils': workspace:^1.0.0
       '@vitejs/plugin-vue': ^4.1.0
@@ -77,6 +78,7 @@ importers:
       '@types/node': 18.15.10
       '@typescript-eslint/eslint-plugin': 5.57.0_63ikfsyy76sgzyj53dqu4b4od4
       '@typescript-eslint/parser': 5.57.0_tkpkym4q5zondazwr2nkcof3uy
+      '@viray/test-utils': link:packages/test-utils
       '@vitejs/plugin-vue': 4.1.0_vite@4.2.1+vue@3.2.47
       '@vitejs/plugin-vue-jsx': 3.0.1_vite@4.2.1+vue@3.2.47
       '@vitest/coverage-c8': 0.29.8_vitest@0.29.8

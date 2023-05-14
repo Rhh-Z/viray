@@ -1,11 +1,11 @@
-@use "./mixins/mixins.scss"as *;
-@use "./common/variable"as *;
+@use './mixins/mixins.scss'as *;
+@use './common/variable'as *;
 
 @include b(row) {
-  display: flex;
-  flex-wrap: wrap;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
 
   &.row-bg {
     padding: 10px 0;

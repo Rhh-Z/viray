@@ -45,27 +45,27 @@ export default {
           text: "Basic基础组件",
           items: [
             {
-              text: "Alert",
+              text: "Alert提示",
               link: "/components/alert/index.md",
             },
             {
-              text: "Avatar",
+              text: "Avatar头像",
               link: "/components/avatar/index.md",
             },
             {
-              text: "Backtop",
+              text: "Backtop回到顶部",
               link: "/components/backtop/index.md",
             },
             {
-              text: "Breadcrumb",
+              text: "Breadcrumb面包屑",
               link: "/components/breadcrumb/index.md",
             },
             {
-              text: "Button",
+              text: "Button按钮",
               link: "/components/button/index.md",
             },
             {
-              text: "Card",
+              text: "Card卡片",
               link: "/components/card/index.md",
             },
             // {
@@ -73,27 +73,35 @@ export default {
             //   link: "/components/carousel/index.md",
             // },
             {
-              text: "Checkbox",
+              text: "Checkbox多选框",
               link: "/components/checkbox/index.md",
             },
             {
-              text: "Dialog",
+              text: "Dialog对话框",
               link: "/components/dialog/index.md",
             },
             {
-              text: "Layout",
+              text: "Divider分割线",
+              link: "/components/divider/index.md",
+            },
+            {
+              text: "Layout布局",
               link: "/components/layout/index.md",
             },
             {
-              text: "Icon",
+              text: "Icon图标",
               link: "/components/icon/index.md",
             },
             {
-              text: "Input",
+              text: "Input输入框",
               link: "/components/input/index.md",
             },
             {
-              text: "Text",
+              text: "Link链接",
+              link: "/components/link/index.md",
+            },
+            {
+              text: "Text文本",
               link: "/components/text/index.md",
             }
           ],

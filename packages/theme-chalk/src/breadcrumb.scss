@@ -1,5 +1,5 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 
 @include b(breadcrumb) {
@@ -7,8 +7,8 @@
   line-height: 1;
 
   @include e(item) {
-    float: left;
     display: inline-flex;
     align-items: center;
+    float: left;
   }
 }

@@ -1,12 +1,11 @@
-@use './mixins/mixins.scss'as *;
-@use './common/variable'as *;
+@use './mixins/mixins.scss' as *;
+@use './common/variable' as *;
 @use 'sass:map';
 @use 'sass:color';
 
 @include b(carousel) {
   position: relative;
   overflow: hidden;
-
 
   @include when(hover) {
     &:hover .vi-carousel__arrow--left {
@@ -33,13 +32,11 @@
   }
 
   @include when(never) {
-
     .vi-carousel__arrow--left,
     .vi-carousel__arrow--right {
       display: none;
     }
   }
-
 
   @include e(horizontal) {
     overflow-x: hidden;
@@ -54,26 +51,26 @@
   }
 
   @include e(arrow) {
-    border: none;
-    outline: none;
-    padding: 0;
-    margin: 0;
-    height: $vi-carousel-arrow-size;
-    width: $vi-carousel-arrow-size;
-    cursor: pointer;
-    transition: all map.get($transition-duration, '');
-    border-radius: 50%;
-    color: #fff;
     position: absolute;
     top: 50%;
     z-index: 10;
-    transform: translateY(-50%);
-    text-align: center;
-    font-size: $vi-carousel--arrow-font-size;
     display: inline-flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: $vi-carousel-arrow-size;
+    height: $vi-carousel-arrow-size;
+    padding: 0;
+    margin: 0;
+    font-size: $vi-carousel--arrow-font-size;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    outline: none;
     opacity: 0;
+    transition: all map.get($transition-duration, '');
+    transform: translateY(-50%);
 
     &:hover {
       background-color: $vi-carousel-arrow-hover-background;
@@ -85,24 +82,23 @@
 
     @include m(left) {
       left: 16px;
-      transform: translate(-100%, -50%);
       background-color: $vi-carousel-arrow-background;
+      transform: translate(-100%, -50%);
     }
 
     @include m(right) {
       right: 16px;
-      transform: translate(100%, -50%);
       background-color: $vi-carousel-arrow-background;
+      transform: translate(100%, -50%);
     }
   }
 
-
   @include e(indicators) {
     position: absolute;
-    margin: 0;
-    padding: 0;
     z-index: 1;
     display: flex;
+    padding: 0;
+    margin: 0;
 
     @include m(horizontal) {
       bottom: 0;
@@ -111,11 +107,11 @@
     }
 
     @include m(vertical) {
-      right: 0;
       top: 50%;
-      transform: translateY(-50%);
+      right: 0;
       flex-direction: column;
       padding: 4px;
+      transform: translateY(-50%);
 
       & button {
         width: 4px;
@@ -126,30 +122,30 @@
   }
 
   @include e(indicator) {
-    background-color: transparent;
     padding: 5px;
-    cursor: pointer;
     list-style: none;
+    cursor: pointer;
+    background-color: transparent;
 
     @include when(active) {
       & button {
-        opacity: 1;
         background-color: #fff;
+        opacity: 1;
       }
     }
   }
 
   @include e(button) {
     display: block;
-    opacity: .48;
     width: 30px;
     height: 2px;
-    background-color: rgb(99, 77, 77);
-    border: none;
-    outline: none;
     padding: 0;
     margin: 0;
     cursor: pointer;
+    background-color: rgb(99 77 77);
+    border: none;
+    outline: none;
+    opacity: 0.48;
     transition: map.get($transition-duration, '');
   }
 }

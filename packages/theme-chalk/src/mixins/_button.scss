@@ -1,11 +1,17 @@
-@use "../common/variable"as *;
-@use "../mixins/mixins.scss"as *;
-@use "sass:map";
+@use '../common/variable' as *;
+@use '../mixins/mixins.scss' as *;
+@use 'sass:map';
 
-@mixin button-plain ($color, $background-color, $border-color, $disabled-color,
-  $hover-color, $type) {
+@mixin button-plain(
+  $color,
+  $background-color,
+  $border-color,
+  $disabled-color,
+  $hover-color,
+  $type
+) {
   @include when(plain) {
-    @if $type=='default' {
+    @if $type== 'default' {
       background-color: transparentize($color-white, 0.75);
 
       &:hover,
@@ -16,9 +22,7 @@
       @include when(disabled) {
         border-color: $border-color-base;
       }
-    }
-
-    @else {
+    } @else {
       color: $color;
       background: $background-color;
       border-color: $border-color;
@@ -26,8 +30,8 @@
       &:hover,
       &:focus {
         color: $color-white;
-        border-color: $hover-color;
         background-color: $hover-color;
+        border-color: $hover-color;
       }
 
       &:active {
@@ -42,19 +46,24 @@
         border-color: $border-color;
       }
     }
-
   }
 }
 
-@mixin button-variant($color, $background-color, $border-color, $disabled-color, $type) {
-  @if $type=='default' {
+@mixin button-variant(
+  $color,
+  $background-color,
+  $border-color,
+  $disabled-color,
+  $type
+) {
+  @if $type== 'default' {
     color: $text-color;
     background-color: white;
     border-color: $border-color-base;
 
     &:hover,
     &:focus {
-      color: rgb(36, 184, 243);
+      color: rgb(36 184 243);
       background-color: #ecf5ff;
     }
 
@@ -63,15 +72,12 @@
     }
 
     &:disabled {
-      cursor: not-allowed;
       color: #c0c4cc;
+      cursor: not-allowed;
       background-color: #fff;
       border-color: #ebeef5;
     }
-
-  }
-
-  @else {
+  } @else {
     color: $color;
     background-color: $background-color;
     border-color: $border-color;
@@ -97,12 +103,15 @@
   }
 }
 
-@mixin button-size($padding-vertical,
+@mixin button-size(
+  $padding-vertical,
   $padding-horizontal,
   $font-size,
-  $border-radius, $height, $size) {
-
-  @if $size=='default' {
+  $border-radius,
+  $height,
+  $size
+) {
+  @if $size== 'default' {
     height: $height;
     padding: $padding-vertical $padding-horizontal;
     font-size: $font-size;
@@ -115,14 +124,11 @@
     @include when(circle) {
       border-radius: $vi-button-circle;
     }
-  }
-
-  @else {
+  } @else {
     height: $height !important;
     padding: $padding-vertical $padding-horizontal !important;
     font-size: $font-size !important;
     border-radius: $border-radius !important;
-
 
     @include when(round) {
       border-radius: $vi-button-round !important;
@@ -132,7 +138,4 @@
       border-radius: $vi-button-circle !important;
     }
   }
-
-
-
 }

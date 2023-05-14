@@ -1,5 +1,5 @@
 <template>
-  <component class="vi-row" :is="tag" :class="rowKls" :style="style">
+  <component class="vi-row" :is="tag" :class="rowKls" :style="rowStyle">
     <slot />
   </component>
 </template>
@@ -15,12 +15,12 @@ const gutter = computed(() => props.gutter)
 
 provide(rowContextKey, { gutter });
 
-const style = computed(() => {
+const rowStyle = computed(() => {
   const styles: CSSProperties = {}
   if (!gutter.value) {
     return styles
   }
-  styles.marginLeft = styles.marginRight = `vi-row-${props.gutter / 2}px`
+  styles.marginLeft = styles.marginRight = `-${props.gutter / 2}px`
   return styles
 })
 

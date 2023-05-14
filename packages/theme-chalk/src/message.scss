@@ -1,41 +1,41 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 @use 'sass:color';
 
 @include b(message) {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 999;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
   width: fit-content;
   max-width: calc(100% - 32px);
   height: 42px;
-  line-height: 42px;
-  font-size: 14px;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ebeef5;
-  position: fixed;
-  left: 50%;
-  top: 20px;
-  transform: translate(-50%);
-  background-color: $message-background-color-default;
-  transition: all .3s;
-  overflow: hidden;
   padding: $message-padding;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 42px;
   text-align: center;
-  z-index: 999;
+  background-color: $message-background-color-default;
+  border-color: #ebeef5;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
   box-shadow: 0 6px 16px 0 rgb(0 0 0 / 8%), 0 3px 6px -4px rgb(0 0 0 / 12%),
     0 9px 28px 8px rgb(0 0 0 / 5%);
+  transition: all 0.3s;
+  transform: translate(-50%);
 
   @include b(message__close-btn) {
-    cursor: pointer;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     right: 12px;
     font-size: $message-close-size;
+    cursor: pointer;
+    transform: translateY(-50%);
   }
 
   @include e(icon) {
@@ -44,8 +44,8 @@
   }
 
   @include b(message__content) {
-    padding-left: 6px;
     padding-right: 31px;
+    padding-left: 6px;
   }
 
   @include when(center) {
@@ -60,11 +60,10 @@
   }
 
   @include e(close) {
-    cursor: pointer;
     margin-left: 10px;
+    cursor: pointer;
   }
 }
-
 
 .message-fade-enter-active,
 .message-fade-leave-from {
@@ -75,5 +74,5 @@
 .message-fade-enter-from,
 .message-fade-leave-active {
   opacity: 0;
-  transform: translate(-50%, -100%)
+  transform: translate(-50%, -100%);
 }

@@ -1,0 +1,32 @@
+@use '../common/variable'as *;
+
+@mixin link-type($color, $type) {
+  &.vi-link--#{$type} {
+    @if $type=='default' {
+      color: $vi-link-text-color;
+
+      &:hover {
+        color: #409eff;
+      }
+    }
+
+    @else {
+      color: $color;
+
+      &:hover {
+        color: lighten($color, 15%);
+      }
+    }
+  }
+}
+
+@mixin link-disabled($color, $type) {
+  &.vi-link--#{$type} {
+    color: $color !important;
+    cursor: not-allowed;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

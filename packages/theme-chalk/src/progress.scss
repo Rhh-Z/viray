@@ -1,44 +1,43 @@
-@use './common/variable'as *;
-@use './mixins/mixins.scss'as *;
+@use './common/variable' as *;
+@use './mixins/mixins.scss' as *;
 @use 'sass:map';
 
 @include b(progress) {
   position: relative;
-  line-height: 1;
   display: flex;
   align-items: center;
-
+  line-height: 1;
 
   &-bar {
-    flex-grow: 1;
     box-sizing: border-box;
+    flex-grow: 1;
 
     @include e(outer) {
-      height: 100%;
-      border-radius: 100px;
-      background-color: $vi-progress-color;
-      overflow: hidden;
       position: relative;
+      height: 100%;
+      overflow: hidden;
       vertical-align: middle;
+      background-color: $vi-progress-color;
+      border-radius: 100px;
     }
 
     @include e(inner) {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       height: 100%;
-      background-color: #20a0ff;
-      text-align: right;
-      border-radius: 100px;
       line-height: 1;
+      text-align: right;
       white-space: nowrap;
-      transition: width .6s ease;
+      background-color: #20a0ff;
+      border-radius: 100px;
+      transition: width 0.6s ease;
 
       &::after {
         display: inline-block;
-        content: "";
         height: 100%;
         vertical-align: middle;
+        content: '';
       }
 
       @include m(indeterminate) {
@@ -48,19 +47,19 @@
     }
 
     @include e(text) {
-      font-size: 14px;
-      color: $vi-progress-color-regular;
-      margin-left: 5px;
       min-width: 50px;
+      margin-left: 5px;
+      font-size: 14px;
       line-height: 1;
+      color: $vi-progress-color-regular;
     }
 
     @include e(innerText) {
       & span {
-        vertical-align: middle;
         display: inline-block;
-        color: #fff;
         margin: 0 5px;
+        color: #fff;
+        vertical-align: middle;
       }
     }
   }
@@ -85,8 +84,8 @@
       top: 50%;
       left: 0;
       width: 100%;
-      text-align: center;
       margin: 0;
+      text-align: center;
       transform: translateY(-50%);
     }
   }

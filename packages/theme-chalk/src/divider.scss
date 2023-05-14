@@ -1,0 +1,49 @@
+@use './mixins/mixins.scss'as *;
+@use './common/variable'as *;
+
+@include b(divider) {
+  position: relative;
+
+  @include m(horizontal) {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin: 24px 0;
+    border-top: 2px #dcdfe6 solid;
+  }
+
+  @include m(vertical) {
+    display: inline-block;
+    width: 1px;
+    height: 1em;
+    margin: 0 8px;
+    vertical-align: middle;
+    position: relative;
+    border-left: 2px #dcdfe6 solid;
+  }
+
+
+  @include e(text) {
+    position: absolute;
+    background-color: $vi-divider-bg;
+    padding: 0 20px;
+    font-weight: 500;
+    color: #303133;
+    font-size: 14px;
+
+    @include when(left) {
+      left: 20px;
+      transform: translateY(-50%);
+    }
+
+    @include when(center) {
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    @include when(right) {
+      right: 20px;
+      transform: translateY(-50%);
+    }
+  }
+}
