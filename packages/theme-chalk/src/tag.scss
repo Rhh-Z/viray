@@ -1,5 +1,5 @@
-@use './common/variable' as *;
-@use './mixins/mixins.scss' as *;
+@use './common/variable'as *;
+@use './mixins/mixins.scss'as *;
 @use 'sass:map';
 @use 'sass:color';
 
@@ -17,6 +17,30 @@
   border-width: 1px;
   border-radius: $vi-tag-border-radius;
 
+  &.vi-tag--light {
+    &>.vi-tag--close {
+
+      &:hover {
+        color: #ccc;
+        background-color: #533636;
+      }
+    }
+  }
+
+  &.vi-tag--dark {
+    color: #fde7e7;
+    background-color: #5c616e;
+    border-color: #dcdfe6;
+
+    &>.vi-tag--close {
+      color: #dcdfe6;
+
+      &:hover {
+        background-color: lighten(#5c616e, 15%);
+      }
+    }
+  }
+
   @each $type in $tag-types {
     @include m($type) {
       &.vi-tag--light {
@@ -26,7 +50,7 @@
       }
 
       &.vi-tag--light {
-        & > .vi-tag--close {
+        &>.vi-tag--close {
           color: lighten(map.get($colors, $type, 'base'), 8%);
 
           &:hover {
@@ -42,7 +66,7 @@
       }
 
       &.vi-tag--dark {
-        & > .vi-tag--close {
+        &>.vi-tag--close {
           color: $color-white;
 
           &:hover {
@@ -56,7 +80,7 @@
       }
 
       &.vi-tag--plain {
-        & > .vi-tag--close {
+        &>.vi-tag--close {
           color: map.get($colors, $type, 'base');
 
           &:hover {
@@ -74,20 +98,20 @@
 
   // Close Icon
   @include m(close) {
-    padding: 2px;
+    padding: 1px;
     cursor: pointer;
     border-radius: 50%;
     transform: translate(5px, 1px);
   }
 
   // Size
-  @each $size in ('small', 'large') {
+  @each $size in ('small', 'default', 'large') {
     @include m($size) {
       height: map.get($tag-sizes, $size, 'height');
       padding: map.get($tag-sizes, $size, 'padding');
 
-      & > .vi-tag--close {
-        font-size: map.get($tag-sizes, $size, 'font-size');
+      &>.vi-tag--close {
+        font-size: map.get($tag-sizes, $size, 'icon-size');
       }
     }
   }

@@ -8,10 +8,10 @@
       <slot />
     </span>
     <vi-icon 
-        v-if="closable" 
-        name="close" 
-        class="vi-tag--close" 
-        @click.stop="handleClose"
+      v-if="closable" 
+      name="close" 
+      class="vi-tag--close"
+      @click.stop="handleClose"
     />
   </span>
   <transition 

@@ -268,6 +268,7 @@
 
   <hr>
 
+  <vi-tag>default</vi-tag>
   <vi-tag type="primary">Primary</vi-tag>
   <vi-tag type="success">Success</vi-tag>
   <vi-tag type="info">Info</vi-tag>
@@ -275,6 +276,7 @@
   <vi-tag type="error">Error</vi-tag>
   <vi-tag type="warning">Warning</vi-tag>
 
+  <vi-tag :closable="true">Primary</vi-tag>
   <vi-tag type="primary" :closable="true">Primary</vi-tag>
   <vi-tag type="success" :closable="true">Success</vi-tag>
   <vi-tag type="info"  :closable="true">Info</vi-tag>
@@ -282,6 +284,7 @@
   <vi-tag type="error" :closable="true">Error</vi-tag>
   <vi-tag type="warning" round :closable="true">Warning</vi-tag>
 
+  <vi-tag :closable="true" effect="dark">Primary</vi-tag>
   <vi-tag type="primary" :closable="true" effect="dark">Primary</vi-tag>
   <vi-tag type="warning" :closable="true" effect="dark">Warning</vi-tag>
   <vi-tag type="success" :closable="true" effect="dark">Success</vi-tag>

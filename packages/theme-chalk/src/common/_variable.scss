@@ -379,6 +379,7 @@ $vi-tag-icon-size-small:12px;
 
 $tag-sizes:() !default;
 $tag-sizes:map.deep-merge(('small':('padding':0 7px, 'height':20px, 'icon-size':$vi-tag-icon-size-small),
+    'default':('padding':0 9px, 'height':24px, 'icon-size':$vi-tag-icon-size-default),
     'large':('padding':0 11px, 'height':32px, 'icon-size':$vi-tag-icon-size-large)), $tag-sizes);
 
 $vi-tag-font-size:12px;

@@ -46,7 +46,7 @@ export const messageProps = {
   },
   zIndex: {
     type: Number,
-    default: 0
+    default: 9999,
   },
   center: {
     type: Boolean,

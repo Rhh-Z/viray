@@ -85,10 +85,6 @@ export default {
               link: "/components/divider/index.md",
             },
             {
-              text: "Layout布局",
-              link: "/components/layout/index.md",
-            },
-            {
               text: "Icon图标",
               link: "/components/icon/index.md",
             },
@@ -97,8 +93,32 @@ export default {
               link: "/components/input/index.md",
             },
             {
+              text: "Layout布局",
+              link: "/components/layout/index.md",
+            },
+            {
               text: "Link链接",
               link: "/components/link/index.md",
+            },
+            {
+              text: "Message消息提示",
+              link: "/components/message/index.md",
+            },
+            {
+              text: "Notification通知",
+              link: "/components/notification/index.md",
+            },
+            {
+              text: "popover弹出框",
+              link: "/components/popover/index.md",
+            },
+            {
+              text: "Progress进度条",
+              link: "/components/progress/index.md",
+            },
+            {
+              text: "Tag标签",
+              link: "/components/tag/index.md",
             },
             {
               text: "Text文本",

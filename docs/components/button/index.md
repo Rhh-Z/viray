@@ -1,4 +1,4 @@
-<style>
+<style scoped>
   .vi-button {
       margin:10px 5px;
   }

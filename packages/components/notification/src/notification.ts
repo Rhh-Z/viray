@@ -36,7 +36,7 @@ export const notificationProps = {
   },
   zIndex: {
     type: Number,
-    default: 0,
+    default: 9999,
   },
   closeable: {
     type: Boolean,

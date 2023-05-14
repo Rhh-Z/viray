@@ -34,7 +34,7 @@ export const popoverProps = {
     type: Number,
     default: 0
   },
-  'visible': Boolean,
+  visible: Boolean,
   'onUpdate:visible': {
     type: Function as PropType<(visible: boolean) => void>,
   },
