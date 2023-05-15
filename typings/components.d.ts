@@ -55,6 +55,8 @@ declare module "@vue/runtime-core" {
     "vi-row": typeof components.ViRow;
     "Vi-tag": typeof components.ViTag;
     "vi-text": typeof components.ViText;
+    "vi-timeline": typeof components.ViTimeline;
+    "vi-timelineItem": typeof components.ViTimelineItem;
   }
 }
 export { };

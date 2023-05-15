@@ -1,0 +1,79 @@
+@use './mixins/mixins.scss'as *;
+@use './common/variable'as *;
+@use 'sass:map';
+
+@include b(timeline-item) {
+  position: relative;
+  padding-bottom: 20px;
+
+  &:last-child .vi-timeline-item__tail {
+    display: none;
+  }
+
+  @include e(wrapper) {
+    position: relative;
+    padding-left: 28px;
+    top: -3px;
+  }
+
+  @include e(tail) {
+    position: absolute;
+    left: 4px;
+    height: 100%;
+    border-left: 2px solid $vi-timeline-node-color;
+  }
+
+  @include e(node) {
+    position: absolute;
+    background-color: $vi-timeline-node-color;
+    border-color: $vi-timeline-node-color;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    // size
+    @include m(normal) {
+      left: -1px;
+      width: 12px;
+      height: 12px;
+    }
+
+    @include m(large) {
+      left: -2px;
+      width: $vi-timeline-node-size-large;
+      height: $vi-timeline-node-size-large;
+    }
+
+    @include when(hollow) {
+      background: $color-white !important;
+      border-style: solid;
+      border-width: 2px;
+    }
+  }
+
+
+
+  @include e(timestamp) {
+    color: #909399;
+    line-height: 1;
+    font-size: $vi-font-size-small;
+
+    &.is-bottom {
+      margin-top: 8px;
+    }
+  }
+
+  @include e(icon) {
+    color: #fff;
+    font-size: $vi-font-size-small;
+  }
+
+  @each $type in ('primary', 'success', 'warning', 'danger', 'info') {
+    .vi-timeline-item__node--#{$type} {
+      background-color: map.get($colors, $type, 'base');
+      border-color: map.get($colors, $type, 'base');
+    }
+  }
+}

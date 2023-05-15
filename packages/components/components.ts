@@ -23,3 +23,5 @@ export * from './progress';
 export * from './row';
 export * from './tag';
 export * from './text';
+export * from './timeline';
+export * from './timeline-item';

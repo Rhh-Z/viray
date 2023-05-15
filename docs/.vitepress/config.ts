@@ -123,6 +123,10 @@ export default {
             {
               text: "Text文本",
               link: "/components/text/index.md",
+            },
+            {
+              text: "Timeline时间戳",
+              link: "/components/timeline/index.md",
             }
           ],
         }

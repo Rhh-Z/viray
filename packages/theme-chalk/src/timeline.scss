@@ -1,0 +1,9 @@
+@use './mixins/mixins.scss'as *;
+@use './common/variable'as *;
+
+
+@include b(timeline) {
+  margin: 0;
+  font-size: 14px;
+  list-style: none;
+}
