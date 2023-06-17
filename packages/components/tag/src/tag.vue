@@ -40,7 +40,6 @@
 <script setup lang='ts' name="ViTag">
 import { computed } from 'vue';
 import {tagProps,tagEmits} from './tag';
-import {ViIcon} from '../../icon';
 import '../style/index';
 
 const props = defineProps(tagProps)

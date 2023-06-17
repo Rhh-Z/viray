@@ -6,10 +6,10 @@
         <span v-if="title || $slots.title" class="vi-alert__title">
           <slot name="title">{{ title }}</slot>
         </span>
-        <p class="vi-alert__desc" v-if="description || $slots.default">
+        <p class="vi-alert__description" v-if="description || $slots.default">
           <slot>{{ description }}</slot>
         </p>
-        <vi-icon v-if="closable" name="close" class="vi-alert__close-btn" @click="handleClose" />
+        <vi-icon v-if="closable" name="close" class="vi-alert__close" @click="handleClose" />
       </div>
     </div>
   </transition>
@@ -27,7 +27,7 @@ const emit = defineEmits(alertEmits)
 
 const alertCls = computed(() => {
   return {
-    [`vi-alert-${props.type}`]: props.type,
+    [`vi-alert--${props.type}`]: props.type,
     "is-center": props.center,
   }
 })

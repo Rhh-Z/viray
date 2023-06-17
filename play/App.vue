@@ -1,5 +1,5 @@
 <template>
-  <vi-button size="large">默认按钮</vi-button>
+  <vi-button size="small">默认按钮</vi-button>
   <vi-button type="primary" plain size="large">主要按钮</vi-button>
   <vi-button type="warning" plain>警告按钮</vi-button>
   <vi-button type="info" text>信息按钮</vi-button>
@@ -8,13 +8,14 @@
   <vi-button type="error" text bg>错误按钮</vi-button>
   <vi-button type="info" text @click="send(name)">信息按钮</vi-button>
   <vi-button type="info" icon="down-circle" disabled>loading</vi-button>
+  <vi-button native-type="submit">submit</vi-button>
   <hr>
-  <vi-button-group>
+  <vi-button-group type="warning" :size="buttonGroupSize">
     <vi-button type="info" icon="down-circle"></vi-button>
-    <vi-button type="info" icon="search"></vi-button>
-    <vi-button type="info" icon="down-circle"></vi-button>
+    <vi-button icon="search" @click="handleSize"></vi-button>
+    <vi-button icon="down-circle"></vi-button>
   </vi-button-group>
-  <vi-button-group>
+  <vi-button-group >
     <vi-button type="primary" icon="down-circle"></vi-button>
     <vi-button type="primary" icon="search"></vi-button>
     <vi-button type="primary" icon="down-circle"></vi-button>
@@ -62,7 +63,7 @@
     </vi-row>
   </div>
   <hr>
-  <vi-text type="default">default</vi-text>&nbsp;
+  <vi-text >default</vi-text>&nbsp;
   <vi-text type="primary">primary</vi-text>&nbsp;
   <vi-text type="danger">danger</vi-text>&nbsp;
   <vi-text type="info" size="large">info</vi-text>&nbsp;
@@ -84,7 +85,7 @@
     </vi-col>
   </vi-row>
   <hr>
-  <vi-alert type="info" description="info" :showIcon="true" />
+  <vi-alert title="axx" description="info" :showIcon="true" />
   <vi-alert type="success" title="success alert" :showIcon="true" />
   <vi-alert type="error" title="title" description="error" :showIcon="true" />
   <vi-alert type="warning" center description="warning" :showIcon="true" />
@@ -418,16 +419,8 @@
 
   <hr>
   <vi-timeline>
-    <vi-timeline-item
-      v-for="(activity, index) in activities1"
-      :key="index"
-      :icon="activity.icon"
-      :type="activity.type"
-      :color="activity.color"
-      :size="activity.size"
-      :hollow="activity.hollow"
-      :timestamp="activity.timestamp"
-    >
+    <vi-timeline-item v-for="(activity, index) in activities1" :key="index" :icon="activity.icon" :type="activity.type"
+      :color="activity.color" :size="activity.size" :hollow="activity.hollow" :timestamp="activity.timestamp">
       {{ activity.content }}
     </vi-timeline-item>
   </vi-timeline>
@@ -476,18 +469,41 @@
     </vi-timeline-item>
   </vi-timeline>
 
+  <vi-badge class="item" :value="4" type="primary">
+    <vi-button>123</vi-button>
+  </vi-badge>
+  <vi-badge class="item" value="hot">
+    <vi-button>123</vi-button>
+  </vi-badge>
+  <vi-badge class="item" :value="111" type="primary" :max="99">
+    <vi-button>123</vi-button>
+  </vi-badge>
+
+  <vi-badge is-dot class="item">query</vi-badge>
+  <vi-badge class="item" type="primary" isDot>
+    <vi-button>123111111111111111</vi-button>
+  </vi-badge>
+
   <div id="box">
   </div>
 </template>
 
 <script setup lang='ts'>
-import { h, reactive, ref, toRefs } from 'vue'
+import { h, reactive, ref, toRefs,nextTick } from 'vue'
 import { ViMessage, ViNotification } from "@viray/components"
 import { NotificationHandle } from '@viray/components/notification/src/notification';
 
 const checkList = ref(['selected and disabled', 'Option A'])
 
 const name = ref('里斯')
+
+const buttonGroupSize = ref('small')
+
+const handleSize = async ()=>{
+  buttonGroupSize.value = 'large'
+  document.documentElement.offsetWidth
+  await nextTick()
+}
 
 const send = (value: string) => {
   console.log(value);
@@ -782,5 +798,9 @@ textarea {
 
 .vi-link .vi-icon--right.vi-icon {
   vertical-align: text-bottom;
+}
+
+.vi-badge.item {
+  margin-right: 20px;
 }
 </style>

@@ -2,6 +2,7 @@
 @use './mixins/utils.scss'as *;
 @use './common/variable'as *;
 @use './mixins/button'as *;
+@use 'sass:map';
 
 @include b(button-group) {
   @include utils-clearfix;
@@ -22,14 +23,15 @@
     }
 
     &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
     }
 
     &:last-child {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
+      border-bottom-left-radius: 0 !important;
+      border-top-left-radius: 0 !important;
     }
+
 
     &:first-child:last-child {
       border-top-right-radius: $button-border-radius;
@@ -47,7 +49,7 @@
     }
 
     &:not(:first-child, :last-child) {
-      border-radius: 0;
+      border-radius: 0 !important;
     }
 
     &:not(:last-child) {

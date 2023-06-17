@@ -1,10 +1,11 @@
 <template>
   <button 
-    ref="_ref"
-    class="vi-button"
-   :autofocus="autoFocus" 
-   :class="buttonStyle" 
-   :disabled="disabled"
+    ref="_ref" 
+    class="vi-button" 
+    :type="nativeType" 
+    :autofocus="autoFocus" 
+    :class="buttonStyle"
+    :disabled="_disabled"
     @click="handleClick"
   >
     <span v-if="icon">
@@ -16,12 +17,14 @@
 
 <script lang="ts" setup name="ViButton">
 import "../style/index";
-import { computed,ref } from "vue";
+import { computed, ref } from "vue";
 import { buttonProps, buttonEmits } from './button';
+import { useButton } from "./use-button";
 
 const props = defineProps(buttonProps)
-
 const emit = defineEmits(buttonEmits)
+
+const { _disabled, _size, _type } = useButton(props)
 
 const handleClick = (evt: MouseEvent) => {
   emit('click', evt)
@@ -29,12 +32,12 @@ const handleClick = (evt: MouseEvent) => {
 
 const buttonStyle = computed(() => {
   return {
-    [`vi-button--${props.type}`]: props.type,
+    [`vi-button--${_type.value}`]: _type.value,
     "is-plain": props.plain,
-    "is-disabled": props.disabled,
+    "is-disabled": _disabled.value,
     "is-round": props.round,
     "is-active": props.active,
-    [`vi-button--${props.size}`]: props.size,
+    [`vi-button--${_size.value}`]: _size.value,
     "is-circle": props.circle,
     "is-text": props.text,
     "is-bg": props.bg,

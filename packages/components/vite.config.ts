@@ -39,6 +39,7 @@ export default defineConfig({
   },
   plugins: [vue(), SetupExtend(), dts({
     entryRoot: './',
+    include: '../components/',
     outputDir: ["../../dist/es/packages/components/", "../../dist/lib/packages/components/"],
     //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
     tsConfigFilePath: '../../tsconfig.json',

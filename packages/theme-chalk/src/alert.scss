@@ -3,7 +3,6 @@
 @use './common/transition.scss'as *;
 @use 'sass:map';
 
-
 @mixin alert-type($color, $background-color) {
   color: $color;
   background-color: $background-color;
@@ -18,36 +17,33 @@
   font-size: 12px;
   border-radius: $alert-border-radius;
 
-  @include b(global-ellipsis) {
-    /*一行省略*/
+  @include e(content) {
+    overflow: auto;
+    padding-left: 10px;
+    padding-right: 20px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-
-  @include b(alert__content) {
-    overflow: auto;
-    padding-left: 10px;
 
     & span {
       vertical-align: 3px;
     }
   }
 
-  @include b(alert__title) {
+  @include e(title) {
     $alert__title: true;
     margin: 0;
     font-size: $alert-title-font-size;
     font-weight: bold;
   }
 
-  @include b(alert__desc) {
+  @include e(description) {
     $alert__desc: true;
     margin: 0px;
     font-size: $alert-description-font-size;
   }
 
-  @include b(alert__close-btn) {
+  @include e(close) {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -58,7 +54,7 @@
 
 
   @each $type in $alert-types {
-    &-#{$type} {
+    &--#{$type} {
       @include alert-type(map.get($colors, #{$type}, 'base'),
         map.get($alert-bg-colors, #{$type}));
     }

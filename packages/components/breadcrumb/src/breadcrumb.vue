@@ -23,8 +23,8 @@ const breadcrumb = ref<HTMLDivElement>()
 provide(breadcrumbKey,props)
 
 onMounted(()=>{
-  const items = breadcrumb.value?.querySelectorAll(`vi-breadcrumb--item`)
-  if (items?.length) {
+  const items = breadcrumb.value?.querySelectorAll(".vi-breadcrumb-item")
+  if (items?.length) {    
     items[items.length - 1].setAttribute('aria-current', 'page')
   }
 })

@@ -23,7 +23,7 @@ export const backtopProps = {
   */
   target: {
     type: String,
-    default: '',
+    default: "",
   },
 }
 

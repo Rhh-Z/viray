@@ -4,6 +4,7 @@
 
 @include b(text) {
   word-break: break-all;
+  color: map.get($colors, 'default', 'base');
 
   // type
   @each $type in $types {
@@ -17,13 +18,7 @@
   @each $size in $vi-button--sizeType {
 
     @include m($size) {
-      @if $size=='default' {
-        font-size: map.get($text--types, #{$size}, 'base');
-      }
-
-      @else {
-        font-size: map.get($text--types, #{$size}, 'base') !important;
-      }
+      font-size: map.get($text--types, #{$size}, 'base') !important;
     }
   }
 

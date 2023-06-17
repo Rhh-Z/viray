@@ -8,16 +8,16 @@ export const buttonProps = {
     type: definePropType<ButtonType>([String]),
     default: "default",
     validator(value: ButtonType) {
-      return (['default', 'primary', 'success', 'info', 'danger', 'warning', 'error'] as const).includes(
+      return (['', 'default', 'primary', 'success', 'info', 'danger', 'warning', 'error'] as const).includes(
         value
       );
     }
   },
   size: {
-    type: definePropType<ButtonSizeType>([String]),
+    type: String,
     default: "default",
     validator(value: ButtonSizeType) {
-      return (['large', 'default', 'small'] as const).includes(value)
+      return (['', 'large', 'default', 'small'] as const).includes(value)
     }
   },
   plain: {

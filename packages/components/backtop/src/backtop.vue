@@ -7,7 +7,7 @@
       @click="handleClick"
     >
       <slot>
-        <vi-icon :name="icon"></vi-icon>
+        <vi-icon :name="icon" />
       </slot>
     </div>
   </Transition>
@@ -19,7 +19,6 @@ import { computed, CSSProperties } from 'vue';
 import '../style/index'
 import { backtopProps,backtopEmits } from './backtop';
 import {useBacktop} from './use-backtop';
-import {ViIcon} from '../../icon';
 
 const COMPONENT_NAME = 'ViBacktop'
 

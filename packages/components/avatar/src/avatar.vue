@@ -5,6 +5,7 @@
       :src="src"
       :alt="alt"
       :srcset="srcSet"
+      :style = "imgSty"
       @error="handleError"
     />
     <vi-icon :name="icon" v-else-if="icon"/>
@@ -60,11 +61,11 @@ const handleError = (event: Event)=>{
   hasLoadError.value = true
   emit('error', event)
 }
+// @ts-ignore
+const imgSty = computed<CSSProperties>(()=>{
+  return {
+    'object-fit': props.fit
+  }
+})
 
 </script>
-
-<style lang="scss">
-.vi-avatar > img{
-  object-fit: v-bind(fit);
-}
-</style>

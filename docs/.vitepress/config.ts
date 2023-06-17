@@ -57,6 +57,10 @@ export default {
               link: "/components/backtop/index.md",
             },
             {
+              text: "Badge徽章",
+              link: "/components/badge/index.md",
+            },
+            {
               text: "Breadcrumb面包屑",
               link: "/components/breadcrumb/index.md",
             },

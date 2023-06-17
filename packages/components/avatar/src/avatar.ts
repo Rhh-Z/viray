@@ -2,6 +2,9 @@
 import { componentSizes } from "@viray/constants"
 import type { ExtractPropTypes } from "vue"
 import Avatar from './avatar.vue';
+// import { definePropType } from "@viray/utils";
+
+// type ObjFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
 
 export const avatarProps = {
   size: {

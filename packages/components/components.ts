@@ -1,6 +1,7 @@
 export * from './alert';
 export * from './avatar';
 export * from './backtop';
+export * from './badge';
 export * from './breadcrumb';
 export * from './breadcrumb-item';
 export * from './button';

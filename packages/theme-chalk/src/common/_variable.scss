@@ -126,9 +126,10 @@ $vi-button-round: 20px;
 $vi-button-circle: 50%;
 
 
-/*  ButtonGroup
-------------*/
-$button-border-radius:$border-radius-base !default;
+/*   ButtonGroup
+--------------------*/
+$button-border-radius: $border-radius-base !default;
+
 
 
 /* Text
@@ -420,3 +421,17 @@ $vi-divider-bg:$color-white;
 $vi-timeline-node-color:#e4e7ed;
 $vi-font-size-small:13px;
 $vi-timeline-node-size-large:14px;
+
+
+
+/*    Badge
+******************/
+$vi-badge-types:'primary',
+'success',
+'warning',
+'danger',
+'info';
+$vi-badge-font-size:12px;
+$vi-badge-size:18px;
+$vi-badge-radius:10px;
+$vi-badge-bg-color:#f56c6c;

@@ -33,6 +33,7 @@ declare module "@vue/runtime-core" {
     "vi-alert": typeof components.ViAlert;
     "vi-avatar": typeof components.ViAvatar;
     "vi-backtop": typeof components.ViBacktop;
+    "vi-badge": typeof components.ViBadge;
     "vi-breadcrumb": typeof components.ViBreadcrumb;
     "vi-breadcrumbItem": typeof components.ViBreadcrumbItem;
     "vi-button": typeof components.ViButton;

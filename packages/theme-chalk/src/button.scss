@@ -1,7 +1,7 @@
-@use './common/_variable' as *;
-@use './mixins/config.scss' as *;
-@use './mixins/mixins.scss' as *;
-@use './mixins/_button.scss' as *;
+@use './common/_variable'as *;
+@use './mixins/config.scss'as *;
+@use './mixins/mixins.scss'as *;
+@use './mixins/_button.scss'as *;
 @use 'sass:map';
 @use 'sass:color';
 
@@ -37,23 +37,19 @@
   /* type */
   @each $type in $types {
     @include m($type) {
-      @include button-variant(
-        $color-white,
+      @include button-variant($color-white,
         map.get($colors, #{$type}, 'base'),
         map.get($colors, #{$type}, 'base'),
         map.get($disabled-colors, #{$type}, 'disabled'),
-        $type
-      );
+        $type);
 
       /*  plain   */
-      @include button-plain(
-        darken(map.get($disabled-colors, #{$type}, 'disabled'), 20%),
+      @include button-plain(darken(map.get($disabled-colors, #{$type}, 'disabled'), 20%),
         transparentize(map.get($colors, #{$type}, 'base'), 0.75),
         map.get($colors, #{$type}, 'base'),
         map.get($disabled-colors, #{$type}, 'disabled'),
         map.get($colors, #{$type}, 'base'),
-        $type
-      );
+        $type);
     }
   }
 
@@ -61,14 +57,12 @@
   @each $size in $vi-button--sizeType {
     @include m($size) {
       & {
-        @include button-size(
-          map.get($vi-button--sizes, #{$size}, 'vertical'),
+        @include button-size(map.get($vi-button--sizes, #{$size}, 'vertical'),
           map.get($vi-button--sizes, #{$size}, 'horizontal'),
           map.get($vi-button--sizes, #{$size}, 'font-size'),
           map.get($vi-button--sizes, #{$size}, 'border-radius'),
           map.get($vi-button--sizes, #{$size}, 'height'),
-          $size
-        );
+          $size);
       }
     }
   }
@@ -89,9 +83,11 @@
 
   /* text */
   @each $type in $types {
+    // @debug $types;
+
     @include m($type) {
       @include when(text) {
-        @if $type== 'default' {
+        @if $type=='default' {
           color: $text-color;
           background: transparent;
           border-color: transparent;
@@ -110,7 +106,9 @@
             color: darken($text-color, 10%);
             background-color: darken(#f5f7fa, 10%);
           }
-        } @else {
+        }
+
+        @else {
           color: mix($color-white, map.get($colors, #{$type}, 'base'), 20%);
           background: transparent;
           border-color: transparent;
@@ -125,10 +123,8 @@
           }
 
           &:active {
-            color: darken(
-              mix($color-white, map.get($colors, #{$type}, 'base'), 20%),
-              10%
-            );
+            color: darken(mix($color-white, map.get($colors, #{$type}, 'base'), 20%),
+              10%);
             background-color: darken(#f5f7fa, 12%);
           }
         }
@@ -137,13 +133,13 @@
           background: transparent;
           border-color: transparent;
 
-          @if $type== 'default' {
+          @if $type=='default' {
             color: lighten($text-color, 20%);
-          } @else {
-            color: lighten(
-              mix($color-white, map.get($colors, #{$type}, 'base'), 20%),
-              15%
-            );
+          }
+
+          @else {
+            color: lighten(mix($color-white, map.get($colors, #{$type}, 'base'), 20%),
+              15%);
           }
         }
       }
