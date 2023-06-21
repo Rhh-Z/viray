@@ -1,82 +1,84 @@
-import { defineComponent as g, computed as $, openBlock as o, createElementBlock as T, normalizeClass as d, unref as s, normalizeStyle as m, createElementVNode as l, renderSlot as u, createBlock as a, withModifiers as f, createCommentVNode as n, Transition as V, withCtx as z } from "vue";
-import { tagProps as B, tagEmits as E } from "./tag.mjs";
-import { ViIcon as k } from "../../icon/index.mjs";
+import { defineComponent as v, computed as y, resolveComponent as $, openBlock as s, createElementBlock as T, normalizeClass as d, unref as m, normalizeStyle as u, createElementVNode as l, renderSlot as f, createBlock as n, withModifiers as k, createCommentVNode as a, Transition as z, withCtx as B } from "vue";
+import { tagProps as E, tagEmits as V } from "./tag.mjs";
 import "../../../theme-chalk/src/tag.css";
-const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, S = g({
+const w = { class: "vi-tag__content" }, N = { class: "vi-tag__content" }, S = v({
   name: "ViTag"
-}), q = /* @__PURE__ */ g({
+}), q = /* @__PURE__ */ v({
   ...S,
-  props: B,
-  emits: E,
-  setup(C, { emit: i }) {
-    const v = C, r = $(() => {
-      const { size: e, type: t, hit: h, effect: p, closable: y, round: _ } = v;
+  props: E,
+  emits: V,
+  setup(g, { emit: i }) {
+    const C = g, c = y(() => {
+      const { size: e, type: t, hit: o, effect: p, closable: _, round: h } = C;
       return {
         "vi-tag": !0,
-        "is-round": _,
-        "is-closable": y,
+        "is-round": h,
+        "is-closable": _,
         // hit描边
-        "is-hit": h,
+        "is-hit": o,
         [`vi-tag--${e}`]: e,
         [`vi-tag--${t}`]: t,
         [`vi-tag--${p}`]: p
       };
-    }), c = (e) => {
+    }), r = (e) => {
       i("close", e);
     }, b = (e) => {
       i("click", e);
     };
-    return (e, t) => !e.disableTransitions && e.visible ? (o(), T(
-      "span",
-      {
-        key: 0,
-        class: d(s(r)),
-        style: m({ backgroundColor: e.color })
-      },
-      [
-        l("span", w, [
-          u(e.$slots, "default")
-        ]),
-        e.closable ? (o(), a(s(k), {
+    return (e, t) => {
+      const o = $("vi-icon");
+      return !e.disableTransitions && e.visible ? (s(), T(
+        "span",
+        {
           key: 0,
-          name: "close",
-          class: "vi-tag--close",
-          onClick: f(c, ["stop"])
-        }, null, 8, ["onClick"])) : n("v-if", !0)
-      ],
-      6
-      /* CLASS, STYLE */
-    )) : e.disableTransitions && e.visible ? (o(), a(V, {
-      key: 1,
-      name: "tag-fade",
-      appear: ""
-    }, {
-      default: z(() => [
-        l(
-          "span",
-          {
-            class: d(s(r)),
-            style: m({ backgroundColor: e.color }),
-            onClick: b
-          },
-          [
-            l("span", N, [
-              u(e.$slots, "default")
-            ]),
-            e.closable ? (o(), a(s(k), {
-              key: 0,
-              name: "close",
-              class: "vi-tag--close",
-              onClick: f(c, ["stop"])
-            }, null, 8, ["onClick"])) : n("v-if", !0)
-          ],
-          6
-          /* CLASS, STYLE */
-        )
-      ]),
-      _: 3
-      /* FORWARDED */
-    })) : n("v-if", !0);
+          class: d(m(c)),
+          style: u({ backgroundColor: e.color })
+        },
+        [
+          l("span", w, [
+            f(e.$slots, "default")
+          ]),
+          e.closable ? (s(), n(o, {
+            key: 0,
+            name: "close",
+            class: "vi-tag--close",
+            onClick: k(r, ["stop"])
+          }, null, 8, ["onClick"])) : a("v-if", !0)
+        ],
+        6
+        /* CLASS, STYLE */
+      )) : e.disableTransitions && e.visible ? (s(), n(z, {
+        key: 1,
+        name: "tag-fade",
+        appear: ""
+      }, {
+        default: B(() => [
+          l(
+            "span",
+            {
+              class: d(m(c)),
+              style: u({ backgroundColor: e.color }),
+              onClick: b
+            },
+            [
+              l("span", N, [
+                f(e.$slots, "default")
+              ]),
+              e.closable ? (s(), n(o, {
+                key: 0,
+                name: "close",
+                class: "vi-tag--close",
+                onClick: k(r, ["stop"])
+              }, null, 8, ["onClick"])) : a("v-if", !0)
+            ],
+            6
+            /* CLASS, STYLE */
+          )
+        ]),
+        _: 3
+        /* FORWARDED */
+      })) : a("v-if", !0);
+    };
   }
 });
 export {

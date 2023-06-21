@@ -5,9 +5,9 @@ const t = {
   },
   type: {
     type: String,
-    default: "default",
+    default: "",
     validator(e) {
-      return ["default", "primary", "success", "info", "danger", "warning", "error"].includes(
+      return ["", "primary", "success", "info", "danger", "warning", "error"].includes(
         e
       );
     }

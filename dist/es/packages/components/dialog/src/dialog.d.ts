@@ -28,6 +28,10 @@ export declare const dialogProps: {
         type: BooleanConstructor;
         default: boolean;
     };
+    showClose: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 };
 export declare const dialogEmits: {
     open: () => boolean;

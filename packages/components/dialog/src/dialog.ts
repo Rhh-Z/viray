@@ -30,6 +30,10 @@ export const dialogProps = {
   lockScroll: {
     type: Boolean,
     default: false
+  },
+  showClose: {
+    type: Boolean,
+    default: true
   }
 }
 

@@ -11,12 +11,13 @@
           <div class="vi-dialog__header">
             <slot v-if="$slots.title" name="title"/>
             <span v-else class="vi-dialog__title">{{ props.title }}</span>
-            <span class="vi-dialog__close" @click="handleClose">
+            <span v-if="showClose" class="vi-dialog__close" @click="handleClose">
                 <vi-icon name="close" />
             </span>
           </div>
           <div class="vi-dialog__content">
-            <slot name="content"/>
+            <slot v-if="$slots.content" name="content"/>
+            <slot v-else />
           </div>
           <div v-if="$slots.title || props.title" class="vi-dialog__footer">
             <slot name="footer" />

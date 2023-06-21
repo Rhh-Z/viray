@@ -1,4 +1,4 @@
-import { defineComponent as m, computed as a, resolveComponent as C, openBlock as s, createBlock as w, Teleport as b, createVNode as d, Transition as B, unref as o, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as $, renderSlot as l, createElementBlock as c, toDisplayString as A, createCommentVNode as D, vShow as V } from "vue";
+import { defineComponent as v, computed as d, resolveComponent as w, openBlock as s, createBlock as $, Teleport as b, createVNode as c, Transition as B, unref as t, withCtx as E, withDirectives as L, createElementVNode as i, normalizeClass as S, normalizeStyle as A, renderSlot as l, createElementBlock as n, toDisplayString as D, createCommentVNode as m, vShow as V } from "vue";
 import { dialogProps as N, dialogEmits as T } from "./dialog.mjs";
 import "../../../theme-chalk/src/dialog.css";
 import { useDialog as z } from "./use-dialog.mjs";
@@ -9,37 +9,37 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
 }, F = { class: "vi-dialog__content" }, G = {
   key: 0,
   class: "vi-dialog__footer"
-}, H = m({
+}, H = v({
   name: "ViDialog"
-}), Q = /* @__PURE__ */ m({
+}), Q = /* @__PURE__ */ v({
   ...H,
   props: N,
   emits: T,
-  setup(p) {
-    const e = p, v = a(() => ({
-      width: P(e.width) ? e.width : `${e.width}px`,
-      scrollbarWidth: e.lockScroll ? "none" : "auto"
+  setup(f) {
+    const o = f, p = d(() => ({
+      width: P(o.width) ? o.width : `${o.width}px`,
+      scrollbarWidth: o.lockScroll ? "none" : "auto"
     })), {
       visible: _,
-      afterEnter: f,
-      afterLeave: g,
-      beforeLeave: h,
-      handleClose: n
-    } = z(e), u = a(() => ({
+      afterEnter: g,
+      afterLeave: h,
+      beforeLeave: u,
+      handleClose: r
+    } = z(o), k = d(() => ({
       "vi-dialog": !0,
-      "is-center": e.center
+      "is-center": o.center
     }));
-    return (t, r) => {
-      const k = C("vi-icon");
-      return s(), w(b, {
+    return (e, a) => {
+      const y = w("vi-icon");
+      return s(), $(b, {
         to: "body",
-        disabled: !t.appendToBody
+        disabled: !e.appendToBody
       }, [
-        d(B, {
+        c(B, {
           name: "dialog-fade",
-          onAfterEnter: o(f),
-          onAfterLeave: o(g),
-          onBeforeLeave: o(h),
+          onAfterEnter: t(g),
+          onAfterLeave: t(h),
+          onBeforeLeave: t(u),
           persisted: ""
         }, {
           default: E(() => [
@@ -51,32 +51,33 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
                   "div",
                   {
                     role: "dialog",
-                    class: S(o(u)),
-                    style: $(o(v))
+                    class: S(t(k)),
+                    style: A(t(p))
                   },
                   [
                     i("div", j, [
-                      t.$slots.title ? l(t.$slots, "title", { key: 0 }) : (s(), c(
+                      e.$slots.title ? l(e.$slots, "title", { key: 0 }) : (s(), n(
                         "span",
                         q,
-                        A(e.title),
+                        D(o.title),
                         1
                         /* TEXT */
                       )),
-                      i("span", {
+                      e.showClose ? (s(), n("span", {
+                        key: 2,
                         class: "vi-dialog__close",
-                        onClick: r[0] || (r[0] = //@ts-ignore
-                        (...y) => o(n) && o(n)(...y))
+                        onClick: a[0] || (a[0] = //@ts-ignore
+                        (...C) => t(r) && t(r)(...C))
                       }, [
-                        d(k, { name: "close" })
-                      ])
+                        c(y, { name: "close" })
+                      ])) : m("v-if", !0)
                     ]),
                     i("div", F, [
-                      l(t.$slots, "content")
+                      e.$slots.content ? l(e.$slots, "content", { key: 0 }) : l(e.$slots, "default", { key: 1 })
                     ]),
-                    t.$slots.title || e.title ? (s(), c("div", G, [
-                      l(t.$slots, "footer")
-                    ])) : D("v-if", !0)
+                    e.$slots.title || o.title ? (s(), n("div", G, [
+                      l(e.$slots, "footer")
+                    ])) : m("v-if", !0)
                   ],
                   6
                   /* CLASS, STYLE */
@@ -85,7 +86,7 @@ const W = { class: "vi-mask" }, j = { class: "vi-dialog__header" }, q = {
               512
               /* NEED_PATCH */
             ), [
-              [V, o(_)]
+              [V, t(_)]
             ])
           ]),
           _: 3

@@ -1,6 +1,6 @@
 import { UPDATE_MODEL_EVENT as o } from "../../../constants/events.mjs";
 import t from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isBoolean.mjs";
-const r = {
+const u = {
   appendToBody: {
     type: Boolean,
     default: !1
@@ -27,8 +27,12 @@ const r = {
   lockScroll: {
     type: Boolean,
     default: !1
+  },
+  showClose: {
+    type: Boolean,
+    default: !0
   }
-}, u = {
+}, r = {
   open: () => !0,
   opened: () => !0,
   close: () => !0,
@@ -38,6 +42,6 @@ const r = {
   closeAutoFocus: () => !0
 };
 export {
-  u as dialogEmits,
-  r as dialogProps
+  r as dialogEmits,
+  u as dialogProps
 };

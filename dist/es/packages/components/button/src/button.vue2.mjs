@@ -1,53 +1,55 @@
-import { defineComponent as u, computed as c, ref as _, openBlock as o, createElementBlock as i, normalizeClass as a, unref as n, createCommentVNode as l, renderSlot as k } from "vue";
+import { defineComponent as f, computed as l, ref as y, openBlock as n, createElementBlock as i, normalizeClass as d, unref as o, createCommentVNode as p, renderSlot as C } from "vue";
 import "../../../theme-chalk/src/button.css";
-import { buttonProps as v, buttonEmits as y } from "./button.mjs";
-const C = ["autofocus", "disabled"], h = { key: 0 }, $ = u({
+import { buttonProps as h, buttonEmits as B } from "./button.mjs";
+import { useButton as $ } from "./use-button.mjs";
+const g = ["type", "autofocus", "disabled"], z = { key: 0 }, E = f({
   name: "ViButton"
-}), N = /* @__PURE__ */ u({
-  ...$,
-  props: v,
-  emits: y,
-  setup(d, { expose: f, emit: p }) {
-    const e = d, m = (t) => {
-      p("click", t);
-    }, b = c(() => ({
-      [`vi-button--${e.type}`]: e.type,
+}), T = /* @__PURE__ */ f({
+  ...E,
+  props: h,
+  emits: B,
+  setup(m, { expose: v, emit: b }) {
+    const e = m, { _disabled: s, _size: r, _type: u } = $(e), _ = (t) => {
+      b("click", t);
+    }, k = l(() => ({
+      [`vi-button--${u.value}`]: u.value,
       "is-plain": e.plain,
-      "is-disabled": e.disabled,
+      "is-disabled": s.value,
       "is-round": e.round,
       "is-active": e.active,
-      [`vi-button--${e.size}`]: e.size,
+      [`vi-button--${r.value}`]: r.value,
       "is-circle": e.circle,
       "is-text": e.text,
       "is-bg": e.bg
-    })), s = c(() => `vi-icon-${e.icon}`), r = _();
-    return f({
+    })), a = l(() => `vi-icon-${e.icon}`), c = y();
+    return v({
       /** @description button html element */
-      ref: r
-    }), (t, g) => (o(), i("button", {
+      ref: c
+    }), (t, N) => (n(), i("button", {
       ref_key: "_ref",
-      ref: r,
-      class: a(["vi-button", n(b)]),
+      ref: c,
+      class: d(["vi-button", o(k)]),
+      type: t.nativeType,
       autofocus: t.autoFocus,
-      disabled: t.disabled,
-      onClick: m
+      disabled: o(s),
+      onClick: _
     }, [
-      t.icon ? (o(), i("span", h, [
-        n(s) && !t.loading ? (o(), i(
+      t.icon ? (n(), i("span", z, [
+        o(a) && !t.loading ? (n(), i(
           "i",
           {
             key: 0,
-            class: a(n(s))
+            class: d(o(a))
           },
           null,
           2
           /* CLASS */
-        )) : l("v-if", !0)
-      ])) : l("v-if", !0),
-      k(t.$slots, "default")
-    ], 10, C));
+        )) : p("v-if", !0)
+      ])) : p("v-if", !0),
+      C(t.$slots, "default")
+    ], 10, g));
   }
 });
 export {
-  N as default
+  T as default
 };

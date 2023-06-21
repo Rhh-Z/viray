@@ -4,16 +4,16 @@ const l = {
     type: t([String]),
     default: "default",
     validator(e) {
-      return ["default", "primary", "success", "info", "danger", "warning", "error"].includes(
+      return ["", "default", "primary", "success", "info", "danger", "warning", "error"].includes(
         e
       );
     }
   },
   size: {
-    type: t([String]),
+    type: String,
     default: "default",
     validator(e) {
-      return ["large", "default", "small"].includes(e);
+      return ["", "large", "default", "small"].includes(e);
     }
   },
   plain: {

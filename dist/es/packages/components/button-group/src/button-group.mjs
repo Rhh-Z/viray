@@ -1,14 +1,21 @@
-import { buttonProps as o } from "../../button/src/button.mjs";
-const p = {
+import { buttonProps as t } from "../../button/src/button.mjs";
+const o = {
   /**
    * @description control the size of buttons in this button-group
    */
-  size: o.size,
+  size: {
+    type: String,
+    value: t.size,
+    validator(e) {
+      return ["", "large", "default", "small"].includes(e);
+    }
+  },
   /**
    * @description control the type of buttons in this button-group
    */
-  type: o.type
+  type: t.type,
+  disabled: t.disabled
 };
 export {
-  p as buttonGroupProps
+  o as buttonGroupProps
 };

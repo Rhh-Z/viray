@@ -6,8 +6,6 @@ import SetupExtend from 'vite-plugin-vue-setup-extend'
 export default defineConfig({
   build: {
     outDir: "es",
-    //压缩
-    minify: true,
     rollupOptions: {
       external: ["vue", /\.scss/],
       input: ["index.ts"],
@@ -39,7 +37,8 @@ export default defineConfig({
   },
   plugins: [vue(), SetupExtend(), dts({
     entryRoot: './',
-    include: '../components/',
+    include: './',
+    skipDiagnostics: false,
     outputDir: ["../../dist/es/packages/components/", "../../dist/lib/packages/components/"],
     //指定使用的tsconfig.json为我们整个项目根目录下掉,如果不配置,你也可以在components下新建tsconfig.json
     tsConfigFilePath: '../../tsconfig.json',
@@ -53,16 +52,14 @@ export default defineConfig({
       for (const key of keys) {
         const bundler: any = bundle[key as any];
         //rollup内置方法,将所有输出文件code中的.scss换成.css,因为我们当时没有打包scss文件
-
         this.emitFile({
           type: "asset",
           fileName: key, //文件名名不变
           source: bundler.code.replace(/\.scss|@viray/g, (matchStr: string) => {
-            const map = {
+            const map: Record<string, string> = {
               '.scss': '.css',
               '@viray': '../../..'
             }
-            // @ts-ignore
             return map[matchStr]
           }),
         });

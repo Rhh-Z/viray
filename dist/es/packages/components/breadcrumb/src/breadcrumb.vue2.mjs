@@ -11,7 +11,7 @@ const s = o({
     const c = a, t = n();
     return m(p, c), u(() => {
       var r;
-      const e = (r = t.value) == null ? void 0 : r.querySelectorAll("vi-breadcrumb--item");
+      const e = (r = t.value) == null ? void 0 : r.querySelectorAll(".vi-breadcrumb-item");
       e != null && e.length && e[e.length - 1].setAttribute("aria-current", "page");
     }), (e, r) => (l(), i(
       "div",

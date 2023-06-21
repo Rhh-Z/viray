@@ -1,30 +1,30 @@
-import { UPDATE_MODEL_EVENT as i } from "../../../constants/events.mjs";
-import { getCurrentInstance as d, ref as o, watch as m, onMounted as v } from "vue";
-const L = (n) => {
-  const e = d().emit, t = o(!1), l = o(!1), s = o(!1), r = () => {
+import { UPDATE_MODEL_EVENT as u } from "../../../constants/events.mjs";
+import { getCurrentInstance as i, ref as a, watch as d, onMounted as m } from "vue";
+const D = (n) => {
+  const e = i().emit, t = a(!1), o = a(!1), s = () => {
     t.value = !1;
-  }, c = () => {
+  }, l = () => {
     e("opened");
-  }, f = () => {
-    e("opened"), e(i, !1), n.destroyOnClose && (s.value = !1);
-  }, u = () => {
+  }, r = () => {
+    e("opened"), e(u, !1), n.destroyOnClose && (o.value = !1);
+  }, c = () => {
     e("close");
   };
-  return m(
+  return d(
     () => n.modelValue,
-    (a) => {
-      a && (l.value = !1), t.value = a;
+    (f) => {
+      t.value = f;
     }
-  ), v(() => {
-    n.modelValue && (t.value = !0, s.value = !0);
+  ), m(() => {
+    n.modelValue && (t.value = !0, o.value = !0);
   }), {
-    afterEnter: c,
-    afterLeave: f,
-    beforeLeave: u,
+    afterEnter: l,
+    afterLeave: r,
+    beforeLeave: c,
     visible: t,
-    handleClose: r
+    handleClose: s
   };
 };
 export {
-  L as useDialog
+  D as useDialog
 };

@@ -8,7 +8,7 @@ export declare const buttonProps: {
         validator(value: ButtonType): boolean;
     };
     size: {
-        type: import("vue").PropType<ButtonSizeType>;
+        type: StringConstructor;
         default: string;
         validator(value: ButtonSizeType): boolean;
     };

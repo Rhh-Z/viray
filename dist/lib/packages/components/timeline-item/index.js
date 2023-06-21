@@ -1,0 +1,1 @@
+"use strict";Object.defineProperties(exports,{__esModule:{value:!0},[Symbol.toStringTag]:{value:"Module"}});const t=require("./src/timeline-itme.vue.js"),i=require("../../utils/withInstall.js"),e=i.withInstall(t.default);exports.ViTimelineItem=e;exports.default=e;

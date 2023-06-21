@@ -1,6 +1,7 @@
 export * from './alert';
 export * from './avatar';
 export * from './backtop';
+export * from './badge';
 export * from './breadcrumb';
 export * from './breadcrumb-item';
 export * from './button';
@@ -23,3 +24,5 @@ export * from './progress';
 export * from './row';
 export * from './tag';
 export * from './text';
+export * from './timeline';
+export * from './timeline-item';

@@ -1,5 +1,5 @@
-import { defineComponent as v, ref as $, computed as a, openBlock as s, createBlock as i, Transition as V, withCtx as w, withDirectives as N, createElementVNode as c, normalizeClass as b, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as f, createTextVNode as m, toDisplayString as u, vShow as B } from "vue";
-import { alertProps as E, alertEmits as S, iconMaps as o } from "./alert.mjs";
+import { defineComponent as v, ref as $, computed as a, openBlock as s, createBlock as i, Transition as V, withCtx as w, withDirectives as N, createElementVNode as c, normalizeClass as B, unref as l, createCommentVNode as r, createElementBlock as p, renderSlot as f, createTextVNode as m, toDisplayString as u, vShow as E } from "vue";
+import { alertProps as S, alertEmits as b, iconMaps as o } from "./alert.mjs";
 import { ViIcon as d } from "../../icon/index.mjs";
 import "../../../theme-chalk/src/alert.css";
 const D = { class: "vi-alert__content" }, I = {
@@ -7,16 +7,16 @@ const D = { class: "vi-alert__content" }, I = {
   class: "vi-alert__title"
 }, T = {
   key: 1,
-  class: "vi-alert__desc"
+  class: "vi-alert__description"
 }, g = v({
   name: "ViAlert"
 }), q = /* @__PURE__ */ v({
   ...g,
-  props: E,
-  emits: S,
+  props: S,
+  emits: b,
   setup(_, { emit: h }) {
     const t = _, n = $(!0), y = a(() => ({
-      [`vi-alert-${t.type}`]: t.type,
+      [`vi-alert--${t.type}`]: t.type,
       "is-center": t.center
     })), k = a(() => o[t.type] === "success" ? "check-circle-fill" : o[t.type] === "error" ? "close-circle-fill" : `${o[t.type]}-circle-fill`), C = (e) => {
       n.value = !1, h("close", e);
@@ -29,7 +29,7 @@ const D = { class: "vi-alert__content" }, I = {
         N(c(
           "div",
           {
-            class: b(["vi-alert", l(y)])
+            class: B(["vi-alert", l(y)])
           },
           [
             e.showIcon ? (s(), i(l(d), {
@@ -59,7 +59,7 @@ const D = { class: "vi-alert__content" }, I = {
               e.closable ? (s(), i(l(d), {
                 key: 2,
                 name: "close",
-                class: "vi-alert__close-btn",
+                class: "vi-alert__close",
                 onClick: C
               })) : r("v-if", !0)
             ])
@@ -67,7 +67,7 @@ const D = { class: "vi-alert__content" }, I = {
           2
           /* CLASS */
         ), [
-          [B, n.value]
+          [E, n.value]
         ])
       ]),
       _: 3

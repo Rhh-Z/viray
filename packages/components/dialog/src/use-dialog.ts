@@ -9,7 +9,7 @@ export const useDialog = (
   const instance = getCurrentInstance() as ComponentInternalInstance
   const emit = instance.emit as SetupContext<DialogEmits>['emit']
   const visible = ref(false)
-  const closed = ref(false)
+  // const closed = ref(false)
   const rendered = ref(false) // when destroyOnClose is true, we initialize it as false vise versa
 
   const handleClose = () => {
@@ -35,9 +35,11 @@ export const useDialog = (
   watch(
     () => props.modelValue,
     (val) => {
-      if (val) {
-        closed.value = false
-      }
+      // console.log(val);
+
+      // if (val) {
+      //   closed.value = false
+      // }
       visible.value = val
     }
   )
