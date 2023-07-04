@@ -11,11 +11,13 @@ const delPath = async (path: string) => {
   if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
   }
+
+  // 删除所有的文件
   files.forEach(async (file) => {
     const curPath = resolve(path, file);
 
     if (fs.statSync(curPath).isDirectory()) {
-      if (file != "node_modules") await delPath(curPath);
+      if (file !== "node_modules") await delPath(curPath);
     } else {
       // delete file
       if (!stayFile.includes(file)) {
@@ -24,6 +26,7 @@ const delPath = async (path: string) => {
     }
   });
 
+  // 如果存在dist文件夹，则直接删除dist内的所有内容
   // if (path !== `${projRoot}/dist`) fs.rmdirSync(path);
 }
 

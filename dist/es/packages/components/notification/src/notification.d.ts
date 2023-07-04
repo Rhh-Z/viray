@@ -75,6 +75,7 @@ export declare type NotificationOptions = Omit<NotificationProps, 'id'> & {
 export declare type NotificationOptionsTyped = Omit<NotificationOptions, 'type'>;
 export interface NotificationHandle {
     close: () => void;
+    closeAll: () => void;
 }
 export declare type NotificationParams = Partial<NotificationOptions> | string | VNode;
 export declare type NotificationParamsTyped = Partial<NotificationOptionsTyped> | string | VNode;

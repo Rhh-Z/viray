@@ -578,17 +578,21 @@ const openVn = () => {
 let closeN: NotificationHandle | null = null
 
 const showNotify = () => {
+  // const box = document.querySelector('#box') as HTMLElement
   closeN = ViNotification({
     title: 'Prompt',
     message: 'This is a message that does not automatically close',
     duration: 3000,
     type: 'warning',
     position: 'bottom-right',
+    // appendTo: box
   })
+  console.log([closeN]);
+  
 }
 
 const closeNotify = () => {
-  closeN?.close()
+  closeN?.closeAll()
 }
 
 const state = reactive({

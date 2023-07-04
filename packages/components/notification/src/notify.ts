@@ -4,7 +4,6 @@ import { createVNode, AppContext, isVNode, Ref, render, VNode } from 'vue'
 import { NotificationProps, NotificationQueue, NotificationOptions, NotifyFn, Notify, notificationTypes } from './notification'
 import NotificationConstructor from './notification.vue'
 
-
 const notifications: Record<
   NotificationOptions['position'],
   NotificationQueue
@@ -23,18 +22,19 @@ const notify: NotifyFn & Partial<Notify> & { _context: AppContext | null } = (
   context: AppContext | null = null
 ) => {
 
+  // 如果options配置是string或者虚拟DOM，直接将其作为message的值
   if (isString(options) || isVNode(options)) {
     options = { message: options }
   }
 
+  // 位置
   const position = options.position || 'top-right'
-
+  // 偏移量
   let verticalOffest = options.offset || 0
-
+  // 间距
   notifications[position] && notifications[position].forEach(({ vm }) => {
     verticalOffest += (vm.el?.offsetHeight || 0) + GAP_SIZE
   })
-
   verticalOffest += GAP_SIZE
 
   const id = `notification_${seed++}`
@@ -49,6 +49,7 @@ const notify: NotifyFn & Partial<Notify> & { _context: AppContext | null } = (
     }
   }
 
+  //  插入位置 默认为body
   let appendTo: HTMLElement | null = document.body
   if (isElement(options.appendTo)) {
     appendTo = options.appendTo!
@@ -56,7 +57,7 @@ const notify: NotifyFn & Partial<Notify> & { _context: AppContext | null } = (
     appendTo = document.querySelector(options.appendTo)
   }
 
-  // should fallback to default value with a warning
+  // 如果插入的都不满足，则发出警告,再把插入的值设为body
   if (!isElement(appendTo)) {
     debugWarn(
       'ElNotification',
@@ -65,8 +66,8 @@ const notify: NotifyFn & Partial<Notify> & { _context: AppContext | null } = (
     appendTo = document.body
   }
 
-  const container = document.createElement('div')
 
+  const container = document.createElement('div')
   const vm = createVNode(
     NotificationConstructor,
     props,
@@ -81,11 +82,22 @@ const notify: NotifyFn & Partial<Notify> & { _context: AppContext | null } = (
   render(vm, container)
 
   notifications[position].push({ vm })
+  console.log(vm.component!.exposed);
+
   appendTo?.appendChild(container.firstElementChild!)
+  console.log(notifications);
 
   return {
     close: () => {
       (vm.component!.exposed as { visible: Ref<boolean> }).visible.value = false
+    },
+    closeAll: () => {
+      for (const orientedNotifications of Object.values(notifications)) {
+        orientedNotifications.forEach(({ vm }) => {
+          (vm.component!.exposed as { visible: Ref<boolean> }).visible.value =
+            false
+        })
+      }
     }
   }
 }

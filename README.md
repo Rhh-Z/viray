@@ -55,12 +55,16 @@ app.use(ViButton).mount('#app');
     <vi-button type="primary">primary</vi-button>
 </template>
 ```
+其他组件和具体用法请启动文档
+```Shell
+pnpm docs:dev
+```
 
 ## 仓库相关命令
 
 ### 安装 pnpm
 ```Shell
-npm i pnpm -g
+pnpm i pnpm -g
 ```
 ### 安装所有依赖
 ```Shell

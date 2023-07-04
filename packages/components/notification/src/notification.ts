@@ -88,6 +88,7 @@ export type NotificationOptionsTyped = Omit<NotificationOptions, 'type'>
 
 export interface NotificationHandle {
   close: () => void
+  closeAll: () => void
 }
 
 export type NotificationParams = Partial<NotificationOptions> | string | VNode

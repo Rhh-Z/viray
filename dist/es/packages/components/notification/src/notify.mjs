@@ -1,87 +1,93 @@
-import { debugWarn as x } from "../../../utils/error.mjs";
-import { isVNode as u, createVNode as y, render as h } from "vue";
+import { debugWarn as E } from "../../../utils/error.mjs";
+import { isVNode as u, createVNode as y, render as g } from "vue";
 import { notificationTypes as N } from "./notification.mjs";
 import T from "./notification.vue.mjs";
-import v from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isElement.mjs";
+import h from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isElement.mjs";
 import b from "../../../../node_modules/.pnpm/lodash-es@4.17.21/node_modules/lodash-es/isString.mjs";
-const a = {
+const f = {
   "top-left": [],
   "top-right": [],
   "bottom-left": [],
   "bottom-right": []
-}, g = 16;
-let H = 1;
-const m = (e = {}, t = null) => {
+}, v = 16;
+let A = 1;
+const d = (e = {}, o = null) => {
   (b(e) || u(e)) && (e = { message: e });
-  const c = e.position || "top-right";
+  const i = e.position || "top-right";
   let n = e.offset || 0;
-  a[c] && a[c].forEach(({ vm: s }) => {
-    var p;
-    n += (((p = s.el) == null ? void 0 : p.offsetHeight) || 0) + g;
-  }), n += g;
-  const l = `notification_${H++}`, d = e.onClose, f = {
+  f[i] && f[i].forEach(({ vm: l }) => {
+    var a;
+    n += (((a = l.el) == null ? void 0 : a.offsetHeight) || 0) + v;
+  }), n += v;
+  const s = `notification_${A++}`, p = e.onClose, m = {
     ...e,
     offset: n,
-    id: l,
+    id: s,
     onClose: () => {
-      _(l, c, d);
+      H(s, i, p);
     }
   };
-  let i = document.body;
-  v(e.appendTo) ? i = e.appendTo : b(e.appendTo) && (i = document.querySelector(e.appendTo)), v(i) || (x(
+  let c = document.body;
+  h(e.appendTo) ? c = e.appendTo : b(e.appendTo) && (c = document.querySelector(e.appendTo)), h(c) || (E(
     "ElNotification",
     "the appendTo option is not an HTMLElement. Falling back to document.body."
-  ), i = document.body);
-  const r = document.createElement("div"), o = y(
+  ), c = document.body);
+  const r = document.createElement("div"), t = y(
     T,
-    f,
-    u(f.message) ? { default: () => f.message } : null
+    m,
+    u(m.message) ? { default: () => m.message } : null
   );
-  return o.appContext = t ?? m._context, o.props.onDestroy = () => {
-    h(null, r);
-  }, h(o, r), a[c].push({ vm: o }), i == null || i.appendChild(r.firstElementChild), {
+  return t.appContext = o ?? d._context, t.props.onDestroy = () => {
+    g(null, r);
+  }, g(t, r), f[i].push({ vm: t }), console.log(t.component.exposed), c == null || c.appendChild(r.firstElementChild), console.log(f), {
     close: () => {
-      o.component.exposed.visible.value = !1;
+      t.component.exposed.visible.value = !1;
+    },
+    closeAll: () => {
+      for (const l of Object.values(f))
+        l.forEach(({ vm: a }) => {
+          a.component.exposed.visible.value = !1;
+        });
     }
   };
 };
 N.forEach((e) => {
-  m[e] = (t = {}) => ((typeof t == "string" || u(t)) && (t = {
-    message: t
-  }), m({
-    ...t,
+  d[e] = (o = {}) => ((typeof o == "string" || u(o)) && (o = {
+    message: o
+  }), d({
+    ...o,
     type: e
   }));
 });
-function _(e, t, c) {
-  const n = a[t], l = n.findIndex(
-    ({ vm: o }) => {
-      var s;
-      return ((s = o.component) == null ? void 0 : s.props.id) === e;
+function H(e, o, i) {
+  const n = f[o], s = n.findIndex(
+    ({ vm: t }) => {
+      var l;
+      return ((l = t.component) == null ? void 0 : l.props.id) === e;
     }
   );
-  if (l === -1)
+  if (s === -1)
     return;
-  const { vm: d } = n[l];
-  c == null || c(d);
-  const f = d.el.offsetHeight, i = t.split("-")[0];
-  n.splice(l, 1);
+  const { vm: p } = n[s];
+  i == null || i(p);
+  const m = p.el.offsetHeight, c = o.split("-")[0];
+  n.splice(s, 1);
   const r = n.length;
   if (!(r < 1))
-    for (let o = l; o < r; o++) {
-      const { el: s, component: p } = n[o].vm, E = Number.parseInt(s.style[i], 10) - f - g;
-      p.props.offset = E;
+    for (let t = s; t < r; t++) {
+      const { el: l, component: a } = n[t].vm, x = Number.parseInt(l.style[c], 10) - m - v;
+      a.props.offset = x;
     }
 }
-function A() {
-  for (const e of Object.values(a))
-    e.forEach(({ vm: t }) => {
-      t.component.exposed.visible.value = !1;
+function _() {
+  for (const e of Object.values(f))
+    e.forEach(({ vm: o }) => {
+      o.component.exposed.visible.value = !1;
     });
 }
-m.closeAll = A;
-m._context = null;
+d.closeAll = _;
+d._context = null;
 export {
-  A as closeAll,
-  m as default
+  _ as closeAll,
+  d as default
 };

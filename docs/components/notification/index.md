@@ -405,7 +405,13 @@ Viray 为 `app.config.globalProperties` 添加了全局方法 `$notify`。 因�
 |  appendTo | 设置 notification 的根元素，默认为 `document.body`|  `string` /` HTMLElement`  |   —   |
 |  zIndex |  初始 zIndex |  number  |   9999  |
 
+## 方法
+Notification 和 this.$notify 都返回当前的 Notification 实例。 如果需要手动关闭实例，可以调用它的 close 方法。
 
+| 名称 |	详情 |	类型 |
+|------|--------|-------|
+| close |	关闭当前最新的Notification	| Function |
+| closeAll |	关闭所有的Notification	| Function |
 
 
 

@@ -6,6 +6,7 @@ import SetupExtend from 'vite-plugin-vue-setup-extend'
 export default defineConfig({
   build: {
     outDir: "es",
+    minify: "esbuild",
     rollupOptions: {
       external: ["vue", /\.scss/],
       input: ["index.ts"],
@@ -27,13 +28,14 @@ export default defineConfig({
           exports: "named",
           dir: "../../dist/lib",
         }
-      ]
+      ],
+      // plugins: [terser()]
     },
     lib: {
       entry: './index.ts',
       name: 'Viray',
       formats: ['es'],
-    }
+    },
   },
   plugins: [vue(), SetupExtend(), dts({
     entryRoot: './',
